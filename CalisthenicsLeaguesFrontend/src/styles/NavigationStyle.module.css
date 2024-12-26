@@ -1,0 +1,44 @@
+.headerDiv{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    max-width: 100%;
+    margin-bottom: 100px;
+}
+
+.logoImage{
+    margin-right: 100px;
+}
+
+.links{
+    margin-left: auto;
+    margin-left: 10px;
+    padding: 10px 30px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.links:hover{
+    background-color: #6356E5;
+}
+
+.loginLink{
+    margin-left: auto;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+@media (max-width: 890px) {
+    .links{
+        visibility: hidden;
+    }
+}
