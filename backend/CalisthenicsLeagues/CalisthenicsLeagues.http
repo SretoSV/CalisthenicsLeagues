@@ -1,0 +1,6 @@
+@CalisthenicsLeagues_HostAddress = http://localhost:5099
+
+GET {{CalisthenicsLeagues_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
