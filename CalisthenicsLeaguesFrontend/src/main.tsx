@@ -1,10 +1,42 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+/*pages*/
+import { LeaguesPage } from './pages/LeaguesPage.tsx';
+import { LeagueMembersPage } from './pages/LeagueMembersPage.tsx';
+import { ShopPage } from './pages/ShopPage.tsx';
+import { ApplyPage } from './pages/ApplyPage.tsx';
+import { ChatPage } from './pages/ChatPage.tsx';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <LeaguesPage />
+  },
+  {
+    path: "/LeaguesPage",
+    element: <LeaguesPage />
+  },
+  {
+    path: "/LeagueMembersPage",
+    element: <LeagueMembersPage />
+  },
+  {
+    path: "/ShopPage",
+    element: <ShopPage />
+  },
+  {
+    path: "/ApplyPage",
+    element: <ApplyPage />
+  },
+  {
+    path: "/ChatPage",
+    element: <ChatPage />
+  },
+]);
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </StrictMode>,
 )
