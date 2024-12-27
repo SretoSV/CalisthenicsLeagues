@@ -1,10 +1,16 @@
 import leagueLogoImage from '../images/league1.png';
 import styles from '../styles/LeagueCardStyle.module.css';
 
-export function LeagueCard(){
+interface LeagueCardProps{
+    id: number,
+    leagueName: string,
+    leagueImage: string,
+}
+
+export function LeagueCard(props: LeagueCardProps){
     return (
         <div className={styles.mainDiv}>
-            <h2 className={styles.header2}>League Name</h2>
+            <h2 className={styles.header2}>{props.leagueName}</h2>
             <img 
                 src={leagueLogoImage}
                 alt="League"

@@ -13,7 +13,7 @@ export function Navigation(){
             <a className={styles.links} href="LeagueMembersPage">League members</a>
             <a className={styles.links} href="ShopPage">Shop</a>
 
-            <a className={styles.loginLink} href="ShopPage">Login</a>
+            <a className={styles.loginLink} href="">Login</a>
         </header>
     );
 }

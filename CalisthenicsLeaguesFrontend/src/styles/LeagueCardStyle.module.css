@@ -1,10 +1,14 @@
 .mainDiv{
     border: 2px solid white;
+    border-radius: 30px;
     display: flex;
     align-items: center;
     flex-direction: column;
     width: 400px;
     background-color: blueviolet;
+    float: left;
+    margin-left: 72px;
+    margin-bottom: 72px;
 }
 
 .header2{
@@ -32,4 +36,34 @@
 
 .applyButton:hover{
     background-color: #5045c9;
+}
+
+@media (max-width: 1040px) {
+    .mainDiv{
+        margin-left: 3.4%;
+    }
+}
+
+@media (max-width: 920px) {
+    .mainDiv{
+        margin-left: 25%;
+    }
+}
+
+@media (max-width: 800px) {
+    .mainDiv{
+        margin-left: 16%;
+    }
+}
+
+@media (max-width: 620px) {
+    .mainDiv{
+        margin-left: 10%;
+    }
+}
+
+@media (max-width: 520px) {
+    .mainDiv{
+        margin-left: 0%;
+    }
 }

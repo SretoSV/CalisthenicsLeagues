@@ -9,10 +9,50 @@ body{
 }
 
 #root{
+    max-width: 100%;
+    width: 1500px;
+    border: 2px solid blueviolet;
+   /* max-width: 100%; 
     border: 2px solid blueviolet;
     display: flex;
     flex-direction: column;
     justify-content: center; 
-    align-items: center; 
-    max-width: 100%; 
+    align-items: center; */
+}
+
+
+@media (max-width: 1500px) {
+    #root{
+        width: 1025px;
+    }
+}
+
+@media (max-width: 1040px) {
+    #root{
+        width: 900px;
+    }
+}
+
+@media (max-width: 920px) {
+    #root{
+        width: 800px;
+    }
+}
+
+@media (max-width: 800px) {
+    #root{
+        width: 600px;
+    }
+}
+
+@media (max-width: 620px) {
+    #root{
+        width: 500px;
+    }
+}
+
+@media (max-width: 520px) {
+    #root{
+        width: 400px;
+    }
 }

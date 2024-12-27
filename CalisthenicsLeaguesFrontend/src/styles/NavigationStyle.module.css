@@ -12,7 +12,7 @@
 
 .links{
     margin-left: auto;
-    margin-left: 10px;
+    margin-right: -550px;
     padding: 10px 30px;
     border-radius: 5px;
     color: #fff;
@@ -37,8 +37,32 @@
     font-size: 18px;
 }
 
-@media (max-width: 890px) {
+@media (max-width: 1500px) {
+    .links{
+        margin-right: -150px;
+    }
+}
+
+@media (max-width: 1040px) {
+    .links{
+        margin-right: -80px;
+    }
+}
+
+@media (max-width: 920px) {
     .links{
         visibility: hidden;
+    }
+}
+
+@media (max-width: 620px) {
+    .loginLink{
+        margin-left: -150px;
+    }
+}
+
+@media (max-width: 520px) {
+    .loginLink{
+        margin-left: -250px;
     }
 }
