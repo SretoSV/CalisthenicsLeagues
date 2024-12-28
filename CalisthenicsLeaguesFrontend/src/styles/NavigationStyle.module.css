@@ -22,7 +22,7 @@
     font-size: 20px;
 }
 
-.links:hover{
+.links:hover, .loginLink:hover{
     background-color: #6356E5;
 }
 
