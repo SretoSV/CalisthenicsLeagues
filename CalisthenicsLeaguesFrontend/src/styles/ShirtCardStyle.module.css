@@ -1,0 +1,82 @@
+.mainDiv{
+    border: 2px solid white;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 400px;
+    background-color: blueviolet;
+    float: left;
+    margin-left: 72px;
+    margin-bottom: 72px;
+}
+
+.header2{
+    color: #fff;
+}
+
+.colorImage{
+    width: 20px;
+    height: 20px;
+    margin-top: -45px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: 24px;
+    cursor: pointer;
+}
+
+.leagueImage{
+   width: 225px; 
+   height: 250px;
+   border: 2px solid white;
+   border-radius: 15px;
+   padding: 5px;
+}
+
+.applyButton{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 50px;
+    background-color: #6356E5;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.applyButton:hover{
+    background-color: #5045c9;
+}
+
+@media (max-width: 1040px) {
+    .mainDiv{
+        margin-left: 3.4%;
+    }
+}
+
+@media (max-width: 920px) {
+    .mainDiv{
+        margin-left: 25%;
+    }
+}
+
+@media (max-width: 800px) {
+    .mainDiv{
+        margin-left: 16%;
+    }
+}
+
+@media (max-width: 620px) {
+    .mainDiv{
+        margin-left: 10%;
+    }
+}
+
+@media (max-width: 520px) {
+    .mainDiv{
+        margin-left: 0%;
+    }
+}
