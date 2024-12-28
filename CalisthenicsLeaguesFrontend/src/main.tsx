@@ -8,6 +8,7 @@ import { LeagueMembersPage } from './pages/LeagueMembersPage.tsx';
 import { ShopPage } from './pages/ShopPage.tsx';
 import { ApplyPage } from './pages/ApplyPage.tsx';
 import { ChatPage } from './pages/ChatPage.tsx';
+import { EditProfilePage } from './pages/EditProfilePage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "/ChatPage",
     element: <ChatPage />
+  },
+  {
+    path: "/EditProfilePage",
+    element: <EditProfilePage />
   },
 ]);
 
