@@ -3,14 +3,13 @@
     align-items: center;
     flex-direction: row;
     max-width: 100%;
-    margin-bottom: 100px;
 }
 
 .logoImage{
     margin-right: 100px;
 }
 
-.links{
+.links, .links2{
     margin-left: auto;
     margin-right: -550px;
     padding: 10px 30px;
@@ -23,7 +22,8 @@
 }
 
 .links:hover, .loginLink:hover{
-    background-color: #6356E5;
+    /*background-color: #6356E5;*/
+    text-decoration:underline;
 }
 
 .loginLink{
@@ -37,9 +37,26 @@
     font-size: 18px;
 }
 
+.smallLinksDiv{
+    /*style={{backgroundColor:"red", width:"100%", marginBottom: "100px"}}*/
+    background-color: purple;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.smallLinks{
+    
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 24px;
+}
+
 @media (max-width: 1500px) {
-    .links{
+    .links, .links2{
         margin-right: -150px;
+        padding: 10px 50px;
     }
 }
 
@@ -47,11 +64,14 @@
     .links{
         margin-right: -80px;
     }
+    .links2{
+        visibility: collapse;
+    }
 }
 
 @media (max-width: 920px) {
     .links{
-        visibility: hidden;
+        visibility: collapse;
     }
 }
 

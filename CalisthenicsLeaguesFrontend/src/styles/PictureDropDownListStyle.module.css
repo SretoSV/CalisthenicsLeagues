@@ -1,0 +1,63 @@
+.mainDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: auto;
+}
+.nameSurnameDiv{
+    margin-left: 20px;
+    margin-right: 10px;
+    color: #6356E5;
+    font-size: 20px;
+}
+
+.profileImage{
+    width: 65px;
+    height: 65px;
+    cursor: pointer;
+}
+
+.dropdownStyle{
+    text-align: center;
+    width: 200px;
+    height: auto;
+    position: absolute;
+    margin-left: -150px;
+    background-color: #1B1B23;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.dropDownDivs{
+    padding: 10px;
+    border: 2px solid #555;
+    border-radius: 5px;
+}
+
+.dropDownDivs:hover{
+    background-color: #1F1F27;
+}
+
+.dropDownLinks{
+    text-decoration: none;
+    color: white;
+}
+
+@media (max-width: 1500px) {
+    .nameSurnameDiv{
+        margin-left: 50px;
+    }
+}
+
+@media (max-width: 800px) {
+    .nameSurnameDiv{
+        margin-left: 0px;
+    }
+}
+
+@media (max-width: 620px) {
+    .nameSurnameDiv{
+        margin-left: -85px;
+    }
+}
