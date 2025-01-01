@@ -4,10 +4,8 @@
     align-items: center;
     margin-left: auto;
 }
-.nameSurnameDiv{
-    margin-left: 20px;
-    margin-right: 10px;
-    color: #6356E5;
+.nameDiv{
+    color: #800080;
     font-size: 20px;
 }
 
@@ -44,20 +42,31 @@
     color: white;
 }
 
-@media (max-width: 1500px) {
-    .nameSurnameDiv{
-        margin-left: 50px;
+@media (max-width: 520px) {
+    .mainDiv{
+        margin-left: auto;
     }
-}
-
-@media (max-width: 800px) {
-    .nameSurnameDiv{
-        margin-left: 0px;
+    .dropdownStyle{
+        text-align: center;
+        width: 120px;
+        height: auto;
+        position: absolute;
+        margin-left: -90px;
+        background-color: #1B1B23;
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
     }
-}
+    .profileImage{
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
 
-@media (max-width: 620px) {
-    .nameSurnameDiv{
-        margin-left: -85px;
+    }
+    .nameDiv{
+        margin-right: 297px;
+    }
+    .dropDownDivs{
+        padding: 7px;
     }
 }

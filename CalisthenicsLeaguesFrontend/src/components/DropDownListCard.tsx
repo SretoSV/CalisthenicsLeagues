@@ -13,16 +13,16 @@ export function DropDownListCard(){
             </div>
             <br />
             <div className={styles.dropDownDivs}>
-            <a
-            className={styles.dropDownLinks}
-            href="/Login"
-            onClick={(e) => {
-                e.preventDefault();
-                handleLogout();
-            }}
-            >
-                Logout
-            </a>
+                <a
+                className={styles.dropDownLinks}
+                href="/Login"
+                onClick={(e) => {
+                    e.preventDefault();
+                    handleLogout();
+                }}
+                >
+                    Logout
+                </a>
             </div>
         </div>
     );

@@ -30,7 +30,7 @@ export function PictureDropDownList(){
 
     return (
         <div className={styles.mainDiv}>
-            <div className={styles.nameSurnameDiv}>Name Surname</div>
+            <div className={styles.nameDiv}>Name</div>
             <div ref={dropdownRef}>
                 <img
                     className={styles.profileImage}

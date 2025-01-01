@@ -5,7 +5,7 @@
     align-items: center;
     flex-direction: column;
     width: 400px;
-    background-color: blueviolet;
+    background-color: #800080;
     float: left;
     margin-left: 72px;
     margin-bottom: 72px;
@@ -24,7 +24,7 @@
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 10px 50px;
-    background-color: #6356E5;
+    background-color: #660166;
     border: 2px solid #fff;
     border-radius: 5px;
     color: #fff;
@@ -35,7 +35,7 @@
 }
 
 .applyButton:hover{
-    background-color: #5045c9;
+    background-color: #460146;
 }
 
 @media (max-width: 1040px) {

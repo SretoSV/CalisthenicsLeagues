@@ -9,21 +9,8 @@
     margin-right: 100px;
 }
 
-.links, .links2{
-    margin-left: auto;
-    margin-right: -550px;
-    padding: 10px 30px;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 20px;
-}
-
-.links:hover, .loginLink:hover{
-    /*background-color: #6356E5;*/
-    text-decoration:underline;
+.loginLink:hover{
+    background-color: #800080;
 }
 
 .loginLink{
@@ -32,57 +19,77 @@
     border: none;
     border-radius: 5px;
     color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-.smallLinksDiv{
-    /*style={{backgroundColor:"red", width:"100%", marginBottom: "100px"}}*/
-    background-color: purple;
-    margin-bottom: 50px;
-    text-align: center;
-}
-
-.smallLinks{
-    
-    color: #fff;
-    font-size: 16px;
     cursor: pointer;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 22px;
 }
 
-@media (max-width: 1500px) {
-    .links, .links2{
-        margin-right: -150px;
-        padding: 10px 50px;
-    }
+.LinksDiv{
+    /*style={{backgroundColor:"red", width:"100%", marginBottom: "100px"}}*/
+    margin-top: 10px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: row;
+    color: #fff;
+    text-align: center;
+    font-size: 22px;
 }
 
-@media (max-width: 1040px) {
-    .links{
-        margin-right: -80px;
-    }
-    .links2{
-        visibility: collapse;
-    }
+.Links{
+    width: 33.3%;
+    color: #fff;
+    font-size: 22px;
+    padding: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #14141a;
 }
 
-@media (max-width: 920px) {
-    .links{
-        visibility: collapse;
-    }
+.LinksBorder{
+    border-right: 0px solid #fff;
 }
 
-@media (max-width: 620px) {
-    .loginLink{
-        margin-left: -150px;
+.Links:hover{
+    /*border: 1px solid #fff;*/
+    background-color: purple;
+}
+@media (max-width: 620px){
+    .LinksDiv{
+        font-size: 20px;
+    }
+    
+    .Links{
+        font-size: 20px;
     }
 }
 
 @media (max-width: 520px) {
+    .headerDiv{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        max-width: 100%;
+    }
+    .LinksDiv{
+        display: flex;
+        flex-direction: column;
+        margin-top: 0px;
+    }
+    .Links{
+        width: 99%;
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+        text-decoration: none;
+        padding: 2px;
+    }
+    .LinksBorder{
+        border-right: 0px;
+    }
     .loginLink{
-        margin-left: -250px;
+        margin-left: -80px;
+    }
+    .logoImage{
+        margin: 0;
     }
 }
