@@ -1,17 +1,17 @@
 body{
     display: flex;
-    flex-direction: row; 
-    justify-content: center; 
-    align-items: center; 
-    margin: 0; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
     font-family: Arial;
     background-color: #1B1B23;
 }
 
 #root{
-    max-width: 100%;
-    width: 1500px;
-    border: 2px solid blueviolet;
+    max-width: 1920px;
+    width: 100%;
+
    /* max-width: 100%; 
     border: 2px solid blueviolet;
     display: flex;
@@ -19,11 +19,10 @@ body{
     justify-content: center; 
     align-items: center; */
 }
-
-
+/*
 @media (max-width: 1500px) {
     #root{
-        width: 1025px;
+        width: 1400px;
     }
 }
 
@@ -55,4 +54,4 @@ body{
     #root{
         width: 400px;
     }
-}
+}*/

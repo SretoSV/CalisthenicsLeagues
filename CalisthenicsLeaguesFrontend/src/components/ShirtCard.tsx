@@ -86,7 +86,7 @@ export function ShirtCard(props: LeagueCardProps) {
                 />
             </div>
 
-            <a className={styles.applyButton} href="#">Add To Cart</a>
+            <a className={styles.addToCartButton} href="#">Add To Cart</a>
         </div>
     );
 }

@@ -42,7 +42,7 @@ export function LeaguesPage(){
     return(
         <>
             <Navigation />
-            <div>
+            <div className={styles.mainDiv}>
                 {leagues.map((league) => {
                     return <LeagueCard 
                                 key={league.id} 

@@ -31,6 +31,7 @@ export function PictureDropDownList(){
     return (
         <div className={styles.mainDiv}>
             <div className={styles.nameDiv}>Name</div>
+            <div className={styles.spaceDiv}></div>
             <div ref={dropdownRef}>
                 <img
                     className={styles.profileImage}

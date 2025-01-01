@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Navigation } from "../components/Navigation";
 import { ShirtCard } from "../components/ShirtCard";
+import styles from '../styles/ShopPageStyle.module.css';
 
 export function ShopPage(){
 
@@ -55,11 +56,10 @@ export function ShopPage(){
         },
     ]);
 
-
     return(
         <>
             <Navigation />
-            <div>
+            <div className={styles.mainDiv}>
                 {shirts.map((shirt) => {
                     return <ShirtCard 
                                 key={shirt.id} 

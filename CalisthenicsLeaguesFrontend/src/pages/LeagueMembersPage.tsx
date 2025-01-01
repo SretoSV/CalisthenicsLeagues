@@ -46,7 +46,7 @@ export function LeagueMembersPage(){
                 </select>
                 <div className={styles.memberNumber}>Members: 10</div>
             </div>
-            <div>
+            <div className={styles.membersDiv}>
                 {leaguesMembers.map((member) => {
                     return <AthleteCard 
                                 id={member.id}

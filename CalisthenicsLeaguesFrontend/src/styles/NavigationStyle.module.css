@@ -53,6 +53,8 @@
     /*border: 1px solid #fff;*/
     background-color: purple;
 }
+
+
 @media (max-width: 620px){
     .LinksDiv{
         font-size: 20px;

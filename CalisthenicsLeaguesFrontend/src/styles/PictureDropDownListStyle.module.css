@@ -44,6 +44,9 @@
 
 @media (max-width: 520px) {
     .mainDiv{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
         margin-left: auto;
     }
     .dropdownStyle{
@@ -61,12 +64,42 @@
         width: 50px;
         height: 50px;
         cursor: pointer;
-
+        margin-left: auto;
     }
     .nameDiv{
-        margin-right: 297px;
+        margin-left: 0;
     }
     .dropDownDivs{
         padding: 7px;
     }
+    .spaceDiv{
+        width: 80%;
+    }
 }
+/*
+@media (max-width: 519px) {
+    .profileImage{
+        margin-left: 395px;
+    }
+}
+@media (max-width: 516px) {
+    .profileImage{
+        margin-left: 390px;
+    }
+}
+@media (max-width: 511px) {
+    .profileImage{
+        margin-left: 385px;
+    }
+}
+@media (max-width: 506px) {
+    .profileImage{
+        margin-left: 380px;
+    }
+}
+@media (max-width: 501px) {
+    .profileImage{
+        margin-left: 378px;
+    }
+}
+*/

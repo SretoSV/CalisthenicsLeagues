@@ -19,7 +19,7 @@ export function Navigation(){
         </header>
         <div className={styles.LinksDiv}>
             <a className={`${styles.Links} ${styles.LinksBorder}`} href="LeaguesPage">Leagues</a>
-            <a className={`${styles.Links} ${styles.LinksBorder}`} href="LeagueMembersPage">League_members</a>
+            <a className={`${styles.Links} ${styles.LinksBorder}`} href="LeagueMembersPage">Members</a>
             <a className={styles.Links} href="ShopPage">Shop</a>
         </div>
         </>

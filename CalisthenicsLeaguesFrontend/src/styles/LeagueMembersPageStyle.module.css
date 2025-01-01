@@ -25,13 +25,18 @@
 
 .selectDiv{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
 }
 
 .memberNumber{
-    margin-left: auto;
     color: white;
-    font-size: 40px;
-    background-color: #a177c4;
+    font-size: 30px;
+}
+
+.membersDiv{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
 }
