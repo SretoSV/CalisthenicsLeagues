@@ -92,4 +92,15 @@
     .logoImage{
         margin: 0;
     }
+    .loginLink{
+        width: 99%;
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+        text-decoration: none;
+        padding: 2px;
+        margin-left: 0px;
+        background-color: #14141a;
+        margin-top: 10px;
+    }
 }
