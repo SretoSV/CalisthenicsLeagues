@@ -70,7 +70,7 @@ export function ShirtCard(props: LeagueCardProps) {
             />
             <div>
                 <input 
-                    style={{width: "20px", height: "20px"}}
+                    className={styles.customRadio}
                     type="radio" 
                     id="front" 
                     checked={selectedView === "front"} 
@@ -78,7 +78,7 @@ export function ShirtCard(props: LeagueCardProps) {
                 />
 
                 <input 
-                    style={{width: "20px", height: "20px"}}
+                    className={styles.customRadio}
                     type="radio" 
                     id="back" 
                     checked={selectedView === "back"} 
