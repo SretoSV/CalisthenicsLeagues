@@ -41,7 +41,7 @@ export function LeaguesPage(){
 
     return(
         <>
-            <Navigation />
+            <Navigation isApplyPage={false}/>
             <div className={styles.mainDiv}>
                 {leagues.map((league) => {
                     return <LeagueCard 

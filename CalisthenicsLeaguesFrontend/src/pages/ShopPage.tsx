@@ -58,7 +58,7 @@ export function ShopPage(){
 
     return(
         <>
-            <Navigation />
+            <Navigation isApplyPage={false}/>
             <div className={styles.mainDiv}>
                 {shirts.map((shirt) => {
                     return <ShirtCard 

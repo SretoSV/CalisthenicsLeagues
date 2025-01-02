@@ -16,7 +16,7 @@ export function LeagueCard(props: LeagueCardProps){
                 alt="League"
                 className={styles.leagueImage}
             />
-            <a className={styles.applyButton} href="ApplyPage">Apply</a>
+            <a className={styles.applyButton} href={`ApplyPage/${props.leagueName}`}>Apply</a>
         </div>
     );
 }

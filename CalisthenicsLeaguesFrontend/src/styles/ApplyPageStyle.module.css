@@ -1,0 +1,77 @@
+.mainDiv{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    flex-wrap: wrap;
+    color: white;
+    font-size: 18px;
+}
+
+.topDiv{
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center;
+}
+
+
+/*--- ApplyImage Card ---*/
+.applyImageCardMainDiv{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    font-size: 20px;
+}
+.leagueImage{
+    border: 1px solid #525252;
+    background-color: #660166;
+    width: 300px; 
+    height: 300px;
+    margin-bottom: 10px;
+}
+
+/*--- Requirements Card ---*/
+.RequirementsCardMainDiv{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    font-size: 20px;
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-bottom: 5px;
+}
+.applyButton{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 50px;
+    background-color: #660166;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 20px;
+}
+.applyButton:hover{
+    background-color: #460146;
+}
+
+/*--- Rules Card ---*/
+.rulesCardMainDiv{
+    width: 50%;
+}
+
+.headres{
+    font-size: 20px;
+    
+}
+
+.exercise{
+    font-size: 20px;
+    text-decoration: #660166 underline;
+    color: gray;
+}
