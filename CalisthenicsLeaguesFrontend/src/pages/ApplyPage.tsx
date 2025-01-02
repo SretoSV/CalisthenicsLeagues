@@ -14,7 +14,7 @@ export function ApplyPage(){
             <div className={styles.mainDiv}>
                 <div className={styles.topDiv}>
                     <ApplyImageCard leagueName={Name || "Unknown"}/>
-                    <RequirementsCard />
+                    <RequirementsCard leagueName={Name || "Unknown"}/>
                 </div>
                 <RulesCard />
             </div>
