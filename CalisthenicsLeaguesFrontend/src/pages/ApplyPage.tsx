@@ -1,7 +1,7 @@
-import { Navigation } from "../components/Navigation";
+import { Navigation } from "../components/NavigationComponents/Navigation";
 import { RequirementsCard } from "../components/ApplyPageComponents/RequirementsCard";
 import { RulesCard } from "../components/ApplyPageComponents/RulesCard";
-import styles from '../styles/ApplyPageStyle.module.css';
+import styles from '../styles/ApplyPageStyles/ApplyPageStyle.module.css';
 import { ApplyImageCard } from "../components/ApplyPageComponents/ApplyImageCard";
 import { useParams } from "react-router-dom";
 

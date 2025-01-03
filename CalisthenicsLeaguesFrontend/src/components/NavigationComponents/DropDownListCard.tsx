@@ -1,4 +1,4 @@
-import styles from '../styles/PictureDropDownListStyle.module.css';
+import styles from '../../styles/NavigationStyles/PictureDropDownListStyle.module.css';
 
 export function DropDownListCard(){
     

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Navigation } from "../components/Navigation";
-import styles from '../styles/LeagueMembersPageStyle.module.css';
-import { AthleteCard } from "../components/AthleteCard";
+import { Navigation } from "../components/NavigationComponents/Navigation";
+import styles from '../styles/LeagueMembersPageStyles/LeagueMembersPageStyle.module.css';
+import { AthleteCard } from "../components/LeagueMembersPageComponents/AthleteCard";
 
 export function LeagueMembersPage(){
 
@@ -34,7 +34,7 @@ export function LeagueMembersPage(){
 
     return(
         <>
-            <Navigation />
+            <Navigation isApplyPage={false}/>
             <div className={styles.selectDiv}>
                 <select className={styles.dropdownInput}>
                         <option value="Legendary">Legendary</option>

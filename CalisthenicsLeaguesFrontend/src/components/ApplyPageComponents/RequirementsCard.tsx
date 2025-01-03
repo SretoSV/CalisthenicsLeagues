@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import styles from '../../styles/ApplyPageStyle.module.css';
+import styles from '../../styles/ApplyPageStyles/ApplyPageStyle.module.css';
 import ApplyModal from './ApplyModal';
 
 interface RequirementsCardProps{

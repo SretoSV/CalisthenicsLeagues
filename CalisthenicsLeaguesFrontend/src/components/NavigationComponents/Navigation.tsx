@@ -1,5 +1,5 @@
-import logoImage from '../images/logo.png';
-import styles from '../styles/NavigationStyle.module.css';
+import logoImage from '../../images/logo.png';
+import styles from '../../styles/NavigationStyles/NavigationStyle.module.css';
 import { PictureDropDownList } from './PictureDropDownList';
 interface NavigationProps{
     isApplyPage: boolean,

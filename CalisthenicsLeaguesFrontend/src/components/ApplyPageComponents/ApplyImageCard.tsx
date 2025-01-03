@@ -1,4 +1,4 @@
-import styles from '../../styles/ApplyPageStyle.module.css';
+import styles from '../../styles/ApplyPageStyles/ApplyPageStyle.module.css';
 import leagueLogoImage from '../../images/league1.png';
 
 interface ApplyImageCardProps{

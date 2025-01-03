@@ -1,10 +1,10 @@
-import shirtImageBlackFront from '../images/shirtImageBlackFront.png';
-import shirtImageBlackBack from '../images/shirtImageBlackBack.png';
-import shirtImageWhiteFront from '../images/shirtImageWhiteFront.png';
-import shirtImageWhiteBack from '../images/shirtImageWhiteBack.png';
-import colorImageBlack from '../images/colorImageBlack.png';
-import colorImageWhite from '../images/colorImageWhite.png';
-import styles from '../styles/ShirtCardStyle.module.css';
+import shirtImageBlackFront from '../../images/shirtImageBlackFront.png';
+import shirtImageBlackBack from '../../images/shirtImageBlackBack.png';
+import shirtImageWhiteFront from '../../images/shirtImageWhiteFront.png';
+import shirtImageWhiteBack from '../../images/shirtImageWhiteBack.png';
+import colorImageBlack from '../../images/colorImageBlack.png';
+import colorImageWhite from '../../images/colorImageWhite.png';
+import styles from '../../styles/ShopPageStyles/ShirtCardStyle.module.css';
 import { useState, useEffect } from 'react';
 
 interface LeagueCardProps {

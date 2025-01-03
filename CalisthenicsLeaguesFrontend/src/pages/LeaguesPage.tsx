@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { LeagueCard } from "../components/LeagueCard";
-import { Navigation } from "../components/Navigation";
-import styles from '../styles/LeaguePageStyle.module.css';
+import { LeagueCard } from "../components/LeaguesPageComponents/LeagueCard";
+import { Navigation } from "../components/NavigationComponents/Navigation";
+import styles from '../styles/LeaguesPageStyles/LeaguePageStyle.module.css';
 
 export function LeaguesPage(){
 

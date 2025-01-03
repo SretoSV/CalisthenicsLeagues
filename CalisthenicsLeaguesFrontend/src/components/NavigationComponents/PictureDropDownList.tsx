@@ -1,5 +1,5 @@
-import styles from '../styles/PictureDropDownListStyle.module.css';
-import placeHolder from '../images/placeHolder.png';
+import styles from '../../styles/NavigationStyles/PictureDropDownListStyle.module.css';
+import placeHolder from '../../images/placeHolder.png';
 import { useEffect, useRef, useState } from 'react';
 import { DropDownListCard } from './DropDownListCard';
 

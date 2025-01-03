@@ -1,4 +1,4 @@
-import styles from '../../styles/ApplyPageStyle.module.css';
+import styles from '../../styles/ApplyPageStyles/ApplyPageStyle.module.css';
 
 export function RulesCard(){
     return (

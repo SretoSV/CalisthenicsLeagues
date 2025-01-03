@@ -1,6 +1,6 @@
-import leagueLogoImage from '../images/league1.png';
-import instagramImage from '../images/instagram.png';
-import styles from '../styles/AthleteCardStyle.module.css';
+import leagueLogoImage from '../../images/league1.png';
+import instagramImage from '../../images/instagram.png';
+import styles from '../../styles/LeagueMembersPageStyles/AthleteCardStyle.module.css';
 
 interface AthleteCardProps{
     id: number,

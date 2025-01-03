@@ -9,7 +9,7 @@
     color: #fff;
     font-size: 30px;
     appearance: none;
-    background-image: url('../images/dowpDownBgImage.png');
+    background-image: url('../../images/dowpDownBgImage.png');
     background-repeat: no-repeat;
     background-position: right center;
 }

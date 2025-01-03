@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Navigation } from "../components/Navigation";
-import { ShirtCard } from "../components/ShirtCard";
-import styles from '../styles/ShopPageStyle.module.css';
+import { Navigation } from "../components/NavigationComponents/Navigation";
+import { ShirtCard } from "../components/ShopPageComponents/ShirtCard";
+import styles from '../styles/ShopPageStyles/ShopPageStyle.module.css';
 
 export function ShopPage(){
 
