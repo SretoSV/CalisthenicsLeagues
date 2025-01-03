@@ -9,6 +9,7 @@ import { ShopPage } from './pages/ShopPage.tsx';
 import { ApplyPage } from './pages/ApplyPage.tsx';
 import { ChatPage } from './pages/ChatPage.tsx';
 import { EditProfilePage } from './pages/EditProfilePage.tsx';
+import { LoginPage } from './pages/LoginPage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
   {
     path: "/EditProfilePage",
     element: <EditProfilePage />
+  },
+  {
+    path: "/LoginPage",
+    element: <LoginPage />
   },
 ]);
 

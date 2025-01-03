@@ -1,0 +1,111 @@
+import { useState } from 'react';
+import styles from '../styles/LoginPageStyles/LoginPageStyle.module.css';
+
+export function LoginPage(){
+    const [forgot, setForgot] = useState(false);
+    const [form, setForm] = useState({
+        email: '',
+        password: '',
+    });
+    const [form2, setForm2] = useState({
+        oldPassword: '',
+        newPassword: '',
+    });
+    const [error, setError] = useState(null);
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log(form);
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>)  => {
+        setForm({
+           ...form,
+           [e.target.name]: e.target.value, 
+        });
+    } 
+
+    const handleReset = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log(form2);
+    };
+
+    const handleChange2 = (e: React.ChangeEvent<HTMLInputElement>)  => {
+        setForm2({
+           ...form2,
+           [e.target.name]: e.target.value, 
+        });
+    };
+
+    const handleClick = async () => {
+        setForgot(current => !current);
+    };
+
+    return(
+        
+        <div className={styles.mainDiv}>
+            <form className={styles.loginForm} onSubmit={handleSubmit}>
+                <h1>Login</h1>
+                <div className={styles.formContent}>
+                    <div className={styles.formLeft}>
+                    <label htmlFor="email">Email</label>
+                    <input
+                        id="email"
+                        type="email"
+                        name="email"
+                        autoComplete="off"
+                        onChange={handleChange}
+                        placeholder='email'
+                        required
+                    />
+                    <label htmlFor="password">Password</label>
+                    <input
+                        id="password"
+                        type="password"
+                        name="password"
+                        autoComplete="off"
+                        placeholder='password'
+                        onChange={handleChange}
+                        required
+                    />
+                    </div>
+                </div>
+                forgot password? <button className={styles.forgotButton} type="button" onClick={handleClick}></button>  <br />
+                {error && <p className={styles.error}>{error}</p>}
+                <button className={styles.submitButton}>Login</button>
+            </form>
+            {forgot && 
+            <form className={styles.loginForm} onSubmit={handleReset}>
+                <h1>Reset password</h1>
+                <div className={styles.formContent}>
+                    <div className={styles.formLeft}>
+                    <label htmlFor="email">Old Password</label>
+                    <input
+                        id="oldPassword"
+                        type="password"
+                        name="oldPassword"
+                        autoComplete="off"
+                        placeholder='old password'
+                        onChange={handleChange2}
+                        required
+                    />
+                    <label htmlFor="password">New Password</label>
+                    <input
+                        id="newPassword"
+                        type="password"
+                        name="password"
+                        autoComplete="off"
+                        placeholder='new password'
+                        onChange={handleChange2}
+                        required
+                    />
+                    </div>
+                </div>
+                {error && <p className={styles.error}>{error}</p>}
+                <button className={styles.submitButton}>Reset</button>
+            </form>
+            }
+        </div>
+        
+    );
+}

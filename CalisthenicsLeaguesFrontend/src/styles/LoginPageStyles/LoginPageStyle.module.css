@@ -1,0 +1,83 @@
+.mainDiv{
+    position: fixed;
+    color: white;
+    width: 100%; /*width i height osiguravaju da element zauzima celu sirinu i visinu ekrana*/
+    height: 100%;
+    display: flex;/*centriram sve unutar diva na centar*/
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loginForm {
+    background-color: #1B1B23;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    border: 1px solid #525252;
+  }
+
+  .loginForm h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .formContent {
+    display: flex;
+  }
+  
+  .formLeft {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .formLeft label {
+    font-size: 15px;
+  }
+  
+  .formLeft input {
+    width: 95%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #1F1F27;
+    color: #fff;
+    font-size: 15px;
+  }
+  
+  .submitButton {
+    /*display: block;*/
+    margin: 10px 0px 0px 0px;
+    padding: 10px 20px;
+    background-color: #660166;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .submitButton:hover {
+    background-color: #460146;
+  }
+
+  .forgotDiv{
+    border: 1px solid #525252;
+    background-color: #1B1B23;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    border: 1px solid #525252;
+  }
+  .forgotButton{
+    width: 10px;
+    height: 18px;
+  }

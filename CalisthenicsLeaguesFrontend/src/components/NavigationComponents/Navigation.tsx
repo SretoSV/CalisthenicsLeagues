@@ -5,7 +5,7 @@ interface NavigationProps{
     isApplyPage: boolean,
 }
 export function Navigation(props: NavigationProps){
-    const user = true;
+    const user = false;
 
     return (
         <>
@@ -16,7 +16,10 @@ export function Navigation(props: NavigationProps){
                 className={styles.logoImage}
             />
 
-            {user ? <PictureDropDownList /> : <a className={styles.loginLink} href="#">Login</a>}
+            {user ? <PictureDropDownList /> : 
+            (props.isApplyPage? <a className={styles.loginLink} href="../LoginPage">Login</a> : 
+            <a className={styles.loginLink} href="LoginPage">Login</a> )
+            }
             
         </header>
         {props.isApplyPage? 
