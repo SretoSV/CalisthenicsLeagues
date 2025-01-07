@@ -5,7 +5,7 @@ interface NavigationProps{
     isApplyPage: boolean,
 }
 export function Navigation(props: NavigationProps){
-    const user = false;
+    const user = true;
 
     return (
         <>

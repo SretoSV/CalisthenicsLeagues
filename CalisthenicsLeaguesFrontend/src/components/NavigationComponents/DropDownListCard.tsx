@@ -9,13 +9,13 @@ export function DropDownListCard(){
     return(
         <div className={styles.dropdownStyle}>
             <div className={styles.dropDownDivs}>
-                <a className={styles.dropDownLinks} href="/Edit">Edit profile</a>
+                <a className={styles.dropDownLinks} href="/EditPage">Edit profile</a>
             </div>
             <br />
             <div className={styles.dropDownDivs}>
                 <a
                 className={styles.dropDownLinks}
-                href="/Login"
+                href="/LoginPage"
                 onClick={(e) => {
                     e.preventDefault();
                     handleLogout();
