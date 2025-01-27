@@ -1,12 +1,58 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\SretoProjects\\CalisthenicsLeagues\\",
-  "Documents": [],
+  "WorkspaceRootPath": "E:\\SretoProjects\\CalisthenicsLeaguesBackend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EFD6207E-1C01-4A94-AF49-C013685D60EB}|CalisthenicsLeagues\\CalisthenicsLeagues.csproj|e:\\sretoprojects\\calisthenicsleaguesbackend\\calisthenicsleagues\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFD6207E-1C01-4A94-AF49-C013685D60EB}|CalisthenicsLeagues\\CalisthenicsLeagues.csproj|solutionrelative:calisthenicsleagues\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFD6207E-1C01-4A94-AF49-C013685D60EB}|CalisthenicsLeagues\\CalisthenicsLeagues.csproj|e:\\sretoprojects\\calisthenicsleaguesbackend\\calisthenicsleagues\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFD6207E-1C01-4A94-AF49-C013685D60EB}|CalisthenicsLeagues\\CalisthenicsLeagues.csproj|solutionrelative:calisthenicsleagues\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "E:\\SretoProjects\\CalisthenicsLeaguesBackend\\CalisthenicsLeagues\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "CalisthenicsLeagues\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "E:\\SretoProjects\\CalisthenicsLeaguesBackend\\CalisthenicsLeagues\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "CalisthenicsLeagues\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T15:55:16.107Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\SretoProjects\\CalisthenicsLeaguesBackend\\CalisthenicsLeagues\\Program.cs",
+              "RelativeDocumentMoniker": "CalisthenicsLeagues\\Program.cs",
+              "ToolTip": "E:\\SretoProjects\\CalisthenicsLeaguesBackend\\CalisthenicsLeagues\\Program.cs",
+              "RelativeToolTip": "CalisthenicsLeagues\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T15:55:07.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

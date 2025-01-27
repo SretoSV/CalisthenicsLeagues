@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\SretoProjects\\CalisthenicsLeaguesBackend\\CalisthenicsLeagues\\CalisthenicsLeagues.csproj": {}
+    "E:\\SretoProjects\\CalisthenicsLeagues\\backend\\CalisthenicsLeagues\\CalisthenicsLeagues.csproj": {}
   },
   "projects": {
-    "E:\\SretoProjects\\CalisthenicsLeaguesBackend\\CalisthenicsLeagues\\CalisthenicsLeagues.csproj": {
+    "E:\\SretoProjects\\CalisthenicsLeagues\\backend\\CalisthenicsLeagues\\CalisthenicsLeagues.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\SretoProjects\\CalisthenicsLeaguesBackend\\CalisthenicsLeagues\\CalisthenicsLeagues.csproj",
+        "projectUniqueName": "E:\\SretoProjects\\CalisthenicsLeagues\\backend\\CalisthenicsLeagues\\CalisthenicsLeagues.csproj",
         "projectName": "CalisthenicsLeagues",
-        "projectPath": "E:\\SretoProjects\\CalisthenicsLeaguesBackend\\CalisthenicsLeagues\\CalisthenicsLeagues.csproj",
+        "projectPath": "E:\\SretoProjects\\CalisthenicsLeagues\\backend\\CalisthenicsLeagues\\CalisthenicsLeagues.csproj",
         "packagesPath": "C:\\Users\\Sreto\\.nuget\\packages\\",
-        "outputPath": "E:\\SretoProjects\\CalisthenicsLeaguesBackend\\CalisthenicsLeagues\\obj\\",
+        "outputPath": "E:\\SretoProjects\\CalisthenicsLeagues\\backend\\CalisthenicsLeagues\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -50,6 +50,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[9.2.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"
