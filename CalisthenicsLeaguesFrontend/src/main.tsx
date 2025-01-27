@@ -1,4 +1,3 @@
-import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -10,6 +9,7 @@ import { ApplyPage } from './pages/ApplyPage.tsx';
 import { ChatPage } from './pages/ChatPage.tsx';
 import { EditProfilePage } from './pages/EditProfilePage.tsx';
 import { LoginPage } from './pages/LoginPage.tsx';
+import { UserProvider } from './context/UserContext.tsx';
 
 const router = createBrowserRouter([
   {
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+  <UserProvider>
     <RouterProvider router={router} />
-  </StrictMode>,
+  </UserProvider>,
 )
