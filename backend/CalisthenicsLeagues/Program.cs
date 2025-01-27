@@ -10,6 +10,17 @@ builder.Services.AddCors(options =>
         });
 });
 
+builder.Services.AddAuthentication("Cookies")
+    .AddCookie(options =>
+    {
+        options.Cookie.Name = "YourAppSession"; // Ime kolacica
+        options.LoginPath = "/login"; // Putanja do login rute
+        options.LogoutPath = "/logout"; // Putanja do logout rute
+        options.SlidingExpiration = true; // Omogucava automatsko produžavanje sesije
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(30); // Vrijeme isteka sesije (npr. 30 minuta)
+    });
+
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -30,6 +41,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

@@ -1,0 +1,73 @@
+﻿using System.Security.Claims;
+using CalisthenicsLeagues.Connection;
+using CalisthenicsLeagues.Models;
+using CalisthenicsLeagues.Models.RequestsModels;
+using CalisthenicsLeagues.Service;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using MySql.Data.MySqlClient;
+
+namespace CalisthenicsLeagues.Controllers
+{
+    [Route("[controller]")]
+    [ApiController]
+    public class UserController : ControllerBase
+    {
+        private static readonly UserService userService = new UserService();
+
+        [HttpPost("login")]
+        public async Task<IActionResult> PostData([FromBody] LoginRequest data)
+        {
+            Console.WriteLine("Password:" + data.Password + " Email:" + data.Email);
+
+            User user = userService.GetUserByEmailAndPassword(data);
+
+            if (user == null)
+            {
+                return BadRequest("Wrong email or password.");
+            }
+
+            //Kreiranje claims za korisnika
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, user.Username),
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Email, user.Email),
+                new Claim(ClaimTypes.GivenName, user.Name),
+                new Claim(ClaimTypes.Surname, user.Surname),
+                new Claim(ClaimTypes.DateOfBirth , user.DateOfBirth.ToString()),
+            };
+
+            var claimsIdentity = new ClaimsIdentity(claims, "Cookies");
+            var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+
+            //Postavljanje kolacica
+            await HttpContext.SignInAsync("Cookies", claimsPrincipal, new AuthenticationProperties
+            {
+                IsPersistent = true,  //Sesija ostaje aktivna i nakon zatvaranja browsera
+                ExpiresUtc = DateTime.UtcNow.AddMinutes(30)
+            });
+
+            return StatusCode(200, data);
+        }
+
+        [HttpPost("logout")]
+        public async Task<IActionResult> Logout()
+        {
+            //Brisanje kolacica
+            await HttpContext.SignOutAsync("Cookies");
+            return Ok("Logged out successfully!");
+        }
+
+        [Authorize]
+        [HttpGet("protectedRoute")]
+        public IActionResult ProtectedRoute()
+        {
+            var userEmail = User.Identity?.Name;
+            return Ok($"Hello, {userEmail}! You are authenticated.");
+        }
+
+    }
+}
