@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(options =>
 {
@@ -6,20 +8,30 @@ builder.Services.AddCors(options =>
         {
             builder.WithOrigins("http://localhost:5173")
                    .AllowAnyHeader()
-                   .AllowAnyMethod();
+                   .AllowAnyMethod()
+                   .AllowCredentials();
         });
 });
 
-builder.Services.AddAuthentication("Cookies")
+builder.Services.AddDistributedMemoryCache(); // Opcionalno, ako koristis distribuisane sesije
+builder.Services.AddSession(options =>
+{
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+    options.Cookie.SameSite = SameSiteMode.Lax; // Za sigurnost
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Sesija traje 30 minuta
+});
+
+// Dodaj podrsku za autentifikaciju kolacicima
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.Cookie.Name = "YourAppSession"; // Ime kolacica
-        options.LoginPath = "/login"; // Putanja do login rute
-        options.LogoutPath = "/logout"; // Putanja do logout rute
-        options.SlidingExpiration = true; // Omogucava automatsko produžavanje sesije
-        options.ExpireTimeSpan = TimeSpan.FromMinutes(30); // Vrijeme isteka sesije (npr. 30 minuta)
+        options.LoginPath = "/login"; // Putanja za prijavu
+        options.Cookie.Name = "YourAppName.Session"; // Ime kolacica sesije
+        options.Cookie.SameSite = SameSiteMode.Lax;
+        options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
     });
-
 
 // Add services to the container.
 
@@ -41,6 +53,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 

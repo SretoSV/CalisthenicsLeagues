@@ -4,6 +4,7 @@ using CalisthenicsLeagues.Models;
 using CalisthenicsLeagues.Models.RequestsModels;
 using CalisthenicsLeagues.Service;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -28,6 +29,7 @@ namespace CalisthenicsLeagues.Controllers
             {
                 return BadRequest("Wrong email or password.");
             }
+            user.Password = "";
 
             //Kreiranje claims za korisnika
             var claims = new List<Claim>
@@ -40,19 +42,16 @@ namespace CalisthenicsLeagues.Controllers
                 new Claim(ClaimTypes.DateOfBirth , user.DateOfBirth.ToString()),
             };
 
-            var claimsIdentity = new ClaimsIdentity(claims, "Cookies");
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
 
-            //Postavljanje kolacica
-            await HttpContext.SignInAsync("Cookies", claimsPrincipal, new AuthenticationProperties
-            {
-                IsPersistent = true,  //Sesija ostaje aktivna i nakon zatvaranja browsera
-                ExpiresUtc = DateTime.UtcNow.AddMinutes(30)
-            });
+            // Postavi kolačić za korisnika (sesija)
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal);
 
-            return StatusCode(200, data);
+            return StatusCode(200, user);
         }
 
+        [Authorize]
         [HttpPost("logout")]
         public async Task<IActionResult> Logout()
         {
