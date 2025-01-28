@@ -17,10 +17,12 @@ export function LoginPage(){
         password: '',
     });
     const [form2, setForm2] = useState({
+        email: '',
         oldPassword: '',
         newPassword: '',
     });
     const [error, setError] = useState("");
+    const [error2, setError2] = useState("");
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -47,10 +49,10 @@ export function LoginPage(){
             else {
               setError('Neispravni podaci za prijavu.');
             }
-          } 
-          catch (err) {
+        } 
+        catch (err) {
             setError('Greška na serveru. Pokušajte kasnije.');
-          }
+        }
 
 
     };
@@ -70,7 +72,32 @@ export function LoginPage(){
 
     const handleReset = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(form2);
+        console.log("RESET BB");
+
+        try {
+            const response = await fetch('http://localhost:5099/User/passwordreset', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              credentials: "include",
+              body: JSON.stringify({ 
+                email: form2.email,
+                OldPassword: form2.oldPassword,
+                NewPassword: form2.newPassword  
+              }),
+            });
+      
+            if (response.ok) {
+              setError2("Uspesno izmenjena lozinka");
+            } 
+            else {
+              setError2('Neispravni podaci.');
+            }
+        } 
+        catch (err) {
+            setError2('Greška na serveru. Pokušajte kasnije.');
+        }
     };
 
     const handleChange2 = (e: React.ChangeEvent<HTMLInputElement>)  => {
@@ -122,7 +149,17 @@ export function LoginPage(){
                 <h1>Reset password</h1>
                 <div className={styles.formContent}>
                     <div className={styles.formLeft}>
-                    <label htmlFor="email">Old Password</label>
+                    <label htmlFor="oldPassword">Email</label>
+                    <input
+                        id="email"
+                        type="email"
+                        name="email"
+                        autoComplete="off"
+                        placeholder='email'
+                        onChange={handleChange2}
+                        required
+                    />
+                    <label htmlFor="oldPassword">Old Password</label>
                     <input
                         id="oldPassword"
                         type="password"
@@ -132,7 +169,7 @@ export function LoginPage(){
                         onChange={handleChange2}
                         required
                     />
-                    <label htmlFor="password">New Password</label>
+                    <label htmlFor="newPassword">New Password</label>
                     <input
                         id="newPassword"
                         type="password"
@@ -144,7 +181,7 @@ export function LoginPage(){
                     />
                     </div>
                 </div>
-                {error && <p className={styles.error}>{error}</p>}
+                {error2 && <p className={styles.error}>{error2}</p>}
                 <button className={styles.submitButton}>Reset</button>
             </form>
             }
