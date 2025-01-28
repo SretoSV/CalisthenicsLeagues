@@ -1,7 +1,16 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import styles from '../styles/LoginPageStyles/LoginPageStyle.module.css';
+import { UserContext } from '../context/UserContext';
+import { useNavigate } from 'react-router-dom';
 
 export function LoginPage(){
+    const navigate = useNavigate();
+    const userContext = useContext(UserContext);
+    if (!userContext) {
+        throw new Error("UserContext must be used within a UserProvider.");
+    }
+    const { user, login } = userContext;
+
     const [forgot, setForgot] = useState(false);
     const [form, setForm] = useState({
         email: '',
@@ -11,12 +20,46 @@ export function LoginPage(){
         oldPassword: '',
         newPassword: '',
     });
-    const [error, setError] = useState(null);
+    const [error, setError] = useState("");
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(form);
+        console.log("AAAAAAAAAA");
+
+        try {
+            const response = await fetch('http://localhost:5099/User/login', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              credentials: "include",
+              body: JSON.stringify({ 
+                email: form.email,
+                password: form.password  
+              }),
+            });
+      
+            if (response.ok) {
+              const userData = await response.json();
+              login(userData);
+              setError("");
+            } 
+            else {
+              setError('Neispravni podaci za prijavu.');
+            }
+          } 
+          catch (err) {
+            setError('Greška na serveru. Pokušajte kasnije.');
+          }
+
+
     };
+
+    useEffect(() => {
+        if(user){
+            navigate('/LeaguesPage');
+        }
+      }, [user]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>)  => {
         setForm({
