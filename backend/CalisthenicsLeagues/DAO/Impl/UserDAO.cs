@@ -3,6 +3,7 @@ using CalisthenicsLeagues.Connection;
 using CalisthenicsLeagues.Models;
 using CalisthenicsLeagues.Models.RequestsModels;
 using MySql.Data.MySqlClient;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace CalisthenicsLeagues.DAO.Impl
 {
@@ -31,6 +32,24 @@ namespace CalisthenicsLeagues.DAO.Impl
         public bool ExistsById(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public bool ExistsByIdAndPassword(int id, string password)
+        {
+            string query = "select * from users where id = ? and password = ?";
+
+            using (IDbConnection connection = new MySqlConnection(ConnectionClass.GetConnectionString()))
+            {
+                connection.Open();
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = query;
+
+                    command.Parameters.Add(new MySqlParameter("id", MySqlDbType.Int32) { Value = id });
+                    command.Parameters.Add(new MySqlParameter("password", MySqlDbType.VarChar) { Value = password });
+                    return command.ExecuteScalar() != null;
+                }
+            }
         }
 
         public IEnumerable<User> FindAll()
@@ -86,6 +105,25 @@ namespace CalisthenicsLeagues.DAO.Impl
         public int SaveAll(IEnumerable<User> entities)
         {
             throw new NotImplementedException();
+        }
+
+        public int UpdatePassword(string newPassword, int id)
+        {
+            string updateSql = "update users set password = ? where id = ?";
+            using (IDbConnection connection = new MySqlConnection(ConnectionClass.GetConnectionString()))
+            {
+                connection.Open();
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = updateSql;
+
+                    command.Parameters.Add(new MySqlParameter("password", MySqlDbType.VarChar) { Value = newPassword });
+                    command.Parameters.Add(new MySqlParameter("id", MySqlDbType.Int32) { Value = id });
+
+                    return command.ExecuteNonQuery();
+                }
+            }
+
         }
     }
 }

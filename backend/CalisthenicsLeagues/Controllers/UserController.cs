@@ -31,6 +31,7 @@ namespace CalisthenicsLeagues.Controllers
             }
             user.Password = "";
 
+            #region SetCookie
             //Kreiranje claims za korisnika
             var claims = new List<Claim>
             {
@@ -47,6 +48,7 @@ namespace CalisthenicsLeagues.Controllers
 
             // Postavi kolačić za korisnika (sesija)
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal);
+            #endregion
 
             return StatusCode(200, user);
         }
@@ -61,12 +63,28 @@ namespace CalisthenicsLeagues.Controllers
         }
 
         [Authorize]
-        [HttpGet("protectedRoute")]
-        public IActionResult ProtectedRoute()
+        [HttpPost("passwordreset")]
+        public IActionResult PasswordReset([FromBody] PasswordResetRequest data)
         {
-            var userEmail = User.Identity?.Name;
-            return Ok($"Hello, {userEmail}! You are authenticated.");
+            int userId = -1;
+            var nameIdentifier = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (!string.IsNullOrEmpty(nameIdentifier) && int.TryParse(nameIdentifier, out int parsedId))
+            {
+                userId = parsedId;
+            }
+            else { 
+                userId = -1;
+            }
+
+            if (!userService.UpdatePassword(data, userId)) {
+                return BadRequest("Wrong password.");
+            }
+
+            return StatusCode(200, "Password reset successful!");
         }
+
+        //var userEmail = User.Identity?.Name;
 
     }
 }

@@ -13,5 +13,18 @@ namespace CalisthenicsLeagues.Service
         {
             return userDAO.GetUserByEmailAndPassword(data);
         }
+
+        public bool UpdatePassword(PasswordResetRequest data, int id)
+        {
+            if (!userDAO.ExistsByIdAndPassword(id, data.OldPassword)) { 
+                return false;
+            }
+
+            if (userDAO.UpdatePassword(data.NewPassword, id) < 1) { 
+                return false;
+            }
+            
+            return true;
+        }
     }
 }
