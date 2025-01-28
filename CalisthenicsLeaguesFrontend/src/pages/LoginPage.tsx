@@ -173,7 +173,7 @@ export function LoginPage(){
                     <input
                         id="newPassword"
                         type="password"
-                        name="password"
+                        name="newPassword"
                         autoComplete="off"
                         placeholder='new password'
                         onChange={handleChange2}
