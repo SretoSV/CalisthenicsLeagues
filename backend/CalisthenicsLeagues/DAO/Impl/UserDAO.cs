@@ -34,9 +34,9 @@ namespace CalisthenicsLeagues.DAO.Impl
             throw new NotImplementedException();
         }
 
-        public bool ExistsByIdAndPassword(int id, string password)
+        public bool ExistsByEmailAndPassword(PasswordResetRequest data)
         {
-            string query = "select * from users where id = ? and password = ?";
+            string query = "select * from users where email = ? and password = ?";
 
             using (IDbConnection connection = new MySqlConnection(ConnectionClass.GetConnectionString()))
             {
@@ -45,8 +45,8 @@ namespace CalisthenicsLeagues.DAO.Impl
                 {
                     command.CommandText = query;
 
-                    command.Parameters.Add(new MySqlParameter("id", MySqlDbType.Int32) { Value = id });
-                    command.Parameters.Add(new MySqlParameter("password", MySqlDbType.VarChar) { Value = password });
+                    command.Parameters.Add(new MySqlParameter("email", MySqlDbType.VarChar) { Value = data.Email });
+                    command.Parameters.Add(new MySqlParameter("password", MySqlDbType.VarChar) { Value = data.OldPassword });
                     return command.ExecuteScalar() != null;
                 }
             }
@@ -107,9 +107,9 @@ namespace CalisthenicsLeagues.DAO.Impl
             throw new NotImplementedException();
         }
 
-        public int UpdatePassword(string newPassword, int id)
+        public int UpdatePassword(PasswordResetRequest data)
         {
-            string updateSql = "update users set password = ? where id = ?";
+            string updateSql = "update users set password = ? where email = ?";
             using (IDbConnection connection = new MySqlConnection(ConnectionClass.GetConnectionString()))
             {
                 connection.Open();
@@ -117,8 +117,8 @@ namespace CalisthenicsLeagues.DAO.Impl
                 {
                     command.CommandText = updateSql;
 
-                    command.Parameters.Add(new MySqlParameter("password", MySqlDbType.VarChar) { Value = newPassword });
-                    command.Parameters.Add(new MySqlParameter("id", MySqlDbType.Int32) { Value = id });
+                    command.Parameters.Add(new MySqlParameter("password", MySqlDbType.VarChar) { Value = data.NewPassword });
+                    command.Parameters.Add(new MySqlParameter("email", MySqlDbType.VarChar) { Value = data.Email });
 
                     return command.ExecuteNonQuery();
                 }

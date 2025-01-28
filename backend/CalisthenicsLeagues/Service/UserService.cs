@@ -14,13 +14,13 @@ namespace CalisthenicsLeagues.Service
             return userDAO.GetUserByEmailAndPassword(data);
         }
 
-        public bool UpdatePassword(PasswordResetRequest data, int id)
+        public bool UpdatePassword(PasswordResetRequest data)
         {
-            if (!userDAO.ExistsByIdAndPassword(id, data.OldPassword)) { 
+            if (!userDAO.ExistsByEmailAndPassword(data)) { 
                 return false;
             }
 
-            if (userDAO.UpdatePassword(data.NewPassword, id) < 1) { 
+            if (userDAO.UpdatePassword(data) < 1) { 
                 return false;
             }
             

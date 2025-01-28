@@ -62,22 +62,11 @@ namespace CalisthenicsLeagues.Controllers
             return Ok("Logged out successfully!");
         }
 
-        [Authorize]
         [HttpPost("passwordreset")]
         public IActionResult PasswordReset([FromBody] PasswordResetRequest data)
         {
-            int userId = -1;
-            var nameIdentifier = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
-            if (!string.IsNullOrEmpty(nameIdentifier) && int.TryParse(nameIdentifier, out int parsedId))
-            {
-                userId = parsedId;
-            }
-            else { 
-                userId = -1;
-            }
-
-            if (!userService.UpdatePassword(data, userId)) {
+            Console.WriteLine("A: " + data.Email + "B: " + data.OldPassword + "C:" + data.NewPassword);
+            if (!userService.UpdatePassword(data)) {
                 return BadRequest("Wrong password.");
             }
 
