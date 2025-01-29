@@ -2,6 +2,7 @@
 using CalisthenicsLeagues.DAO.Impl;
 using CalisthenicsLeagues.Models;
 using CalisthenicsLeagues.Models.RequestsModels;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace CalisthenicsLeagues.Service
 {
@@ -53,6 +54,42 @@ namespace CalisthenicsLeagues.Service
             user.Image = relativeFilePath;
             user.Instagram = data.Instagram;
             user.League = data.League;
+            return user;
+        }
+
+        public async Task<User> GetUserDataForProfileEdit(EditProfileRequest data) {
+            User user = new User();
+            if (data.ProfileImage != null)
+            {
+                Console.WriteLine("Picture");
+
+                var uploadPath = Path.Combine("wwwroot", "Images");
+
+                if (!Directory.Exists(uploadPath))
+                {
+                    Directory.CreateDirectory(uploadPath);
+                }
+
+                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(data.ProfileImage.FileName);
+                var filePath = Path.Combine(uploadPath, fileName);
+
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await data.ProfileImage.CopyToAsync(fileStream);
+                }
+
+                var relativeFilePath = Path.Combine("Images", fileName);
+
+                user = FillUserFields(data, relativeFilePath);
+                Console.WriteLine(filePath + "\n" + relativeFilePath);
+
+            }
+            else
+            {
+                user = FillUserFields(data, "NoPicture");
+                Console.WriteLine("No picture");
+            }
+
             return user;
         }
     }

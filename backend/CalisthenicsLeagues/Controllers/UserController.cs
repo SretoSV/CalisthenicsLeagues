@@ -79,36 +79,7 @@ namespace CalisthenicsLeagues.Controllers
         [HttpPost("edit")]
         public async Task<IActionResult> EditProfile([FromForm] EditProfileRequest data)
         {
-            User user = new User();
-
-            if (data.ProfileImage != null)
-            {
-                Console.WriteLine("Picture");
-
-                var uploadPath = Path.Combine("wwwroot", "Images");
-
-                if (!Directory.Exists(uploadPath))
-                {
-                    Directory.CreateDirectory(uploadPath);
-                }
-
-                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(data.ProfileImage.FileName);
-                var filePath = Path.Combine(uploadPath, fileName);
-
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    await data.ProfileImage.CopyToAsync(fileStream);
-                }
-
-                var relativeFilePath = Path.Combine("Images", fileName);
-
-                user = userService.FillUserFields(data, relativeFilePath);
-                Console.WriteLine(filePath + "\n" + relativeFilePath);
-            }
-            else {
-                user = userService.FillUserFields(data, "NoPicture");
-                Console.WriteLine("No picture");
-            }
+            User user = await userService.GetUserDataForProfileEdit(data);
 
             if (!userService.UpdateProfile(user))
             {
