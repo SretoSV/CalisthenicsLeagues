@@ -2,7 +2,16 @@ import React, { createContext, useState, useEffect, ReactNode } from 'react';
 
 //Tip korisnika
 interface User {
-  username: string;
+  username: string; //
+  surname: string; //
+  name: string;//
+  instagram: string;
+  image: string;//
+  id: number;//
+  email: string;//
+  dateOfBirth: Date;
+  country: string;//
+  league: string;//
 }
 
 //Tipovi za context

@@ -1,6 +1,7 @@
 import styles from '../styles/EditProfilePageStyles/EditProfilePageStyle.module.css';
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import placeHolder from '../images/placeHolder.png';
+import { UserContext } from '../context/UserContext';
 
 interface Country {
     name: {
@@ -13,15 +14,35 @@ interface Country {
   }
 
 export function EditProfilePage(){
+  const userContext = useContext(UserContext);
+  if (!userContext) {
+      throw new Error("UserContext must be used within a UserProvider.");
+  }
+  const { user } = userContext;
+
   const [imageFile, setImageFile] = useState<File | null>(null);
 
   const [form, setForm] = useState({
-      name:'',
-      surname:'',
-      country: '',
-      email: '',
-      username:'',
+    name: '',
+    surname: '',
+    country: '',
+    email: '',
+    instagram: '',
+    username: '',
   });
+
+  useEffect(() => {
+    if (user) {
+      setForm({
+        name: user.name || '',
+        surname: user.surname || '',
+        country: user.country || '',
+        email: user.email || '',
+        instagram: user.instagram || '',
+        username: user.username || '',
+      });
+    }
+  }, [user]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>)  => {
     setForm({
@@ -56,58 +77,79 @@ export function EditProfilePage(){
     return (
       <div className={styles.mainDiv}>
         <form className={styles.editForm} onSubmit={handleSubmit}>
-          <h1>Izmena naloga</h1>
+          <h1>Edit profile</h1>
           <div className={styles.formContent}>
             <div className={styles.formLeft}>
-              <label htmlFor="name">Ime</label>
+              <label htmlFor="name">Name</label>
               <input
                 id="name"
                 type="text"
                 name="name"
+                defaultValue={form.name}
                 onChange={handleChange}
                 autoComplete="off"
                 required
               />
 
-              <label htmlFor="surname">Prezime</label>
+              <label htmlFor="surname">Surname</label>
               <input
                 id="surname"
                 type="text"
                 name="surname"
+                defaultValue={form.surname}
+                onChange={handleChange}
+                autoComplete="off"
+                required
+              />
+
+              <label htmlFor="country">Country</label>
+              <input
+                id="country"
+                type="text"
+                name="country"
+                value={form.country}
+                onChange={handleChange}
+                list="countries-list"
+                autoComplete="off"
+                required
+              />
+
+              <datalist id="countries-list">
+                {countries.map((country) => (
+                  <option key={country.name.common} value={country.name.common} />
+                ))}
+              </datalist>
+
+              <label htmlFor="instagram">Instagram</label>
+              <input
+                id="instagram"
+                type="text"
+                name="instagram"
+                defaultValue={form.instagram}
                 onChange={handleChange}
                 autoComplete="off"
                 required
               />
               
-
-
-              <label htmlFor="country">Država</label>
-              <input
-                id="country"
-                type="text"
-                name="country"
-                onChange={handleChange}
-                autoComplete="off"
-                required
-              />
-
               <label htmlFor="email">Email</label>
               <input
                 id="email"
                 type="email"
                 placeholder="name@gmail.com"
                 name="email"
+                defaultValue={form.email}
                 onChange={handleChange}
                 autoComplete="off"
                 required
                 disabled
               />
 
-              <label htmlFor="username">Korisničko ime</label>
+              <label htmlFor="username">Username</label>
               <input
                 id="username"
                 type="text"
                 name="username"
+                defaultValue={form.username}
                 onChange={handleChange}
                 autoComplete="off"
                 required
