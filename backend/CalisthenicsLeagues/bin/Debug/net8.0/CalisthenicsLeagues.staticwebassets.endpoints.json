@@ -3,8 +3,8 @@
   "ManifestType": "Build",
   "Endpoints": [
     {
-      "Route": "Images/fd52378e-46a1-4930-bf79-9ab8c36f6e60.jpeg",
-      "AssetFile": "Images/fd52378e-46a1-4930-bf79-9ab8c36f6e60.jpeg",
+      "Route": "Images/1cfb5d97-6ac8-4e74-bdd2-3e6821dfc69a.jpeg",
+      "AssetFile": "Images/1cfb5d97-6ac8-4e74-bdd2-3e6821dfc69a.jpeg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -29,7 +29,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 29 Jan 2025 17:16:04 GMT"
+          "Value": "Wed, 29 Jan 2025 17:17:52 GMT"
         }
       ],
       "EndpointProperties": [
@@ -40,8 +40,8 @@
       ]
     },
     {
-      "Route": "Images/fd52378e-46a1-4930-bf79-9ab8c36f6e60.ypwetjqh8h.jpeg",
-      "AssetFile": "Images/fd52378e-46a1-4930-bf79-9ab8c36f6e60.jpeg",
+      "Route": "Images/1cfb5d97-6ac8-4e74-bdd2-3e6821dfc69a.ypwetjqh8h.jpeg",
+      "AssetFile": "Images/1cfb5d97-6ac8-4e74-bdd2-3e6821dfc69a.jpeg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -66,7 +66,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 29 Jan 2025 17:16:04 GMT"
+          "Value": "Wed, 29 Jan 2025 17:17:52 GMT"
         }
       ],
       "EndpointProperties": [
@@ -80,7 +80,7 @@
         },
         {
           "Name": "label",
-          "Value": "Images/fd52378e-46a1-4930-bf79-9ab8c36f6e60.jpeg"
+          "Value": "Images/1cfb5d97-6ac8-4e74-bdd2-3e6821dfc69a.jpeg"
         }
       ]
     },

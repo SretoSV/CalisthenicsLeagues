@@ -89,6 +89,15 @@ namespace CalisthenicsLeagues.Controllers
             return StatusCode(200, user);
         }
 
+        [Authorize]
+        [HttpGet("me")]
+        public IActionResult GetMe()
+        {
+            User user = userService.GetUserByUsername(User.Identity?.Name);
+            user.Password = "";
+            return StatusCode(200, user);
+        }
+
         //var userEmail = User.Identity?.Name;
 
     }

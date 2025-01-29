@@ -178,5 +178,34 @@ namespace CalisthenicsLeagues.DAO.Impl
 
             return imagePath;
         }
+
+        public User GetUserByUsername(string username)
+        {
+            string query = "select id, username, name, surname, country, dateofbirth, email, password, image, instagram, league " +
+                   "from users where username = ?";
+            User user = null;
+
+            using (IDbConnection connection = new MySqlConnection(ConnectionClass.GetConnectionString()))
+            {
+                connection.Open();
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = query;
+
+                    command.Parameters.Add(new MySqlParameter("username", MySqlDbType.VarChar) { Value = username });
+
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            user = new User(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3),
+                                reader.GetString(4), reader.GetDateTime(5), reader.GetString(6), reader.GetString(7), reader.GetString(8), reader.GetString(9), reader.GetString(10));
+                        }
+                    }
+                }
+            }
+
+            return user;
+        }
     }
 }

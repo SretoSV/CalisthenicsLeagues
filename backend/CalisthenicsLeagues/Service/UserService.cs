@@ -14,6 +14,10 @@ namespace CalisthenicsLeagues.Service
         {
             return userDAO.GetUserByEmailAndPassword(data);
         }
+        public User GetUserByUsername(string username)
+        {
+            return userDAO.GetUserByUsername(username);
+        }
 
         public bool UpdatePassword(PasswordResetRequest data)
         {
