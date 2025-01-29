@@ -115,7 +115,7 @@ namespace CalisthenicsLeagues.Controllers
                 return BadRequest("Not updated.");
             }
 
-            return StatusCode(200, "Profile edited successfully!");
+            return StatusCode(200, user);
         }
 
         //var userEmail = User.Identity?.Name;
