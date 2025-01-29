@@ -106,7 +106,7 @@ namespace CalisthenicsLeagues.Controllers
                 Console.WriteLine(filePath + "\n" + relativeFilePath);
             }
             else {
-                user = userService.FillUserFields(data, "Images/placeHolder.png");
+                user = userService.FillUserFields(data, "NoPicture");
                 Console.WriteLine("No picture");
             }
 

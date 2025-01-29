@@ -9,5 +9,6 @@ namespace CalisthenicsLeagues.DAO
         bool ExistsByEmailAndPassword(PasswordResetRequest data);
         int UpdatePassword(PasswordResetRequest data);
         int UpdateProfile(User user);
+        string GetPictureById(int id);
     }
 }

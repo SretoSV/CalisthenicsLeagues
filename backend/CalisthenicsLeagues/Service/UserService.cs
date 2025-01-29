@@ -29,6 +29,10 @@ namespace CalisthenicsLeagues.Service
 
         public bool UpdateProfile(User user)
         {
+            if (user.Image.Equals("NoPicture")) {
+                user.Image = userDAO.GetPictureById(user.Id);
+            }
+
             if (userDAO.UpdateProfile(user) < 1)
             {
                 return false;

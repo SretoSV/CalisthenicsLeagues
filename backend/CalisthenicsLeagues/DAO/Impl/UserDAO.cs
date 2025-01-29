@@ -152,5 +152,31 @@ namespace CalisthenicsLeagues.DAO.Impl
                 }
             }
         }
+
+        public string GetPictureById(int id)
+        {
+            string query = "select image from users where id = ?";
+            string imagePath = "";
+            using (IDbConnection connection = new MySqlConnection(ConnectionClass.GetConnectionString()))
+            {
+                connection.Open();
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = query;
+
+                    command.Parameters.Add(new MySqlParameter("id", MySqlDbType.Int32) { Value = id });
+
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            imagePath = reader.GetString(0);
+                        }
+                    }
+                }
+            }
+
+            return imagePath;
+        }
     }
 }
