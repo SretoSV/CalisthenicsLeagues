@@ -9,7 +9,7 @@ interface User {
   image: string;//
   id: number;//
   email: string;//
-  dateOfBirth: Date;
+  dateOfBirth: string;
   country: string;//
   league: string;//
 }

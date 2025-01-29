@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import styles from '../styles/LoginPageStyles/LoginPageStyle.module.css';
 import { UserContext } from '../context/UserContext';
 import { useNavigate } from 'react-router-dom';
+import { serverPath } from '../functions/serverpath';
 
 export function LoginPage(){
     const navigate = useNavigate();
@@ -29,7 +30,7 @@ export function LoginPage(){
         console.log("AAAAAAAAAA");
 
         try {
-            const response = await fetch('http://localhost:5099/User/login', {
+            const response = await fetch(`${serverPath()}User/login`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -75,7 +76,7 @@ export function LoginPage(){
         console.log("RESET BB");
 
         try {
-            const response = await fetch('http://localhost:5099/User/passwordreset', {
+            const response = await fetch(`${serverPath()}User/passwordreset`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',

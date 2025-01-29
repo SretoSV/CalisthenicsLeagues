@@ -1,7 +1,7 @@
 import styles from '../styles/EditProfilePageStyles/EditProfilePageStyle.module.css';
 import { useContext, useEffect, useState } from "react";
-import placeHolder from '../images/placeHolder.png';
 import { UserContext } from '../context/UserContext';
+import { serverPath } from '../functions/serverpath';
 
 interface Country {
     name: {
@@ -18,15 +18,22 @@ export function EditProfilePage(){
   if (!userContext) {
       throw new Error("UserContext must be used within a UserProvider.");
   }
-  const { user } = userContext;
+  const { user, login } = userContext;
 
   const [imageFile, setImageFile] = useState<File | null>(null);
-
+  const [countries, setCountries] = useState<Country[]>([]);
+  const [message, setMessage] = useState('');
+  const formatDate = (dateString: string) => {
+    if (!dateString) return '';
+    return dateString.split('T')[0]; // Uzimanje samo "YYYY-MM-DD" dela
+  };
+  
   const [form, setForm] = useState({
     name: '',
     surname: '',
     country: '',
     email: '',
+    dateOfBirth: '',
     instagram: '',
     username: '',
   });
@@ -40,6 +47,7 @@ export function EditProfilePage(){
         email: user.email || '',
         instagram: user.instagram || '',
         username: user.username || '',
+        dateOfBirth: formatDate(user?.dateOfBirth || ''),
       });
     }
   }, [user]);
@@ -51,20 +59,49 @@ export function EditProfilePage(){
     });
   } 
 
-    const [countries, setCountries] = useState<Country[]>([]);
-    const [profilePicture, setProfilePicture] = useState(placeHolder);
-    const [message, setMessage] = useState('');
-
     useEffect(() => {
       fetch("https://restcountries.com/v3.1/all")
         .then((response) => response.json())
         .then((data) => setCountries(data))
         .catch((error) => console.error("Error fetching countries:", error));
     }, []);
-  
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      console.log(form);
+      
+      const formData = new FormData();
+
+      formData.append("id", user?.id.toString() || "");
+      formData.append("username", form.username);
+      formData.append("name", form.name);
+      formData.append("surname", form.surname);
+      formData.append("country", form.country);
+      formData.append("email", form.email);
+      formData.append("dateOfBirth", form.dateOfBirth);
+      formData.append("instagram", form.instagram);
+      formData.append("league", user?.league || "");
+
+      if (imageFile) {
+        formData.append("profileImage", imageFile);
+      }
+    
+      try {
+        const response = await fetch(`${serverPath()}User/edit`, {
+          method: 'POST',
+          body: formData,
+          credentials: "include",
+        });
+    
+        if (response.ok) {
+          const userData = await response.json();
+          login(userData);
+          setMessage("Profile edited successfully.");
+        } else {
+          setMessage('Invalid data.');
+        }
+      } catch (err) {
+        setMessage('Server error. Try again later.');
+      }
     };
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -144,6 +181,17 @@ export function EditProfilePage(){
                 disabled
               />
 
+              <label htmlFor="dateOfBirth">Date of Birth</label>
+              <input 
+                id="dateOfBirth"
+                type="date" 
+                name="dateOfBirth"
+                defaultValue={form.dateOfBirth || ""} 
+                onChange={handleChange}
+                max={new Date().toISOString().split("T")[0]} 
+                required
+              />
+
               <label htmlFor="username">Username</label>
               <input
                 id="username"
@@ -162,7 +210,7 @@ export function EditProfilePage(){
               <div>Profile Image</div>
               <img
                 className={styles.profilePicture}
-                src={profilePicture || placeHolder}
+                src={serverPath()+user?.image}
                 alt="Profilna slika"
               />
               <input 

@@ -1,9 +1,15 @@
 import styles from '../../styles/NavigationStyles/PictureDropDownListStyle.module.css';
-import placeHolder from '../../images/placeHolder.png';
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { DropDownListCard } from './DropDownListCard';
+import { serverPath } from '../../functions/serverpath';
+import { UserContext } from '../../context/UserContext';
 
 export function PictureDropDownList(){
+    const userContext = useContext(UserContext);
+    if (!userContext) {
+        throw new Error("UserContext must be used within a UserProvider.");
+    }
+    const { user } = userContext;
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -30,12 +36,12 @@ export function PictureDropDownList(){
 
     return (
         <div className={styles.mainDiv}>
-            <div className={styles.nameDiv}>Name</div>
+            <div className={styles.nameDiv}>{user?.username}</div>
             <div className={styles.spaceDiv}></div>
             <div ref={dropdownRef}>
                 <img
                     className={styles.profileImage}
-                    src={placeHolder}
+                    src={serverPath()+user?.image}
                     alt="ProfilePicture"
                     onClick={toggleDropdown}
                 />    

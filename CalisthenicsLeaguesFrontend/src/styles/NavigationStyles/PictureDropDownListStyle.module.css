@@ -10,8 +10,10 @@
 }
 
 .profileImage{
-    width: 65px;
-    height: 65px;
+    width: 63px;
+    height: 63px;
+    border-radius: 50px;
+    border: 2px solid #800080;
     cursor: pointer;
 }
 
