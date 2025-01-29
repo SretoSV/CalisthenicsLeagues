@@ -2,6 +2,7 @@ import styles from '../styles/EditProfilePageStyles/EditProfilePageStyle.module.
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from '../context/UserContext';
 import { serverPath } from '../functions/serverpath';
+import { useNavigate } from 'react-router-dom';
 
 interface Country {
     name: {
@@ -14,6 +15,7 @@ interface Country {
   }
 
 export function EditProfilePage(){
+  const navigate = useNavigate();
   const userContext = useContext(UserContext);
   if (!userContext) {
       throw new Error("UserContext must be used within a UserProvider.");
@@ -39,16 +41,19 @@ export function EditProfilePage(){
   });
 
   useEffect(() => {
-    if (user) {
+    if (localStorage.getItem('user')) {
       setForm({
-        name: user.name || '',
-        surname: user.surname || '',
-        country: user.country || '',
-        email: user.email || '',
-        instagram: user.instagram || '',
-        username: user.username || '',
+        name: user?.name || '',
+        surname: user?.surname || '',
+        country: user?.country || '',
+        email: user?.email || '',
+        instagram: user?.instagram || '',
+        username: user?.username || '',
         dateOfBirth: formatDate(user?.dateOfBirth || ''),
       });
+    }
+    else{
+      navigate('/LeaguesPage');
     }
   }, [user]);
 
