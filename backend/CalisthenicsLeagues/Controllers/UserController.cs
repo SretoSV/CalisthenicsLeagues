@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Asn1.Ocsp;
 
 namespace CalisthenicsLeagues.Controllers
 {
@@ -66,11 +67,55 @@ namespace CalisthenicsLeagues.Controllers
         public IActionResult PasswordReset([FromBody] PasswordResetRequest data)
         {
             Console.WriteLine("A: " + data.Email + "B: " + data.OldPassword + "C:" + data.NewPassword);
-            if (!userService.UpdatePassword(data)) {
+            if (!userService.UpdatePassword(data))
+            {
                 return BadRequest("Wrong password.");
             }
 
             return StatusCode(200, "Password reset successful!");
+        }
+
+        [Authorize]
+        [HttpPost("edit")]
+        public async Task<IActionResult> EditProfile([FromForm] EditProfileRequest data)
+        {
+            User user = new User();
+
+            if (data.ProfileImage != null)
+            {
+                Console.WriteLine("Picture");
+
+                var uploadPath = Path.Combine("wwwroot", "Images");
+
+                if (!Directory.Exists(uploadPath))
+                {
+                    Directory.CreateDirectory(uploadPath);
+                }
+
+                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(data.ProfileImage.FileName);
+                var filePath = Path.Combine(uploadPath, fileName);
+
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await data.ProfileImage.CopyToAsync(fileStream);
+                }
+
+                var relativeFilePath = Path.Combine("Images", fileName);
+
+                user = userService.FillUserFields(data, relativeFilePath);
+                Console.WriteLine(filePath + "\n" + relativeFilePath);
+            }
+            else {
+                user = userService.FillUserFields(data, "Images/placeHolder.png");
+                Console.WriteLine("No picture");
+            }
+
+            if (!userService.UpdateProfile(user))
+            {
+                return BadRequest("Not updated.");
+            }
+
+            return StatusCode(200, "Profile edited successfully!");
         }
 
         //var userEmail = User.Identity?.Name;

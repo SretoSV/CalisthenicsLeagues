@@ -1,22 +1,20 @@
-﻿namespace CalisthenicsLeagues.Models
+﻿namespace CalisthenicsLeagues.Models.RequestsModels
 {
-    public class User
+    public class EditProfileRequest
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Username { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Country { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public string DateOfBirth { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }
-        public string Image { get; set; }
         public string Instagram { get; set; }
         public string League { get; set; }
+        public IFormFile? ProfileImage { get; set; }
+        public EditProfileRequest() { }
 
-        public User() { }
-
-        public User(int id, string username, string name, string surname, string country, DateTime dateOfBirth, string email, string password, string image, string instagram, string league)
+        public EditProfileRequest(string id, string username, string name, string surname, string country, string dateOfBirth, string email, string instagram, string league,IFormFile? profileImage)
         {
             Id = id;
             Username = username;
@@ -25,10 +23,9 @@
             Country = country;
             DateOfBirth = dateOfBirth;
             Email = email;
-            Password = password;
-            Image = image;
             Instagram = instagram;
             League = league;
+            ProfileImage = profileImage;
         }
     }
 }
