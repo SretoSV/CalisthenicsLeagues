@@ -495,6 +495,1974 @@
       ]
     },
     {
+      "Route": "Images/Shirts/Amateur/shirtImageBlackBack.90z30ephqz.png",
+      "AssetFile": "Images/Shirts/Amateur/shirtImageBlackBack.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "73751"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"B2QXwaCPMZrSfaaKqMfVc2WouneIAPa2a2hyZYs0G28=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:44:50 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "90z30ephqz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-B2QXwaCPMZrSfaaKqMfVc2WouneIAPa2a2hyZYs0G28="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/Amateur/shirtImageBlackBack.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Amateur/shirtImageBlackBack.png",
+      "AssetFile": "Images/Shirts/Amateur/shirtImageBlackBack.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "73751"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"B2QXwaCPMZrSfaaKqMfVc2WouneIAPa2a2hyZYs0G28=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:44:50 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-B2QXwaCPMZrSfaaKqMfVc2WouneIAPa2a2hyZYs0G28="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Amateur/shirtImageBlackFront.png",
+      "AssetFile": "Images/Shirts/Amateur/shirtImageBlackFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "61556"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IMtGEbxO1m13ANcUFnyrQFZlU7/feeZ5wm6BYsNOjAM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:44:46 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-IMtGEbxO1m13ANcUFnyrQFZlU7/feeZ5wm6BYsNOjAM="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Amateur/shirtImageBlackFront.stv4xof1q3.png",
+      "AssetFile": "Images/Shirts/Amateur/shirtImageBlackFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "61556"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IMtGEbxO1m13ANcUFnyrQFZlU7/feeZ5wm6BYsNOjAM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:44:46 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "stv4xof1q3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-IMtGEbxO1m13ANcUFnyrQFZlU7/feeZ5wm6BYsNOjAM="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/Amateur/shirtImageBlackFront.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Amateur/shirtImageWhiteBack.pbgadwlv78.png",
+      "AssetFile": "Images/Shirts/Amateur/shirtImageWhiteBack.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "72776"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"JS4Wdx8j19ALhU4jvDdZuaCVD7GZzfSC5PWbeWFgQAU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:44:41 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "pbgadwlv78"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-JS4Wdx8j19ALhU4jvDdZuaCVD7GZzfSC5PWbeWFgQAU="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/Amateur/shirtImageWhiteBack.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Amateur/shirtImageWhiteBack.png",
+      "AssetFile": "Images/Shirts/Amateur/shirtImageWhiteBack.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "72776"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"JS4Wdx8j19ALhU4jvDdZuaCVD7GZzfSC5PWbeWFgQAU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:44:41 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-JS4Wdx8j19ALhU4jvDdZuaCVD7GZzfSC5PWbeWFgQAU="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Amateur/shirtImageWhiteFront.ahgj27hkyh.png",
+      "AssetFile": "Images/Shirts/Amateur/shirtImageWhiteFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "60777"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0lcxLzIKA8y69QXGHreJjqwIN/Ka3iM6q2uHpFKkQls=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:44:38 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ahgj27hkyh"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0lcxLzIKA8y69QXGHreJjqwIN/Ka3iM6q2uHpFKkQls="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/Amateur/shirtImageWhiteFront.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Amateur/shirtImageWhiteFront.png",
+      "AssetFile": "Images/Shirts/Amateur/shirtImageWhiteFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "60777"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0lcxLzIKA8y69QXGHreJjqwIN/Ka3iM6q2uHpFKkQls=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:44:38 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0lcxLzIKA8y69QXGHreJjqwIN/Ka3iM6q2uHpFKkQls="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Begginer/shirtImageBlackBack.p1xaf88w2f.png",
+      "AssetFile": "Images/Shirts/Begginer/shirtImageBlackBack.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "73401"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MyvEGLk/z62uv269Q6w+k4MSKszBGhvIhbZusCVHRew=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:45:15 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "p1xaf88w2f"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-MyvEGLk/z62uv269Q6w+k4MSKszBGhvIhbZusCVHRew="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/Begginer/shirtImageBlackBack.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Begginer/shirtImageBlackBack.png",
+      "AssetFile": "Images/Shirts/Begginer/shirtImageBlackBack.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "73401"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MyvEGLk/z62uv269Q6w+k4MSKszBGhvIhbZusCVHRew=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:45:15 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-MyvEGLk/z62uv269Q6w+k4MSKszBGhvIhbZusCVHRew="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Begginer/shirtImageBlackFront.png",
+      "AssetFile": "Images/Shirts/Begginer/shirtImageBlackFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "61048"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"v97Xtou/xN5tW+J5OpoZJJdpvKtADqR8haLY2nR8+PU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:45:16 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-v97Xtou/xN5tW+J5OpoZJJdpvKtADqR8haLY2nR8+PU="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Begginer/shirtImageBlackFront.zfoo1j806x.png",
+      "AssetFile": "Images/Shirts/Begginer/shirtImageBlackFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "61048"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"v97Xtou/xN5tW+J5OpoZJJdpvKtADqR8haLY2nR8+PU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:45:16 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zfoo1j806x"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-v97Xtou/xN5tW+J5OpoZJJdpvKtADqR8haLY2nR8+PU="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/Begginer/shirtImageBlackFront.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Begginer/shirtImageWhiteBack.png",
+      "AssetFile": "Images/Shirts/Begginer/shirtImageWhiteBack.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "72322"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SyWJgW/EBxb6LtdZpaILKKt27hFR0NNPi8j+YtkqoUk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:45:28 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SyWJgW/EBxb6LtdZpaILKKt27hFR0NNPi8j+YtkqoUk="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Begginer/shirtImageWhiteBack.xhnvmb3xg5.png",
+      "AssetFile": "Images/Shirts/Begginer/shirtImageWhiteBack.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "72322"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SyWJgW/EBxb6LtdZpaILKKt27hFR0NNPi8j+YtkqoUk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:45:28 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xhnvmb3xg5"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SyWJgW/EBxb6LtdZpaILKKt27hFR0NNPi8j+YtkqoUk="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/Begginer/shirtImageWhiteBack.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Begginer/shirtImageWhiteFront.g1ddqlxf3q.png",
+      "AssetFile": "Images/Shirts/Begginer/shirtImageWhiteFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "60363"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RCGFQb3TryY0K6lAZTwnBYVqgKPE0NqNfUKHX9PNYNU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:45:23 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "g1ddqlxf3q"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-RCGFQb3TryY0K6lAZTwnBYVqgKPE0NqNfUKHX9PNYNU="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/Begginer/shirtImageWhiteFront.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Begginer/shirtImageWhiteFront.png",
+      "AssetFile": "Images/Shirts/Begginer/shirtImageWhiteFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "60363"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RCGFQb3TryY0K6lAZTwnBYVqgKPE0NqNfUKHX9PNYNU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:45:23 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-RCGFQb3TryY0K6lAZTwnBYVqgKPE0NqNfUKHX9PNYNU="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Legendary/shirtImageBlackBack.46qcevdkhl.png",
+      "AssetFile": "Images/Shirts/Legendary/shirtImageBlackBack.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "68908"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hHagUaqWlHz26vn39xiaPJO0meSdLpwJ0luJ34lrlOg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:41:16 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "46qcevdkhl"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hHagUaqWlHz26vn39xiaPJO0meSdLpwJ0luJ34lrlOg="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/Legendary/shirtImageBlackBack.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Legendary/shirtImageBlackBack.png",
+      "AssetFile": "Images/Shirts/Legendary/shirtImageBlackBack.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "68908"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hHagUaqWlHz26vn39xiaPJO0meSdLpwJ0luJ34lrlOg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:41:16 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-hHagUaqWlHz26vn39xiaPJO0meSdLpwJ0luJ34lrlOg="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Legendary/shirtImageBlackFront.93he8j009m.png",
+      "AssetFile": "Images/Shirts/Legendary/shirtImageBlackFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "56378"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BYIiUihLluYf4MsMR1yXlnxvHrD4sPhY5q1Fx9TzbkU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:41:09 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "93he8j009m"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-BYIiUihLluYf4MsMR1yXlnxvHrD4sPhY5q1Fx9TzbkU="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/Legendary/shirtImageBlackFront.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Legendary/shirtImageBlackFront.png",
+      "AssetFile": "Images/Shirts/Legendary/shirtImageBlackFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "56378"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BYIiUihLluYf4MsMR1yXlnxvHrD4sPhY5q1Fx9TzbkU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:41:09 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-BYIiUihLluYf4MsMR1yXlnxvHrD4sPhY5q1Fx9TzbkU="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Legendary/shirtImageWhiteBack.86m942nch7.png",
+      "AssetFile": "Images/Shirts/Legendary/shirtImageWhiteBack.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "68017"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gBTVkmIncvAqTnlGkK+WUopanVjzqQCHlveqphSIETs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:40:59 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "86m942nch7"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gBTVkmIncvAqTnlGkK+WUopanVjzqQCHlveqphSIETs="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/Legendary/shirtImageWhiteBack.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Legendary/shirtImageWhiteBack.png",
+      "AssetFile": "Images/Shirts/Legendary/shirtImageWhiteBack.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "68017"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gBTVkmIncvAqTnlGkK+WUopanVjzqQCHlveqphSIETs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:40:59 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gBTVkmIncvAqTnlGkK+WUopanVjzqQCHlveqphSIETs="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Legendary/shirtImageWhiteFront.3i9av02flo.png",
+      "AssetFile": "Images/Shirts/Legendary/shirtImageWhiteFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "55653"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"m60qH44srwNalkWbotjUhjCOGzN6rfua5Uf3RTJoq2k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:40:54 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3i9av02flo"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-m60qH44srwNalkWbotjUhjCOGzN6rfua5Uf3RTJoq2k="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/Legendary/shirtImageWhiteFront.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Legendary/shirtImageWhiteFront.png",
+      "AssetFile": "Images/Shirts/Legendary/shirtImageWhiteFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "55653"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"m60qH44srwNalkWbotjUhjCOGzN6rfua5Uf3RTJoq2k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:40:54 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-m60qH44srwNalkWbotjUhjCOGzN6rfua5Uf3RTJoq2k="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Pro/shirtImageBlackBack.hgrj0qo11c.png",
+      "AssetFile": "Images/Shirts/Pro/shirtImageBlackBack.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "71817"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wXlrbS8Dil1z2rLPddPhl9MJM2JXqSYx+4p8TV2FZbg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:43:10 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hgrj0qo11c"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wXlrbS8Dil1z2rLPddPhl9MJM2JXqSYx+4p8TV2FZbg="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/Pro/shirtImageBlackBack.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Pro/shirtImageBlackBack.png",
+      "AssetFile": "Images/Shirts/Pro/shirtImageBlackBack.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "71817"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wXlrbS8Dil1z2rLPddPhl9MJM2JXqSYx+4p8TV2FZbg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:43:10 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wXlrbS8Dil1z2rLPddPhl9MJM2JXqSYx+4p8TV2FZbg="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Pro/shirtImageBlackFront.ogy1635huc.png",
+      "AssetFile": "Images/Shirts/Pro/shirtImageBlackFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "59280"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SFmZN5OLYm+LI1HpnAbYFGMTWM7A8ZKSWoEIsONfeBk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:43:10 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ogy1635huc"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SFmZN5OLYm+LI1HpnAbYFGMTWM7A8ZKSWoEIsONfeBk="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/Pro/shirtImageBlackFront.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Pro/shirtImageBlackFront.png",
+      "AssetFile": "Images/Shirts/Pro/shirtImageBlackFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "59280"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SFmZN5OLYm+LI1HpnAbYFGMTWM7A8ZKSWoEIsONfeBk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:43:10 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SFmZN5OLYm+LI1HpnAbYFGMTWM7A8ZKSWoEIsONfeBk="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Pro/shirtImageWhiteBack.lq8ybrkzga.png",
+      "AssetFile": "Images/Shirts/Pro/shirtImageWhiteBack.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "70637"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vZfJ5mWFQOtzLHTrmZfsjuOKREKy8rmo/hroYEAvmpE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:43:23 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "lq8ybrkzga"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-vZfJ5mWFQOtzLHTrmZfsjuOKREKy8rmo/hroYEAvmpE="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/Pro/shirtImageWhiteBack.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Pro/shirtImageWhiteBack.png",
+      "AssetFile": "Images/Shirts/Pro/shirtImageWhiteBack.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "70637"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vZfJ5mWFQOtzLHTrmZfsjuOKREKy8rmo/hroYEAvmpE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:43:23 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-vZfJ5mWFQOtzLHTrmZfsjuOKREKy8rmo/hroYEAvmpE="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Pro/shirtImageWhiteFront.fwcycarh2b.png",
+      "AssetFile": "Images/Shirts/Pro/shirtImageWhiteFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "58590"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MaYCL7g5xg3+cuMzM71sXnzVz9cB/URsoy4nVl68ztA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:43:29 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fwcycarh2b"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-MaYCL7g5xg3+cuMzM71sXnzVz9cB/URsoy4nVl68ztA="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/Pro/shirtImageWhiteFront.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Pro/shirtImageWhiteFront.png",
+      "AssetFile": "Images/Shirts/Pro/shirtImageWhiteFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "58590"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MaYCL7g5xg3+cuMzM71sXnzVz9cB/URsoy4nVl68ztA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:43:29 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-MaYCL7g5xg3+cuMzM71sXnzVz9cB/URsoy4nVl68ztA="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/SemiPro/shirtImageBlackBack.hkraed7rvx.png",
+      "AssetFile": "Images/Shirts/SemiPro/shirtImageBlackBack.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "75372"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Efx1to8FHPQKdavhp1kQ4jwD3WHIMMDZEnOTPFoq62M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:44:15 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hkraed7rvx"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Efx1to8FHPQKdavhp1kQ4jwD3WHIMMDZEnOTPFoq62M="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/SemiPro/shirtImageBlackBack.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/SemiPro/shirtImageBlackBack.png",
+      "AssetFile": "Images/Shirts/SemiPro/shirtImageBlackBack.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "75372"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Efx1to8FHPQKdavhp1kQ4jwD3WHIMMDZEnOTPFoq62M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:44:15 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Efx1to8FHPQKdavhp1kQ4jwD3WHIMMDZEnOTPFoq62M="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/SemiPro/shirtImageBlackFront.n72lxah6re.png",
+      "AssetFile": "Images/Shirts/SemiPro/shirtImageBlackFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "63071"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"c7ePy8mLlyQQfAxLg0E/SHkEKeKMye8//Zrz6R4QDoU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:44:18 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "n72lxah6re"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-c7ePy8mLlyQQfAxLg0E/SHkEKeKMye8//Zrz6R4QDoU="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/SemiPro/shirtImageBlackFront.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/SemiPro/shirtImageBlackFront.png",
+      "AssetFile": "Images/Shirts/SemiPro/shirtImageBlackFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "63071"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"c7ePy8mLlyQQfAxLg0E/SHkEKeKMye8//Zrz6R4QDoU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:44:18 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-c7ePy8mLlyQQfAxLg0E/SHkEKeKMye8//Zrz6R4QDoU="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/SemiPro/shirtImageWhiteBack.ndjmp43so5.png",
+      "AssetFile": "Images/Shirts/SemiPro/shirtImageWhiteBack.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "74310"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"m4RTRDCeuroAKtvOUHL4iZ9p0n+CB1yDvsZgzLnrSfA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:44:06 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ndjmp43so5"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-m4RTRDCeuroAKtvOUHL4iZ9p0n+CB1yDvsZgzLnrSfA="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/SemiPro/shirtImageWhiteBack.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/SemiPro/shirtImageWhiteBack.png",
+      "AssetFile": "Images/Shirts/SemiPro/shirtImageWhiteBack.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "74310"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"m4RTRDCeuroAKtvOUHL4iZ9p0n+CB1yDvsZgzLnrSfA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:44:06 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-m4RTRDCeuroAKtvOUHL4iZ9p0n+CB1yDvsZgzLnrSfA="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/SemiPro/shirtImageWhiteFront.m9o8z5egjx.png",
+      "AssetFile": "Images/Shirts/SemiPro/shirtImageWhiteFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "62354"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Jrz1KfVz2VzfCrXjqg9QFCMZLLqRVEBBdV0ic1rKuQM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:44:05 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "m9o8z5egjx"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Jrz1KfVz2VzfCrXjqg9QFCMZLLqRVEBBdV0ic1rKuQM="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/SemiPro/shirtImageWhiteFront.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/SemiPro/shirtImageWhiteFront.png",
+      "AssetFile": "Images/Shirts/SemiPro/shirtImageWhiteFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "62354"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Jrz1KfVz2VzfCrXjqg9QFCMZLLqRVEBBdV0ic1rKuQM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:44:05 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Jrz1KfVz2VzfCrXjqg9QFCMZLLqRVEBBdV0ic1rKuQM="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/WorldClass/shirtImageBlackBack.nlkno4jylq.png",
+      "AssetFile": "Images/Shirts/WorldClass/shirtImageBlackBack.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "77523"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9d8NOSPkiE22gs7PkY5MXZOxe6jI0kQhDCF/Z6VE0EE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:42:08 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nlkno4jylq"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-9d8NOSPkiE22gs7PkY5MXZOxe6jI0kQhDCF/Z6VE0EE="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/WorldClass/shirtImageBlackBack.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/WorldClass/shirtImageBlackBack.png",
+      "AssetFile": "Images/Shirts/WorldClass/shirtImageBlackBack.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "77523"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9d8NOSPkiE22gs7PkY5MXZOxe6jI0kQhDCF/Z6VE0EE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:42:08 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-9d8NOSPkiE22gs7PkY5MXZOxe6jI0kQhDCF/Z6VE0EE="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/WorldClass/shirtImageBlackFront.dj0uca8ttk.png",
+      "AssetFile": "Images/Shirts/WorldClass/shirtImageBlackFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "65354"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ORIW23SCUqUv/W3q2xdDeC4I3HyBEas+FF2LLqYI54c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:42:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dj0uca8ttk"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ORIW23SCUqUv/W3q2xdDeC4I3HyBEas+FF2LLqYI54c="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/WorldClass/shirtImageBlackFront.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/WorldClass/shirtImageBlackFront.png",
+      "AssetFile": "Images/Shirts/WorldClass/shirtImageBlackFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "65354"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ORIW23SCUqUv/W3q2xdDeC4I3HyBEas+FF2LLqYI54c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:42:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ORIW23SCUqUv/W3q2xdDeC4I3HyBEas+FF2LLqYI54c="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/WorldClass/shirtImageWhiteBack.png",
+      "AssetFile": "Images/Shirts/WorldClass/shirtImageWhiteBack.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "76526"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UHgd+NkmPGPRQq4H7Qw3dDBZmc2Bl/nlbAKQ6BATGPs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:42:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UHgd+NkmPGPRQq4H7Qw3dDBZmc2Bl/nlbAKQ6BATGPs="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/WorldClass/shirtImageWhiteBack.wcu8g7zicj.png",
+      "AssetFile": "Images/Shirts/WorldClass/shirtImageWhiteBack.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "76526"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UHgd+NkmPGPRQq4H7Qw3dDBZmc2Bl/nlbAKQ6BATGPs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:42:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wcu8g7zicj"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-UHgd+NkmPGPRQq4H7Qw3dDBZmc2Bl/nlbAKQ6BATGPs="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/WorldClass/shirtImageWhiteBack.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/WorldClass/shirtImageWhiteFront.fhohnwhqj7.png",
+      "AssetFile": "Images/Shirts/WorldClass/shirtImageWhiteFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "64644"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zeLvhibb9HDb2r9n9WqkCK3LTXGzbjR3BumifUkQeuo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:42:05 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fhohnwhqj7"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-zeLvhibb9HDb2r9n9WqkCK3LTXGzbjR3BumifUkQeuo="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/WorldClass/shirtImageWhiteFront.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/WorldClass/shirtImageWhiteFront.png",
+      "AssetFile": "Images/Shirts/WorldClass/shirtImageWhiteFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "64644"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zeLvhibb9HDb2r9n9WqkCK3LTXGzbjR3BumifUkQeuo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 15:42:05 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-zeLvhibb9HDb2r9n9WqkCK3LTXGzbjR3BumifUkQeuo="
+        }
+      ]
+    },
+    {
       "Route": "Images/b09f798c-a11d-4245-aa56-633ca15008ed.jpeg",
       "AssetFile": "Images/b09f798c-a11d-4245-aa56-633ca15008ed.jpeg",
       "Selectors": [],
