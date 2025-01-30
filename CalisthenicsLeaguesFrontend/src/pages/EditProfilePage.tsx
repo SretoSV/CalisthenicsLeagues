@@ -84,7 +84,7 @@ export function EditProfilePage(){
       formData.append("email", form.email);
       formData.append("dateOfBirth", form.dateOfBirth);
       formData.append("instagram", form.instagram);
-      formData.append("league", user?.league || "");
+      formData.append("league", user?.league.toString() || "");
 
       if (imageFile) {
         formData.append("profileImage", imageFile);

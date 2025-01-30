@@ -48,11 +48,11 @@ export function LoginPage(){
               setError("");
             } 
             else {
-              setError('Neispravni podaci za prijavu.');
+              setError('Invalid login information.');
             }
         } 
         catch (err) {
-            setError('Greška na serveru. Pokušajte kasnije.');
+            setError('Server error. Try again later.');
         }
 
 
@@ -90,14 +90,14 @@ export function LoginPage(){
             });
       
             if (response.ok) {
-              setError2("Uspesno izmenjena lozinka");
+              setError2("Password changed successfully.");
             } 
             else {
-              setError2('Neispravni podaci.');
+              setError2('Invalid data.');
             }
         } 
         catch (err) {
-            setError2('Greška na serveru. Pokušajte kasnije.');
+            setError2('Server error. Try again later.');
         }
     };
 
@@ -141,7 +141,7 @@ export function LoginPage(){
                     />
                     </div>
                 </div>
-                forgot password? <button className={styles.forgotButton} type="button" onClick={handleClick}></button>  <br />
+                reset password <button className={styles.forgotButton} type="button" onClick={handleClick}></button>  <br />
                 {error && <p className={styles.error}>{error}</p>}
                 <button className={styles.submitButton}>Login</button>
             </form>

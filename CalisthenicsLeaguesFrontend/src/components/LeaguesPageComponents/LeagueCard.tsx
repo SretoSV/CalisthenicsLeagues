@@ -1,3 +1,4 @@
+import { serverPath } from '../../functions/serverpath';
 import leagueLogoImage from '../../images/league1.png';
 import styles from '../../styles/LeaguesPageStyles/LeagueCardStyle.module.css';
 
@@ -12,7 +13,7 @@ export function LeagueCard(props: LeagueCardProps){
         <div className={styles.mainDiv}>
             <h2 className={styles.header2}>{props.leagueName}</h2>
             <img 
-                src={leagueLogoImage}
+                src={serverPath()+props.leagueImage}
                 alt="League"
                 className={styles.leagueImage}
             />

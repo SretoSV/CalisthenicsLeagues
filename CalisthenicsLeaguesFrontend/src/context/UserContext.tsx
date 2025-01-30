@@ -11,7 +11,7 @@ interface User {
   email: string;//
   dateOfBirth: string;
   country: string;//
-  league: string;//
+  league: number;//
 }
 
 //Tipovi za context
