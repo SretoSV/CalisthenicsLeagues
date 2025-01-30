@@ -57,7 +57,7 @@ namespace CalisthenicsLeagues.Service
             user.Email = data.Email;
             user.Image = relativeFilePath;
             user.Instagram = data.Instagram;
-            user.League = data.League;
+            user.League = Int32.Parse(data.League);
             return user;
         }
 

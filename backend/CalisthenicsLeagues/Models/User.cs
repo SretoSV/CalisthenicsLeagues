@@ -12,11 +12,11 @@
         public string Password { get; set; }
         public string Image { get; set; }
         public string Instagram { get; set; }
-        public string League { get; set; }
+        public int League { get; set; }
 
         public User() { }
 
-        public User(int id, string username, string name, string surname, string country, DateTime dateOfBirth, string email, string password, string image, string instagram, string league)
+        public User(int id, string username, string name, string surname, string country, DateTime dateOfBirth, string email, string password, string image, string instagram, int league)
         {
             Id = id;
             Username = username;

@@ -88,7 +88,7 @@ namespace CalisthenicsLeagues.DAO.Impl
                         if (reader.Read())
                         { 
                             user = new User(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3),
-                                reader.GetString(4), reader.GetDateTime(5), reader.GetString(6), reader.GetString(7), reader.GetString(8), reader.GetString(9), reader.GetString(10));
+                                reader.GetString(4), reader.GetDateTime(5), reader.GetString(6), reader.GetString(7), reader.GetString(8), reader.GetString(9), reader.GetInt32(10));
                         }
                     }
                 }
@@ -199,7 +199,7 @@ namespace CalisthenicsLeagues.DAO.Impl
                         if (reader.Read())
                         {
                             user = new User(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3),
-                                reader.GetString(4), reader.GetDateTime(5), reader.GetString(6), reader.GetString(7), reader.GetString(8), reader.GetString(9), reader.GetString(10));
+                                reader.GetString(4), reader.GetDateTime(5), reader.GetString(6), reader.GetString(7), reader.GetString(8), reader.GetString(9), reader.GetInt32(10));
                         }
                     }
                 }
