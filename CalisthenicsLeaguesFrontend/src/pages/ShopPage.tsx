@@ -1,67 +1,103 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Navigation } from "../components/NavigationComponents/Navigation";
 import { ShirtCard } from "../components/ShopPageComponents/ShirtCard";
 import styles from '../styles/ShopPageStyles/ShopPageStyle.module.css';
+import { UserContext } from "../context/UserContext";
+import { serverPath } from "../functions/serverpath";
+
+interface Shirt{
+    id: number,
+    leagueName: string,
+    shirtImageBlackFront: string,
+    shirtImageBlackBack: string,
+    shirtImageWhiteFront: string,
+    shirtImageWhiteBack: string,
+}
 
 export function ShopPage(){
+    const userContext = useContext(UserContext);
+    if (!userContext) {
+        throw new Error("UserContext must be used within a UserProvider.");
+    }
+    const { user } = userContext;
 
-    const [shirts, setShirts] = useState([
-        {   
-            id: 1,
-            leagueName: "Legendary",
-            shirtImageBlackFront: "league1",//cuvacu ih na backendu
-            shirtImageBlackBack: "league1",
-            shirtImageWhiteFront: "league1",
-            shirtImageWhiteBack: "league1",
-        },
-        {   
-            id: 2,
-            leagueName: "World-Class",
-            shirtImageBlackFront: "league1",
-            shirtImageBlackBack: "league1",
-            shirtImageWhiteFront: "league1",
-            shirtImageWhiteBack: "league1",
-        },
-        {   
-            id: 3,
-            leagueName: "Pro",
-            shirtImageBlackFront: "league1",
-            shirtImageBlackBack: "league1",
-            shirtImageWhiteFront: "league1",
-            shirtImageWhiteBack: "league1",
-        },
-        {   
-            id: 4,
-            leagueName: "Semi-pro",
-            shirtImageBlackFront: "league1",
-            shirtImageBlackBack: "league1",
-            shirtImageWhiteFront: "league1",
-            shirtImageWhiteBack: "league1",
-        },
-        {   
-            id: 5,
-            leagueName: "Amateur",
-            shirtImageBlackFront: "league1",
-            shirtImageBlackBack: "league1",
-            shirtImageWhiteFront: "league1",
-            shirtImageWhiteBack: "league1",
-        },
-        {   
-            id: 6,
-            leagueName: "Begginer",
-            shirtImageBlackFront: "league1",
-            shirtImageBlackBack: "league1",
-            shirtImageWhiteFront: "league1",
-            shirtImageWhiteBack: "league1",
-        },
-    ]);
+    const [shirts, setShirts] = useState<Shirt[]>([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState("");
+
+    useEffect(() => {
+        const fetchLeagues = async () => {
+            setIsLoading(true);
+            setError("");
+
+            try {
+                const response = await fetch(`${serverPath()}Shop/shirts`,{
+                    method: 'GET', 
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.status} ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                setShirts(data);
+            } 
+            catch (err: unknown) {
+                if (err instanceof Error) {
+                    setError(err?.message || 'Unknown error');
+                }
+                else {
+                    setError('Unknown error');
+                }
+            }
+            finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchLeagues();
+    }, []);
 
     return(
         <>
-            <Navigation isApplyPage={false}/>
-            <div className={styles.mainDiv}>
-                {shirts.map((shirt) => {
-                    return <ShirtCard 
+            {isLoading ? 
+            (<div>Loading...</div>) : 
+            (<>
+                <Navigation isApplyPage={false}/>
+                <div className={styles.mainDiv}>
+                    {shirts.map((shirt) => {
+                        if(user != null){
+                            if(shirt.id >= user.league){
+                                return <ShirtCard 
+                                    key={shirt.id} 
+                                    id={shirt.id} 
+                                    leagueName={shirt.leagueName}
+                                    shirtImageBlackFront={shirt.shirtImageBlackFront}
+                                    shirtImageBlackBack={shirt.shirtImageBlackBack}
+                                    shirtImageWhiteFront={shirt.shirtImageWhiteFront}
+                                    shirtImageWhiteBack={shirt.shirtImageWhiteBack}
+                                    available={true}
+                                />
+                            }
+                            else{
+                                return <ShirtCard 
+                                    key={shirt.id} 
+                                    id={shirt.id} 
+                                    leagueName={shirt.leagueName}
+                                    shirtImageBlackFront={shirt.shirtImageBlackFront}
+                                    shirtImageBlackBack={shirt.shirtImageBlackBack}
+                                    shirtImageWhiteFront={shirt.shirtImageWhiteFront}
+                                    shirtImageWhiteBack={shirt.shirtImageWhiteBack}
+                                    available={false}
+                                />
+                            }
+                        }
+                        else{
+                            return <ShirtCard 
                                 key={shirt.id} 
                                 id={shirt.id} 
                                 leagueName={shirt.leagueName}
@@ -69,9 +105,14 @@ export function ShopPage(){
                                 shirtImageBlackBack={shirt.shirtImageBlackBack}
                                 shirtImageWhiteFront={shirt.shirtImageWhiteFront}
                                 shirtImageWhiteBack={shirt.shirtImageWhiteBack}
+                                available={false}
                             />
-                })}
-            </div>
+                        }
+                    })}
+                </div>
+            </>)
+            }
+            {error}
         </>
     );
 }

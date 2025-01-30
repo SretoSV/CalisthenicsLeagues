@@ -68,7 +68,7 @@ export function LeaguesPage(){
                     })}
                 </div>
             </>)
-}
+            }
             {error}
         </>
     );

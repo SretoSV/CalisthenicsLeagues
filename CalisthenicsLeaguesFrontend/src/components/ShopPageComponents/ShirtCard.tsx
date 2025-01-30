@@ -1,11 +1,8 @@
-import shirtImageBlackFront from '../../images/shirtImageBlackFront.png';
-import shirtImageBlackBack from '../../images/shirtImageBlackBack.png';
-import shirtImageWhiteFront from '../../images/shirtImageWhiteFront.png';
-import shirtImageWhiteBack from '../../images/shirtImageWhiteBack.png';
 import colorImageBlack from '../../images/colorImageBlack.png';
 import colorImageWhite from '../../images/colorImageWhite.png';
 import styles from '../../styles/ShopPageStyles/ShirtCardStyle.module.css';
 import { useState, useEffect } from 'react';
+import { serverPath } from '../../functions/serverpath';
 
 interface LeagueCardProps {
     id: number,
@@ -14,23 +11,26 @@ interface LeagueCardProps {
     shirtImageBlackBack: string,
     shirtImageWhiteFront: string,
     shirtImageWhiteBack: string,
+    available: boolean,
 }
 
 export function ShirtCard(props: LeagueCardProps) {
-    const [currentShirtImage, setCurrentShirtImage] = useState<string>(shirtImageBlackBack); 
+    const [shirtSize, setShirtSize] = useState("S");
+    const [quantity, setQuantity] = useState("0");
+    const [currentShirtImage, setCurrentShirtImage] = useState<string>(""); 
     const [selectedView, setSelectedView] = useState<string>("front");
     const [currentColorImage, setCurrentColorImage] = useState<boolean>(true); 
 
     useEffect(() => {
         if (currentColorImage && selectedView === "front") {
-            setCurrentShirtImage(shirtImageBlackFront);
+            setCurrentShirtImage(serverPath()+props.shirtImageBlackFront);
         } else if (currentColorImage && selectedView === "back") {
-            setCurrentShirtImage(shirtImageBlackBack);
+            setCurrentShirtImage(serverPath()+props.shirtImageBlackBack);
         }
         else if (!currentColorImage && selectedView === "front") {
-            setCurrentShirtImage(shirtImageWhiteFront);
+            setCurrentShirtImage(serverPath()+props.shirtImageWhiteFront);
         }else{
-            setCurrentShirtImage(shirtImageWhiteBack);
+            setCurrentShirtImage(serverPath()+props.shirtImageWhiteBack);
         }
 
     }, [selectedView]);
@@ -38,19 +38,23 @@ export function ShirtCard(props: LeagueCardProps) {
     const handleViewChange = (view: string) => {
         setSelectedView(view);
     };
-
+    
     const handleColorImageClick = () => {
         setCurrentColorImage(current => !current);
         if (currentColorImage && selectedView === "front") {
-            setCurrentShirtImage(shirtImageWhiteFront);
+            setCurrentShirtImage(serverPath()+props.shirtImageWhiteFront);
         } else if (currentColorImage && selectedView === "back") {
-            setCurrentShirtImage(shirtImageWhiteBack);
+            setCurrentShirtImage(serverPath()+props.shirtImageWhiteBack);
         }
         else if (!currentColorImage && selectedView === "front") {
-            setCurrentShirtImage(shirtImageBlackFront);
+            setCurrentShirtImage(serverPath()+props.shirtImageBlackFront);
         }else{
-            setCurrentShirtImage(shirtImageBlackBack);
+            setCurrentShirtImage(serverPath()+props.shirtImageBlackBack);
         }
+    };
+    
+    const handleClick = () => {
+        alert("DA")
     };
 
     return (
@@ -85,8 +89,27 @@ export function ShirtCard(props: LeagueCardProps) {
                     onChange={() => handleViewChange("back")} 
                 />
             </div>
-
-            <a className={styles.addToCartButton} href="#">Add To Cart</a>
+            <div>
+                <select id="attributeSelect" className={styles.dropdownInput} value={shirtSize} 
+                    onChange={(e) => {setShirtSize(e.target.value)}} required>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                </select>
+                <input 
+                    type="text" 
+                    value={quantity} 
+                    className={styles.quantityInput}
+                    onChange={(e) => setQuantity(e.target.value)}
+                    required
+                />
+            </div>
+            {props.available ? 
+            <button onClick={handleClick} className={styles.addToCartButton}>Add To Cart</button> :
+            <button onClick={handleClick} className={styles.addToCartButton} disabled>Add To Cart</button>
+            }
         </div>
     );
 }
