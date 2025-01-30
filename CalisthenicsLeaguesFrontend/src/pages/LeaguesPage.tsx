@@ -13,7 +13,7 @@ interface League {
 export function LeaguesPage(){
 
     const [leagues, setLeagues] = useState<League[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState("");
     useEffect(() => {
         const fetchLeagues = async () => {
@@ -53,17 +53,23 @@ export function LeaguesPage(){
     }, []);
     return(
         <>
-            <Navigation isApplyPage={false}/>
-            <div className={styles.mainDiv}>
-                {leagues.map((league) => {
-                    return <LeagueCard 
-                                key={league.id} 
-                                id={league.id} 
-                                leagueName={league.name}
-                                leagueImage={league.image}
-                            />
-                })}
-            </div>
+            {isLoading ? 
+            (<div>Loading...</div>) : 
+            (<>
+                <Navigation isApplyPage={false}/>
+                <div className={styles.mainDiv}>
+                    {leagues.map((league) => {
+                        return <LeagueCard 
+                                    key={league.id} 
+                                    id={league.id} 
+                                    leagueName={league.name}
+                                    leagueImage={league.image}
+                                />
+                    })}
+                </div>
+            </>)
+}
+            {error}
         </>
     );
 }

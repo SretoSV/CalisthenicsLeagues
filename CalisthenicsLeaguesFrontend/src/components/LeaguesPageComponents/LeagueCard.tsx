@@ -1,5 +1,4 @@
 import { serverPath } from '../../functions/serverpath';
-import leagueLogoImage from '../../images/league1.png';
 import styles from '../../styles/LeaguesPageStyles/LeagueCardStyle.module.css';
 
 interface LeagueCardProps{

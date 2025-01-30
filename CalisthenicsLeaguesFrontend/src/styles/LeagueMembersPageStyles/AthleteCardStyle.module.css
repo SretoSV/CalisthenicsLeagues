@@ -10,6 +10,7 @@
 }
 
 .athleteImage{
+   margin-right: 10px;
    width: 200px; 
    height: 200px;
 }
@@ -17,6 +18,12 @@
 .infoClass{
    font-size: 40px;
    color: white;
+}
+
+.flagImage{
+   margin-left: 5px;
+   width: 70px;
+   height: 50px;
 }
 
 .instagramImage{

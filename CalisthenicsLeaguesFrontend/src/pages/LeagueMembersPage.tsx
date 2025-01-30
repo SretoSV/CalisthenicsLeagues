@@ -1,60 +1,76 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Navigation } from "../components/NavigationComponents/Navigation";
 import styles from '../styles/LeagueMembersPageStyles/LeagueMembersPageStyle.module.css';
 import { AthleteCard } from "../components/LeagueMembersPageComponents/AthleteCard";
+import { serverPath } from "../functions/serverpath";
+interface Member {
+    id: number;
+    name: string;
+    surname: string;
+    country: string;
+    instagram: string;
+    image: string;
+}
 
 export function LeagueMembersPage(){
 
-    const [leaguesMembers, setLeaguesMembers] = useState([
-        {   
-            id: 1,
-            Name: "Sergio",
-            Surname: "Di Pasquale",
-            Country: "Italy",
-            Instagram: "@sergiodipasquale_newerabarbarian",
-            Image: "",
-        },
-        {   
-            id: 2,
-            Name: "Cristian",
-            Surname: "Mariani",
-            Country: "Italy",
-            Instagram: "@christian_mariani",
-            Image: "",
-        },        {   
-            id: 3,
-            Name: "Uros",
-            Surname: "Askovic",
-            Country: "Serbia",
-            Instagram: "@uros_aske",
-            Image: "",
-        },
-    ]);
+    const [leaguesMembers, setLeaguesMembers] = useState<Member[]>([]);
+    const [selectedLeagueId, setSelectedLeagueId] = useState(1);
 
+    useEffect(() => {
+        const fetchMembers = async () => {
+            try {
+                const response = await fetch(`${serverPath()}League/members/${selectedLeagueId}`, {
+                    method: 'GET',
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    setLeaguesMembers(data);
+                } else {
+                    console.error('Error fetching members:', response.status, response.statusText);
+                }
+            } catch (err) {
+                console.error('Fetch error:', err);
+            }
+        };
+
+        fetchMembers();
+    }, [selectedLeagueId]);
+
+    const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const selectedId = parseInt(event.target.value, 10);
+        setSelectedLeagueId(selectedId);
+    };
 
     return(
         <>
             <Navigation isApplyPage={false}/>
             <div className={styles.selectDiv}>
-                <select className={styles.dropdownInput}>
-                        <option value="Legendary">Legendary</option>
-                        <option value="WorldClass">World-Class</option>
-                        <option value="Pro">Pro</option>
-                        <option value="SemiPro">Semi-pro</option>
-                        <option value="Amateur">Amateur</option>
-                        <option value="Begginer">Begginer</option>
+                <select className={styles.dropdownInput} onChange={handleSelectChange} value={selectedLeagueId}>
+                    <option value="1">Legendary</option>
+                    <option value="2">World-Class</option>
+                    <option value="3">Pro</option>
+                    <option value="4">Semi-pro</option>
+                    <option value="5">Amateur</option>
+                    <option value="6">Begginer</option>
                 </select>
-                <div className={styles.memberNumber}>Members: 10</div>
+                <div className={styles.memberNumber}>Members: {leaguesMembers.length}</div>
             </div>
             <div className={styles.membersDiv}>
                 {leaguesMembers.map((member) => {
                     return <AthleteCard 
+                                key={member.id}
                                 id={member.id}
-                                Name={member.Name}
-                                Surname={member.Surname}
-                                Country={member.Country}
-                                Instagram={member.Instagram}
-                                Image={member.Image}
+                                Name={member.name}
+                                Surname={member.surname}
+                                Country={member.country}
+                                Instagram={member.instagram}
+                                Image={member.image}
                             />
                 })}
             </div>
