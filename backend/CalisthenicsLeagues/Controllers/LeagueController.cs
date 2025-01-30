@@ -10,15 +10,20 @@ namespace CalisthenicsLeagues.Controllers
     public class LeagueController : ControllerBase
     {
         private static readonly LeagueService leagueService = new LeagueService();
+        private static readonly UserService userService = new UserService();
 
         [HttpGet("leagues")]
         public IActionResult GetLeagues()
         {
             List<League> leagues = leagueService.FindAll();
-            //User user = userService.GetUserByUsername(User.Identity?.Name);
-            //user.Password = "";
             return StatusCode(200, leagues);
         }
 
+        [HttpGet("members/{id}")]
+        public IActionResult GetLeagueMembers(int id)
+        {
+            List<User> members = userService.GetLeagueMembers(id);
+            return StatusCode(200, members);
+        }
     }
 }

@@ -45,6 +45,11 @@ namespace CalisthenicsLeagues.Service
             return true;
         }
 
+        public List<User> GetLeagueMembers(int id) {
+            List<User> members = userDAO.FindAllByLeagueId(id).ToList();
+            return members;
+        }
+
         public User FillUserFields(EditProfileRequest data, string relativeFilePath)
         {
             User user = new User();

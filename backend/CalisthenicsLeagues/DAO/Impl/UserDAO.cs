@@ -191,8 +191,8 @@ namespace CalisthenicsLeagues.DAO.Impl
                 using (IDbCommand command = connection.CreateCommand())
                 {
                     command.CommandText = query;
-
                     command.Parameters.Add(new MySqlParameter("username", MySqlDbType.VarChar) { Value = username });
+                    command.Prepare();
 
                     using (IDataReader reader = command.ExecuteReader())
                     {
@@ -206,6 +206,36 @@ namespace CalisthenicsLeagues.DAO.Impl
             }
 
             return user;
+        }
+
+        public IEnumerable<User> FindAllByLeagueId(int id)
+        {
+            string query = "select id, username, name, surname, country, dateofbirth, email, image, instagram, league " +
+       "from users where league = ?";
+            List<User> userList = new List<User>();
+
+            using (IDbConnection connection = new MySqlConnection(ConnectionClass.GetConnectionString()))
+            {
+                connection.Open();
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = query;
+                    command.Parameters.Add(new MySqlParameter("league", MySqlDbType.Int32) { Value = id });
+                    command.Prepare();
+
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                             User user = new User(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3),
+                                reader.GetString(4), reader.GetDateTime(5), reader.GetString(6), "", reader.GetString(7), reader.GetString(8), reader.GetInt32(9));
+                            userList.Add(user);
+                        }
+                    }
+                }
+            }
+
+            return userList;
         }
     }
 }

@@ -11,5 +11,6 @@ namespace CalisthenicsLeagues.DAO
         int UpdatePassword(PasswordResetRequest data);
         int UpdateProfile(User user);
         string GetPictureById(int id);
+        IEnumerable<User> FindAllByLeagueId(int id);
     }
 }
