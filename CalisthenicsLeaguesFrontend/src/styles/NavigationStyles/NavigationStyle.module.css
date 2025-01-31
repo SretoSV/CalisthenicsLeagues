@@ -4,7 +4,12 @@
     flex-direction: row;
     max-width: 100%;
 }
-
+.cartAndProfileDiv{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
 .logoImage{
     margin-right: 100px;
 }

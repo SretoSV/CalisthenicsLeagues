@@ -3,6 +3,8 @@ import logoImage from '../../images/logo.png';
 import styles from '../../styles/NavigationStyles/NavigationStyle.module.css';
 import { PictureDropDownList } from './PictureDropDownList';
 import { UserContext } from '../../context/UserContext';
+import { CartCard } from './CartCard';
+
 interface NavigationProps{
     isApplyPage: boolean,
 }
@@ -22,7 +24,11 @@ export function Navigation(props: NavigationProps){
                 className={styles.logoImage}
             />
 
-            {user ? <PictureDropDownList /> : 
+            {user ? 
+                <div className={styles.cartAndProfileDiv}>
+                    <CartCard />
+                    <PictureDropDownList />
+                </div> : 
             (props.isApplyPage? <a className={styles.loginLink} href="../LoginPage">Login</a> : 
             <a className={styles.loginLink} href="LoginPage">Login</a> )
             }

@@ -68,6 +68,7 @@ export function ShopPage(){
             (<div>Loading...</div>) : 
             (<>
                 <Navigation isApplyPage={false}/>
+                
                 <div className={styles.mainDiv}>
                     {shirts.map((shirt) => {
                         if(user != null){

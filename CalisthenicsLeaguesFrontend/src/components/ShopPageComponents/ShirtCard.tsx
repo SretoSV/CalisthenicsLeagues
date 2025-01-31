@@ -1,8 +1,9 @@
 import colorImageBlack from '../../images/colorImageBlack.png';
 import colorImageWhite from '../../images/colorImageWhite.png';
 import styles from '../../styles/ShopPageStyles/ShirtCardStyle.module.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { serverPath } from '../../functions/serverpath';
+import { CartContext } from '../../context/CartContext';
 
 interface LeagueCardProps {
     id: number,
@@ -15,8 +16,13 @@ interface LeagueCardProps {
 }
 
 export function ShirtCard(props: LeagueCardProps) {
+    const cartContext = useContext(CartContext);
+    if (!cartContext) {
+        throw new Error("CartContext must be used within a CartProvider.");
+    }
+    const { increment } = cartContext;
     const [shirtSize, setShirtSize] = useState("S");
-    const [quantity, setQuantity] = useState("0");
+    const [quantity, setQuantity] = useState<number>(1);
     const [currentShirtImage, setCurrentShirtImage] = useState<string>(""); 
     const [selectedView, setSelectedView] = useState<string>("front");
     const [currentColorImage, setCurrentColorImage] = useState<boolean>(true); 
@@ -53,8 +59,15 @@ export function ShirtCard(props: LeagueCardProps) {
         }
     };
     
+    const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value ? Number(e.target.value) : 1; 
+        if (!isNaN(value) && value >= 1) {
+          setQuantity(value);
+        }
+    };
+
     const handleClick = () => {
-        alert("DA")
+        increment(quantity);
     };
 
     return (
@@ -99,10 +112,11 @@ export function ShirtCard(props: LeagueCardProps) {
                     <option value="XXL">XXL</option>
                 </select>
                 <input 
-                    type="text" 
+                    type="number" 
                     value={quantity} 
                     className={styles.quantityInput}
-                    onChange={(e) => setQuantity(e.target.value)}
+                    onChange={handleQuantityChange}
+                    min={1}
                     required
                 />
             </div>

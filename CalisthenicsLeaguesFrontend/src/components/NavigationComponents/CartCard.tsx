@@ -1,28 +1,25 @@
-import styles from '../../styles/NavigationStyles/PictureDropDownListStyle.module.css';
+import styles from '../../styles/NavigationStyles/CartCardStyle.module.css';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { DropDownListCard } from './DropDownListCard';
-import { serverPath } from '../../functions/serverpath';
-import { UserContext } from '../../context/UserContext';
+import cartImage from '../../images/cart.png';
+import { CartContext } from '../../context/CartContext';
 
-export function PictureDropDownList(){
-    const userContext = useContext(UserContext);
-    if (!userContext) {
-        throw new Error("UserContext must be used within a UserProvider.");
+export function CartCard(){
+    const cartContext = useContext(CartContext);
+    if (!cartContext) {
+        throw new Error("CartContext must be used within a CartProvider.");
     }
-    const { user } = userContext;
+    const { numberOfItems } = cartContext;
+
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
-
+    
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
     };
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            //dropdownRef sadrzi referncu na element na koji pokazuje i time mozemo
-            //da direktno pristupimo svojstvima tog elementa
-            //contains(event.target) proverava da li je element na koji je kliknuto
-            //unutar drop down-a, ako jeste ostaje otvoren, ako nije zatvara se
             if (dropdownRef.current && !dropdownRef.current.contains(event.target as HTMLDivElement)) {
                 setIsDropdownOpen(false);
             }
@@ -36,17 +33,23 @@ export function PictureDropDownList(){
 
     return (
         <div className={styles.mainDiv}>
+            {
+                (numberOfItems == 0) ? (<div></div>) : 
+                <div className={styles.numberOfItems}>
+                    <b>{numberOfItems}</b>
+                </div>
+            }
+            
             <div ref={dropdownRef}>
                 <img
-                    className={styles.profileImage}
-                    src={serverPath()+user?.image}
-                    alt="ProfilePicture"
+                    className={styles.cartImage}
+                    src={cartImage}
+                    alt="CartPicture"
                     onClick={toggleDropdown}
                 />    
             
             {isDropdownOpen && <DropDownListCard />}
             </div>
-            <div className={styles.nameDiv}>{user?.username}</div>
             
         </div>
     );

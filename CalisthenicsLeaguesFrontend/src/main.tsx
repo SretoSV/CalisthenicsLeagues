@@ -10,6 +10,7 @@ import { ChatPage } from './pages/ChatPage.tsx';
 import { EditProfilePage } from './pages/EditProfilePage.tsx';
 import { LoginPage } from './pages/LoginPage.tsx';
 import { UserProvider } from './context/UserContext.tsx';
+import { CartProvider } from './context/CartContext.tsx';
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <UserProvider>
-    <RouterProvider router={router} />
+    <CartProvider>
+      <RouterProvider router={router} />
+    </CartProvider>
   </UserProvider>,
 )
