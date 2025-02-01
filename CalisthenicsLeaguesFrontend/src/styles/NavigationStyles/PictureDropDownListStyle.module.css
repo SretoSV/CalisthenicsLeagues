@@ -7,7 +7,16 @@
     font-size: 18px;
     margin-top: -5px;
 }
-
+.triangleDivOuter {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent; /* Leva ivica */
+    border-right: 20px solid transparent; /* Desna ivica */
+    border-bottom: 23px solid #555; /* Donji trougao bez bele ivice */
+    position: absolute;
+    margin-top: -33px;
+    margin-left: 160px;
+}
 .profileImage{
     width: 63px;
     height: 63px;
@@ -17,12 +26,14 @@
 }
 
 .dropdownStyle{
+    margin-top: 15px;
     text-align: center;
     width: 200px;
     height: auto;
     position: absolute;
-    margin-left: -155px;
+    margin-left: -160px;
     background-color: #1B1B23;
+    border: 2px solid #555;
     color: #fff;
     padding: 10px;
     border-radius: 5px;

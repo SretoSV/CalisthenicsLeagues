@@ -20,7 +20,7 @@ export function ShirtCard(props: LeagueCardProps) {
     if (!cartContext) {
         throw new Error("CartContext must be used within a CartProvider.");
     }
-    const { increment } = cartContext;
+    const { updateCartItems } = cartContext;
     const [shirtSize, setShirtSize] = useState("S");
     const [quantity, setQuantity] = useState<number>(1);
     const [currentShirtImage, setCurrentShirtImage] = useState<string>(""); 
@@ -67,7 +67,11 @@ export function ShirtCard(props: LeagueCardProps) {
     };
 
     const handleClick = () => {
-        increment(quantity);
+        if(currentColorImage){
+            updateCartItems(props.id, props.leagueName, props.shirtImageBlackFront, shirtSize, quantity, 1);
+        }else{
+            updateCartItems(props.id, props.leagueName, props.shirtImageWhiteFront, shirtSize, quantity, 1);
+        }
     };
 
     return (

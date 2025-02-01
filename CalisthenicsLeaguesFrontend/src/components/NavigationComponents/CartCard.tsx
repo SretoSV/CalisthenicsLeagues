@@ -1,8 +1,8 @@
 import styles from '../../styles/NavigationStyles/CartCardStyle.module.css';
 import { useContext, useEffect, useRef, useState } from 'react';
-import { DropDownListCard } from './DropDownListCard';
 import cartImage from '../../images/cart.png';
 import { CartContext } from '../../context/CartContext';
+import { DropDownCartItems } from './DropDownCartItems';
 
 export function CartCard(){
     const cartContext = useContext(CartContext);
@@ -48,7 +48,7 @@ export function CartCard(){
                     onClick={toggleDropdown}
                 />    
             
-            {isDropdownOpen && <DropDownListCard />}
+            {isDropdownOpen && <DropDownCartItems />}
             </div>
             
         </div>
