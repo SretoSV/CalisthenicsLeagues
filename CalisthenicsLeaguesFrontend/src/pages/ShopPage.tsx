@@ -12,6 +12,7 @@ interface Shirt{
     shirtImageBlackBack: string,
     shirtImageWhiteFront: string,
     shirtImageWhiteBack: string,
+    price: number,
 }
 
 export function ShopPage(){
@@ -82,6 +83,7 @@ export function ShopPage(){
                                     shirtImageWhiteFront={shirt.shirtImageWhiteFront}
                                     shirtImageWhiteBack={shirt.shirtImageWhiteBack}
                                     available={true}
+                                    price={shirt.price}
                                 />
                             }
                             else{
@@ -94,6 +96,7 @@ export function ShopPage(){
                                     shirtImageWhiteFront={shirt.shirtImageWhiteFront}
                                     shirtImageWhiteBack={shirt.shirtImageWhiteBack}
                                     available={false}
+                                    price={shirt.price}
                                 />
                             }
                         }
@@ -107,6 +110,7 @@ export function ShopPage(){
                                 shirtImageWhiteFront={shirt.shirtImageWhiteFront}
                                 shirtImageWhiteBack={shirt.shirtImageWhiteBack}
                                 available={false}
+                                price={shirt.price}
                             />
                         }
                     })}

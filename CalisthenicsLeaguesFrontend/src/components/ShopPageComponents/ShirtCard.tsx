@@ -13,6 +13,7 @@ interface LeagueCardProps {
     shirtImageWhiteFront: string,
     shirtImageWhiteBack: string,
     available: boolean,
+    price: number,
 }
 
 export function ShirtCard(props: LeagueCardProps) {
@@ -68,9 +69,9 @@ export function ShirtCard(props: LeagueCardProps) {
 
     const handleClick = () => {
         if(currentColorImage){
-            updateCartItems(props.id, props.leagueName, props.shirtImageBlackFront, shirtSize, quantity, 1);
+            updateCartItems(props.id, props.leagueName, props.shirtImageBlackFront, shirtSize, quantity, 1, props.price);
         }else{
-            updateCartItems(props.id, props.leagueName, props.shirtImageWhiteFront, shirtSize, quantity, 1);
+            updateCartItems(props.id, props.leagueName, props.shirtImageWhiteFront, shirtSize, quantity, 1, props.price);
         }
     };
 
@@ -106,6 +107,11 @@ export function ShirtCard(props: LeagueCardProps) {
                     onChange={() => handleViewChange("back")} 
                 />
             </div>
+
+            <div className={styles.priceDiv}>
+                {"Price: " + props.price + " €"}
+            </div>
+            <div style={{height:"10px"}}></div>
             <div>
                 <select id="attributeSelect" className={styles.dropdownInput} value={shirtSize} 
                     onChange={(e) => {setShirtSize(e.target.value)}} required>

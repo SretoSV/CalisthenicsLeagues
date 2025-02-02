@@ -9,6 +9,7 @@ interface Shirt{
     shirtImage: string,
     size: string,
     quantity: number,
+    price: number,
 }
 
 export function CartItemCard(props: Shirt){
@@ -33,7 +34,7 @@ export function CartItemCard(props: Shirt){
     };
 
     useEffect(() => {
-        updateCartItems(props.id, props.leagueName, props.shirtImage, props.size, quantity, 2);
+        updateCartItems(props.id, props.leagueName, props.shirtImage, props.size, quantity, 2, props.price);
     }, [quantity]);
 
     return (
@@ -46,8 +47,9 @@ export function CartItemCard(props: Shirt){
             />
             <b>
             <div>
-                {props.leagueName}<br/><br/>
-                {"Size: " + props.size}<br/><br/>
+                {props.leagueName}<br/>
+                {"Size: " + props.size}<br/>
+                {"Price: " + (props.price * props.quantity).toFixed(2) + " €"}
                 <input 
                     type="number" 
                     value={quantity} 

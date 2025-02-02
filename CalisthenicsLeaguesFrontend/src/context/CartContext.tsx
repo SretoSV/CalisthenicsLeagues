@@ -3,7 +3,7 @@ import { createContext, useState, useEffect, ReactNode } from 'react';
 interface CartContextType {
   numberOfItems: number;
   cartItems: Shirt[];
-  updateCartItems: (id: number, leagueName: string, shirtImage: string, size: string, quantity: number, option: number) => void;
+  updateCartItems: (id: number, leagueName: string, shirtImage: string, size: string, quantity: number, option: number, price: number) => void;
   removeItem: (id: number, leagueName: string, shirtImage: string, size: string) => void;
 }
 
@@ -19,6 +19,7 @@ interface Shirt {
   shirtImage: string;
   size: string;
   quantity: number;
+  price: number;
 }
 
 export function CartProvider({ children }: CartProviderProps) {
@@ -40,8 +41,9 @@ export function CartProvider({ children }: CartProviderProps) {
     });
   };
 
-  const updateCartItems = (id: number, leagueName: string, shirtImage: string, size: string, quantity: number, option: number) => {
-    const newItem: Shirt = { id, leagueName, shirtImage, size, quantity };
+  const updateCartItems = (id: number, leagueName: string, shirtImage: string, size: string, quantity: number, option: number, price: number) => {
+    const newItem: Shirt = { id, leagueName, shirtImage, size, quantity, price
+     };
     if(option === 1){
       setCartItems((prevItems) => {
         const existingItemIndex = prevItems.findIndex(
