@@ -48,3 +48,24 @@
     margin-top: -5px;
     margin-bottom: 10px;
 }
+
+input {
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #1F1F27;
+    color: #fff;
+    font-size: 15px;
+
+}
+
+label{
+    margin-right: 170px;
+    font-size: 15px;
+}
+
+.cityLabel{
+    margin-right: 200px;
+}

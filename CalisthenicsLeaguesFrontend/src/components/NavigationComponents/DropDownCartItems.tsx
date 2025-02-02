@@ -1,7 +1,17 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import styles from '../../styles/NavigationStyles/DropDownCartItemsStyle.module.css';
 import { CartItemCard } from './CartItemCard';
 import { CartContext } from '../../context/CartContext';
+
+interface Country {
+    name: {
+      common: string;
+    };
+    flags: {
+      png: string;
+      svg: string;
+    };
+  }
 
 export function DropDownCartItems(){
     const cartContext = useContext(CartContext);
@@ -13,9 +23,33 @@ export function DropDownCartItems(){
 
     const totalPrice = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0).toFixed(2);
     
-    const handleSubmit = () => {
+    const [form, setForm] = useState({
+        country: '',
+        city: '',
+        address: '',
+        number: '',
+    });
+
+    const [countries, setCountries] = useState<Country[]>([]);
+
+    useEffect(() => {
+      fetch("https://restcountries.com/v3.1/all")
+        .then((response) => response.json())
+        .then((data) => setCountries(data))
+        .catch((error) => console.error("Error fetching countries:", error));
+    }, []);
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>)  => {
+        setForm({
+          ...form,
+          [e.target.name]: e.target.value, 
+        });
+    }
+
+    const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+        e.preventDefault();
         //send to API whole string of Items
-        //show modal for address, number, city, country
+        //add inputs for address, number, city, country
         console.log(cartItems);
     };
 
@@ -44,8 +78,58 @@ export function DropDownCartItems(){
                             <div className={styles.totalPriceDiv}>
                                 {"Total price: " + totalPrice + " €"}
                             </div>
-                            <form onSubmit={handleSubmit}>
+                            <form onSubmit={handleSubmit} className={styles.dataForm}>
                                 
+                                <label htmlFor="country">Country</label>
+                                <input
+                                    id="country"
+                                    type="text"
+                                    name="country"
+                                    value={form.country}
+                                    onChange={handleChange}
+                                    list="countries-list"
+                                    autoComplete="off"
+                                    required
+                                />
+                                <datalist id="countries-list">
+                                    {countries.map((country) => (
+                                    <option key={country.name.common} value={country.name.common} />
+                                    ))}
+                                </datalist>
+
+                                <label htmlFor="city" className={styles.cityLabel}>City</label>
+                                <input
+                                    id="city"
+                                    type="text"
+                                    name="city"
+                                    defaultValue={form.city}
+                                    onChange={handleChange}
+                                    autoComplete="off"
+                                    required
+                                />
+
+                                <label htmlFor="address">Address</label>
+                                <input
+                                    id="address"
+                                    type="text"
+                                    name="address"
+                                    defaultValue={form.address}
+                                    onChange={handleChange}
+                                    autoComplete="off"
+                                    required
+                                />
+
+                                <label htmlFor="number">Number</label>
+                                <input
+                                    id="number"
+                                    type="text"
+                                    name="number"
+                                    defaultValue={form.number}
+                                    onChange={handleChange}
+                                    autoComplete="off"
+                                    required
+                                />
+
                                 <button
                                     className={styles.submitButton}
                                     type='submit'
