@@ -8,9 +8,10 @@
         public string ShirtImageBlackBack { get; set; }
         public string ShirtImageWhiteFront { get; set; }
         public string ShirtImageWhiteBack { get; set; }
+        public double Price { get; set; }
         public Shirt() { }
 
-        public Shirt(int id, string leagueName, string shirtImageBlackFront, string shirtImageBlackBack, string shirtImageWhiteFront, string shirtImageWhiteBack)
+        public Shirt(int id, string leagueName, string shirtImageBlackFront, string shirtImageBlackBack, string shirtImageWhiteFront, string shirtImageWhiteBack, double price)
         {
             Id = id;
             LeagueName = leagueName;
@@ -18,6 +19,7 @@
             ShirtImageBlackBack = shirtImageBlackBack;
             ShirtImageWhiteFront = shirtImageWhiteFront;
             ShirtImageWhiteBack = shirtImageWhiteBack;
+            Price = price;
         }
     }
 }

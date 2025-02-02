@@ -49,7 +49,7 @@ namespace CalisthenicsLeagues.DAO.Impl
                     {
                         while (reader.Read())
                         {
-                            Shirt shirt = new Shirt(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5));
+                            Shirt shirt = new Shirt(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetDouble(6));
                             shirtList.Add(shirt);
                         }
                     }
