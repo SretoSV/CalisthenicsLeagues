@@ -5,6 +5,7 @@ interface CartContextType {
   cartItems: Shirt[];
   updateCartItems: (id: number, leagueName: string, shirtImage: string, size: string, quantity: number, option: number, price: number) => void;
   removeItem: (id: number, leagueName: string, shirtImage: string, size: string) => void;
+  emptyCart: () => void;
 }
 
 export const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -98,13 +99,20 @@ export function CartProvider({ children }: CartProviderProps) {
     });
   };
 
+  const emptyCart = () => {
+    setCartItems([]);
+    setNumberOfItems(0);
+    localStorage.removeItem("cartItems");
+    localStorage.removeItem("cartNumberOfItems");
+  };
+
   useEffect(() => {
     localStorage.setItem("cartNumberOfItems", numberOfItems.toString());
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [numberOfItems, cartItems]);
 
   return (
-    <CartContext.Provider value={{ numberOfItems, updateCartItems, cartItems, removeItem }}>
+    <CartContext.Provider value={{ numberOfItems, updateCartItems, cartItems, removeItem, emptyCart }}>
       {children}
     </CartContext.Provider>
   );

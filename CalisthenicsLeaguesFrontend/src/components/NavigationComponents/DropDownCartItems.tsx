@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from 'react';
 import styles from '../../styles/NavigationStyles/DropDownCartItemsStyle.module.css';
 import { CartItemCard } from './CartItemCard';
 import { CartContext } from '../../context/CartContext';
+import { UserContext } from '../../context/UserContext';
+import { serverPath } from '../../functions/serverpath';
 
 interface Country {
     name: {
@@ -14,12 +16,18 @@ interface Country {
   }
 
 export function DropDownCartItems(){
+    const userContext = useContext(UserContext);
+    if (!userContext) {
+        throw new Error("UserContext must be used within a UserProvider.");
+    }
+    const { user } = userContext;
+
     const cartContext = useContext(CartContext);
     if (!cartContext) {
         throw new Error("CartContext must be used within a CartProvider.");
     }
 
-    const { cartItems } = cartContext;
+    const { cartItems, emptyCart } = cartContext;
 
     const totalPrice = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0).toFixed(2);
     
@@ -46,10 +54,40 @@ export function DropDownCartItems(){
         });
     }
 
-    const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
-        //send to API whole string of Items
-        //add inputs for address, number, city, country
+
+        const orderData = {
+            userId: user?.id,
+            items: cartItems,
+            shippingDetails: form,
+            totalPrice: Number(totalPrice),
+        };
+    
+        try {
+            const response = await fetch(`${serverPath()}Shop/orders`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(orderData),
+            });
+    
+            if (!response.ok) {
+                throw new Error("Order submission failed");
+            }
+            else{
+                const result = await response.json();
+                console.log("Order successful:", result);
+                alert("Order submitted successfully!");
+                emptyCart();
+            }
+
+        } catch (error) {
+            console.error("Error submitting order:", error);
+            alert("An error occurred while submitting the order.");
+        }
+
         console.log(cartItems);
     };
 
