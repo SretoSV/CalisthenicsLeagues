@@ -3,7 +3,7 @@ import styles from '../../styles/ApplyPageStyles/ApplyPageStyle.module.css';
 
 interface ApplyModalProps {
     show: boolean,
-    onClose: () => void; // Funkcija bez argumenata koja ne vraća ništa
+    onClose: () => void; 
 }
 
 interface Country {
@@ -25,6 +25,11 @@ export default function ApplyModal({ onClose, show }: ApplyModalProps) {
         .catch((error) => console.error("Error fetching countries:", error));
     }, []);
 
+    const formatDate = (dateString: string) => {
+        if (!dateString) return '';
+        return dateString.split('T')[0];
+      };
+
     const [form, setForm] = useState({
         username: '',
         name: '',
@@ -32,6 +37,7 @@ export default function ApplyModal({ onClose, show }: ApplyModalProps) {
         surname: '',
         email: '',
         country: '',
+        dateOfBirth: '',
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>)  => {
@@ -164,6 +170,17 @@ export default function ApplyModal({ onClose, show }: ApplyModalProps) {
                     <option key={country.name.common} value={country.name.common} />
                     ))}
                 </datalist>
+
+                <label htmlFor="dateOfBirth">Date of Birth</label>
+                <input 
+                    id="dateOfBirth"
+                    type="date" 
+                    name="dateOfBirth"
+                    defaultValue={form.dateOfBirth || ""} 
+                    onChange={handleChange}
+                    max={new Date().toISOString().split("T")[0]} 
+                    required
+                />
 
                 <label htmlFor="Upload">Upload video:</label>
                 {!videoFile && (
