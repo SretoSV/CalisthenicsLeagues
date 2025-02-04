@@ -60,6 +60,10 @@
     background-color: #460146;
 }
 
+.applyButton:disabled, .applyButton:disabled:hover{
+    background-color: gray;
+}
+
 /*--- Rules Card ---*/
 .rulesCardMainDiv{
     width: 50%;

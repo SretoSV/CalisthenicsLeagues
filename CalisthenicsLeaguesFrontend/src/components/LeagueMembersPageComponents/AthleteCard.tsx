@@ -54,7 +54,14 @@ export function AthleteCard(props: AthleteCardProps){
                         alt="athlete" 
                         className={styles.instagramImage}
                     />
-                    {props.Instagram}
+                    <a 
+                      href={`https://www.instagram.com/${props.Instagram}`} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className={styles.instagramLink}
+                    >
+                      {"@" + props.Instagram}
+                    </a>
                 </div>
             </div>
         </div>

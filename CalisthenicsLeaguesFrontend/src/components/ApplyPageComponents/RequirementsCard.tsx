@@ -1,16 +1,45 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import styles from '../../styles/ApplyPageStyles/ApplyPageStyle.module.css';
 import ApplyModal from './ApplyModal';
+import { UserContext } from '../../context/UserContext';
 
 interface RequirementsCardProps{
     leagueName: string,
 }
 
 export function RequirementsCard(props: RequirementsCardProps){
+    const userContext = useContext(UserContext);
+    if (!userContext) {
+        throw new Error("UserContext must be used within a UserProvider.");
+    }
+    const { user } = userContext;
+
+    const [leagueId, setLeagueId] = useState<number>(0);
+
     const [activeLeague, setActiveLeague] = useState<string | null>(null);
     const [showModal, setShowModal] = useState(false);
     
     useEffect(() => {
+        switch (props.leagueName){
+            case "Legendary":
+                setLeagueId(1);
+                break;
+            case "World-Class":
+                setLeagueId(2);
+                break;
+            case "Pro":
+                setLeagueId(3);
+                break;
+            case "Semi-pro":
+                setLeagueId(4);
+                break;
+            case "Amateur":
+                setLeagueId(5);
+                break;
+            case "Begginer":
+                setLeagueId(6);
+                break; 
+        }
         setActiveLeague(props.leagueName);
     }, [props.leagueName]);
 
@@ -95,7 +124,13 @@ export function RequirementsCard(props: RequirementsCardProps){
             show={showModal} 
             onClose={closeModal}
         />
-        <button className={styles.applyButton} onClick={openModal}>Apply</button>
+        {
+            user ? 
+            (user.league <= leagueId) ? <button className={styles.applyButton} onClick={openModal} disabled>Apply</button> :
+            <button className={styles.applyButton} onClick={openModal}>Apply</button>
+            : <button className={styles.applyButton} onClick={openModal}>Apply</button>
+        }
+
     </div>
     );
 }

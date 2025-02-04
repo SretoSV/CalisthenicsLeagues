@@ -36,3 +36,7 @@
    align-items: center;
    flex-direction: row;
 }
+
+a{
+   color: white;
+}

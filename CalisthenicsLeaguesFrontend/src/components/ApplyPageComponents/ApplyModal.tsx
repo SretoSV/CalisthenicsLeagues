@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from '../../styles/ApplyPageStyles/ApplyPageStyle.module.css';
 
 interface ApplyModalProps {
@@ -6,10 +6,41 @@ interface ApplyModalProps {
     onClose: () => void; // Funkcija bez argumenata koja ne vraća ništa
 }
 
+interface Country {
+    name: {
+      common: string;
+    };
+    flags: {
+      png: string;
+      svg: string;
+    };
+  }
+
 export default function ApplyModal({ onClose, show }: ApplyModalProps) {
-    const [name, setName] = useState("");
-    const [surname, setSurname] = useState("");
-    const [email, setEmail] = useState("");
+    const [countries, setCountries] = useState<Country[]>([]);
+    useEffect(() => {
+      fetch("https://restcountries.com/v3.1/all")
+        .then((response) => response.json())
+        .then((data) => setCountries(data))
+        .catch((error) => console.error("Error fetching countries:", error));
+    }, []);
+
+    const [form, setForm] = useState({
+        username: '',
+        name: '',
+        password: '',
+        surname: '',
+        email: '',
+        country: '',
+    });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>)  => {
+        setForm({
+          ...form,
+          [e.target.name]: e.target.value, 
+        });
+    }
+
     const [videoFile, setVideoFile] = useState<File | null>(null);
     const [dragActive, setDragActive] = useState(false);
 
@@ -26,7 +57,7 @@ export default function ApplyModal({ onClose, show }: ApplyModalProps) {
             alert("Please upload a video file.");
             return;
         }
-        console.log("Submitted:", { name, surname, email, videoFile });
+        console.log("Submitted:", form.name, form.surname, form.email, videoFile );
         onClose();
     };
 
@@ -62,13 +93,38 @@ export default function ApplyModal({ onClose, show }: ApplyModalProps) {
     return (
         <form className={styles.modalOverlay} onSubmit={handleSubmit}>
             <div className={styles.modalContent}>
+            <div>
+                Enter your information to be able to log in, if your application is accepted.
+            </div>
+            <br />
             <div className={styles.formModal}>
+                <label htmlFor="Username">Username:</label>
+                <input 
+                    id="Username" 
+                    name="username"
+                    type="text" 
+                    value={form.username} 
+                    onChange={handleChange} 
+                    required
+                />
+
+                <label htmlFor="Password">Password:</label>
+                <input 
+                    id="Password" 
+                    type="password" 
+                    name="password"
+                    value={form.password} 
+                    onChange={handleChange} 
+                    required
+                />
+
                 <label htmlFor="Name">Name:</label>
                 <input 
                     id="Name" 
                     type="text" 
-                    value={name} 
-                    onChange={(e) => setName(e.target.value)} 
+                    name="name"
+                    value={form.name} 
+                    onChange={handleChange} 
                     required
                 />
     
@@ -76,8 +132,9 @@ export default function ApplyModal({ onClose, show }: ApplyModalProps) {
                 <input 
                     id="Surname" 
                     type="text" 
-                    value={surname} 
-                    onChange={(e) => setSurname(e.target.value)} 
+                    name="surname"
+                    value={form.surname} 
+                    onChange={handleChange} 
                     required
                 />
 
@@ -85,10 +142,29 @@ export default function ApplyModal({ onClose, show }: ApplyModalProps) {
                 <input 
                     id="Email" 
                     type="email" 
-                    value={email} 
-                    onChange={(e) => setEmail(e.target.value)} 
+                    name="email"
+                    value={form.email} 
+                    onChange={handleChange} 
                     required
                 />
+
+                <label htmlFor="country">Country</label>
+                <input
+                    id="country"
+                    type="text"
+                    name="country"
+                    value={form.country}
+                    onChange={handleChange}
+                    list="countries-list"
+                    autoComplete="off"
+                    required
+                />
+                <datalist id="countries-list">
+                    {countries.map((country) => (
+                    <option key={country.name.common} value={country.name.common} />
+                    ))}
+                </datalist>
+
                 <label htmlFor="Upload">Upload video:</label>
                 {!videoFile && (
                     <div className={styles.customFileUpload}>
