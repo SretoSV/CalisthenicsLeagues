@@ -25,5 +25,12 @@ namespace CalisthenicsLeagues.Controllers
             List<User> members = userService.GetLeagueMembers(id);
             return StatusCode(200, members);
         }
+
+        [HttpGet("members/number/{id}")]
+        public IActionResult GetNumberOfLeagueMembers(int id)
+        {
+            List<User> members = userService.GetLeagueMembers(id);
+            return StatusCode(200, members.Count);
+        }
     }
 }
