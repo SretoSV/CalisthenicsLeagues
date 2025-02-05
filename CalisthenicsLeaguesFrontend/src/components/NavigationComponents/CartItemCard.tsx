@@ -1,7 +1,7 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { serverPath } from "../../functions/serverpath";
 import styles from '../../styles/NavigationStyles/CartItemCardStyle.module.css';
-import { CartContext } from "../../context/CartContext";
+import { useCartContext } from "../../context/CartContext";
 
 interface Shirt{
     id: number,
@@ -13,11 +13,7 @@ interface Shirt{
 }
 
 export function CartItemCard(props: Shirt){
-    const cartContext = useContext(CartContext);
-    if (!cartContext) {
-        throw new Error("CartContext must be used within a CartProvider.");
-    }
-    const { removeItem, updateCartItems } = cartContext;
+    const { removeItem, updateCartItems } = useCartContext();
 
     const [quantity, setQuantity] = useState<number>(props.quantity);
 

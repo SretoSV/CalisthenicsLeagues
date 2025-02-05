@@ -1,15 +1,11 @@
 import styles from '../../styles/NavigationStyles/PictureDropDownListStyle.module.css';
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { DropDownListCard } from './DropDownListCard';
 import { serverPath } from '../../functions/serverpath';
-import { UserContext } from '../../context/UserContext';
+import { useUserContext } from '../../context/UserContext';
 
 export function PictureDropDownList(){
-    const userContext = useContext(UserContext);
-    if (!userContext) {
-        throw new Error("UserContext must be used within a UserProvider.");
-    }
-    const { user } = userContext;
+    const { user } = useUserContext();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 

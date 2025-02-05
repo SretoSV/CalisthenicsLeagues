@@ -1,18 +1,13 @@
-import { useContext } from 'react';
 import styles from '../../styles/NavigationStyles/PictureDropDownListStyle.module.css';
-import { UserContext } from '../../context/UserContext';
+import { useUserContext } from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 
 export function DropDownListCard(){
     const navigate = useNavigate();
-    const userContext = useContext(UserContext);
-    if (!userContext) {
-        throw new Error("UserContext must be used within a UserProvider.");
-    }
-    const { logout } = userContext;
+    const { logout } = useUserContext();
 
     const handleLogout = async () => {
-        //logout();
+
         try {
             const response = await fetch('http://localhost:5099/User/logout', {
                 method: 'POST',
@@ -20,16 +15,16 @@ export function DropDownListCard(){
             });
                         
             if (response.ok) {
-                console.log('Korisnik je uspešno odjavljen');
+                console.log('User logged out successfully!');
                 logout();
                 navigate('/LeaguesPage');
             } 
             else {
-                console.error('Greška prilikom odjave');
+                console.error('Error while logging out...');
             }
         } 
         catch (error) {
-            console.error('Greška prilikom povezivanja sa serverom:', error);
+            console.error('Error connecting to server: ', error);
         }
     };
 

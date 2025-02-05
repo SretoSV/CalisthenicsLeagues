@@ -1,18 +1,15 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from '../../styles/ApplyPageStyles/ApplyPageStyle.module.css';
 import ApplyModal from './ApplyModal';
-import { UserContext } from '../../context/UserContext';
+import { useUserContext } from '../../context/UserContext';
+import { setLeagueIdByLeagueName } from '../../functions/formChangeFunction';
 
 interface RequirementsCardProps{
     leagueName: string,
 }
 
 export function RequirementsCard(props: RequirementsCardProps){
-    const userContext = useContext(UserContext);
-    if (!userContext) {
-        throw new Error("UserContext must be used within a UserProvider.");
-    }
-    const { user } = userContext;
+    const { user } = useUserContext();
 
     const [leagueId, setLeagueId] = useState<number>(0);
 
@@ -20,26 +17,7 @@ export function RequirementsCard(props: RequirementsCardProps){
     const [showModal, setShowModal] = useState(false);
     
     useEffect(() => {
-        switch (props.leagueName){
-            case "Legendary":
-                setLeagueId(1);
-                break;
-            case "World-Class":
-                setLeagueId(2);
-                break;
-            case "Pro":
-                setLeagueId(3);
-                break;
-            case "Semi-pro":
-                setLeagueId(4);
-                break;
-            case "Amateur":
-                setLeagueId(5);
-                break;
-            case "Begginer":
-                setLeagueId(6);
-                break; 
-        }
+        setLeagueId(setLeagueIdByLeagueName(props.leagueName) || 0);
         setActiveLeague(props.leagueName);
     }, [props.leagueName]);
 

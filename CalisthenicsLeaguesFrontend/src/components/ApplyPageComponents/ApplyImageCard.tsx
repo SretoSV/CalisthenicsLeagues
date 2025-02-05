@@ -1,6 +1,7 @@
 import styles from '../../styles/ApplyPageStyles/ApplyPageStyle.module.css';
 import { serverPath } from '../../functions/serverpath';
 import { useEffect, useState } from 'react';
+import { setLeagueIdByLeagueName } from '../../functions/formChangeFunction';
 
 interface ApplyImageCardProps{
     leagueName: string,
@@ -10,26 +11,7 @@ export function ApplyImageCard(props :ApplyImageCardProps){
     const [leagueId, setLeagueId] = useState<number | null>(null);
 
     useEffect(() => {
-        switch (props.leagueName){
-            case "Legendary":
-                setLeagueId(1);
-                break;
-            case "World-Class":
-                setLeagueId(2);
-                break;
-            case "Pro":
-                setLeagueId(3);
-                break;
-            case "Semi-pro":
-                setLeagueId(4);
-                break;
-            case "Amateur":
-                setLeagueId(5);
-                break;
-            case "Begginer":
-                setLeagueId(6);
-                break; 
-        }
+        setLeagueId(setLeagueIdByLeagueName(props.leagueName) || 0);
     }, [props.leagueName]);
 
     useEffect(() => {

@@ -1,33 +1,16 @@
-import { useContext, useEffect, useState } from 'react';
+import { useState } from 'react';
 import styles from '../../styles/NavigationStyles/DropDownCartItemsStyle.module.css';
 import { CartItemCard } from './CartItemCard';
-import { CartContext } from '../../context/CartContext';
-import { UserContext } from '../../context/UserContext';
+import { useCartContext } from '../../context/CartContext';
+import { useUserContext } from '../../context/UserContext';
 import { serverPath } from '../../functions/serverpath';
-
-interface Country {
-    name: {
-      common: string;
-    };
-    flags: {
-      png: string;
-      svg: string;
-    };
-  }
+import { useCountriesContext } from '../../context/CountriesContext';
+import { handleInputChange } from '../../functions/formChangeFunction';
 
 export function DropDownCartItems(){
-    const userContext = useContext(UserContext);
-    if (!userContext) {
-        throw new Error("UserContext must be used within a UserProvider.");
-    }
-    const { user } = userContext;
-
-    const cartContext = useContext(CartContext);
-    if (!cartContext) {
-        throw new Error("CartContext must be used within a CartProvider.");
-    }
-
-    const { cartItems, emptyCart } = cartContext;
+    const { user } = useUserContext();
+    const { countries } = useCountriesContext();
+    const { cartItems, emptyCart } = useCartContext();
 
     const totalPrice = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0).toFixed(2);
     
@@ -37,22 +20,6 @@ export function DropDownCartItems(){
         address: '',
         number: '',
     });
-
-    const [countries, setCountries] = useState<Country[]>([]);
-
-    useEffect(() => {
-      fetch("https://restcountries.com/v3.1/all")
-        .then((response) => response.json())
-        .then((data) => setCountries(data))
-        .catch((error) => console.error("Error fetching countries:", error));
-    }, []);
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>)  => {
-        setForm({
-          ...form,
-          [e.target.name]: e.target.value, 
-        });
-    }
 
     const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -124,7 +91,7 @@ export function DropDownCartItems(){
                                     type="text"
                                     name="country"
                                     value={form.country}
-                                    onChange={handleChange}
+                                    onChange={(e) => handleInputChange(e, setForm)}
                                     list="countries-list"
                                     autoComplete="off"
                                     required
@@ -141,7 +108,7 @@ export function DropDownCartItems(){
                                     type="text"
                                     name="city"
                                     defaultValue={form.city}
-                                    onChange={handleChange}
+                                    onChange={(e) => handleInputChange(e, setForm)}
                                     autoComplete="off"
                                     required
                                 />
@@ -152,7 +119,7 @@ export function DropDownCartItems(){
                                     type="text"
                                     name="address"
                                     defaultValue={form.address}
-                                    onChange={handleChange}
+                                    onChange={(e) => handleInputChange(e, setForm)}
                                     autoComplete="off"
                                     required
                                 />
@@ -163,7 +130,7 @@ export function DropDownCartItems(){
                                     type="text"
                                     name="number"
                                     defaultValue={form.number}
-                                    onChange={handleChange}
+                                    onChange={(e) => handleInputChange(e, setForm)}
                                     autoComplete="off"
                                     required
                                 />

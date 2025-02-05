@@ -1,15 +1,11 @@
 import styles from '../../styles/NavigationStyles/CartCardStyle.module.css';
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import cartImage from '../../images/cart.png';
-import { CartContext } from '../../context/CartContext';
+import { useCartContext } from '../../context/CartContext';
 import { DropDownCartItems } from './DropDownCartItems';
 
 export function CartCard(){
-    const cartContext = useContext(CartContext);
-    if (!cartContext) {
-        throw new Error("CartContext must be used within a CartProvider.");
-    }
-    const { numberOfItems } = cartContext;
+    const { numberOfItems } = useCartContext();
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);

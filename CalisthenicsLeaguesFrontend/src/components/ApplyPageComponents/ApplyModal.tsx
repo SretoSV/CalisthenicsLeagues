@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import styles from '../../styles/ApplyPageStyles/ApplyPageStyle.module.css';
 import { serverPath } from '../../functions/serverpath';
+import { handleInputChange, setLeagueIdByLeagueName } from '../../functions/formChangeFunction';
+import { useCountriesContext } from '../../context/CountriesContext';
 
 interface ApplyModalProps {
     leagueName: string,
@@ -8,53 +10,9 @@ interface ApplyModalProps {
     onClose: () => void; 
 }
 
-interface Country {
-    name: {
-      common: string;
-    };
-    flags: {
-      png: string;
-      svg: string;
-    };
-  }
-
 export default function ApplyModal({ onClose, show, leagueName }: ApplyModalProps) {
 
-    useEffect(() => {
-        switch (leagueName){
-            case "Legendary":
-                form.league = 1;
-                break;
-            case "World-Class":
-                form.league = 2;
-                break;
-            case "Pro":
-                form.league = 3;
-                break;
-            case "Semi-pro":
-                form.league = 4;
-                break;
-            case "Amateur":
-                form.league = 5;
-                break;
-            case "Begginer":
-                form.league = 6;
-                break; 
-        }
-    }, [leagueName]);
-    
-    const [countries, setCountries] = useState<Country[]>([]);
-    useEffect(() => {
-      fetch("https://restcountries.com/v3.1/all")
-        .then((response) => response.json())
-        .then((data) => setCountries(data))
-        .catch((error) => console.error("Error fetching countries:", error));
-    }, []);
-
-    const formatDate = (dateString: string) => {
-        if (!dateString) return '';
-        return dateString.split('T')[0];
-      };
+    const { countries } = useCountriesContext();
 
     const [form, setForm] = useState({
         username: '',
@@ -69,12 +27,12 @@ export default function ApplyModal({ onClose, show, leagueName }: ApplyModalProp
         league: 0,
     });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>)  => {
-        setForm({
-          ...form,
-          [e.target.name]: e.target.value, 
-        });
-    }
+    useEffect(() => {
+        setForm(prevForm => ({
+            ...prevForm,
+            league: setLeagueIdByLeagueName(leagueName) || 0
+        }));
+    }, [leagueName]);
 
     if (!show) return null;
 
@@ -115,7 +73,6 @@ export default function ApplyModal({ onClose, show, leagueName }: ApplyModalProp
         onClose();
     };
 
-
     return (
         <form className={styles.modalOverlay} onSubmit={handleSubmit}>
             <div className={styles.modalContent}>
@@ -130,7 +87,7 @@ export default function ApplyModal({ onClose, show, leagueName }: ApplyModalProp
                     name="username"
                     type="text" 
                     value={form.username} 
-                    onChange={handleChange} 
+                    onChange={(e) => handleInputChange(e, setForm)}
                     required
                 />
 
@@ -140,7 +97,7 @@ export default function ApplyModal({ onClose, show, leagueName }: ApplyModalProp
                     type="password" 
                     name="password"
                     value={form.password} 
-                    onChange={handleChange} 
+                    onChange={(e) => handleInputChange(e, setForm)}
                     required
                 />
 
@@ -150,7 +107,7 @@ export default function ApplyModal({ onClose, show, leagueName }: ApplyModalProp
                     type="text" 
                     name="name"
                     value={form.name} 
-                    onChange={handleChange} 
+                    onChange={(e) => handleInputChange(e, setForm)}
                     required
                 />
     
@@ -160,7 +117,7 @@ export default function ApplyModal({ onClose, show, leagueName }: ApplyModalProp
                     type="text" 
                     name="surname"
                     value={form.surname} 
-                    onChange={handleChange} 
+                    onChange={(e) => handleInputChange(e, setForm)}
                     required
                 />
 
@@ -170,7 +127,7 @@ export default function ApplyModal({ onClose, show, leagueName }: ApplyModalProp
                     type="email" 
                     name="email"
                     value={form.email} 
-                    onChange={handleChange} 
+                    onChange={(e) => handleInputChange(e, setForm)}
                     required
                 />
 
@@ -180,7 +137,7 @@ export default function ApplyModal({ onClose, show, leagueName }: ApplyModalProp
                     type="text"
                     name="country"
                     value={form.country}
-                    onChange={handleChange}
+                    onChange={(e) => handleInputChange(e, setForm)}
                     list="countries-list"
                     autoComplete="off"
                     required
@@ -197,7 +154,7 @@ export default function ApplyModal({ onClose, show, leagueName }: ApplyModalProp
                     type="date" 
                     name="dateOfBirth"
                     defaultValue={form.dateOfBirth || ""} 
-                    onChange={handleChange}
+                    onChange={(e) => handleInputChange(e, setForm)}
                     max={new Date().toISOString().split("T")[0]} 
                     required
                 />
@@ -208,7 +165,7 @@ export default function ApplyModal({ onClose, show, leagueName }: ApplyModalProp
                     type="text" 
                     name="youtubeLink"
                     value={form.youtubeLink} 
-                    onChange={handleChange} 
+                    onChange={(e) => handleInputChange(e, setForm)}
                     required
                 />
 
@@ -218,7 +175,7 @@ export default function ApplyModal({ onClose, show, leagueName }: ApplyModalProp
                     type="text" 
                     name="instagram"
                     value={form.instagram} 
-                    onChange={handleChange} 
+                    onChange={(e) => handleInputChange(e, setForm)}
                 />
 
             </div>

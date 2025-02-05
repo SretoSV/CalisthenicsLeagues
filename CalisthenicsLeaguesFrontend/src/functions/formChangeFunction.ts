@@ -5,3 +5,20 @@ export const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, formSe
         [name]: value,
     }));
 };
+
+export const setLeagueIdByLeagueName = (leagueName: string) => {
+    switch (leagueName){
+        case "Legendary":
+            return 1;
+        case "World-Class":
+            return 2;
+        case "Pro":
+            return 3;
+        case "Semi-pro":
+            return 4;
+        case "Amateur":
+            return 5;
+        case "Begginer":
+            return 6;
+    }
+}

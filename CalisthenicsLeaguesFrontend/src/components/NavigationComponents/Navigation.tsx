@@ -1,19 +1,15 @@
-import { useContext } from 'react';
 import logoImage from '../../images/logo.png';
 import styles from '../../styles/NavigationStyles/NavigationStyle.module.css';
 import { PictureDropDownList } from './PictureDropDownList';
-import { UserContext } from '../../context/UserContext';
+import { useUserContext } from '../../context/UserContext';
 import { CartCard } from './CartCard';
 
 interface NavigationProps{
     isApplyPage: boolean,
 }
 export function Navigation(props: NavigationProps){
-    const userContext = useContext(UserContext);
-    if (!userContext) {
-        throw new Error("UserContext must be used within a UserProvider.");
-    }
-    const { user } = userContext;
+
+    const { user } = useUserContext();
 
     return (
         <>
