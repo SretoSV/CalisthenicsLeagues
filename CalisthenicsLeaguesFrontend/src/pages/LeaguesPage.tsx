@@ -3,18 +3,14 @@ import { LeagueCard } from "../components/LeaguesPageComponents/LeagueCard";
 import { Navigation } from "../components/NavigationComponents/Navigation";
 import styles from '../styles/LeaguesPageStyles/LeaguePageStyle.module.css';
 import { serverPath } from "../functions/serverpath";
-
-interface League {
-    id: number;
-    name: string;
-    image: string;
-}
+import { League } from "../types/LeagueTypes";
 
 export function LeaguesPage(){
 
     const [leagues, setLeagues] = useState<League[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState("");
+
     useEffect(() => {
         const fetchLeagues = async () => {
             setIsLoading(true);
@@ -51,6 +47,7 @@ export function LeaguesPage(){
 
         fetchLeagues();
     }, []);
+    
     return(
         <>
             {isLoading ? 

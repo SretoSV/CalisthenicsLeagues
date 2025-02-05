@@ -1,27 +1,13 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Navigation } from "../components/NavigationComponents/Navigation";
 import { ShirtCard } from "../components/ShopPageComponents/ShirtCard";
 import styles from '../styles/ShopPageStyles/ShopPageStyle.module.css';
-import { UserContext } from "../context/UserContext";
+import { useUserContext } from "../context/UserContext";
 import { serverPath } from "../functions/serverpath";
-
-interface Shirt{
-    id: number,
-    leagueName: string,
-    shirtImageBlackFront: string,
-    shirtImageBlackBack: string,
-    shirtImageWhiteFront: string,
-    shirtImageWhiteBack: string,
-    price: number,
-}
+import { Shirt } from "../types/ShirtTypes";
 
 export function ShopPage(){
-    const userContext = useContext(UserContext);
-    if (!userContext) {
-        throw new Error("UserContext must be used within a UserProvider.");
-    }
-    const { user } = userContext;
-
+    const { user } = useUserContext();
     const [shirts, setShirts] = useState<Shirt[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState("");

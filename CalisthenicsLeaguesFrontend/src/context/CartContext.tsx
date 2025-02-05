@@ -1,8 +1,9 @@
-import { createContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useState, useEffect, ReactNode, useContext } from 'react';
+import { ShirtContext } from '../types/ShirtTypes';
 
 interface CartContextType {
   numberOfItems: number;
-  cartItems: Shirt[];
+  cartItems: ShirtContext[];
   updateCartItems: (id: number, leagueName: string, shirtImage: string, size: string, quantity: number, option: number, price: number) => void;
   removeItem: (id: number, leagueName: string, shirtImage: string, size: string) => void;
   emptyCart: () => void;
@@ -14,22 +15,13 @@ interface CartProviderProps {
   children: ReactNode;
 }
 
-interface Shirt {
-  id: number;
-  leagueName: string;
-  shirtImage: string;
-  size: string;
-  quantity: number;
-  price: number;
-}
-
 export function CartProvider({ children }: CartProviderProps) {
   const [numberOfItems, setNumberOfItems] = useState<number>(() => {
     const savedItems = localStorage.getItem("cartNumberOfItems");
     return savedItems ? parseInt(savedItems) : 0;
   });
 
-  const [cartItems, setCartItems] = useState<Shirt[]>(() => {
+  const [cartItems, setCartItems] = useState<ShirtContext[]>(() => {
     const savedCart = localStorage.getItem("cartItems");
     return savedCart ? JSON.parse(savedCart) : [];
   });
@@ -43,8 +35,7 @@ export function CartProvider({ children }: CartProviderProps) {
   };
 
   const updateCartItems = (id: number, leagueName: string, shirtImage: string, size: string, quantity: number, option: number, price: number) => {
-    const newItem: Shirt = { id, leagueName, shirtImage, size, quantity, price
-     };
+    const newItem: ShirtContext = { id, leagueName, shirtImage, size, quantity, price };
     if(option === 1){
       setCartItems((prevItems) => {
         const existingItemIndex = prevItems.findIndex(
@@ -117,3 +108,11 @@ export function CartProvider({ children }: CartProviderProps) {
     </CartContext.Provider>
   );
 }
+
+export const useCartContext = () => {
+  const context = useContext(CartContext);
+  if (!context) {
+    throw new Error("useCartContext must be used within a CartProvider.");
+  }
+  return context;
+};

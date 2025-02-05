@@ -1,9 +1,9 @@
 import colorImageBlack from '../../images/colorImageBlack.png';
 import colorImageWhite from '../../images/colorImageWhite.png';
 import styles from '../../styles/ShopPageStyles/ShirtCardStyle.module.css';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { serverPath } from '../../functions/serverpath';
-import { CartContext } from '../../context/CartContext';
+import { useCartContext } from '../../context/CartContext';
 
 interface LeagueCardProps {
     id: number,
@@ -17,30 +17,12 @@ interface LeagueCardProps {
 }
 
 export function ShirtCard(props: LeagueCardProps) {
-    const cartContext = useContext(CartContext);
-    if (!cartContext) {
-        throw new Error("CartContext must be used within a CartProvider.");
-    }
-    const { updateCartItems } = cartContext;
+    const { updateCartItems } = useCartContext();
     const [shirtSize, setShirtSize] = useState("S");
     const [quantity, setQuantity] = useState<number>(1);
     const [currentShirtImage, setCurrentShirtImage] = useState<string>(""); 
     const [selectedView, setSelectedView] = useState<string>("front");
     const [currentColorImage, setCurrentColorImage] = useState<boolean>(true); 
-
-    useEffect(() => {
-        if (currentColorImage && selectedView === "front") {
-            setCurrentShirtImage(serverPath()+props.shirtImageBlackFront);
-        } else if (currentColorImage && selectedView === "back") {
-            setCurrentShirtImage(serverPath()+props.shirtImageBlackBack);
-        }
-        else if (!currentColorImage && selectedView === "front") {
-            setCurrentShirtImage(serverPath()+props.shirtImageWhiteFront);
-        }else{
-            setCurrentShirtImage(serverPath()+props.shirtImageWhiteBack);
-        }
-
-    }, [selectedView]);
 
     const handleViewChange = (view: string) => {
         setSelectedView(view);
@@ -75,6 +57,20 @@ export function ShirtCard(props: LeagueCardProps) {
         }
     };
 
+    useEffect(() => {
+        if (currentColorImage && selectedView === "front") {
+            setCurrentShirtImage(serverPath()+props.shirtImageBlackFront);
+        } else if (currentColorImage && selectedView === "back") {
+            setCurrentShirtImage(serverPath()+props.shirtImageBlackBack);
+        }
+        else if (!currentColorImage && selectedView === "front") {
+            setCurrentShirtImage(serverPath()+props.shirtImageWhiteFront);
+        }else{
+            setCurrentShirtImage(serverPath()+props.shirtImageWhiteBack);
+        }
+
+    }, [selectedView]);
+    
     return (
         <div className={styles.mainDiv}>
                 <h2 className={styles.header2}>{props.leagueName}</h2>

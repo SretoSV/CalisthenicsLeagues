@@ -1,33 +1,32 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from '../styles/LoginPageStyles/LoginPageStyle.module.css';
-import { UserContext } from '../context/UserContext';
+import { useUserContext } from '../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 import { serverPath } from '../functions/serverpath';
+import { handleInputChange } from '../functions/formChangeFunction';
 
 export function LoginPage(){
+    const { user, login } = useUserContext();
     const navigate = useNavigate();
-    const userContext = useContext(UserContext);
-    if (!userContext) {
-        throw new Error("UserContext must be used within a UserProvider.");
-    }
-    const { user, login } = userContext;
+    const [change, setChange] = useState(false);
 
-    const [forgot, setForgot] = useState(false);
-    const [form, setForm] = useState({
+    const [loginForm, setLoginForm] = useState({
         email: '',
         password: '',
     });
-    const [form2, setForm2] = useState({
+
+    const [resetPasswordForm, setResetPasswordForm] = useState({
         email: '',
         oldPassword: '',
         newPassword: '',
     });
-    const [error, setError] = useState("");
-    const [error2, setError2] = useState("");
+
+    const handleClick = async () => {
+        setChange(current => !current);
+    };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("AAAAAAAAAA");
 
         try {
             const response = await fetch(`${serverPath()}User/login`, {
@@ -36,45 +35,26 @@ export function LoginPage(){
                 'Content-Type': 'application/json',
               },
               credentials: "include",
-              body: JSON.stringify({ 
-                email: form.email,
-                password: form.password  
-              }),
+              body: JSON.stringify(loginForm),
             });
       
             if (response.ok) {
               const userData = await response.json();
               login(userData);
-              setError("");
             } 
             else {
                 const data = await response.json();
-                setError(`Error: ${data.message}`);
+                alert(`Error: ${data.message}`);
             }
         } 
         catch (err) {
-            setError('Server error. Try again later.');
+            alert('Server error. Try again later.');
         }
-
 
     };
 
-    useEffect(() => {
-        if(user){
-            navigate('/LeaguesPage');
-        }
-      }, [user]);
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>)  => {
-        setForm({
-           ...form,
-           [e.target.name]: e.target.value, 
-        });
-    } 
-
     const handleReset = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("RESET BB");
 
         try {
             const response = await fetch(`${serverPath()}User/passwordreset`, {
@@ -83,35 +63,22 @@ export function LoginPage(){
                 'Content-Type': 'application/json',
               },
               credentials: "include",
-              body: JSON.stringify({ 
-                email: form2.email,
-                OldPassword: form2.oldPassword,
-                NewPassword: form2.newPassword  
-              }),
+              body: JSON.stringify(resetPasswordForm),
             });
       
-            if (response.ok) {
-              setError2("Password changed successfully.");
-            } 
-            else {
-              setError2('Invalid data.');
-            }
+            const data = await response.json();
+            alert(data.message);
         } 
         catch (err) {
-            setError2('Server error. Try again later.');
+            alert('Server error. Try again later.');
         }
     };
-
-    const handleChange2 = (e: React.ChangeEvent<HTMLInputElement>)  => {
-        setForm2({
-           ...form2,
-           [e.target.name]: e.target.value, 
-        });
-    };
-
-    const handleClick = async () => {
-        setForgot(current => !current);
-    };
+    
+    useEffect(() => {
+        if(user){
+            navigate('/LeaguesPage');
+        }
+    }, [user]);
 
     return(
         
@@ -126,7 +93,7 @@ export function LoginPage(){
                         type="email"
                         name="email"
                         autoComplete="off"
-                        onChange={handleChange}
+                        onChange={(e) => handleInputChange(e, setLoginForm)}
                         placeholder='email'
                         required
                     />
@@ -137,16 +104,15 @@ export function LoginPage(){
                         name="password"
                         autoComplete="off"
                         placeholder='password'
-                        onChange={handleChange}
+                        onChange={(e) => handleInputChange(e, setLoginForm)}
                         required
                     />
                     </div>
                 </div>
                 reset password <button className={styles.forgotButton} type="button" onClick={handleClick}></button>  <br />
-                {error && <p className={styles.error}>{error}</p>}
                 <button className={styles.submitButton}>Login</button>
             </form>
-            {forgot && 
+            {change && 
             <form className={styles.loginForm} onSubmit={handleReset}>
                 <h1>Reset password</h1>
                 <div className={styles.formContent}>
@@ -158,7 +124,7 @@ export function LoginPage(){
                         name="email"
                         autoComplete="off"
                         placeholder='email'
-                        onChange={handleChange2}
+                        onChange={(e) => handleInputChange(e, setResetPasswordForm)}
                         required
                     />
                     <label htmlFor="oldPassword">Old Password</label>
@@ -168,7 +134,7 @@ export function LoginPage(){
                         name="oldPassword"
                         autoComplete="off"
                         placeholder='old password'
-                        onChange={handleChange2}
+                        onChange={(e) => handleInputChange(e, setResetPasswordForm)}
                         required
                     />
                     <label htmlFor="newPassword">New Password</label>
@@ -178,12 +144,11 @@ export function LoginPage(){
                         name="newPassword"
                         autoComplete="off"
                         placeholder='new password'
-                        onChange={handleChange2}
+                        onChange={(e) => handleInputChange(e, setResetPasswordForm)}
                         required
                     />
                     </div>
                 </div>
-                {error2 && <p className={styles.error}>{error2}</p>}
                 <button className={styles.submitButton}>Reset</button>
             </form>
             }

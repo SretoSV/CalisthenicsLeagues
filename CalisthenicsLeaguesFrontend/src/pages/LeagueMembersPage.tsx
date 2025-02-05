@@ -3,19 +3,17 @@ import { Navigation } from "../components/NavigationComponents/Navigation";
 import styles from '../styles/LeagueMembersPageStyles/LeagueMembersPageStyle.module.css';
 import { AthleteCard } from "../components/LeagueMembersPageComponents/AthleteCard";
 import { serverPath } from "../functions/serverpath";
-interface Member {
-    id: number;
-    name: string;
-    surname: string;
-    country: string;
-    instagram: string;
-    image: string;
-}
+import { Member } from "../types/MemberTypes";
 
 export function LeagueMembersPage(){
 
     const [leaguesMembers, setLeaguesMembers] = useState<Member[]>([]);
     const [selectedLeagueId, setSelectedLeagueId] = useState(1);
+
+    const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const selectedId = parseInt(event.target.value, 10);
+        setSelectedLeagueId(selectedId);
+    };
 
     useEffect(() => {
         const fetchMembers = async () => {
@@ -41,11 +39,6 @@ export function LeagueMembersPage(){
 
         fetchMembers();
     }, [selectedLeagueId]);
-
-    const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        const selectedId = parseInt(event.target.value, 10);
-        setSelectedLeagueId(selectedId);
-    };
 
     return(
         <>

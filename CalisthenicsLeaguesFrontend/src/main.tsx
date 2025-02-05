@@ -11,6 +11,7 @@ import { EditProfilePage } from './pages/EditProfilePage.tsx';
 import { LoginPage } from './pages/LoginPage.tsx';
 import { UserProvider } from './context/UserContext.tsx';
 import { CartProvider } from './context/CartContext.tsx';
+import { CountriesProvider } from './context/CountriesContext.tsx';
 
 const router = createBrowserRouter([
   {
@@ -54,7 +55,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')!).render(
   <UserProvider>
     <CartProvider>
-      <RouterProvider router={router} />
+      <CountriesProvider>
+        <RouterProvider router={router} />
+      </CountriesProvider>
     </CartProvider>
   </UserProvider>,
 )
