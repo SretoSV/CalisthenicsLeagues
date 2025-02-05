@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import styles from '../../styles/ApplyPageStyles/ApplyPageStyle.module.css';
+import { serverPath } from '../../functions/serverpath';
 
 interface ApplyModalProps {
+    leagueName: string,
     show: boolean,
     onClose: () => void; 
 }
@@ -16,7 +18,31 @@ interface Country {
     };
   }
 
-export default function ApplyModal({ onClose, show }: ApplyModalProps) {
+export default function ApplyModal({ onClose, show, leagueName }: ApplyModalProps) {
+
+    useEffect(() => {
+        switch (leagueName){
+            case "Legendary":
+                form.league = 1;
+                break;
+            case "World-Class":
+                form.league = 2;
+                break;
+            case "Pro":
+                form.league = 3;
+                break;
+            case "Semi-pro":
+                form.league = 4;
+                break;
+            case "Amateur":
+                form.league = 5;
+                break;
+            case "Begginer":
+                form.league = 6;
+                break; 
+        }
+    }, [leagueName]);
+    
     const [countries, setCountries] = useState<Country[]>([]);
     useEffect(() => {
       fetch("https://restcountries.com/v3.1/all")
@@ -33,11 +59,14 @@ export default function ApplyModal({ onClose, show }: ApplyModalProps) {
     const [form, setForm] = useState({
         username: '',
         name: '',
-        password: '',
         surname: '',
+        password: '',
         email: '',
         country: '',
         dateOfBirth: '',
+        youtubeLink: '',
+        instagram: '',
+        league: 0,
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>)  => {
@@ -46,9 +75,6 @@ export default function ApplyModal({ onClose, show }: ApplyModalProps) {
           [e.target.name]: e.target.value, 
         });
     }
-
-    const [videoFile, setVideoFile] = useState<File | null>(null);
-    const [dragActive, setDragActive] = useState(false);
 
     if (!show) return null;
 
@@ -59,42 +85,36 @@ export default function ApplyModal({ onClose, show }: ApplyModalProps) {
   
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (!videoFile) {
-            alert("Please upload a video file.");
-            return;
+        if(form.username.length > 10){
+            alert("Username can have up to 10 characters!")
         }
-        console.log("Submitted:", form.name, form.surname, form.email, videoFile );
+        else{
+            try {
+                const response = await fetch(`${serverPath()}Application/apply`, {
+                    method: 'POST',
+                    headers: {
+                    'Content-Type': 'application/json',
+                    },
+                    credentials: "include",
+                    body: JSON.stringify(form),
+                });
+            
+                const data = await response.json();  
+                
+                if (response.ok) {
+                    alert(data.message);
+                }
+                else {
+                    alert(`Error: ${data.message}`);
+                }
+            } 
+            catch (err) {
+                alert('Server error. Try again later.');
+            }
+        }
         onClose();
     };
 
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        e.preventDefault();
-        if (e.target.files && e.target.files[0]) {
-            setVideoFile(e.target.files[0]);
-        }
-    };
-
-    const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
-        e.preventDefault();
-        setDragActive(true);
-    };
-
-    const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
-        e.preventDefault();
-        setDragActive(false);
-    };
-
-    const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
-        e.preventDefault();
-        setDragActive(false);
-        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-            setVideoFile(e.dataTransfer.files[0]);
-        }
-    };
-
-    const handleRemoveFile = () => {
-        setVideoFile(null);
-    };
 
     return (
         <form className={styles.modalOverlay} onSubmit={handleSubmit}>
@@ -104,7 +124,7 @@ export default function ApplyModal({ onClose, show }: ApplyModalProps) {
             </div>
             <br />
             <div className={styles.formModal}>
-                <label htmlFor="Username">Username:</label>
+                <label htmlFor="Username">Username (max 10 characters):</label>
                 <input 
                     id="Username" 
                     name="username"
@@ -154,7 +174,7 @@ export default function ApplyModal({ onClose, show }: ApplyModalProps) {
                     required
                 />
 
-                <label htmlFor="country">Country</label>
+                <label htmlFor="country">Country:</label>
                 <input
                     id="country"
                     type="text"
@@ -171,7 +191,7 @@ export default function ApplyModal({ onClose, show }: ApplyModalProps) {
                     ))}
                 </datalist>
 
-                <label htmlFor="dateOfBirth">Date of Birth</label>
+                <label htmlFor="dateOfBirth">Date of Birth:</label>
                 <input 
                     id="dateOfBirth"
                     type="date" 
@@ -182,42 +202,25 @@ export default function ApplyModal({ onClose, show }: ApplyModalProps) {
                     required
                 />
 
-                <label htmlFor="Upload">Upload video:</label>
-                {!videoFile && (
-                    <div className={styles.customFileUpload}>
-                        <label htmlFor="videoUpload" className={styles.uploadButton}>
-                            Choose File
-                        </label>
-                        <input 
-                            id="videoUpload" 
-                            type="file" 
-                            accept="video/*" 
-                            onChange={handleFileChange} 
-                            className={styles.hiddenFileInput}
-                        />
-                    </div>
-                )}
-                <div 
-                    className={`${styles.dragDropArea} ${dragActive ? styles.active : ''}`}
-                    onDragOver={handleDragOver}
-                    onDragLeave={handleDragLeave}
-                    onDrop={handleDrop}
-                >
-                    {videoFile ? (
-                        <div>
-                            <p>File: {videoFile.name}</p>
-                            <button 
-                                type="button" 
-                                className={styles.removeFileButton} 
-                                onClick={handleRemoveFile}
-                            >
-                                X
-                            </button>
-                        </div>
-                    ) : (
-                        <p>Drag and drop a video file here or choose file</p>
-                    )}
-                </div>
+                <label htmlFor="youtubeLink">Youtube link:</label>
+                <input 
+                    id="youtubeLink" 
+                    type="text" 
+                    name="youtubeLink"
+                    value={form.youtubeLink} 
+                    onChange={handleChange} 
+                    required
+                />
+
+                <label htmlFor="instagram">Instagram (optional):</label>
+                <input 
+                    id="instagram" 
+                    type="text" 
+                    name="instagram"
+                    value={form.instagram} 
+                    onChange={handleChange} 
+                />
+
             </div>
     
             <div className={styles.buttonsDiv}>

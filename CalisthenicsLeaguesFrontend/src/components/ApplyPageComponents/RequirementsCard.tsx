@@ -121,6 +121,7 @@ export function RequirementsCard(props: RequirementsCardProps){
             </div>
         )}
         <ApplyModal
+            leagueName = {props.leagueName}
             show={showModal} 
             onClose={closeModal}
         />

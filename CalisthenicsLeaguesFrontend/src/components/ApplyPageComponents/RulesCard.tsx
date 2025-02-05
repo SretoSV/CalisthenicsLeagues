@@ -11,6 +11,10 @@ export function RulesCard(){
             <br />
             <div className={styles.headres}><b>HOW TO RECORD YOUR SUBMISSION:</b></div>
             <br />
+            <hr  className={styles.youtubeUpload2}/>
+            <div className={styles.youtubeUpload}>UPLOAD YOUR VIDEO TO YOUTUBE, SET THE VIDEO TO PRIVATE AND SEND A LINK TO THE VIDEO IN YOUR APPLICATION!</div>
+            <hr  className={styles.youtubeUpload2}/>
+            <br />
             <div>
                 <b>- Camera Visibility:</b> The entire body must be fully visible throughout the routine.<br/>
                 <b>- Clothing:</b> Wear clothes that do not obstruct visibility. Shirtless is best for ensuring arm extensions are visible.<br/>

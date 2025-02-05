@@ -100,12 +100,12 @@
     background-color: #1B1B23;
     padding: 10px;
     border-radius: 4px;
-    width: 400px;
+    width: 425px;
     text-align: left;
 }
 
 .formModal label {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .formModal input{
@@ -202,4 +202,11 @@
 
 .uploadButton:hover {
     background-color: #580258; 
+}
+
+.youtubeUpload{
+    color: red;
+}
+.youtubeUpload2{
+    border: 2px solid #660166;
 }

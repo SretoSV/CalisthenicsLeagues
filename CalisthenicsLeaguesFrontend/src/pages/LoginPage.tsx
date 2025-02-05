@@ -48,7 +48,8 @@ export function LoginPage(){
               setError("");
             } 
             else {
-              setError('Invalid login information.');
+                const data = await response.json();
+                setError(`Error: ${data.message}`);
             }
         } 
         catch (err) {
