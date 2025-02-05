@@ -66,8 +66,7 @@ namespace CalisthenicsLeagues.DAO.Impl
         {
             string insertSql = @"
                 INSERT INTO order_items (league, shirtImage, size, quantity, price, order_id) 
-                VALUES (@League, @ShirtImage, @Size, @Quantity, @Price, @Order_id);
-                SELECT LAST_INSERT_ID();";
+                VALUES (@League, @ShirtImage, @Size, @Quantity, @Price, @Order_id);";
 
             using (IDbConnection connection = new MySqlConnection(ConnectionClass.GetConnectionString()))
             {

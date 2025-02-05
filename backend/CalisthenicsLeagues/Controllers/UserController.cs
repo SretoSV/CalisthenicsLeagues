@@ -28,7 +28,7 @@ namespace CalisthenicsLeagues.Controllers
 
             if (user == null)
             {
-                return BadRequest("Wrong email or password.");
+                return BadRequest(new { message = "Wrong email or password, or your application is still in the review process." });
             }
             user.Password = "";
 
@@ -69,10 +69,10 @@ namespace CalisthenicsLeagues.Controllers
             Console.WriteLine("A: " + data.Email + "B: " + data.OldPassword + "C:" + data.NewPassword);
             if (!userService.UpdatePassword(data))
             {
-                return BadRequest("Wrong password.");
+                return BadRequest( new { message = "Wrong password." });
             }
 
-            return StatusCode(200, "Password reset successful!");
+            return StatusCode(200, new { message = "Password reset successful!" });
         }
 
         [Authorize]

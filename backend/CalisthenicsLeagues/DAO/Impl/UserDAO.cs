@@ -70,7 +70,7 @@ namespace CalisthenicsLeagues.DAO.Impl
         public User GetUserByEmailAndPassword(LoginRequest data)
         {
             string query = "select id, username, name, surname, country, dateofbirth, email, password, image, instagram, league " +
-                   "from users where email = ? and password = ?";
+                   "from users where email = ? and password = ? and accepted = 1";
             User user = null;
 
             using (IDbConnection connection = new MySqlConnection(ConnectionClass.GetConnectionString()))
