@@ -10,5 +10,7 @@ export interface User {
     dateOfBirth: string;
     country: string;//
     league: number;//
+    accepted: boolean;
+    admin: boolean;//
   }
   

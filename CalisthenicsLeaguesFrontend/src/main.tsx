@@ -12,6 +12,7 @@ import { LoginPage } from './pages/LoginPage.tsx';
 import { UserProvider } from './context/UserContext.tsx';
 import { CartProvider } from './context/CartContext.tsx';
 import { CountriesProvider } from './context/CountriesContext.tsx';
+import { AdminPage } from './pages/AdminPage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
   {
     path: "/EditPage",
     element: <EditProfilePage />
+  },
+  {
+    path: "/AdminPage",
+    element: <AdminPage />
   },
 ]);
 
