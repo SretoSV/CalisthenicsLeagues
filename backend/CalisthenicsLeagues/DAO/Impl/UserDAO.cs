@@ -3,6 +3,7 @@ using CalisthenicsLeagues.Connection;
 using CalisthenicsLeagues.Models;
 using CalisthenicsLeagues.Models.RequestsModels;
 using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace CalisthenicsLeagues.DAO.Impl
@@ -69,7 +70,7 @@ namespace CalisthenicsLeagues.DAO.Impl
 
         public User GetUserByEmailAndPassword(LoginRequest data)
         {
-            string query = "select id, username, name, surname, country, dateofbirth, email, password, image, instagram, league " +
+            string query = "select id, username, name, surname, country, dateofbirth, email, password, image, instagram, league, accepted, admin " +
                    "from users where email = ? and password = ? and accepted = 1";
             User user = null;
 
@@ -88,7 +89,8 @@ namespace CalisthenicsLeagues.DAO.Impl
                         if (reader.Read())
                         { 
                             user = new User(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3),
-                                reader.GetString(4), reader.GetDateTime(5), reader.GetString(6), reader.GetString(7), reader.GetString(8), reader.GetString(9), reader.GetInt32(10));
+                                reader.GetString(4), reader.GetDateTime(5), reader.GetString(6), reader.GetString(7), 
+                                reader.GetString(8), reader.GetString(9), reader.GetInt32(10), reader.GetBoolean(11), reader.GetBoolean(12));
                         }
                     }
                 }
@@ -181,7 +183,7 @@ namespace CalisthenicsLeagues.DAO.Impl
 
         public User GetUserByUsername(string username)
         {
-            string query = "select id, username, name, surname, country, dateofbirth, email, password, image, instagram, league " +
+            string query = "select id, username, name, surname, country, dateofbirth, email, password, image, instagram, league, accepted, admin " +
                    "from users where username = ?";
             User user = null;
 
@@ -199,7 +201,8 @@ namespace CalisthenicsLeagues.DAO.Impl
                         if (reader.Read())
                         {
                             user = new User(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3),
-                                reader.GetString(4), reader.GetDateTime(5), reader.GetString(6), reader.GetString(7), reader.GetString(8), reader.GetString(9), reader.GetInt32(10));
+                                reader.GetString(4), reader.GetDateTime(5), reader.GetString(6), reader.GetString(7), 
+                                reader.GetString(8), reader.GetString(9), reader.GetInt32(10), reader.GetBoolean(11), reader.GetBoolean(12));
                         }
                     }
                 }
@@ -228,7 +231,8 @@ namespace CalisthenicsLeagues.DAO.Impl
                         while (reader.Read())
                         {
                              User user = new User(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3),
-                                reader.GetString(4), reader.GetDateTime(5), reader.GetString(6), "", reader.GetString(7), reader.GetString(8), reader.GetInt32(9));
+                                reader.GetString(4), reader.GetDateTime(5), reader.GetString(6), "", reader.GetString(7), 
+                                reader.GetString(8), reader.GetInt32(9), reader.GetBoolean(10), reader.GetBoolean(11));
                             userList.Add(user);
                         }
                     }
@@ -236,6 +240,38 @@ namespace CalisthenicsLeagues.DAO.Impl
             }
 
             return userList;
+        }
+
+        public int InsertUser(Application application)
+        {
+            string insertSql = @"
+                INSERT INTO users (username, name, surname, country, dateofbirth, email, password, image, instagram, league, accepted, admin) 
+                VALUES (@Username, @Name, @Surname, @Country, @Dateofbirth, @Email, @Password, @Image, @Instagram, @League, @Accepted, @Admin);";
+
+            using (IDbConnection connection = new MySqlConnection(ConnectionClass.GetConnectionString()))
+            {
+                connection.Open();
+
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = insertSql;
+
+                    command.Parameters.Add(new MySqlParameter("@Username", MySqlDbType.String) { Value = application.Username });
+                    command.Parameters.Add(new MySqlParameter("@Name", MySqlDbType.String) { Value = application.Name });
+                    command.Parameters.Add(new MySqlParameter("@Surname", MySqlDbType.String) { Value = application.Surname });
+                    command.Parameters.Add(new MySqlParameter("@Country", MySqlDbType.String) { Value = application.Country });
+                    command.Parameters.Add(new MySqlParameter("@Dateofbirth", MySqlDbType.Date) { Value = application.DateOfBirth });
+                    command.Parameters.Add(new MySqlParameter("@Password", MySqlDbType.String) { Value = application.Password });
+                    command.Parameters.Add(new MySqlParameter("@Email", MySqlDbType.String) { Value = application.Email });
+                    command.Parameters.Add(new MySqlParameter("@Image", MySqlDbType.String) { Value = "Images\\placeHolder.png" });
+                    command.Parameters.Add(new MySqlParameter("@Instagram", MySqlDbType.String) { Value = application.Instagram });
+                    command.Parameters.Add(new MySqlParameter("@League", MySqlDbType.Int32) { Value = application.League });
+                    command.Parameters.Add(new MySqlParameter("@Accepted", MySqlDbType.Bit) { Value = true });
+                    command.Parameters.Add(new MySqlParameter("@Admin", MySqlDbType.Int32) { Value = false });
+
+                    return command.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

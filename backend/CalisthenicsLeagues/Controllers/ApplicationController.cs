@@ -3,6 +3,7 @@ using CalisthenicsLeagues.Models;
 using CalisthenicsLeagues.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CalisthenicsLeagues.Controllers
 {
@@ -21,5 +22,35 @@ namespace CalisthenicsLeagues.Controllers
             }
             return StatusCode(200, new { message = "Application sent!" });
         }
+
+        [Authorize]
+        [HttpGet("all")]
+        public IActionResult GetAllApplications()
+        {
+            List<Application> applications = applicationService.GetAllApplications();
+            if (applications == null)
+            {
+                return StatusCode(204);
+            }
+
+            return StatusCode(200, applications);
+        }
+
+        [Authorize]
+        [HttpPost("action/{id}")]
+        public IActionResult AcceptApplication(int id)
+        {
+            applicationService.AcceptApplication(id);
+            return StatusCode(200, "Accept");
+        }
+
+        [Authorize]
+        [HttpDelete("action/{id}")]
+        public IActionResult DeleteApplication(int id)
+        {
+            applicationService.DeleteApplication(id);
+            return StatusCode(200,"Reject");
+        }
     }
+
 }

@@ -20,5 +20,22 @@ namespace CalisthenicsLeagues.Service
                 return false;
             }
         }
+
+        public List<Application> GetAllApplications() 
+        {
+            List<Application> applications = applicationDAO.GetAllApplications().ToList();
+            return applications;
+        }
+
+        public int AcceptApplication(int id) {
+            int accept = userDAO.InsertUser(applicationDAO.GetApplicationById(id));
+            if (accept >= 1) {
+                applicationDAO.DeleteApplication(id);
+            }
+            return accept;
+        }
+        public int DeleteApplication(int id) {
+            return applicationDAO.DeleteApplication(id);
+        }
     }
 }

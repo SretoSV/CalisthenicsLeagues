@@ -13,10 +13,12 @@
         public string Image { get; set; }
         public string Instagram { get; set; }
         public int League { get; set; }
+        public bool Accepted { get; set; }
+        public bool Admin { get; set; }
 
         public User() { }
 
-        public User(int id, string username, string name, string surname, string country, DateTime dateOfBirth, string email, string password, string image, string instagram, int league)
+        public User(int id, string username, string name, string surname, string country, DateTime dateOfBirth, string email, string password, string image, string instagram, int league, bool accepted, bool admin)
         {
             Id = id;
             Username = username;
@@ -29,6 +31,8 @@
             Image = image;
             Instagram = instagram;
             League = league;
+            Accepted = accepted;
+            Admin = admin;
         }
     }
 }
