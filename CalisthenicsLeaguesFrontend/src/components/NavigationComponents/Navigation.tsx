@@ -32,14 +32,64 @@ export function Navigation(props: NavigationProps){
         </header>
         {props.isApplyPage? 
         <div className={styles.LinksDiv}>
-            <a className={`${styles.Links} ${styles.LinksBorder}`} href="../LeaguesPage">Leagues</a>
-            <a className={`${styles.Links} ${styles.LinksBorder}`} href="../LeagueMembersPage">Members</a>
-            <a className={styles.Links} href="../ShopPage">Shop</a>
+            {
+                user ? 
+                <>
+                {
+                    user.admin ? 
+                    <>
+                    <a className={`${styles.Links} ${styles.LinksBorder}`} href="../LeaguesPage">Leagues</a>
+                    <a className={`${styles.Links} ${styles.LinksBorder}`} href="../LeagueMembersPage">Members</a>
+                    <a className={styles.Links} href="../ShopPage">Shop</a>
+                    <a className={styles.Links} href="../ChatPage">Chat</a>
+                    <a className={styles.Links} href="../AdminPage">Applications</a>
+                    </>
+                    :
+                    <>
+                    <a className={`${styles.Links} ${styles.LinksBorder}`} href="../LeaguesPage">Leagues</a>
+                    <a className={`${styles.Links} ${styles.LinksBorder}`} href="../LeagueMembersPage">Members</a>
+                    <a className={styles.Links} href="../ShopPage">Shop</a>
+                    <a className={styles.Links} href="../ChatPage">Chat</a>
+                    </>
+                }
+                </>
+                :
+                <>
+                <a className={`${styles.LinksOut} ${styles.LinksBorder}`} href="../LeaguesPage">Leagues</a>
+                <a className={`${styles.LinksOut} ${styles.LinksBorder}`} href="../LeagueMembersPage">Members</a>
+                <a className={styles.LinksOut} href="../ShopPage">Shop</a>
+                </>
+            }
         </div> : 
         <div className={styles.LinksDiv}>
-            <a className={`${styles.Links} ${styles.LinksBorder}`} href="LeaguesPage">Leagues</a>
-            <a className={`${styles.Links} ${styles.LinksBorder}`} href="LeagueMembersPage">Members</a>
-            <a className={styles.Links} href="ShopPage">Shop</a>
+            {
+                user ? 
+                <>
+                {
+                    user.admin ? 
+                    <>
+                    <a className={`${styles.Links} ${styles.LinksBorder}`} href="LeaguesPage">Leagues</a>
+                    <a className={`${styles.Links} ${styles.LinksBorder}`} href="LeagueMembersPage">Members</a>
+                    <a className={styles.Links} href="ShopPage">Shop</a>
+                    <a className={styles.Links} href="ChatPage">Chat</a>
+                    <a className={styles.Links} href="AdminPage">Applications</a>
+                    </>
+                    :
+                    <>
+                    <a className={`${styles.Links} ${styles.LinksBorder}`} href="LeaguesPage">Leagues</a>
+                    <a className={`${styles.Links} ${styles.LinksBorder}`} href="LeagueMembersPage">Members</a>
+                    <a className={styles.Links} href="ShopPage">Shop</a>
+                    <a className={styles.Links} href="ChatPage">Chat</a>
+                    </>
+                }
+                </>
+                :
+                <>
+                <a className={`${styles.LinksOut} ${styles.LinksBorder}`} href="LeaguesPage">Leagues</a>
+                <a className={`${styles.LinksOut} ${styles.LinksBorder}`} href="LeagueMembersPage">Members</a>
+                <a className={styles.LinksOut} href="ShopPage">Shop</a>
+                </>
+            }
         </div>
         }
         </>

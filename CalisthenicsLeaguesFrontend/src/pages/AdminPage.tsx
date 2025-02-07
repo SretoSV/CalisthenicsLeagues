@@ -4,7 +4,7 @@ import { serverPath } from "../functions/serverpath";
 import { Application } from "../types/ApplicationTypes";
 import { Navigation } from "../components/NavigationComponents/Navigation";
 import { ApplicationCard } from "../components/AdminPageComponents/ApplicationCard";
-
+import styles from '../styles/ShopPageStyles/ShopPageStyle.module.css';
 
 export function AdminPage(){
     const navigate = useNavigate();
@@ -88,7 +88,7 @@ export function AdminPage(){
             <Navigation isApplyPage={false}/>
             {
                 applications.length > 0 ? (
-                    <div>
+                    <div className={styles.mainDiv}>
                         {applications.map((application) => (
                             <ApplicationCard 
                                 key={application.id}

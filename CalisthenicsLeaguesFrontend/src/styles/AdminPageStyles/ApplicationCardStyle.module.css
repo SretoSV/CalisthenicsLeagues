@@ -1,0 +1,42 @@
+.mainDiv{
+    color: white;
+    border: 2px solid white;
+    margin-bottom: 10px;
+    font-size: 20px;
+    display: inline-block;
+    margin-left: 10px;
+    background-color: #141212;
+}
+.youtubeLink{
+    color: red;
+}
+.instagramLink{
+    color: cyan;
+}
+.buttonAccept{
+    width: 100px;
+    height: 50px;
+    background-color: green;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+.buttonAccept:hover{
+    background-color: #125712;
+}
+.buttonReject{
+    width: 100px;
+    height: 50px;
+    background-color: red;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 10px; 
+}
+.buttonReject:hover{
+    background-color: #9e0606;
+}
