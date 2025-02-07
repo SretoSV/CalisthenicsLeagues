@@ -213,8 +213,8 @@ namespace CalisthenicsLeagues.DAO.Impl
 
         public IEnumerable<User> FindAllByLeagueId(int id)
         {
-            string query = "select id, username, name, surname, country, dateofbirth, email, image, instagram, league " +
-       "from users where league = ?";
+            string query = "select id, username, name, surname, country, dateofbirth, email, image, instagram, league, accepted, admin " +
+                            "from users where league = ?";
             List<User> userList = new List<User>();
 
             using (IDbConnection connection = new MySqlConnection(ConnectionClass.GetConnectionString()))
@@ -230,9 +230,10 @@ namespace CalisthenicsLeagues.DAO.Impl
                     {
                         while (reader.Read())
                         {
-                             User user = new User(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3),
+                            User user = new User(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3),
                                 reader.GetString(4), reader.GetDateTime(5), reader.GetString(6), "", reader.GetString(7), 
                                 reader.GetString(8), reader.GetInt32(9), reader.GetBoolean(10), reader.GetBoolean(11));
+
                             userList.Add(user);
                         }
                     }
