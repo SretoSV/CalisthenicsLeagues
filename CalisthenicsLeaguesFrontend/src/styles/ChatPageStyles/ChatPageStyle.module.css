@@ -1,0 +1,128 @@
+.mainDiv{
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center;
+    flex-wrap: wrap;
+    color: white;
+    
+}
+
+.mainDiv2{
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid white;
+}
+
+.mainDiv3{
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center;
+    width: auto;
+    border: 1px solid white;
+}
+
+
+.chats{
+    width: 150px;
+    height: 50px;
+    color: white;
+    background-color: #800080;
+    border-top: none;
+    border-bottom: none;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+}
+.chats:hover{
+    width: 200px;
+    height: 50px;
+    color: white;
+    background-color: #5f015f;
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.chat{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    width: 99.7%;
+    border: 2px solid white;
+}
+
+.imageAndNameOfChat{
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 2px solid white;
+    font-size: 20px;
+    background-color: #7c297c;
+}
+
+.leagueImage{
+    width: 100px;
+    height: 100px;
+}
+
+.messagesDiv{
+    width: 99.7%;
+    height: 1000px;
+}
+
+.addMessageDiv{
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+    margin-bottom: -8px;
+}
+
+.addMessageButton{
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    margin-top: -5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.addMessageButton:hover{
+    background-color: transparent;
+}
+
+.buttonImage{
+    width: 50px;
+    height: 50px;
+}
+
+.addMessageTextArea{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #1F1F27;
+    color: #fff;
+    font-size: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    overflow-wrap: break-word;
+    white-space: normal;
+    text-align: left;
+    font-size: 16px;
+    line-height: 1;
+    outline: none; 
+    resize: none;
+    margin-left: 10px;
+}
