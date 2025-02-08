@@ -53,6 +53,36 @@ namespace CalisthenicsLeagues.DAO.Impl
             }
         }
 
+        public User GetUserById(int id)
+        {
+            string query = "select id, username, name, surname, country, dateofbirth, email, password, image, instagram, league, accepted, admin " +
+                            "from users where id = ?";
+            User user = null;
+
+            using (IDbConnection connection = new MySqlConnection(ConnectionClass.GetConnectionString()))
+            {
+                connection.Open();
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = query;
+
+                    command.Parameters.Add(new MySqlParameter("id", MySqlDbType.VarChar) { Value = id });
+
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            user = new User(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3),
+                                reader.GetString(4), reader.GetDateTime(5), reader.GetString(6), reader.GetString(7),
+                                reader.GetString(8), reader.GetString(9), reader.GetInt32(10), reader.GetBoolean(11), reader.GetBoolean(12));
+                        }
+                    }
+                }
+            }
+
+            return user;
+        }
+
         public IEnumerable<User> FindAll()
         {
             throw new NotImplementedException();
@@ -274,5 +304,6 @@ namespace CalisthenicsLeagues.DAO.Impl
                 }
             }
         }
+
     }
 }

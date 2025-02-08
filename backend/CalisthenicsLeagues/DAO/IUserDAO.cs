@@ -7,6 +7,7 @@ namespace CalisthenicsLeagues.DAO
     {
         User GetUserByEmailAndPassword(LoginRequest data);
         User GetUserByUsername(string username);
+        User GetUserById(int id);
         bool ExistsByEmailAndPassword(PasswordResetRequest data);
         int UpdatePassword(PasswordResetRequest data);
         int UpdateProfile(User user);
