@@ -22,7 +22,9 @@ export function MessageCard(props: MessageCardProps){
         (user?.username == props.User) ? 
             <div className={styles.mainDiv1}>
                 <div className={styles.contentDiv}>
-                    {props.Content}
+                    <div>
+                        {props.Content}
+                    </div>
                     <div className={styles.timeAndButtonDiv}>
                         <button className={styles.moreButton}>
                             <img 

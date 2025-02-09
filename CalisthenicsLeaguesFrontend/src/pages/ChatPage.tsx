@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Navigation } from "../components/NavigationComponents/Navigation";
 import styles from '../styles/ChatPageStyles/ChatPageStyle.module.css';
 import { serverPath } from "../functions/serverpath";
 import sendImage from '../images/sendMessage.png';
 import { Message } from "../types/MessageTypes";
 import { MessageCard } from "../components/ChatPageComponents/MessageCard";
+import { useNavigate } from "react-router-dom";
 
 export function ChatPage(){
-
+    const navigate = useNavigate();
     const [messages, setMessages] = useState<Message[]>([]);
     const [selectedLeagueId, setSelectedLeagueId] = useState(6);
     const [chatImage, setChatImage] = useState(serverPath()+"Images/Leagues/Begginer.png");
@@ -81,6 +82,43 @@ export function ChatPage(){
         fetchMessages();
     }, [selectedLeagueId]);
 
+    useEffect(() => {
+        const fetchMe = async () => {
+            try {
+                const response = await fetch(`${serverPath()}User/me`,{
+                    method: 'GET', 
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                
+                if (response.status === 204) {
+                    navigate('/LeaguesPage');
+                } 
+            } 
+            catch (err: unknown) {
+                if (err instanceof Error) {
+                    alert(err?.message || 'Unknown error');
+                }
+                else {
+                    alert('Unknown error');
+                }
+            }
+        };
+
+        fetchMe();
+    }, []);
+
+    // automatsko skorolovanje na dno kada je dosla nova poruka
+    const messagesDivRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        if (messagesDivRef.current) {
+            messagesDivRef.current.scrollTop = messagesDivRef.current.scrollHeight;
+        }
+    }, [messages]);
+
     return(
         <>
             <Navigation isApplyPage={false}/>
@@ -105,7 +143,7 @@ export function ChatPage(){
                                     <b>{chatName} - group chat</b>
                                 </div>
                             </div>
-                            <div className={styles.messagesDiv}>
+                            <div className={styles.messagesDiv}  ref={messagesDivRef}>
 
                                 {messages.map((message) => {
                                     return <MessageCard 
