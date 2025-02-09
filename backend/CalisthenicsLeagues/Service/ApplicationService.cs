@@ -11,9 +11,8 @@ namespace CalisthenicsLeagues.Service
 
         public bool InsertNewApplication(Application application) 
         {
-            if (userDAO.GetUserByUsername(application.Username) == null)
+            if (applicationDAO.InsertNewApplication(application) >= 1)
             {
-                applicationDAO.InsertNewApplication(application);
                 return true;
             }
             else {
@@ -28,8 +27,22 @@ namespace CalisthenicsLeagues.Service
         }
 
         public int AcceptApplication(int id) {
-            int accept = userDAO.InsertUser(applicationDAO.GetApplicationById(id));
-            if (accept >= 1) {
+            User user = userDAO.GetUserByUsername(applicationDAO.GetUsernameByApplicationId(id));
+            Application application = applicationDAO.GetApplicationById(id);
+            int accept;
+
+            if (user == null)
+            {
+                //user first application
+                accept = userDAO.InsertUser(application);
+            }
+            else {
+                //user already exists
+                accept = userDAO.UpdateLeague(user.Id, application.League);
+            }
+
+            if (accept >= 1)
+            {
                 applicationDAO.DeleteApplication(id);
             }
             return accept;

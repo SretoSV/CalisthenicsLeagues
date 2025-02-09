@@ -18,7 +18,7 @@ namespace CalisthenicsLeagues.Controllers
         {
             if (applicationService.InsertNewApplication(application) == false) {
 
-                return BadRequest(new { message = "Username already exists!" });
+                return BadRequest(new { message = "Error, application not sent!" });
             }
             return StatusCode(200, new { message = "Application sent!" });
         }
@@ -40,16 +40,22 @@ namespace CalisthenicsLeagues.Controllers
         [HttpPost("action/{id}")]
         public IActionResult AcceptApplication(int id)
         {
-            applicationService.AcceptApplication(id);
-            return StatusCode(200, "Accept");
+            if (applicationService.AcceptApplication(id) < 1)
+            {
+                return BadRequest(new { message = "Error, application not accepted!" });
+            }
+            return StatusCode(200,new { message = "Accepted" });
         }
 
         [Authorize]
         [HttpDelete("action/{id}")]
         public IActionResult DeleteApplication(int id)
-        {
-            applicationService.DeleteApplication(id);
-            return StatusCode(200,"Reject");
+        {      
+            if (applicationService.DeleteApplication(id) < 1)
+            {
+                return BadRequest(new { message = "Error, application not deleted!" });
+            }
+            return StatusCode(200, new { message = "Deleted" });
         }
     }
 

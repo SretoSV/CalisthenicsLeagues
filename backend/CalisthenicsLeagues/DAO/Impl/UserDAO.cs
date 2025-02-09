@@ -305,5 +305,22 @@ namespace CalisthenicsLeagues.DAO.Impl
             }
         }
 
+        public int UpdateLeague(int id, int league)
+        {
+            string updateSql = "update users set league = ? where id = ?";
+            using (IDbConnection connection = new MySqlConnection(ConnectionClass.GetConnectionString()))
+            {
+                connection.Open();
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = updateSql;
+
+                    command.Parameters.Add(new MySqlParameter("league", MySqlDbType.VarChar) { Value = league });
+                    command.Parameters.Add(new MySqlParameter("id", MySqlDbType.VarChar) { Value = id });
+                    
+                    return command.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

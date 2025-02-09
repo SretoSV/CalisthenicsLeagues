@@ -116,6 +116,30 @@ namespace CalisthenicsLeagues.DAO.Impl
             }
         }
 
+        public string GetUsernameByApplicationId(int id)
+        {
+            string query = "select username from applications where id = ?";
+            string username = "";
 
+            using (IDbConnection connection = new MySqlConnection(ConnectionClass.GetConnectionString()))
+            {
+                connection.Open();
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = query;
+                    command.Parameters.Add(new MySqlParameter("id", MySqlDbType.Int32) { Value = id });
+
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            username = reader.GetString(0);
+                        }
+                    }
+                }
+            }
+
+            return username;
+        }
     }
 }

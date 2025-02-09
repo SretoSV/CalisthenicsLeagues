@@ -8,5 +8,6 @@ namespace CalisthenicsLeagues.DAO
         IEnumerable<Application> GetAllApplications();
         Application GetApplicationById(int id);
         int DeleteApplication(int id);
+        string GetUsernameByApplicationId(int id);
     }
 }
