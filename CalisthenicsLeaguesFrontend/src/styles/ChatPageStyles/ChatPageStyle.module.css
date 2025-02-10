@@ -42,6 +42,10 @@
     font-size: 20px;
 }
 
+.chats:disabled, .chats:disabled:hover{
+    background-color: gray;
+    cursor:default;
+}
 .chats:hover{
     background-color: #5f015f;
 }

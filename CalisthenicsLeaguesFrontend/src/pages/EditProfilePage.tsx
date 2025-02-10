@@ -4,7 +4,7 @@ import { useUserContext } from '../context/UserContext';
 import { serverPath } from '../functions/serverpath';
 import { useNavigate } from 'react-router-dom';
 import { useCountriesContext } from '../context/CountriesContext';
-import { handleInputChange } from '../functions/formChangeFunction';
+import { formatDate, handleInputChange } from '../functions/formChangeFunction';
 
 export function EditProfilePage(){
   const navigate = useNavigate();
@@ -23,11 +23,6 @@ export function EditProfilePage(){
     instagram: '',
     username: '',
   });
-
-  const formatDate = (dateString: string) => {
-    if (!dateString) return '';
-    return dateString.split('T')[0]; // Uzimanje samo "YYYY-MM-DD" dela
-  };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();

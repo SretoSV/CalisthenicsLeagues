@@ -6,9 +6,11 @@ import sendImage from '../images/sendMessage.png';
 import { Message } from "../types/MessageTypes";
 import { MessageCard } from "../components/ChatPageComponents/MessageCard";
 import { useNavigate } from "react-router-dom";
+import { useUserContext } from "../context/UserContext";
 
 export function ChatPage(){
     const navigate = useNavigate();
+    const { user } = useUserContext();
     const [messages, setMessages] = useState<Message[]>([]);
     const [selectedLeagueId, setSelectedLeagueId] = useState(6);
     const [chatImage, setChatImage] = useState(serverPath()+"Images/Leagues/Begginer.png");
@@ -125,12 +127,42 @@ export function ChatPage(){
             <div className={styles.mainDiv}>
                 <div className={styles.mainDiv2}>
                     <div className={styles.mainDiv3}>
-                        <button onClick={() => handleClick("Begginer")} className={styles.chats}>Begginer</button>
-                        <button onClick={() => handleClick("Amateur")} className={styles.chats}>Amateur</button>
-                        <button onClick={() => handleClick("Semi-pro")} className={styles.chats}>Semi-pro</button>
-                        <button onClick={() => handleClick("Pro")} className={styles.chats}>Pro</button>
-                        <button onClick={() => handleClick("World-Class")} className={styles.chats}>World-Class</button>
-                        <button onClick={() => handleClick("Legendary")} className={styles.chats}>Legendary</button>
+                        {
+                            (user && user?.league <= 6) ? 
+                            <button onClick={() => handleClick("Begginer")} className={styles.chats}>Begginer</button>
+                            :
+                            <button onClick={() => handleClick("Begginer")} className={styles.chats} disabled>Begginer</button>
+                        }
+                        {
+                            (user && user?.league <= 5) ? 
+                            <button onClick={() => handleClick("Amateur")} className={styles.chats}>Amateur</button>
+                            :
+                            <button onClick={() => handleClick("Amateur")} className={styles.chats} disabled>Amateur</button>
+                        }
+                        {
+                            (user && user?.league <= 4) ? 
+                            <button onClick={() => handleClick("Semi-pro")} className={styles.chats}>Semi-pro</button>
+                            :
+                            <button onClick={() => handleClick("Semi-pro")} className={styles.chats} disabled>Semi-pro</button>
+                        }
+                        {
+                            (user && user?.league <= 3) ? 
+                            <button onClick={() => handleClick("Pro")} className={styles.chats}>Pro</button>
+                            :
+                            <button onClick={() => handleClick("Pro")} className={styles.chats} disabled>Pro</button>
+                        }
+                        {
+                            (user && user?.league <= 2) ? 
+                            <button onClick={() => handleClick("World-Class")} className={styles.chats}>World-Class</button>
+                            :
+                            <button onClick={() => handleClick("World-Class")} className={styles.chats} disabled>World-Class</button>
+                        }
+                        {
+                            (user && user?.league <= 1) ? 
+                            <button onClick={() => handleClick("Legendary")} className={styles.chats}>Legendary</button>
+                            :
+                            <button onClick={() => handleClick("Legendary")} className={styles.chats} disabled>Legendary</button>
+                        }
                     </div>
                     <div className={styles.chat}>
                             <div className={styles.imageAndNameOfChat}>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styles from '../../styles/ApplyPageStyles/ApplyPageStyle.module.css';
 import { serverPath } from '../../functions/serverpath';
-import { handleInputChange, setLeagueIdByLeagueName } from '../../functions/formChangeFunction';
+import { formatDate, handleInputChange, setLeagueIdByLeagueName } from '../../functions/formChangeFunction';
 import { useCountriesContext } from '../../context/CountriesContext';
 import { useUserContext } from '../../context/UserContext';
 
@@ -14,10 +14,6 @@ interface ApplyModalProps {
 export default function ApplyModal({ onClose, show, leagueName }: ApplyModalProps) {
     const { user } = useUserContext();
     const { countries } = useCountriesContext();
-    const formatDate = (dateString: string) => {
-        if (!dateString) return '';
-        return dateString.split('T')[0];
-    };
 
     const [form, setForm] = useState({
         username: '',

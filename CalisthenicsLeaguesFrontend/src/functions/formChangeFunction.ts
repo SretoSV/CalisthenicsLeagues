@@ -22,3 +22,14 @@ export const setLeagueIdByLeagueName = (leagueName: string) => {
             return 6;
     }
 }
+
+export const formatDate = (dateString: string) => {
+    if (!dateString) return '';
+    return dateString.split('T')[0]; // Uzimanje samo "YYYY-MM-DD" dela
+};
+
+export const formatTime = (dateString: string) => {
+    if (!dateString) return '';
+    const timeString =  dateString.split('T')[1];
+    return timeString.split(':')[0]+":"+timeString.split(':')[1];
+};

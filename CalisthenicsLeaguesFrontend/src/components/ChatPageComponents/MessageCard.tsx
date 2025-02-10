@@ -2,6 +2,7 @@ import { serverPath } from '../../functions/serverpath';
 import { useUserContext } from '../../context/UserContext';
 import styles from '../../styles/ChatPageStyles/MessageCardStyle.module.css';
 import arrowImage from '../../images/moreArrow.png';
+import { formatTime } from '../../functions/formChangeFunction';
 
 interface MessageCardProps{
     Id: number,
@@ -33,7 +34,9 @@ export function MessageCard(props: MessageCardProps){
                                 alt="arrow" 
                             />
                         </button>
-                        <div className={styles.timeDiv}>12:30</div>
+                        <div className={styles.timeDiv}>
+                            {formatTime(props.Datetime.toString() || '')}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -68,7 +71,9 @@ export function MessageCard(props: MessageCardProps){
                                         alt="arrow" 
                                     />
                                 </button>
-                                <div className={styles.timeDiv}>12:30</div>
+                                <div className={styles.timeDiv}>
+                                    {formatTime(props.Datetime.toString() || '')}
+                                </div>
                             </div>
                         </div>
 
