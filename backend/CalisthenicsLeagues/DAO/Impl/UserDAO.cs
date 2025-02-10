@@ -298,7 +298,7 @@ namespace CalisthenicsLeagues.DAO.Impl
                     command.Parameters.Add(new MySqlParameter("@Instagram", MySqlDbType.String) { Value = application.Instagram });
                     command.Parameters.Add(new MySqlParameter("@League", MySqlDbType.Int32) { Value = application.League });
                     command.Parameters.Add(new MySqlParameter("@Accepted", MySqlDbType.Bit) { Value = true });
-                    command.Parameters.Add(new MySqlParameter("@Admin", MySqlDbType.Int32) { Value = false });
+                    command.Parameters.Add(new MySqlParameter("@Admin", MySqlDbType.Bit) { Value = false });
 
                     return command.ExecuteNonQuery();
                 }

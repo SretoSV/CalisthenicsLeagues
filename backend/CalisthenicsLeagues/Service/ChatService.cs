@@ -19,5 +19,17 @@ namespace CalisthenicsLeagues.Service
             }
             return messageRequests;
         }
+
+        public Message InsertNewMessage(Message createdMessage)
+        {
+            int messageId = chatDAO.InsertNewMessage(createdMessage);
+            Message message = null;
+
+            if (messageId >= 1)
+            {
+                message = chatDAO.GetMessageById(messageId);
+            }
+            return message;
+        }
     }
 }

@@ -1,20 +1,15 @@
-﻿namespace CalisthenicsLeagues.Models
+﻿namespace CalisthenicsLeagues.Models.RequestsModels
 {
-    public class Message
+    public class CreateMessageRequest
     {
-        public int Id { get; set; }
         public int League { get; set; }
         public string Content { get; set; }
-        public DateTime Datetime { get; set; }
+        public string Datetime { get; set; }
         public int User { get; set; }
         public bool IsFile { get; set; }
-        public Message() { 
-        
-        }
 
-        public Message(int id, int league, string content, DateTime datetime, int user, bool isFile)
+        public CreateMessageRequest(int league, string content, string datetime, int user, bool isFile)
         {
-            Id = id;
             League = league;
             Content = content;
             Datetime = datetime;

@@ -25,5 +25,29 @@ namespace CalisthenicsLeagues.Controllers
 
             return StatusCode(200, messages);
         }
+
+        [Authorize]
+        [HttpPost("newMessage")]
+        public IActionResult NewMessage([FromBody] CreateMessageRequest createMessageRequest)
+        {
+            if (DateTime.TryParse(createMessageRequest.Datetime, out DateTime parsedDatetime))
+            {
+                Message message = new Message();
+
+                message.League = createMessageRequest.League;
+                message.Content = createMessageRequest.Content;
+                message.Datetime = parsedDatetime;
+                message.User = createMessageRequest.User;
+                message.IsFile = createMessageRequest.IsFile;
+                
+
+                Message result = chatService.InsertNewMessage(message);
+                return result != null ? Ok(result) : BadRequest("Error saving message");
+            }
+            else
+            {
+                return BadRequest("Invalid datetime format.");
+            }
+        }
     }
 }

@@ -1,9 +1,12 @@
 ﻿using CalisthenicsLeagues.Models;
+using CalisthenicsLeagues.Models.RequestsModels;
 
 namespace CalisthenicsLeagues.DAO
 {
     public interface IChatDAO
     {
         IEnumerable<Message> GetAllMessagesByLeague(int leagueId);
+        int InsertNewMessage(Message createdMessage);
+        Message GetMessageById(int id);
     }
 }
