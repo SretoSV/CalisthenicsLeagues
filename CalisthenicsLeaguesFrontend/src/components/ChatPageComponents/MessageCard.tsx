@@ -3,6 +3,8 @@ import { useUserContext } from '../../context/UserContext';
 import styles from '../../styles/ChatPageStyles/MessageCardStyle.module.css';
 import arrowImage from '../../images/moreArrow.png';
 import { formatTime } from '../../functions/formChangeFunction';
+import { useEffect, useRef, useState } from 'react';
+import { MessageOptionCard } from './MessageOptionCard';
 
 interface MessageCardProps{
     Id: number,
@@ -17,6 +19,25 @@ interface MessageCardProps{
 
 export function MessageCard(props: MessageCardProps){
     const { user } = useUserContext();
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const dropdownRef = useRef<HTMLDivElement>(null);
+
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+    };
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as HTMLDivElement)) {
+                setIsDropdownOpen(false);
+            }
+        };
+    
+        document.addEventListener('click', handleClickOutside);
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
 
     return (
         <>
@@ -27,14 +48,16 @@ export function MessageCard(props: MessageCardProps){
                     <div>
                         {props.Content}
                     </div>
-                    <div className={styles.timeAndButtonDiv}>
+                    <div className={styles.timeAndButtonDiv} ref={dropdownRef}>
                         <button className={styles.moreButton}>
                             <img 
                                 className={styles.arrowImage}
                                 src={arrowImage} 
                                 alt="arrow" 
+                                onClick={toggleDropdown}
                             />
                         </button>
+                        {isDropdownOpen && <MessageOptionCard />}   
                         <div className={styles.timeDiv}>
                             {formatTime(props.Datetime.toString() || '')}
                         </div>
@@ -64,14 +87,16 @@ export function MessageCard(props: MessageCardProps){
                                 
                             </div>
 
-                            <div className={styles.timeAndButtonDiv}>
+                            <div className={styles.timeAndButtonDiv} ref={dropdownRef}>
                                 <button className={styles.moreButton}>
                                     <img 
                                         className={styles.arrowImage}
                                         src={arrowImage} 
                                         alt="arrow" 
+                                        onClick={toggleDropdown}
                                     />
                                 </button>
+                            {isDropdownOpen && <MessageOptionCard />}   
                                 <div className={styles.timeDiv}>
                                     {formatTime(props.Datetime.toString() || '')}
                                 </div>
