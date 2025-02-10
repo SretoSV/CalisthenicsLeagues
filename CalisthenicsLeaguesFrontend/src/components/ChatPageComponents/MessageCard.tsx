@@ -10,6 +10,7 @@ interface MessageCardProps{
     Content: string,
     Datetime: Date,
     User: string,
+    UserLoggedIn: string,
     UserProfilePicture: string,
     IsFile: boolean
 }
@@ -20,7 +21,7 @@ export function MessageCard(props: MessageCardProps){
     return (
         <>
         {
-        (user?.username == props.User) ? 
+        user?.username === props.User ? 
             <div className={styles.mainDiv1}>
                 <div className={styles.contentDiv}>
                     <div>

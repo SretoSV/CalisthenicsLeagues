@@ -7,6 +7,7 @@ import { Message } from "../types/MessageTypes";
 import { MessageCard } from "../components/ChatPageComponents/MessageCard";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
+import { setLeagueIdByLeagueName } from "../functions/formChangeFunction";
 
 export function ChatPage(){
     const navigate = useNavigate();
@@ -16,6 +17,7 @@ export function ChatPage(){
     const [chatImage, setChatImage] = useState(serverPath()+"Images/Leagues/Begginer.png");
     const [chatName, setChatName] = useState("Begginer");
     const [message, setMessage] = useState("");
+    const [change, setChange] = useState(true);
     const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setMessage(e.target.value);
     };
@@ -55,8 +57,48 @@ export function ChatPage(){
         }
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        const now = new Date();
+        //const formattedDate = now.toISOString().slice(0, 19).replace('T', ' ');
+        const formattedDate = now.getFullYear() + '-' +
+        String(now.getMonth() + 1).padStart(2, '0') + '-' +
+        String(now.getDate()).padStart(2, '0') + ' ' +
+        String(now.getHours()).padStart(2, '0') + ':' +
+        String(now.getMinutes()).padStart(2, '0') + ':' +
+        String(now.getSeconds()).padStart(2, '0');
+        
+        const messageData = {
+            league: setLeagueIdByLeagueName(chatName),
+            content: message,
+            datetime: formattedDate,
+            user: user?.id,
+            isFile: false,
+        };
+    
+        try {
+            const response = await fetch(`${serverPath()}Chat/newMessage`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(messageData),
+                credentials: "include",
+            });
+    
+            if (!response.ok) {
+                throw new Error("Message send failed");
+            }
+            else{
+                //const result = await response.json();
+                setChange(current => !current);
+            }
 
+        } catch (error) {
+            console.error("Error submitting order:", error);
+        }
+
+        setMessage("");
     };
 
     useEffect(() => {
@@ -82,7 +124,7 @@ export function ChatPage(){
         };
 
         fetchMessages();
-    }, [selectedLeagueId]);
+    }, [selectedLeagueId, change]);
 
     useEffect(() => {
         const fetchMe = async () => {
@@ -185,6 +227,7 @@ export function ChatPage(){
                                                 Content={message.content}
                                                 Datetime={message.datetime}
                                                 User={message.user}
+                                                UserLoggedIn={user?.username || ''}
                                                 UserProfilePicture={message.userProfilePicture}
                                                 IsFile={message.isFile}
                                             />
@@ -205,7 +248,7 @@ export function ChatPage(){
                                 type="submit"
                                 className={styles.addMessageButton}
                                 title="Send"
-                                onClick={() => handleSubmit()}
+                                onClick={(e) => handleSubmit(e)}
                                 >
                                     <img
                                         src={sendImage}
