@@ -19,6 +19,8 @@ export function ChatPage(){
     const [message, setMessage] = useState("");
     const [messageToReply, setMessageToReply] = useState(0);
     const [change, setChange] = useState(true);
+    const [editMessage, setEditMessage] = useState(false);
+    const [editMessageId, setEditMessageId] = useState(0);
     const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setMessage(e.target.value);
     };
@@ -68,19 +70,29 @@ export function ChatPage(){
         String(now.getHours()).padStart(2, '0') + ':' +
         String(now.getMinutes()).padStart(2, '0') + ':' +
         String(now.getSeconds()).padStart(2, '0');
-        
+        let messageData;
+        let fetchString;
 
-        const messageData = {
-            league: setLeagueIdByLeagueName(chatName),
-            content: message,
-            datetime: formattedDate,
-            user: user?.id,
-            isFile: false,
-            hasReply: messageToReply,
-        };
-    
+        if(!editMessage){
+            messageData = {
+                league: setLeagueIdByLeagueName(chatName),
+                content: message,
+                datetime: formattedDate,
+                user: user?.id,
+                isFile: false,
+                hasReply: messageToReply,
+            };
+            fetchString = `${serverPath()}Chat/newMessage`;
+        }else{
+            messageData = {
+                id: editMessageId,
+                content: message,
+            };
+            fetchString = `${serverPath()}Chat/edit`;
+        }
+        
         try {
-            const response = await fetch(`${serverPath()}Chat/newMessage`, {
+            const response = await fetch(fetchString, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -98,11 +110,13 @@ export function ChatPage(){
             }
 
         } catch (error) {
-            console.error("Error submitting order:", error);
+            console.error("Error submitting message:", error);
         }
 
+        setEditMessage(false);
         setMessage("");
         setMessageToReply(0);
+        setEditMessageId(0);
     };
 
     useEffect(() => {
@@ -166,6 +180,24 @@ export function ChatPage(){
             messagesDivRef.current.scrollTop = messagesDivRef.current.scrollHeight;
         }
     }, [messages]);
+
+    const handleEdit = (id: number) => {
+        if(id !== 0){
+            setEditMessageId(id);
+            setEditMessage(true);
+            messages.map((message) => {
+                if(message.id === id){
+                    setMessage(message.content);
+                }
+            }
+            )
+        }
+        else{
+            setEditMessageId(0);
+            setEditMessage(false);
+            setMessage("");
+        }
+    } 
 
     return(
         <>
@@ -238,6 +270,7 @@ export function ChatPage(){
                                                 Messages={messages}
                                                 onMessageToReply={setMessageToReply}
                                                 onChange={setChange}
+                                                onEdit={handleEdit}
                                             />
                                 })}
 
@@ -262,6 +295,20 @@ export function ChatPage(){
                                     }
                                 })
                             }
+                            {
+                                (editMessage) &&
+                                <div className={styles.messageToReplyDiv}>
+                                    <div>
+                                        Editing...
+                                    </div>
+                                    <button 
+                                        onClick={() => (setEditMessage(false))}
+                                        className={styles.deleteReplyMessageButton}
+                                        >
+                                        X
+                                    </button>
+                                </div>
+                            }
                             <div className={styles.addMessageDiv}>
                                 <textarea
                                     id="messageArea"
@@ -271,18 +318,34 @@ export function ChatPage(){
                                     onChange={handleTextChange}
                                     required
                                 ></textarea>
-                                <button
-                                type="submit"
-                                className={styles.addMessageButton}
-                                title="Send"
-                                onClick={(e) => handleSubmit(e)}
-                                >
-                                    <img
-                                        src={sendImage}
-                                        alt="Send"
-                                        className={styles.buttonImage}
-                                    />
-                                </button>
+                                {
+                                    (message === "") ? 
+                                    <button
+                                    type="submit"
+                                    className={styles.addMessageButtonDisabled}
+                                    title="Send"
+                                    >
+                                        <img
+                                            src={sendImage}
+                                            alt="Send"
+                                            className={styles.buttonImage}
+                                        />
+                                    </button>
+                                    :
+                                    <button
+                                    type="submit"
+                                    className={styles.addMessageButton}
+                                    title="Send"
+                                    onClick={(e) => handleSubmit(e)}
+                                    >
+                                        <img
+                                            src={sendImage}
+                                            alt="Send"
+                                            className={styles.buttonImage}
+                                        />
+                                    </button>
+                                }
+
                             </div>
 
                     </div>

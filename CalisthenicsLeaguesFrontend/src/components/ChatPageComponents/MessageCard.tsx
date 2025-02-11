@@ -20,6 +20,7 @@ interface MessageCardProps{
     Messages: Message[],
     onChange: React.Dispatch<React.SetStateAction<boolean>>;
     onMessageToReply: React.Dispatch<React.SetStateAction<number>>;
+    onEdit: (id: number) => void
 }
 
 export function MessageCard(props: MessageCardProps){
@@ -74,7 +75,7 @@ export function MessageCard(props: MessageCardProps){
                                 onClick={toggleDropdown}
                             />
                         </button>
-                        {isDropdownOpen && <MessageOptionCard id={props.Id} onChange={props.onChange} onMessageToReply={props.onMessageToReply}/>}   
+                        {isDropdownOpen && <MessageOptionCard id={props.Id} onEdit={props.onEdit} onChange={props.onChange} onMessageToReply={props.onMessageToReply}/>}   
                         <div className={styles.timeDiv}>
                             {formatTime(props.Datetime.toString() || '')}
                         </div>
@@ -115,16 +116,14 @@ export function MessageCard(props: MessageCardProps){
                                     
                                 </div>
 
-                                <div className={styles.timeAndButtonDiv} ref={dropdownRef}>
-                                    <button className={styles.moreButton}>
+                                <div className={styles.timeAndButtonDiv}>
+                                    <button className={styles.moreButton2}>
                                         <img 
                                             className={styles.arrowImage}
                                             src={arrowImage} 
                                             alt="arrow" 
-                                            onClick={toggleDropdown}
                                         />
-                                    </button>
-                                {isDropdownOpen && <MessageOptionCard id={props.Id} onChange={props.onChange} onMessageToReply={props.onMessageToReply}/>}   
+                                    </button>  
                                     <div className={styles.timeDiv}>
                                         {formatTime(props.Datetime.toString() || '')}
                                     </div>

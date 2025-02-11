@@ -99,6 +99,14 @@
     cursor: pointer;
 }
 
+.addMessageButtonDisabled{
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    margin-top: -5px;
+    color: #fff;
+}
+
 .addMessageButton:hover{
     background-color: transparent;
 }

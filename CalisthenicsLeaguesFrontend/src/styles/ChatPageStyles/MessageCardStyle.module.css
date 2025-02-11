@@ -74,6 +74,10 @@
     isibility: visible;
 }*/
 
+.moreButton2{
+    visibility: collapse;
+}
+
 .arrowImage{
     width: 25px;
     height: 18px;
