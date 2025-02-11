@@ -1,5 +1,6 @@
 ﻿using CalisthenicsLeagues.DAO;
 using CalisthenicsLeagues.DAO.Impl;
+using CalisthenicsLeagues.DTO;
 using CalisthenicsLeagues.Models;
 using CalisthenicsLeagues.Models.RequestsModels;
 
@@ -15,7 +16,7 @@ namespace CalisthenicsLeagues.Service
             List<Message> messages = chatDAO.GetAllMessagesByLeague(leagueId).ToList();
             foreach (Message m in messages) {
                 User user = userDAO.GetUserById(m.User);
-                messageRequests.Add(new MessageRequest(m.Id, m.League, m.Content, m.Datetime, user.Username, user.Image, m.IsFile));
+                messageRequests.Add(new MessageRequest(m.Id, m.League, m.Content, m.Datetime, user.Username, user.Image, m.IsFile, m.HasReply));
             }
             return messageRequests;
         }
@@ -30,6 +31,16 @@ namespace CalisthenicsLeagues.Service
                 message = chatDAO.GetMessageById(messageId);
             }
             return message;
+        }
+
+        public int DeleteMessage(int id)
+        {
+            return chatDAO.DeleteMessage(id);
+        }
+
+        public int EditMessage(EditMessageDTO editMessageDTO)
+        {
+            return chatDAO.EditMessage(editMessageDTO);
         }
     }
 }

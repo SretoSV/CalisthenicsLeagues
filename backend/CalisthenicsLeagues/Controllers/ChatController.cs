@@ -1,4 +1,5 @@
-﻿using CalisthenicsLeagues.Models;
+﻿using CalisthenicsLeagues.DTO;
+using CalisthenicsLeagues.Models;
 using CalisthenicsLeagues.Models.RequestsModels;
 using CalisthenicsLeagues.Service;
 using Microsoft.AspNetCore.Authorization;
@@ -39,7 +40,8 @@ namespace CalisthenicsLeagues.Controllers
                 message.Datetime = parsedDatetime;
                 message.User = createMessageRequest.User;
                 message.IsFile = createMessageRequest.IsFile;
-                
+                message.HasReply = createMessageRequest.HasReply;
+
 
                 Message result = chatService.InsertNewMessage(message);
                 return result != null ? Ok(result) : BadRequest("Error saving message");
@@ -48,6 +50,28 @@ namespace CalisthenicsLeagues.Controllers
             {
                 return BadRequest("Invalid datetime format.");
             }
+        }
+
+        [Authorize]
+        [HttpDelete("delete/{id}")]
+        public IActionResult DeleteMessage(int id)
+        {
+            if (chatService.DeleteMessage(id) < 1)
+            {
+                return BadRequest(new { message = "Error, message not deleted!" });
+            }
+            return StatusCode(200, new { message = "Deleted" });
+        }
+
+        [Authorize]
+        [HttpPost("edit")]
+        public IActionResult EditMessage([FromBody] EditMessageDTO editMessageDTO)
+        {
+            if (chatService.EditMessage(editMessageDTO) < 1)
+            {
+                return BadRequest(new { message = "Error, message not edited!" });
+            }
+            return StatusCode(200, new { message = "Edited" });
         }
     }
 }

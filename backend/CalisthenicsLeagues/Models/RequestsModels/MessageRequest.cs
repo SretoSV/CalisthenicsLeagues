@@ -9,8 +9,9 @@
         public string User { get; set; }
         public string UserProfilePicture { get; set; }
         public bool IsFile { get; set; }
+        public int HasReply { get; set; }
 
-        public MessageRequest(int id, int league, string content, DateTime datetime, string user, string userProfilePicture, bool isFile)
+        public MessageRequest(int id, int league, string content, DateTime datetime, string user, string userProfilePicture, bool isFile, int hasReply)
         {
             Id = id;
             League = league;
@@ -19,6 +20,7 @@
             User = user;
             UserProfilePicture = userProfilePicture;
             IsFile = isFile;
+            HasReply = hasReply;
         }
     }
 }
