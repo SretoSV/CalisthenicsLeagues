@@ -17,6 +17,7 @@ export function ChatPage(){
     const [chatImage, setChatImage] = useState(serverPath()+"Images/Leagues/Begginer.png");
     const [chatName, setChatName] = useState("Begginer");
     const [message, setMessage] = useState("");
+    const [messageToReply, setMessageToReply] = useState(0);
     const [change, setChange] = useState(true);
     const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setMessage(e.target.value);
@@ -68,12 +69,14 @@ export function ChatPage(){
         String(now.getMinutes()).padStart(2, '0') + ':' +
         String(now.getSeconds()).padStart(2, '0');
         
+
         const messageData = {
             league: setLeagueIdByLeagueName(chatName),
             content: message,
             datetime: formattedDate,
             user: user?.id,
             isFile: false,
+            hasReply: messageToReply,
         };
     
         try {
@@ -99,6 +102,7 @@ export function ChatPage(){
         }
 
         setMessage("");
+        setMessageToReply(0);
     };
 
     useEffect(() => {
@@ -230,11 +234,34 @@ export function ChatPage(){
                                                 UserLoggedIn={user?.username || ''}
                                                 UserProfilePicture={message.userProfilePicture}
                                                 IsFile={message.isFile}
+                                                HasReply={message.hasReply}
+                                                Messages={messages}
+                                                onMessageToReply={setMessageToReply}
+                                                onChange={setChange}
                                             />
                                 })}
 
                             </div>
 
+                            {
+                                (messageToReply > 0) && 
+                                messages.map((message) => {
+                                    if(message.id === messageToReply){
+                                        return <div className={styles.messageToReplyDiv}>
+                                            <div>
+                                                <b>{message.user}</b><br/>
+                                                {message.content}
+                                            </div>
+                                            <button 
+                                                onClick={() => (setMessageToReply(0))}
+                                                className={styles.deleteReplyMessageButton}
+                                                >
+                                                X
+                                            </button>
+                                        </div>
+                                    }
+                                })
+                            }
                             <div className={styles.addMessageDiv}>
                                 <textarea
                                     id="messageArea"

@@ -5,5 +5,6 @@ export interface Message{
     datetime: Date,
     user: string,
     userProfilePicture: string,
-    isFile: boolean
+    isFile: boolean,
+    hasReply: number
 }

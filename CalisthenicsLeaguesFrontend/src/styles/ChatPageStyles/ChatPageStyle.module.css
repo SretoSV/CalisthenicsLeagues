@@ -128,3 +128,25 @@
     resize: none;
     margin-left: 10px;
 }
+
+.messageToReplyDiv{
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+    margin-bottom: -7px;
+    margin-left: 10px;
+    margin-right: 62px;
+    border: 1px solid gray;
+    border-bottom:none;
+    padding: 5px;
+}
+
+.deleteReplyMessageButton{
+    margin-left: auto;
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
