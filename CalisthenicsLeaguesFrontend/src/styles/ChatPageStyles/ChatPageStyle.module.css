@@ -127,14 +127,16 @@
     font-size: 15px;
     padding: 10px;
     border: 1px solid #ccc;
-    overflow-wrap: break-word;
-    white-space: normal;
+    /*overflow-wrap: break-word;
+    white-space: normal;*/
     text-align: left;
     font-size: 16px;
     line-height: 1;
     outline: none; 
     resize: none;
     margin-left: 10px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 .messageToReplyDiv{
@@ -157,4 +159,11 @@
     border: none;
     color: white;
     cursor: pointer;
+}
+
+.textContentDiv{
+    max-width: 20ch;
+    overflow: hidden; /*sakriva ostatak teksta*/
+    white-space: nowrap; /*onemogucava prelamanje*/
+    text-overflow: ellipsis; /*dodaje ... na kraj*/
 }

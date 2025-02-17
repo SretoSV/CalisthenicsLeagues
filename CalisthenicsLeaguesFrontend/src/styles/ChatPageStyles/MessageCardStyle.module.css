@@ -2,12 +2,11 @@
     display: flex;
     flex-direction: column;
     margin-left: auto;
-    width: 45%;
 }
+
 .wholeDiv2{
     display: flex;
     flex-direction: column;
-    width: 45%;
 }
 
 .mainDiv1{
@@ -36,6 +35,10 @@
     background-color: #9b6a9b;
     padding: 2px;
     border-radius: 10px;
+    max-width: 20ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .replyDiv2{
@@ -63,8 +66,15 @@
     border-radius: 20px;
     align-items: baseline;
     position: relative;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
+/*!!!trebace sa media da se menja!!!*/
+.textContentDiv{
+    max-width: 345px;
+}
 .moreButton{
     /*visibility: hidden;*/
     background: transparent;
@@ -75,7 +85,8 @@
 }*/
 
 .moreButton2{
-    visibility: collapse;
+    background: transparent;
+    border: none;
 }
 
 .arrowImage{
@@ -111,4 +122,20 @@
     padding: 2px;
     background-color: #800080;
     border-radius: 20px;
+}
+
+.deletedMessage, .deletedMessage2{
+    border: 1px solid gray;
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: rgb(163, 163, 163);
+    border-radius: 20px;
+}
+
+.deletedMessage{
+    margin-left: auto;
+}
+
+.deletedMessage2{
+    margin-right: auto;
 }

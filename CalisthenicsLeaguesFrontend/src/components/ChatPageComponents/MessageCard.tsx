@@ -17,6 +17,8 @@ interface MessageCardProps{
     UserProfilePicture: string,
     IsFile: boolean,
     HasReply: number,
+    IsDeleted: boolean,
+    ReplyContent?: string,
     Messages: Message[],
     onChange: React.Dispatch<React.SetStateAction<boolean>>;
     onMessageToReply: React.Dispatch<React.SetStateAction<number>>;
@@ -49,91 +51,117 @@ export function MessageCard(props: MessageCardProps){
         <>
         {
         user?.username === props.User ? 
-            <div className={styles.wholeDiv1}>
-                {
-                    (props.HasReply > 0) && 
-                    props.Messages.map((message) => {
-                        if(message.id === props.HasReply){
-                            return <div className={styles.replyDiv1}>
-                                {message.user}
-                                <div className={styles.contentReply}>{message.content}</div>
+            props.IsDeleted === false ? 
+                <div className={styles.wholeDiv1}>
+                    {
+                        (props.HasReply > 0) && 
+                        props.Messages.map((message) => {
+                            if(message.id === props.HasReply){
+                                return <div className={styles.replyDiv1}>
+                                    {message.user}
+                                    <div className={styles.contentReply}>{props.ReplyContent}</div>
+                                </div>
+                            }
+                        })
+                    }
+                <div className={styles.mainDiv1}>
+                    <div className={styles.contentDiv}>
+                        <div className={styles.textContentDiv}>
+                            {props.Content}
+                        </div>
+                        <div className={styles.timeAndButtonDiv} ref={dropdownRef}>
+                            <button className={styles.moreButton}>
+                                <img 
+                                    className={styles.arrowImage}
+                                    src={arrowImage} 
+                                    alt="arrow" 
+                                    onClick={toggleDropdown}
+                                />
+                            </button>
+                            {isDropdownOpen && 
+                                <MessageOptionCard 
+                                    id={props.Id} 
+                                    onEdit={props.onEdit} 
+                                    onChange={props.onChange} 
+                                    onMessageToReply={props.onMessageToReply}
+                                    isEditAndDeleteVisible={true}
+                            />}   
+                            <div className={styles.timeDiv}>
+                                {formatTime(props.Datetime.toString() || '')}
                             </div>
-                        }
-                    })
-                }
-            <div className={styles.mainDiv1}>
-                <div className={styles.contentDiv}>
-                    <div>
-                        {props.Content}
-                    </div>
-                    <div className={styles.timeAndButtonDiv} ref={dropdownRef}>
-                        <button className={styles.moreButton}>
-                            <img 
-                                className={styles.arrowImage}
-                                src={arrowImage} 
-                                alt="arrow" 
-                                onClick={toggleDropdown}
-                            />
-                        </button>
-                        {isDropdownOpen && <MessageOptionCard id={props.Id} onEdit={props.onEdit} onChange={props.onChange} onMessageToReply={props.onMessageToReply}/>}   
-                        <div className={styles.timeDiv}>
-                            {formatTime(props.Datetime.toString() || '')}
                         </div>
                     </div>
                 </div>
-            </div>
-            </div>
+                </div>
+                :
+                <div className={styles.deletedMessage}>
+                    Deleted message
+                </div>
             :
-            <div className={styles.wholeDiv2}>
-                {
-                    (props.HasReply > 0) && 
-                    props.Messages.map((message) => {
-                        if(message.id === props.HasReply){
-                            return <div className={styles.replyDiv2}>
-                                {message.user}<br/>
-                                <div className={styles.contentReply}>{message.content}</div>
-                            </div>
-                        }
-                    })
-                }
-                <div className={styles.mainDiv2}>
-                    <div className={styles.nameAndContentDiv}>
-                        <img 
-                            src={serverPath()+props.UserProfilePicture}
-                            alt="photo" 
-                            className={styles.athleteImage}
-                        />
-                        <div>
-                            <div className={styles.contentDiv}>
+            props.IsDeleted === false ? 
+                <div className={styles.wholeDiv2}>
+                    {
+                        (props.HasReply > 0) && 
+                        props.Messages.map((message) => {
+                            if(message.id === props.HasReply){
+                                return <div className={styles.replyDiv2}>
+                                    {message.user}<br/>
+                                    <div className={styles.contentReply}>{props.ReplyContent}</div>
+                                </div>
+                            }
+                        })
+                    }
+                    <div className={styles.mainDiv2}>
+                        <div className={styles.nameAndContentDiv}>
+                            <img 
+                                src={serverPath()+props.UserProfilePicture}
+                                alt="photo" 
+                                className={styles.athleteImage}
+                            />
+                            <div>
+                                <div className={styles.contentDiv}>
 
-                                <div className={styles.usernameAndContentDiv}>
-                                    <div>
-                                    {props.User}
+                                    <div className={styles.usernameAndContentDiv}>
+                                        <div>
+                                        {props.User}
+                                        </div>
+                                        <div className={styles.textContentDiv}>
+                                        {props.Content}
+                                        </div>
+                                        
                                     </div>
-                                    <div>
-                                    {props.Content}
+
+                                    <div className={styles.timeAndButtonDiv} ref={dropdownRef}>
+                                        <button className={styles.moreButton2}>
+                                            <img 
+                                                className={styles.arrowImage}
+                                                src={arrowImage} 
+                                                alt="arrow" 
+                                                onClick={toggleDropdown}
+                                            />
+                                        </button>  
+                                        {isDropdownOpen && 
+                                            <MessageOptionCard 
+                                                id={props.Id} 
+                                                onEdit={props.onEdit} 
+                                                onChange={props.onChange} 
+                                                onMessageToReply={props.onMessageToReply}
+                                                isEditAndDeleteVisible={false}
+                                        />}   
+                                        <div className={styles.timeDiv}>
+                                            {formatTime(props.Datetime.toString() || '')}
+                                        </div>
                                     </div>
-                                    
                                 </div>
 
-                                <div className={styles.timeAndButtonDiv}>
-                                    <button className={styles.moreButton2}>
-                                        <img 
-                                            className={styles.arrowImage}
-                                            src={arrowImage} 
-                                            alt="arrow" 
-                                        />
-                                    </button>  
-                                    <div className={styles.timeDiv}>
-                                        {formatTime(props.Datetime.toString() || '')}
-                                    </div>
-                                </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-            </div>
+                :
+                <div className={styles.deletedMessage2}>
+                    Deleted message
+                </div>
         }
         </>
     );

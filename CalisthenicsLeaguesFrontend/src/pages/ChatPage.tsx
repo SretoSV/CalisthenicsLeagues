@@ -81,6 +81,7 @@ export function ChatPage(){
                 user: user?.id,
                 isFile: false,
                 hasReply: messageToReply,
+                isDeleted: false,
             };
             fetchString = `${serverPath()}Chat/newMessage`;
         }else{
@@ -256,22 +257,26 @@ export function ChatPage(){
                             <div className={styles.messagesDiv}  ref={messagesDivRef}>
 
                                 {messages.map((message) => {
-                                    return <MessageCard 
-                                                key={message.id}
-                                                Id={message.id}
-                                                League={message.league}
-                                                Content={message.content}
-                                                Datetime={message.datetime}
-                                                User={message.user}
-                                                UserLoggedIn={user?.username || ''}
-                                                UserProfilePicture={message.userProfilePicture}
-                                                IsFile={message.isFile}
-                                                HasReply={message.hasReply}
-                                                Messages={messages}
-                                                onMessageToReply={setMessageToReply}
-                                                onChange={setChange}
-                                                onEdit={handleEdit}
-                                            />
+                                    
+                                        return <MessageCard 
+                                            key={message.id}
+                                            Id={message.id}
+                                            League={message.league}
+                                            Content={message.content}
+                                            Datetime={message.datetime}
+                                            User={message.user}
+                                            UserLoggedIn={user?.username || ''}
+                                            UserProfilePicture={message.userProfilePicture}
+                                            IsFile={message.isFile}
+                                            HasReply={message.hasReply}
+                                            IsDeleted={message.isDeleted}
+                                            ReplyContent={message.replyContent}
+                                            Messages={messages}
+                                            onMessageToReply={setMessageToReply}
+                                            onChange={setChange}
+                                            onEdit={handleEdit}
+                                        />
+                                    
                                 })}
 
                             </div>
@@ -281,7 +286,7 @@ export function ChatPage(){
                                 messages.map((message) => {
                                     if(message.id === messageToReply){
                                         return <div className={styles.messageToReplyDiv}>
-                                            <div>
+                                            <div className={styles.textContentDiv}>
                                                 <b>{message.user}</b><br/>
                                                 {message.content}
                                             </div>

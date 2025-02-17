@@ -4,7 +4,8 @@ interface MessageOptionCardProps{
     id: number,
     onChange: React.Dispatch<React.SetStateAction<boolean>>;
     onMessageToReply: React.Dispatch<React.SetStateAction<number>>;
-    onEdit: (id: number) => void
+    onEdit: (id: number) => void,
+    isEditAndDeleteVisible: boolean,
 }
 
 export function MessageOptionCard(props: MessageOptionCardProps){
@@ -44,6 +45,7 @@ export function MessageOptionCard(props: MessageOptionCardProps){
     } 
 
     return (
+        props.isEditAndDeleteVisible ? 
         <div className={styles.dropdownStyle}>
             <button 
                 className={`${styles.buttons} ${styles.marginStyle}`}
@@ -52,16 +54,25 @@ export function MessageOptionCard(props: MessageOptionCardProps){
                 Edit
             </button>
             <button 
-                    className={`${styles.buttons} ${styles.marginStyle}`}
-                    onClick={(e) => handleReply(e)}
-                >
-                    Reply
-                </button>
+                className={`${styles.buttons} ${styles.marginStyle}`}
+                onClick={(e) => handleReply(e)}
+            >
+                Reply
+            </button>
             <button 
                 className={styles.buttons}
                 onClick={(e) => handleDelete(e)}
             >
                 Delete
+            </button>
+        </div>
+        :
+        <div className={styles.dropdownStyle}>
+            <button 
+                className={`${styles.buttons} ${styles.marginStyle}`}
+                onClick={(e) => handleReply(e)}
+            >
+                Reply
             </button>
         </div>
     );
