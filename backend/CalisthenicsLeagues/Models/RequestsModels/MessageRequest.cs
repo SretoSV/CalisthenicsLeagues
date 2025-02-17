@@ -10,8 +10,11 @@
         public string UserProfilePicture { get; set; }
         public bool IsFile { get; set; }
         public int HasReply { get; set; }
+        public bool IsDeleted { get; set; }
+        public string? ReplyContent { get; set; }
 
-        public MessageRequest(int id, int league, string content, DateTime datetime, string user, string userProfilePicture, bool isFile, int hasReply)
+
+        public MessageRequest(int id, int league, string content, DateTime datetime, string user, string userProfilePicture, bool isFile, int hasReply, bool isDeleted, string? replyContent)
         {
             Id = id;
             League = league;
@@ -21,6 +24,8 @@
             UserProfilePicture = userProfilePicture;
             IsFile = isFile;
             HasReply = hasReply;
+            IsDeleted = isDeleted;
+            ReplyContent = replyContent;
         }
     }
 }

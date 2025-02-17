@@ -11,5 +11,6 @@ namespace CalisthenicsLeagues.DAO
         Message GetMessageById(int id);
         int DeleteMessage(int id);
         int EditMessage(EditMessageDTO editMessageDTO);
+        int UpdateReplyMessage(int id, string content, bool isId);
     }
 }

@@ -8,8 +8,9 @@
         public int User { get; set; }
         public bool IsFile { get; set; }
         public int HasReply { get; set; }
+        public bool IsDeleted { get; set; }
 
-        public CreateMessageRequest(int league, string content, string datetime, int user, bool isFile, int hasReply)
+        public CreateMessageRequest(int league, string content, string datetime, int user, bool isFile, int hasReply, bool isDeleted)
         {
             League = league;
             Content = content;
@@ -17,6 +18,7 @@
             User = user;
             IsFile = isFile;
             HasReply = hasReply;
+            IsDeleted = isDeleted;
         }
     }
 }

@@ -9,11 +9,13 @@
         public int User { get; set; }
         public bool IsFile { get; set; }
         public int HasReply { get; set; }
+        public bool IsDeleted { get; set; }
+        public string? ReplyContent { get; set; }
         public Message() { 
         
         }
 
-        public Message(int id, int league, string content, DateTime datetime, int user, bool isFile, int hasReply)
+        public Message(int id, int league, string content, DateTime datetime, int user, bool isFile, int hasReply, bool isDeleted, string? replyContent)
         {
             Id = id;
             League = league;
@@ -22,6 +24,8 @@
             User = user;
             IsFile = isFile;
             HasReply = hasReply;
+            IsDeleted = isDeleted;
+            ReplyContent = replyContent;
         }
     }
 }

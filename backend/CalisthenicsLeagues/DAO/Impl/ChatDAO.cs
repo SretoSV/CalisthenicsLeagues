@@ -31,7 +31,8 @@ namespace CalisthenicsLeagues.DAO.Impl
                         while (reader.Read())
                         {
                             Message message = new Message(reader.GetInt32(0), reader.GetInt32(1),
-                                reader.GetString(2), reader.GetDateTime(3), reader.GetInt32(4), reader.GetBoolean(5), reader.GetInt32(6));
+                                reader.GetString(2), reader.GetDateTime(3), reader.GetInt32(4), 
+                                reader.GetBoolean(5), reader.GetInt32(6), reader.GetBoolean(7), reader.IsDBNull(8) ? null : reader.GetString(8));
 
                             messageList.Add(message);
                         }
@@ -61,7 +62,7 @@ namespace CalisthenicsLeagues.DAO.Impl
                         if (reader.Read())
                         {
                             message = new Message(reader.GetInt32(0), reader.GetInt32(1), reader.GetString(2), reader.GetDateTime(3),
-                                reader.GetInt32(4), reader.GetBoolean(5), reader.GetInt32(6));
+                                reader.GetInt32(4), reader.GetBoolean(5), reader.GetInt32(6), reader.GetBoolean(7), reader.IsDBNull(8) ? null : reader.GetString(8));
                         }
                     }
                 }
@@ -73,8 +74,8 @@ namespace CalisthenicsLeagues.DAO.Impl
         public int InsertNewMessage(Message createdMessage)
         {
             string insertSql = @"
-                INSERT INTO messages (league, content, datetime, user, isFile, hasReply) 
-                VALUES (@League, @Content, @Datetime, @User, @IsFile, @HasReply);
+                INSERT INTO messages (league, content, datetime, user, isFile, hasReply, isDeleted, replyContent) 
+                VALUES (@League, @Content, @Datetime, @User, @IsFile, @HasReply, @IsDeleted, @ReplyContent);
                 SELECT LAST_INSERT_ID();";
 
             using (IDbConnection connection = new MySqlConnection(ConnectionClass.GetConnectionString()))
@@ -91,6 +92,8 @@ namespace CalisthenicsLeagues.DAO.Impl
                     command.Parameters.Add(new MySqlParameter("@User", MySqlDbType.Int32) { Value = createdMessage.User });
                     command.Parameters.Add(new MySqlParameter("@IsFile", MySqlDbType.Bit) { Value = createdMessage.IsFile });
                     command.Parameters.Add(new MySqlParameter("@HasReply", MySqlDbType.Int32) { Value = createdMessage.HasReply });
+                    command.Parameters.Add(new MySqlParameter("@IsDeleted", MySqlDbType.Bit) { Value = createdMessage.IsDeleted });
+                    command.Parameters.Add(new MySqlParameter("@ReplyContent", MySqlDbType.Text) { Value = null });
 
                     var newMessageId = Convert.ToInt32(command.ExecuteScalar());
                     return newMessageId;
@@ -100,7 +103,7 @@ namespace CalisthenicsLeagues.DAO.Impl
 
         public int DeleteMessage(int id)
         {
-            string deleteSql = "delete from messages where id = ?";
+            string deleteSql = "update messages set isDeleted = true where id = ?";
 
             using (IDbConnection connection = new MySqlConnection(ConnectionClass.GetConnectionString()))
             {
@@ -134,5 +137,29 @@ namespace CalisthenicsLeagues.DAO.Impl
             }
 
         }
+
+        public int UpdateReplyMessage(int id, string content, bool isId)
+        {
+            string updateSql = isId ?
+            updateSql = "update messages set replyContent = ? where id = ?"
+            :
+            updateSql = "update messages set replyContent = ? where hasReply = ?";
+
+            using (IDbConnection connection = new MySqlConnection(ConnectionClass.GetConnectionString()))
+            {
+                connection.Open();
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = updateSql;
+
+                    command.Parameters.Add(new MySqlParameter("replyContent", MySqlDbType.Text) { Value = content });
+                    command.Parameters.Add(new MySqlParameter("id", MySqlDbType.Int32) { Value = id });
+                    command.Parameters.Add(new MySqlParameter("hasReply", MySqlDbType.Int32) { Value = id });
+
+                    return command.ExecuteNonQuery();
+                }
+            }
+        }
+
     }
 }
