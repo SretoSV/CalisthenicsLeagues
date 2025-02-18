@@ -7,12 +7,13 @@ import { Message } from "../types/MessageTypes";
 import { MessageCard } from "../components/ChatPageComponents/MessageCard";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
-import { setLeagueIdByLeagueName } from "../functions/formChangeFunction";
+import { formatDate, setLeagueIdByLeagueName } from "../functions/formChangeFunction";
 
 export function ChatPage(){
     const navigate = useNavigate();
     const { user } = useUserContext();
     const [messages, setMessages] = useState<Message[]>([]);
+    const [previousMessage, setPreviousMessage] = useState<Message>();
     const [selectedLeagueId, setSelectedLeagueId] = useState(6);
     const [chatImage, setChatImage] = useState(serverPath()+"Images/Leagues/Begginer.png");
     const [chatName, setChatName] = useState("Begginer");
@@ -256,28 +257,43 @@ export function ChatPage(){
                             </div>
                             <div className={styles.messagesDiv}  ref={messagesDivRef}>
 
-                                {messages.map((message) => {
-                                    
-                                        return <MessageCard 
-                                            key={message.id}
-                                            Id={message.id}
-                                            League={message.league}
-                                            Content={message.content}
-                                            Datetime={message.datetime}
-                                            User={message.user}
-                                            UserLoggedIn={user?.username || ''}
-                                            UserProfilePicture={message.userProfilePicture}
-                                            IsFile={message.isFile}
-                                            HasReply={message.hasReply}
-                                            IsDeleted={message.isDeleted}
-                                            ReplyContent={message.replyContent}
-                                            ReplyUser={message.replyUser}
-                                            Messages={messages}
-                                            onMessageToReply={setMessageToReply}
-                                            onChange={setChange}
-                                            onEdit={handleEdit}
-                                        />
-                                    
+                                {messages.map((message, index) => {
+
+                                        return <>
+                                            {
+                                                (index != 0) 
+                                                ?
+                                                    (formatDate(message.datetime.toString()) !== formatDate(messages[index-1].datetime.toString()))
+                                                    &&
+                                                    <div key={index} className={styles.dateDiv}>
+                                                        {formatDate(message.datetime.toString())}
+                                                    </div>
+                                                :
+                                                    <div key={index} className={styles.dateDiv}>
+                                                        {formatDate(message.datetime.toString())}
+                                                    </div>
+                                            }
+
+                                            <MessageCard 
+                                                key={message.id}
+                                                Id={message.id}
+                                                League={message.league}
+                                                Content={message.content}
+                                                Datetime={message.datetime}
+                                                User={message.user}
+                                                UserLoggedIn={user?.username || ''}
+                                                UserProfilePicture={message.userProfilePicture}
+                                                IsFile={message.isFile}
+                                                HasReply={message.hasReply}
+                                                IsDeleted={message.isDeleted}
+                                                ReplyContent={message.replyContent}
+                                                ReplyUser={message.replyUser}
+                                                Messages={messages}
+                                                onMessageToReply={setMessageToReply}
+                                                onChange={setChange}
+                                                onEdit={handleEdit}
+                                            />
+                                        </>
                                 })}
 
                             </div>

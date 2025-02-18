@@ -167,3 +167,7 @@
     white-space: nowrap; /*onemogucava prelamanje*/
     text-overflow: ellipsis; /*dodaje ... na kraj*/
 }
+
+.dateDiv{
+    margin-left: 50%;
+}
