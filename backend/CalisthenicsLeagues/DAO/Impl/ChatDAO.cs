@@ -30,9 +30,8 @@ namespace CalisthenicsLeagues.DAO.Impl
                     {
                         while (reader.Read())
                         {
-                            Message message = new Message(reader.GetInt32(0), reader.GetInt32(1),
-                                reader.GetString(2), reader.GetDateTime(3), reader.GetInt32(4), 
-                                reader.GetBoolean(5), reader.GetInt32(6), reader.GetBoolean(7), reader.IsDBNull(8) ? null : reader.GetString(8));
+                            Message message = new Message(reader.GetInt32(0), reader.GetInt32(1), reader.GetString(2), reader.GetDateTime(3),
+                                reader.GetInt32(4), reader.GetBoolean(5), reader.GetBoolean(6), reader.IsDBNull(7) ? null : reader.GetString(7), reader.IsDBNull(8) ? null : reader.GetString(8), reader.GetInt32(9));
 
                             messageList.Add(message);
                         }
@@ -62,7 +61,7 @@ namespace CalisthenicsLeagues.DAO.Impl
                         if (reader.Read())
                         {
                             message = new Message(reader.GetInt32(0), reader.GetInt32(1), reader.GetString(2), reader.GetDateTime(3),
-                                reader.GetInt32(4), reader.GetBoolean(5), reader.GetInt32(6), reader.GetBoolean(7), reader.IsDBNull(8) ? null : reader.GetString(8));
+                                reader.GetInt32(4), reader.GetBoolean(5), reader.GetBoolean(6), reader.IsDBNull(7) ? null : reader.GetString(7), reader.IsDBNull(8) ? null : reader.GetString(8), reader.GetInt32(9));
                         }
                     }
                 }
@@ -74,8 +73,8 @@ namespace CalisthenicsLeagues.DAO.Impl
         public int InsertNewMessage(Message createdMessage)
         {
             string insertSql = @"
-                INSERT INTO messages (league, content, datetime, user, isFile, hasReply, isDeleted, replyContent) 
-                VALUES (@League, @Content, @Datetime, @User, @IsFile, @HasReply, @IsDeleted, @ReplyContent);
+                INSERT INTO messages (league, content, datetime, user, isFile, isDeleted, replyContent, replyUser, hasReply) 
+                VALUES (@League, @Content, @Datetime, @User, @IsFile, @IsDeleted, @ReplyContent, @ReplyUser, @HasReply);
                 SELECT LAST_INSERT_ID();";
 
             using (IDbConnection connection = new MySqlConnection(ConnectionClass.GetConnectionString()))
@@ -91,9 +90,10 @@ namespace CalisthenicsLeagues.DAO.Impl
                     command.Parameters.Add(new MySqlParameter("@Datetime", MySqlDbType.DateTime) { Value = createdMessage.Datetime });
                     command.Parameters.Add(new MySqlParameter("@User", MySqlDbType.Int32) { Value = createdMessage.User });
                     command.Parameters.Add(new MySqlParameter("@IsFile", MySqlDbType.Bit) { Value = createdMessage.IsFile });
-                    command.Parameters.Add(new MySqlParameter("@HasReply", MySqlDbType.Int32) { Value = createdMessage.HasReply });
                     command.Parameters.Add(new MySqlParameter("@IsDeleted", MySqlDbType.Bit) { Value = createdMessage.IsDeleted });
-                    command.Parameters.Add(new MySqlParameter("@ReplyContent", MySqlDbType.Text) { Value = null });
+                    command.Parameters.Add(new MySqlParameter("@ReplyContent", MySqlDbType.Text) { Value = createdMessage.ReplyContent });
+                    command.Parameters.Add(new MySqlParameter("@ReplyUser", MySqlDbType.String) { Value = createdMessage.ReplyUser });
+                    command.Parameters.Add(new MySqlParameter("@HasReply", MySqlDbType.Int32) { Value = createdMessage.HasReply });
 
                     var newMessageId = Convert.ToInt32(command.ExecuteScalar());
                     return newMessageId;
@@ -138,7 +138,7 @@ namespace CalisthenicsLeagues.DAO.Impl
 
         }
 
-        public int UpdateReplyMessage(int id, string content, bool isId)
+        /*public int UpdateReplyMessage(int id, string content, bool isId)
         {
             string updateSql = isId ?
             updateSql = "update messages set replyContent = ? where id = ?"
@@ -159,7 +159,7 @@ namespace CalisthenicsLeagues.DAO.Impl
                     return command.ExecuteNonQuery();
                 }
             }
-        }
+        }*/
 
     }
 }

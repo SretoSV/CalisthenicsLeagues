@@ -40,8 +40,8 @@ namespace CalisthenicsLeagues.Controllers
                 message.Datetime = parsedDatetime;
                 message.User = createMessageRequest.User;
                 message.IsFile = createMessageRequest.IsFile;
-                message.HasReply = createMessageRequest.HasReply;
                 message.IsDeleted = createMessageRequest.IsDeleted;
+                message.HasReply = createMessageRequest.HasReply;
 
                 Message result = chatService.InsertNewMessage(message);
                 return result != null ? Ok(result) : BadRequest("Error saving message");
