@@ -271,6 +271,7 @@ export function ChatPage(){
                                             HasReply={message.hasReply}
                                             IsDeleted={message.isDeleted}
                                             ReplyContent={message.replyContent}
+                                            ReplyUser={message.replyUser}
                                             Messages={messages}
                                             onMessageToReply={setMessageToReply}
                                             onChange={setChange}

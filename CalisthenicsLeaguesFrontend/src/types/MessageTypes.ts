@@ -6,7 +6,8 @@ export interface Message{
     user: string,
     userProfilePicture: string,
     isFile: boolean,
-    hasReply: number,
     isDeleted: boolean,
     replyContent?: string,
+    replyUser?: string,
+    hasReply: number,
 }

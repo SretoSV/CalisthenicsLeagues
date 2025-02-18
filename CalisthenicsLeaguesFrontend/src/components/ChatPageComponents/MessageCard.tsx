@@ -19,6 +19,7 @@ interface MessageCardProps{
     HasReply: number,
     IsDeleted: boolean,
     ReplyContent?: string,
+    ReplyUser?: string,
     Messages: Message[],
     onChange: React.Dispatch<React.SetStateAction<boolean>>;
     onMessageToReply: React.Dispatch<React.SetStateAction<number>>;
@@ -54,15 +55,11 @@ export function MessageCard(props: MessageCardProps){
             props.IsDeleted === false ? 
                 <div className={styles.wholeDiv1}>
                     {
-                        (props.HasReply > 0) && 
-                        props.Messages.map((message) => {
-                            if(message.id === props.HasReply){
-                                return <div className={styles.replyDiv1}>
-                                    {message.user}
-                                    <div className={styles.contentReply}>{props.ReplyContent}</div>
-                                </div>
-                            }
-                        })
+                        (props.HasReply == 0) && 
+                        <div className={styles.replyDiv1}>
+                            {props.ReplyUser}
+                            <div className={styles.contentReply}>{props.ReplyContent}</div>
+                        </div>
                     }
                 <div className={styles.mainDiv1}>
                     <div className={styles.contentDiv}>
@@ -101,15 +98,11 @@ export function MessageCard(props: MessageCardProps){
             props.IsDeleted === false ? 
                 <div className={styles.wholeDiv2}>
                     {
-                        (props.HasReply > 0) && 
-                        props.Messages.map((message) => {
-                            if(message.id === props.HasReply){
-                                return <div className={styles.replyDiv2}>
-                                    {message.user}<br/>
-                                    <div className={styles.contentReply}>{props.ReplyContent}</div>
-                                </div>
-                            }
-                        })
+                        (props.HasReply == 0) && 
+                        <div className={styles.replyDiv2}>
+                            {props.ReplyUser}<br/>
+                            <div className={styles.contentReply}>{props.ReplyContent}</div>
+                        </div>
                     }
                     <div className={styles.mainDiv2}>
                         <div className={styles.nameAndContentDiv}>
