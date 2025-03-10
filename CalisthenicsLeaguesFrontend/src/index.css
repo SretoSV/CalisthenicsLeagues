@@ -8,7 +8,10 @@ body{
     /*background-color: #f8f8f8;*/
     background-color: #1B1B23;
 }
-
+:root{
+    --main-color: #ffa500;/*660166 - purple *** e7b51e - yellow*/
+    --main-color-hover: #e69500;/*460146 - purple *** c49303 - yellow*/
+}
 #root{
     max-width: 1920px;
     width: 100%;

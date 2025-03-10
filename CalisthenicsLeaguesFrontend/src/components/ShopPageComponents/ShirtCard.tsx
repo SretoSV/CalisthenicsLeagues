@@ -4,6 +4,8 @@ import styles from '../../styles/ShopPageStyles/ShirtCardStyle.module.css';
 import { useState, useEffect } from 'react';
 import { serverPath } from '../../functions/serverpath';
 import { useCartContext } from '../../context/CartContext';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 interface LeagueCardProps {
     id: number,
@@ -71,16 +73,27 @@ export function ShirtCard(props: LeagueCardProps) {
 
     }, [selectedView]);
     
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+    });
+
     return (
-        <div className={styles.mainDiv}>
-                <h2 className={styles.header2}>{props.leagueName}</h2>
-                <img 
-                    src={currentColorImage ? colorImageBlack : colorImageWhite}
-                    alt="color"
-                    className={styles.colorImage}
-                    onClick={handleColorImageClick}
-                    title='change color'
-                />
+        <motion.div 
+            ref={ref}
+            className={styles.mainDiv}
+            initial={{ opacity: 0, y: 80 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: (props.id/2 * 0.15)}}
+        >
+            <h2 className={styles.header2}>{props.leagueName}</h2>
+            <img 
+                src={currentColorImage ? colorImageBlack : colorImageWhite}
+                alt="color"
+                className={styles.colorImage}
+                onClick={handleColorImageClick}
+                title='change color'
+            />
             <img 
                 src={currentShirtImage}
                 alt="Shirt"
@@ -130,6 +143,6 @@ export function ShirtCard(props: LeagueCardProps) {
             <button onClick={handleClick} className={styles.addToCartButton}>Add To Cart</button> :
             <button onClick={handleClick} className={styles.addToCartButton} disabled>Add To Cart</button>
             }
-        </div>
+        </motion.div>
     );
 }

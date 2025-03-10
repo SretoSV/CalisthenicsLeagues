@@ -3,21 +3,30 @@
    border-radius: 4px;
    display: flex;
    align-items: center;
+   justify-content: center;
    flex-direction: row;
    background-color: #21212b;
    margin-bottom: 20px;
-   width: 80%;
+   padding: 20px;
+   width: 500px;
 }
 
 .athleteImage{
    margin-right: 10px;
    width: 200px; 
    height: 200px;
+   border: 1px solid #525252;
+   border-radius: 100px;
 }
 
 .infoClass{
    font-size: 40px;
    color: white;
+   border: 1px solid #525252;
+   border-radius: 5px;
+   padding: 5px;
+   margin-bottom: 5px;
+   margin-top: 5px;
 }
 
 .flagImage{

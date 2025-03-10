@@ -26,7 +26,7 @@
 }
 .leagueImage{
     border: 1px solid #525252;
-    background-color: #660166;
+    background-color: var(--main-color-hover);
     width: 300px; 
     height: 300px;
     margin-bottom: 10px;
@@ -47,7 +47,7 @@
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 10px 50px;
-    background-color: #660166;
+    background-color: var(--main-color);
     border-radius: 5px;
     border: none;
     color: #fff;
@@ -57,7 +57,7 @@
     font-size: 20px;
 }
 .applyButton:hover{
-    background-color: #460146;
+    background-color: var(--main-color-hover);
 }
 
 .applyButton:disabled, .applyButton:disabled:hover{
@@ -76,8 +76,16 @@
 
 .exercise{
     font-size: 20px;
-    text-decoration: #660166 underline;
+    text-decoration: var(--main-color-hover) underline;
     color: gray;
+}
+
+.youtubeUpload{
+    color: red;
+}
+
+.youtubeUpload2{
+    border: 2px solid var(--main-color-hover);
 }
 
 /*--- ApplyModal ---*/
@@ -96,7 +104,7 @@
 }
   
 .modalContent {
-    border: 2px solid #660166;
+    border: 2px solid var(--main-color-hover);
     background-color: #1B1B23;
     padding: 10px;
     border-radius: 4px;
@@ -143,7 +151,7 @@
     margin-left: 5px;
     margin-right: 6px;
     padding: 10px 20px;
-    background-color: #660166;
+    background-color: var(--main-color);
     border: none;
     border-radius: 5px;
     color: #fff;
@@ -152,9 +160,10 @@
 }
 
 .applyButtonModal:hover {
-    background-color: #580258;
+    background-color: var(--main-color-hover);
 }
 
+/*
 .dragDropArea {
     border: 2px dashed #ccc;
     border-radius: 8px;
@@ -202,11 +211,4 @@
 
 .uploadButton:hover {
     background-color: #580258; 
-}
-
-.youtubeUpload{
-    color: red;
-}
-.youtubeUpload2{
-    border: 2px solid #660166;
-}
+}*/

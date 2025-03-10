@@ -5,6 +5,7 @@ import styles from '../styles/ShopPageStyles/ShopPageStyle.module.css';
 import { useUserContext } from "../context/UserContext";
 import { serverPath } from "../functions/serverpath";
 import { Shirt } from "../types/ShirtTypes";
+import { FooterCard } from "../components/FooterComponents/FooterCard";
 
 export function ShopPage(){
     const { user } = useUserContext();
@@ -101,6 +102,7 @@ export function ShopPage(){
                         }
                     })}
                 </div>
+                <FooterCard />
             </>)
             }
             {error}

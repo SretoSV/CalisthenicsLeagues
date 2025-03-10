@@ -5,8 +5,8 @@
     margin-left: 7px;
     border: 1px solid #555;
     border-radius: 5px;
-    background-color: #660166;
-    color: #fff;
+    background-color: var(--main-color);
+    color: white;
     font-size: 30px;
     appearance: none;
     background-image: url('../../images/dowpDownBgImage.png');
@@ -19,8 +19,8 @@
 }
 
 .dropdownInput option {
-    background-color: #660166;
-    color: #fff; 
+    background-color: var(--main-color);
+    color: white; 
 }
 
 .selectDiv{

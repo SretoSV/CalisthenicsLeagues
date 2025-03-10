@@ -5,6 +5,7 @@ import { Application } from "../types/ApplicationTypes";
 import { Navigation } from "../components/NavigationComponents/Navigation";
 import { ApplicationCard } from "../components/AdminPageComponents/ApplicationCard";
 import styles from '../styles/ShopPageStyles/ShopPageStyle.module.css';
+import { FooterCard } from "../components/FooterComponents/FooterCard";
 
 export function AdminPage(){
     const navigate = useNavigate();
@@ -110,6 +111,8 @@ export function AdminPage(){
                     <div>{message}</div>
                 )
             }   
+            
+            <FooterCard />
         </>
     );
 }

@@ -2,6 +2,8 @@ import instagramImage from '../../images/instagram.png';
 import styles from '../../styles/LeagueMembersPageStyles/AthleteCardStyle.module.css';
 import { useEffect, useState } from 'react';
 import { serverPath } from '../../functions/serverpath';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 interface AthleteCardProps{
     id: number,
@@ -15,23 +17,34 @@ interface AthleteCardProps{
 export function AthleteCard(props: AthleteCardProps){
     const [flagUrl, setFlagUrl] = useState("");
 
-  useEffect(() => {
-    const fetchCountryData = async () => {
-      try {
-        const response = await fetch(`https://restcountries.com/v3.1/name/${props.Country}`);
-        const data = await response.json();
+    useEffect(() => {
+      const fetchCountryData = async () => {
+        try {
+          const response = await fetch(`https://restcountries.com/v3.1/name/${props.Country}`);
+          const data = await response.json();
 
-        setFlagUrl(data[0].flags.svg || data[0].flags.png);
-      } catch (err) {
-        console.error("Error loading data:", err);
-      }
-    };
+          setFlagUrl(data[0].flags.svg || data[0].flags.png);
+        } catch (err) {
+          console.error("Error loading data:", err);
+        }
+      };
 
-    fetchCountryData();
-  }, [props.Country]);
-      
+      fetchCountryData();
+    }, [props.Country]);
+        
+    const { ref, inView } = useInView({
+      triggerOnce: true,
+      threshold: 0.1,
+    });
+
     return (
-        <div className={styles.mainDiv}>
+        <motion.div 
+          ref={ref}
+          className={styles.mainDiv}
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.8, ease: "easeOut"}}
+        >
             <img 
                 src={serverPath()+props.Image}
                 alt="athlete" 
@@ -64,6 +77,6 @@ export function AthleteCard(props: AthleteCardProps){
                     </a>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }

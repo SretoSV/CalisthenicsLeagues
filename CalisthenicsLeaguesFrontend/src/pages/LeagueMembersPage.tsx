@@ -4,6 +4,8 @@ import styles from '../styles/LeagueMembersPageStyles/LeagueMembersPageStyle.mod
 import { AthleteCard } from "../components/LeagueMembersPageComponents/AthleteCard";
 import { serverPath } from "../functions/serverpath";
 import { Member } from "../types/MemberTypes";
+import { FooterCard } from "../components/FooterComponents/FooterCard";
+import { motion } from "framer-motion";
 
 export function LeagueMembersPage(){
 
@@ -43,7 +45,12 @@ export function LeagueMembersPage(){
     return(
         <>
             <Navigation isApplyPage={false}/>
-            <div className={styles.selectDiv}>
+            <motion.div 
+                className={styles.selectDiv}
+                initial={{ opacity: 0, y: 80 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut"}}    
+            >
                 <select className={styles.dropdownInput} onChange={handleSelectChange} value={selectedLeagueId}>
                     <option value="1">Legendary</option>
                     <option value="2">World-Class</option>
@@ -53,7 +60,7 @@ export function LeagueMembersPage(){
                     <option value="6">Begginer</option>
                 </select>
                 <div className={styles.memberNumber}>Members: {leaguesMembers.length}</div>
-            </div>
+            </motion.div>
             <div className={styles.membersDiv}>
                 {leaguesMembers.map((member) => {
                     return <AthleteCard 
@@ -67,6 +74,7 @@ export function LeagueMembersPage(){
                             />
                 })}
             </div>
+            <FooterCard />
         </>
     );
 }

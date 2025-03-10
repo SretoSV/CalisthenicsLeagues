@@ -29,7 +29,7 @@
    width: 225px; 
    height: 250px;
    border: 1px solid #525252;
-   background-color: #660166;
+   background-color: var(--main-color);
    border-radius: 4px;
    padding: 5px;
 }
@@ -38,7 +38,7 @@
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 10px 50px;
-    background-color: #660166;
+    background-color: var(--main-color);
     border: none;
     border-radius: 5px;
     color: #fff;
@@ -64,7 +64,7 @@
 }
 
 .addToCartButton:hover{
-    background-color: #460146;
+    background-color: var(--main-color-hover);
 }
 
 .customRadio {
@@ -81,8 +81,8 @@
 }
 
 .customRadio:checked {
-    background-color: #660166;
-    border-color: #460146;
+    background-color: var(--main-color);
+    border-color: var(--main-color-hover);
 }
 
 .customRadio::before {

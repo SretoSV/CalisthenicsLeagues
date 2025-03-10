@@ -3,6 +3,7 @@ import styles from '../../styles/NavigationStyles/NavigationStyle.module.css';
 import { PictureDropDownList } from './PictureDropDownList';
 import { useUserContext } from '../../context/UserContext';
 import { CartCard } from './CartCard';
+import { motion } from "framer-motion";
 
 interface NavigationProps{
     isApplyPage: boolean,
@@ -12,7 +13,11 @@ export function Navigation(props: NavigationProps){
     const { user } = useUserContext();
 
     return (
-        <>
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut"}}
+        >
         <header className={styles.headerDiv}>
             <img 
                 src={logoImage}
@@ -92,6 +97,6 @@ export function Navigation(props: NavigationProps){
             }
         </div>
         }
-        </>
+        </motion.div>
     );
 }

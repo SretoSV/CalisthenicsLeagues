@@ -8,12 +8,13 @@ import { MessageCard } from "../components/ChatPageComponents/MessageCard";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
 import { formatDate, setLeagueIdByLeagueName } from "../functions/formChangeFunction";
+import { FooterCard } from "../components/FooterComponents/FooterCard";
+import { motion } from "framer-motion";
 
 export function ChatPage(){
     const navigate = useNavigate();
     const { user } = useUserContext();
     const [messages, setMessages] = useState<Message[]>([]);
-    const [previousMessage, setPreviousMessage] = useState<Message>();
     const [selectedLeagueId, setSelectedLeagueId] = useState(6);
     const [chatImage, setChatImage] = useState(serverPath()+"Images/Leagues/Begginer.png");
     const [chatName, setChatName] = useState("Begginer");
@@ -204,7 +205,13 @@ export function ChatPage(){
     return(
         <>
             <Navigation isApplyPage={false}/>
-            <div className={styles.mainDiv}>
+            <motion.div 
+                className={styles.mainDiv}
+                initial={{ opacity: 0, y: 80 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut"}}
+                /*transition={{ type: "spring", stiffness: 100, damping: 5 }}*/
+            >
                 <div className={styles.mainDiv2}>
                     <div className={styles.mainDiv3}>
                         {
@@ -372,7 +379,8 @@ export function ChatPage(){
 
                     </div>
                 </div>
-            </div>
+            </motion.div>
+            <FooterCard />
         </>
     );
 }

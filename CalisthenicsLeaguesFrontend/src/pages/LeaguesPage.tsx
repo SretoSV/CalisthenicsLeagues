@@ -4,6 +4,9 @@ import { Navigation } from "../components/NavigationComponents/Navigation";
 import styles from '../styles/LeaguesPageStyles/LeaguePageStyle.module.css';
 import { serverPath } from "../functions/serverpath";
 import { League } from "../types/LeagueTypes";
+import { SliderCard } from "../components/LeaguesPageComponents/SliderCard";
+import { FooterCard } from "../components/FooterComponents/FooterCard";
+import { OurGoalCard } from "../components/LeaguesPageComponents/OurGoalCard";
 
 export function LeaguesPage(){
 
@@ -54,6 +57,9 @@ export function LeaguesPage(){
             (<div>Loading...</div>) : 
             (<>
                 <Navigation isApplyPage={false}/>
+
+                <SliderCard />
+
                 <div className={styles.mainDiv}>
                     {leagues.map((league) => {
                         return <LeagueCard 
@@ -64,6 +70,9 @@ export function LeaguesPage(){
                                 />
                     })}
                 </div>
+
+                <OurGoalCard />
+                <FooterCard />
             </>)
             }
             {error}

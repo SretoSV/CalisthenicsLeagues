@@ -4,6 +4,7 @@ import { RulesCard } from "../components/ApplyPageComponents/RulesCard";
 import styles from '../styles/ApplyPageStyles/ApplyPageStyle.module.css';
 import { ApplyImageCard } from "../components/ApplyPageComponents/ApplyImageCard";
 import { useParams } from "react-router-dom";
+import { FooterCard } from "../components/FooterComponents/FooterCard";
 
 export function ApplyPage(){
     const { Name } = useParams<{ Name: string }>();
@@ -18,6 +19,7 @@ export function ApplyPage(){
                 </div>
                 <RulesCard />
             </div>
+            <FooterCard />
         </>
     );
 }
