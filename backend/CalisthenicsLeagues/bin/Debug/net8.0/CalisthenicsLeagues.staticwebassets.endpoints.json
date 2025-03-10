@@ -85,8 +85,90 @@
       ]
     },
     {
-      "Route": "Images/Leagues/Amateur.l5cs0py1mn.png",
+      "Route": "Images/Leagues/Amateur.6mdcv3lm6i.png",
       "AssetFile": "Images/Leagues/Amateur.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "202617"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7gp3+DNxrWNNJFfB+hAZFl91mTxD4AHIXbRMxJ0nLcI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 21:58:25 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6mdcv3lm6i"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7gp3+DNxrWNNJFfB+hAZFl91mTxD4AHIXbRMxJ0nLcI="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Leagues/Amateur.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Leagues/Amateur.png",
+      "AssetFile": "Images/Leagues/Amateur.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "202617"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7gp3+DNxrWNNJFfB+hAZFl91mTxD4AHIXbRMxJ0nLcI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 21:58:25 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7gp3+DNxrWNNJFfB+hAZFl91mTxD4AHIXbRMxJ0nLcI="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Leagues/Amateur2.l5cs0py1mn.png",
+      "AssetFile": "Images/Leagues/Amateur2.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -125,13 +207,13 @@
         },
         {
           "Name": "label",
-          "Value": "Images/Leagues/Amateur.png"
+          "Value": "Images/Leagues/Amateur2.png"
         }
       ]
     },
     {
-      "Route": "Images/Leagues/Amateur.png",
-      "AssetFile": "Images/Leagues/Amateur.png",
+      "Route": "Images/Leagues/Amateur2.png",
+      "AssetFile": "Images/Leagues/Amateur2.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -167,8 +249,90 @@
       ]
     },
     {
+      "Route": "Images/Leagues/Begginer.c5b4u4jzeb.png",
+      "AssetFile": "Images/Leagues/Begginer.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "86982"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cG8535hqdEleaqQHZxjJYubAlLLqsl7KKft03ETi8MU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 21:47:52 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "c5b4u4jzeb"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-cG8535hqdEleaqQHZxjJYubAlLLqsl7KKft03ETi8MU="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Leagues/Begginer.png"
+        }
+      ]
+    },
+    {
       "Route": "Images/Leagues/Begginer.png",
       "AssetFile": "Images/Leagues/Begginer.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "86982"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cG8535hqdEleaqQHZxjJYubAlLLqsl7KKft03ETi8MU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 21:47:52 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-cG8535hqdEleaqQHZxjJYubAlLLqsl7KKft03ETi8MU="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Leagues/Begginer2.png",
+      "AssetFile": "Images/Leagues/Begginer2.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -204,8 +368,8 @@
       ]
     },
     {
-      "Route": "Images/Leagues/Begginer.svsdunkx3c.png",
-      "AssetFile": "Images/Leagues/Begginer.png",
+      "Route": "Images/Leagues/Begginer2.svsdunkx3c.png",
+      "AssetFile": "Images/Leagues/Begginer2.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -244,13 +408,95 @@
         },
         {
           "Name": "label",
-          "Value": "Images/Leagues/Begginer.png"
+          "Value": "Images/Leagues/Begginer2.png"
         }
       ]
     },
     {
-      "Route": "Images/Leagues/Legendary.eux8sy5kgp.png",
+      "Route": "Images/Leagues/Legendary.png",
       "AssetFile": "Images/Leagues/Legendary.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "59342"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uDQ/EvlaAzPiZ3wCx+6KZeas1k9eYckK7qZYwfEHDqU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 21:59:49 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uDQ/EvlaAzPiZ3wCx+6KZeas1k9eYckK7qZYwfEHDqU="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Leagues/Legendary.sru665zjna.png",
+      "AssetFile": "Images/Leagues/Legendary.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "59342"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uDQ/EvlaAzPiZ3wCx+6KZeas1k9eYckK7qZYwfEHDqU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 21:59:49 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "sru665zjna"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uDQ/EvlaAzPiZ3wCx+6KZeas1k9eYckK7qZYwfEHDqU="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Leagues/Legendary.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Leagues/Legendary2.eux8sy5kgp.png",
+      "AssetFile": "Images/Leagues/Legendary2.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -289,13 +535,13 @@
         },
         {
           "Name": "label",
-          "Value": "Images/Leagues/Legendary.png"
+          "Value": "Images/Leagues/Legendary2.png"
         }
       ]
     },
     {
-      "Route": "Images/Leagues/Legendary.png",
-      "AssetFile": "Images/Leagues/Legendary.png",
+      "Route": "Images/Leagues/Legendary2.png",
+      "AssetFile": "Images/Leagues/Legendary2.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -331,8 +577,90 @@
       ]
     },
     {
-      "Route": "Images/Leagues/Pro.iufzy7r8yf.png",
+      "Route": "Images/Leagues/Pro.07sfsmgl4n.png",
       "AssetFile": "Images/Leagues/Pro.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "125610"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fDAPqDDODck+YEYTVQcXTgl2WfhivAA4/xL3eINb13Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 21:50:57 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "07sfsmgl4n"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-fDAPqDDODck+YEYTVQcXTgl2WfhivAA4/xL3eINb13Y="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Leagues/Pro.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Leagues/Pro.png",
+      "AssetFile": "Images/Leagues/Pro.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "125610"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fDAPqDDODck+YEYTVQcXTgl2WfhivAA4/xL3eINb13Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 21:50:57 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-fDAPqDDODck+YEYTVQcXTgl2WfhivAA4/xL3eINb13Y="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Leagues/Pro2.iufzy7r8yf.png",
+      "AssetFile": "Images/Leagues/Pro2.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -371,13 +699,13 @@
         },
         {
           "Name": "label",
-          "Value": "Images/Leagues/Pro.png"
+          "Value": "Images/Leagues/Pro2.png"
         }
       ]
     },
     {
-      "Route": "Images/Leagues/Pro.png",
-      "AssetFile": "Images/Leagues/Pro.png",
+      "Route": "Images/Leagues/Pro2.png",
+      "AssetFile": "Images/Leagues/Pro2.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -413,8 +741,90 @@
       ]
     },
     {
-      "Route": "Images/Leagues/Semi-pro.oq4hpywrqr.png",
+      "Route": "Images/Leagues/Semi-pro.png",
       "AssetFile": "Images/Leagues/Semi-pro.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "171959"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NNL7+f/5ByVEhTB0mGwAKyKWwNNILDxublEplRjZDho=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 21:49:15 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-NNL7+f/5ByVEhTB0mGwAKyKWwNNILDxublEplRjZDho="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Leagues/Semi-pro.sitroryeub.png",
+      "AssetFile": "Images/Leagues/Semi-pro.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "171959"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NNL7+f/5ByVEhTB0mGwAKyKWwNNILDxublEplRjZDho=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 21:49:15 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "sitroryeub"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-NNL7+f/5ByVEhTB0mGwAKyKWwNNILDxublEplRjZDho="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Leagues/Semi-pro.png"
+        }
+      ]
+    },
+    {
+      "Route": "Images/Leagues/Semi-pro2.oq4hpywrqr.png",
+      "AssetFile": "Images/Leagues/Semi-pro2.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -453,13 +863,13 @@
         },
         {
           "Name": "label",
-          "Value": "Images/Leagues/Semi-pro.png"
+          "Value": "Images/Leagues/Semi-pro2.png"
         }
       ]
     },
     {
-      "Route": "Images/Leagues/Semi-pro.png",
-      "AssetFile": "Images/Leagues/Semi-pro.png",
+      "Route": "Images/Leagues/Semi-pro2.png",
+      "AssetFile": "Images/Leagues/Semi-pro2.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -495,8 +905,90 @@
       ]
     },
     {
+      "Route": "Images/Leagues/World-Class.mq11hbu8jm.png",
+      "AssetFile": "Images/Leagues/World-Class.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "145056"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8qP127V+jr2qDLjZGBEDPnNryPK0sVCooSuyi7+LJ10=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 21:51:19 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mq11hbu8jm"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8qP127V+jr2qDLjZGBEDPnNryPK0sVCooSuyi7+LJ10="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Leagues/World-Class.png"
+        }
+      ]
+    },
+    {
       "Route": "Images/Leagues/World-Class.png",
       "AssetFile": "Images/Leagues/World-Class.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "145056"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8qP127V+jr2qDLjZGBEDPnNryPK0sVCooSuyi7+LJ10=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 21:51:19 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8qP127V+jr2qDLjZGBEDPnNryPK0sVCooSuyi7+LJ10="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Leagues/World-Class2.png",
+      "AssetFile": "Images/Leagues/World-Class2.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -532,8 +1024,8 @@
       ]
     },
     {
-      "Route": "Images/Leagues/World-Class.zdbwm2eh8q.png",
-      "AssetFile": "Images/Leagues/World-Class.png",
+      "Route": "Images/Leagues/World-Class2.zdbwm2eh8q.png",
+      "AssetFile": "Images/Leagues/World-Class2.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -572,7 +1064,7 @@
         },
         {
           "Name": "label",
-          "Value": "Images/Leagues/World-Class.png"
+          "Value": "Images/Leagues/World-Class2.png"
         }
       ]
     },
@@ -2709,7 +3201,7 @@
       ]
     },
     {
-      "Route": "Images/placeHolder.8i2uo2v19p.png",
+      "Route": "Images/placeHolder.48e37sprg5.png",
       "AssetFile": "Images/placeHolder.png",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2723,7 +3215,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "18014"
+          "Value": "11710"
         },
         {
           "Name": "Content-Type",
@@ -2731,21 +3223,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"0AdAedRZmZrvSNqgQwTLrrYujnY6WvdCMLz5q5V9nCY=\""
+          "Value": "\"PO4CC/YV4hOhFJ/vQoiswJOaXDrmb5zQobXeBXlRXpk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 09 Feb 2025 17:30:24 GMT"
+          "Value": "Mon, 10 Mar 2025 16:03:21 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "8i2uo2v19p"
+          "Value": "48e37sprg5"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-0AdAedRZmZrvSNqgQwTLrrYujnY6WvdCMLz5q5V9nCY="
+          "Value": "sha256-PO4CC/YV4hOhFJ/vQoiswJOaXDrmb5zQobXeBXlRXpk="
         },
         {
           "Name": "label",
@@ -2768,7 +3260,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "18014"
+          "Value": "11710"
         },
         {
           "Name": "Content-Type",
@@ -2776,17 +3268,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"0AdAedRZmZrvSNqgQwTLrrYujnY6WvdCMLz5q5V9nCY=\""
+          "Value": "\"PO4CC/YV4hOhFJ/vQoiswJOaXDrmb5zQobXeBXlRXpk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 09 Feb 2025 17:30:24 GMT"
+          "Value": "Mon, 10 Mar 2025 16:03:21 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-0AdAedRZmZrvSNqgQwTLrrYujnY6WvdCMLz5q5V9nCY="
+          "Value": "sha256-PO4CC/YV4hOhFJ/vQoiswJOaXDrmb5zQobXeBXlRXpk="
         }
       ]
     }
