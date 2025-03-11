@@ -16,3 +16,21 @@
     color: var(--main-color);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+@media (max-width: 560px) {
+    .caliDiv{
+        margin-left: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .caliDiv{
+        margin-left: 50px;
+    }
+}
+
+@media (max-width: 460px) {
+    .caliDiv{
+        margin-left: 30px;
+    }
+}

@@ -40,3 +40,11 @@
 .buttonReject:hover{
     background-color: #9e0606;
 }
+
+
+@media (max-width: 460px) {
+    .mainDiv{
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+}

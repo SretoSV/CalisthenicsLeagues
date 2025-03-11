@@ -37,7 +37,7 @@ export function SliderCard(){
     
     const handleScrollDown = () => {
         window.scrollTo({
-            top: 800,
+            top: 600,
             behavior: 'smooth'
         });
     };

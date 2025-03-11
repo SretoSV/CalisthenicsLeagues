@@ -72,3 +72,80 @@
 .down:hover{
     transform: scale(1.2);
 }
+
+@media (max-width: 1475px) {
+    .backgroundDiv{
+        height: 600px;
+        margin-bottom: 70px;
+    }
+}
+
+@media (max-width: 1320px) {
+    .backgroundDiv{
+        height: 550px;
+        margin-bottom: 65px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .backgroundDiv{
+        height: 500px;
+        margin-bottom: 60px;
+    }
+}
+
+@media (max-width: 1080px) {
+    .backgroundDiv{
+        height: 450px;
+        margin-bottom: 55px;
+    }
+    .head{
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 920px) {
+    .backgroundDiv{
+        height: 400px;
+        margin-bottom: 50px;
+    }
+    .head{
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 800px) {
+    .backgroundDiv{
+        height: 350px;
+        margin-bottom: 45px;
+    }
+    .head{
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 680px) {
+    .backgroundDiv{
+        height: 300px;
+        margin-bottom: 40px;
+    }
+    .head{
+        font-size: 20px;
+    }
+    .downArrows{
+        width: 30px;
+        height: 30px;
+        padding-top: 4px;
+    }
+}
+
+@media (max-width: 550px) {
+    .backgroundDiv{
+        height: 270px;
+        margin-bottom: 40px;
+    }
+    .prev, .next{
+        padding: 7px 11px;
+    }
+}
+

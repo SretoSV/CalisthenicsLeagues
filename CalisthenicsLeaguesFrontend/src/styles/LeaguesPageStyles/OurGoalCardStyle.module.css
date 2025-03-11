@@ -8,7 +8,88 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     font-size: 50px;
     border-top: 2px solid white;
     border-bottom: 2px solid white;
+}
+
+@media (max-width: 1530px) {
+    .mainDiv{
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 1230px) {
+    .mainDiv{
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 1075px) {
+    .mainDiv{
+        font-size: 30px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 930px) {
+    .mainDiv{
+        font-size: 25px;
+        height: 220px;
+    }
+}
+
+@media (max-width: 780px) {
+    .mainDiv{
+        font-size: 22px;
+        height: 200px;
+        margin-bottom: 60px;
+    }
+}
+
+@media (max-width: 700px) {
+    .mainDiv{
+        font-size: 20px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 630px) {
+    .mainDiv{
+        font-size: 18px;
+        height: 180px;
+    }
+}
+
+@media (max-width: 560px) {
+    .mainDiv{
+        font-size: 17px;
+        height: 160px;
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 560px) {
+    .mainDiv{
+        font-size: 16px;
+        height: 150px;
+        margin-bottom: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mainDiv{
+        font-size: 15px;
+        height: 130px;
+        margin-bottom: 45px;
+    }
+}
+
+@media (max-width: 460px) {
+    .mainDiv{
+        font-size: 14px;
+        height: 120px;
+        margin-bottom: 40px;
+    }
 }
