@@ -67,6 +67,7 @@
 /*--- Rules Card ---*/
 .rulesCardMainDiv{
     width: 50%;
+    margin-top: 20px;
 }
 
 .headres{
@@ -92,14 +93,15 @@
 
 .modalOverlay {
     position: fixed;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: #00000080;
     display: flex;
     justify-content: center;
-    align-items: center;
+    overflow-y: auto;
+    /*align-items: center;*/
     z-index: 999;
 }
   
@@ -110,6 +112,7 @@
     border-radius: 4px;
     width: 425px;
     text-align: left;
+    margin: auto; /*osigurava da modal ostane u sredini*/
 }
 
 .formModal label {
@@ -162,6 +165,146 @@
 .applyButtonModal:hover {
     background-color: var(--main-color-hover);
 }
+
+@media(max-width: 1200px){
+    .rulesCardMainDiv{
+        width: 70%;
+    }
+}
+
+@media(max-width: 850px){
+    .rulesCardMainDiv{
+        width: 70%;
+    }
+}
+
+@media(max-width: 640px){
+    .topDiv{
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center;
+    }
+    .RequirementsCardMainDiv{
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    .rulesCardMainDiv{
+        width: 60%;
+    }
+}
+
+@media(max-width: 520px){
+    .leagueImage{
+        width: 240px; 
+        height: 240px;
+    }
+    .rulesCardMainDiv{
+        width: 70%;
+    }
+}
+
+/*max-height apply modal*/
+/*
+@media(max-height: 800px){
+    .modalContent {
+        font-size: 16px;
+    }    
+    .formModal label {
+        font-size: 14px;
+    }
+    .modalContent {
+        width: 380px;
+    }
+    .formModal input{
+        width: 97%;
+        padding: 4px;
+        margin-bottom: 1px;
+        border: 1px solid #555;
+        border-radius: 5px;
+        background-color: #1F1F27;
+        color: #fff;
+        font-size: 14px;
+    }
+    .closeButton {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+    
+    .applyButtonModal {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+}
+
+@media(max-height: 530px){
+    .modalContent {
+        font-size: 14px;
+    }    
+    .formModal label {
+        font-size: 12px;
+    }
+    .modalContent {
+        width: 350px;
+    }
+    .formModal input{
+        font-size: 12px;
+    }
+    .closeButton {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+    
+    .applyButtonModal {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+}
+
+@media(max-height: 470px){
+    .modalContent {
+        font-size: 12px;
+    }    
+    .formModal label {
+        font-size: 12px;
+    }
+    .modalContent {
+        width: 300px;
+    }
+    .formModal input{
+        font-size: 12px;
+    }
+    .closeButton {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+    
+    .applyButtonModal {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 .dragDropArea {

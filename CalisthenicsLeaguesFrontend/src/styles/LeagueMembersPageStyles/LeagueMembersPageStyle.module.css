@@ -46,3 +46,65 @@
     justify-content: center; 
     align-items: center;
 }
+
+@media(max-width: 1000px){
+    .dropdownInput {
+        width: 32%;
+        font-size: 25px;
+    }
+    .memberNumber{
+        font-size: 25px;
+    }
+}
+
+@media(max-width: 700px){
+    .dropdownInput {
+        width: 35%;
+        font-size: 25px;
+    }
+}
+
+@media(max-width: 600px){
+    .dropdownInput {
+        width: 37%;
+        font-size: 25px;
+    }
+}
+
+@media(max-width: 550px){
+    .dropdownInput {
+        width: 40%;
+        font-size: 20px;
+    }
+    .memberNumber{
+        font-size: 20px;
+    }
+}
+
+@media(max-width: 450px){
+    .dropdownInput {
+        width: 45%;
+        font-size: 20px;
+    }
+}
+
+@media(max-width: 400px){
+    .dropdownInput {
+        width: 48%;
+        font-size: 18px;
+    }
+}
+
+@media(max-width: 350px){
+    .dropdownInput {
+        width: 50%;
+        font-size: 18px;
+    }
+}
+
+@media(max-width: 340px){
+    .dropdownInput {
+        width: 55%;
+        font-size: 18px;
+    }
+}

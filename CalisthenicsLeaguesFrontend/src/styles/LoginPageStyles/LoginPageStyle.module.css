@@ -12,11 +12,12 @@
 .loginForm {
     background-color: #1B1B23;
     color: #fff;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     width: 100%;
     max-width: 400px;
-    margin: 20px auto;
+    margin: 10px auto;
+    overflow-y: auto;
     border: 1px solid #525252;
   }
 
@@ -81,3 +82,14 @@
     width: 10px;
     height: 18px;
   }
+
+@media(max-width: 430px){
+  .loginForm {
+    max-width: 300px;
+  }
+}
+@media(max-width: 320px){
+  .loginForm {
+    max-width: 290px;
+  }
+}

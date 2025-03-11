@@ -141,3 +141,15 @@
 .deletedMessage2{
     margin-right: auto;
 }
+
+
+@media(max-width: 950px){
+    .textContentDiv{
+        max-width: 222px;
+    }
+}
+@media(max-width: 640px){
+    .textContentDiv{
+        max-width: 150px;
+    }
+}

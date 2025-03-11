@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Navigation } from "../components/NavigationComponents/Navigation";
 import styles from '../styles/ChatPageStyles/ChatPageStyle.module.css';
 import { serverPath } from "../functions/serverpath";
@@ -204,183 +204,187 @@ export function ChatPage(){
 
     return(
         <>
-            <Navigation isApplyPage={false}/>
-            <motion.div 
-                className={styles.mainDiv}
-                initial={{ opacity: 0, y: 80 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut"}}
-                /*transition={{ type: "spring", stiffness: 100, damping: 5 }}*/
-            >
-                <div className={styles.mainDiv2}>
-                    <div className={styles.mainDiv3}>
-                        {
-                            (user && user?.league <= 6) ? 
-                            <button onClick={() => handleClick("Begginer")} className={styles.chats}>Begginer</button>
-                            :
-                            <button onClick={() => handleClick("Begginer")} className={styles.chats} disabled>Begginer</button>
-                        }
-                        {
-                            (user && user?.league <= 5) ? 
-                            <button onClick={() => handleClick("Amateur")} className={styles.chats}>Amateur</button>
-                            :
-                            <button onClick={() => handleClick("Amateur")} className={styles.chats} disabled>Amateur</button>
-                        }
-                        {
-                            (user && user?.league <= 4) ? 
-                            <button onClick={() => handleClick("Semi-pro")} className={styles.chats}>Semi-pro</button>
-                            :
-                            <button onClick={() => handleClick("Semi-pro")} className={styles.chats} disabled>Semi-pro</button>
-                        }
-                        {
-                            (user && user?.league <= 3) ? 
-                            <button onClick={() => handleClick("Pro")} className={styles.chats}>Pro</button>
-                            :
-                            <button onClick={() => handleClick("Pro")} className={styles.chats} disabled>Pro</button>
-                        }
-                        {
-                            (user && user?.league <= 2) ? 
-                            <button onClick={() => handleClick("World-Class")} className={styles.chats}>World-Class</button>
-                            :
-                            <button onClick={() => handleClick("World-Class")} className={styles.chats} disabled>World-Class</button>
-                        }
-                        {
-                            (user && user?.league <= 1) ? 
-                            <button onClick={() => handleClick("Legendary")} className={styles.chats}>Legendary</button>
-                            :
-                            <button onClick={() => handleClick("Legendary")} className={styles.chats} disabled>Legendary</button>
-                        }
-                    </div>
-                    <div className={styles.chat}>
-                            <div className={styles.imageAndNameOfChat}>
-                                <img 
-                                    src={chatImage} 
-                                    alt="ChatImage" 
-                                    className={styles.leagueImage}
-                                />
-                                <div>
-                                    <b>{chatName} - group chat</b>
-                                </div>
+            <div className={styles.wrapper}>
+                <div>
+                    <Navigation isApplyPage={false}/>
+                    <motion.div 
+                        className={styles.mainDiv}
+                        initial={{ opacity: 0, y: 80 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut"}}
+                        /*transition={{ type: "spring", stiffness: 100, damping: 5 }}*/
+                    >
+                        <div className={styles.mainDiv2}>
+                            <div className={styles.mainDiv3}>
+                                {
+                                    (user && user?.league <= 6) ? 
+                                    <button onClick={() => handleClick("Begginer")} className={styles.chats}>Begginer</button>
+                                    :
+                                    <button onClick={() => handleClick("Begginer")} className={styles.chats} disabled>Begginer</button>
+                                }
+                                {
+                                    (user && user?.league <= 5) ? 
+                                    <button onClick={() => handleClick("Amateur")} className={styles.chats}>Amateur</button>
+                                    :
+                                    <button onClick={() => handleClick("Amateur")} className={styles.chats} disabled>Amateur</button>
+                                }
+                                {
+                                    (user && user?.league <= 4) ? 
+                                    <button onClick={() => handleClick("Semi-pro")} className={styles.chats}>Semi-pro</button>
+                                    :
+                                    <button onClick={() => handleClick("Semi-pro")} className={styles.chats} disabled>Semi-pro</button>
+                                }
+                                {
+                                    (user && user?.league <= 3) ? 
+                                    <button onClick={() => handleClick("Pro")} className={styles.chats}>Pro</button>
+                                    :
+                                    <button onClick={() => handleClick("Pro")} className={styles.chats} disabled>Pro</button>
+                                }
+                                {
+                                    (user && user?.league <= 2) ? 
+                                    <button onClick={() => handleClick("World-Class")} className={styles.chats}>World-Class</button>
+                                    :
+                                    <button onClick={() => handleClick("World-Class")} className={styles.chats} disabled>World-Class</button>
+                                }
+                                {
+                                    (user && user?.league <= 1) ? 
+                                    <button onClick={() => handleClick("Legendary")} className={styles.chats}>Legendary</button>
+                                    :
+                                    <button onClick={() => handleClick("Legendary")} className={styles.chats} disabled>Legendary</button>
+                                }
                             </div>
-                            <div className={styles.messagesDiv}  ref={messagesDivRef}>
+                            <div className={styles.chat}>
+                                    <div className={styles.imageAndNameOfChat}>
+                                        <img 
+                                            src={chatImage} 
+                                            alt="ChatImage" 
+                                            className={styles.leagueImage}
+                                        />
+                                        <div>
+                                            <b>{chatName} - group chat</b>
+                                        </div>
+                                    </div>
+                                    <div className={styles.messagesDiv}  ref={messagesDivRef}>
 
-                                {messages.map((message, index) => {
+                                        {messages.map((message, index) => {
 
-                                        return <>
-                                            {
-                                                (index != 0) 
-                                                ?
-                                                    (formatDate(message.datetime.toString()) !== formatDate(messages[index-1].datetime.toString()))
-                                                    &&
-                                                    <div key={index} className={styles.dateDiv}>
-                                                        {formatDate(message.datetime.toString())}
+                                                return <React.Fragment key={message.id}>
+                                                    {
+                                                        (index != 0) 
+                                                        ?
+                                                            (formatDate(message.datetime.toString()) !== formatDate(messages[index-1].datetime.toString()))
+                                                            &&
+                                                            <div key={index} className={styles.dateDiv}>
+                                                                {formatDate(message.datetime.toString())}
+                                                            </div>
+                                                        :
+                                                            <div key={index} className={styles.dateDiv}>
+                                                                {formatDate(message.datetime.toString())}
+                                                            </div>
+                                                    }
+
+                                                    <MessageCard 
+                                                        key={message.id}
+                                                        Id={message.id}
+                                                        League={message.league}
+                                                        Content={message.content}
+                                                        Datetime={message.datetime}
+                                                        User={message.user}
+                                                        UserLoggedIn={user?.username || ''}
+                                                        UserProfilePicture={message.userProfilePicture}
+                                                        IsFile={message.isFile}
+                                                        HasReply={message.hasReply}
+                                                        IsDeleted={message.isDeleted}
+                                                        ReplyContent={message.replyContent}
+                                                        ReplyUser={message.replyUser}
+                                                        Messages={messages}
+                                                        onMessageToReply={setMessageToReply}
+                                                        onChange={setChange}
+                                                        onEdit={handleEdit}
+                                                    />
+                                                </React.Fragment>
+                                        })}
+
+                                    </div>
+
+                                    {
+                                        (messageToReply > 0) && 
+                                        messages.map((message) => {
+                                            if(message.id === messageToReply){
+                                                return <div key={message.id} className={styles.messageToReplyDiv}>
+                                                    <div className={styles.textContentDiv}>
+                                                        <b>{message.user}</b><br/>
+                                                        {message.content}
                                                     </div>
-                                                :
-                                                    <div key={index} className={styles.dateDiv}>
-                                                        {formatDate(message.datetime.toString())}
-                                                    </div>
+                                                    <button 
+                                                        onClick={() => (setMessageToReply(0))}
+                                                        className={styles.deleteReplyMessageButton}
+                                                        >
+                                                        X
+                                                    </button>
+                                                </div>
                                             }
-
-                                            <MessageCard 
-                                                key={message.id}
-                                                Id={message.id}
-                                                League={message.league}
-                                                Content={message.content}
-                                                Datetime={message.datetime}
-                                                User={message.user}
-                                                UserLoggedIn={user?.username || ''}
-                                                UserProfilePicture={message.userProfilePicture}
-                                                IsFile={message.isFile}
-                                                HasReply={message.hasReply}
-                                                IsDeleted={message.isDeleted}
-                                                ReplyContent={message.replyContent}
-                                                ReplyUser={message.replyUser}
-                                                Messages={messages}
-                                                onMessageToReply={setMessageToReply}
-                                                onChange={setChange}
-                                                onEdit={handleEdit}
-                                            />
-                                        </>
-                                })}
-
-                            </div>
-
-                            {
-                                (messageToReply > 0) && 
-                                messages.map((message) => {
-                                    if(message.id === messageToReply){
-                                        return <div className={styles.messageToReplyDiv}>
-                                            <div className={styles.textContentDiv}>
-                                                <b>{message.user}</b><br/>
-                                                {message.content}
+                                        })
+                                    }
+                                    {
+                                        (editMessage) &&
+                                        <div className={styles.messageToReplyDiv}>
+                                            <div>
+                                                Editing...
                                             </div>
                                             <button 
-                                                onClick={() => (setMessageToReply(0))}
+                                                onClick={() => (setEditMessage(false))}
                                                 className={styles.deleteReplyMessageButton}
                                                 >
                                                 X
                                             </button>
                                         </div>
                                     }
-                                })
-                            }
-                            {
-                                (editMessage) &&
-                                <div className={styles.messageToReplyDiv}>
-                                    <div>
-                                        Editing...
+                                    <div className={styles.addMessageDiv}>
+                                        <textarea
+                                            id="messageArea"
+                                            className={styles.addMessageTextArea}
+                                            placeholder="Message..."
+                                            value={message}
+                                            onChange={handleTextChange}
+                                            required
+                                        ></textarea>
+                                        {
+                                            (message === "") ? 
+                                            <button
+                                            type="submit"
+                                            className={styles.addMessageButtonDisabled}
+                                            title="Send"
+                                            >
+                                                <img
+                                                    src={sendImage}
+                                                    alt="Send"
+                                                    className={styles.buttonImage}
+                                                />
+                                            </button>
+                                            :
+                                            <button
+                                            type="submit"
+                                            className={styles.addMessageButton}
+                                            title="Send"
+                                            onClick={(e) => handleSubmit(e)}
+                                            >
+                                                <img
+                                                    src={sendImage}
+                                                    alt="Send"
+                                                    className={styles.buttonImage}
+                                                />
+                                            </button>
+                                        }
+
                                     </div>
-                                    <button 
-                                        onClick={() => (setEditMessage(false))}
-                                        className={styles.deleteReplyMessageButton}
-                                        >
-                                        X
-                                    </button>
-                                </div>
-                            }
-                            <div className={styles.addMessageDiv}>
-                                <textarea
-                                    id="messageArea"
-                                    className={styles.addMessageTextArea}
-                                    placeholder="Message..."
-                                    value={message}
-                                    onChange={handleTextChange}
-                                    required
-                                ></textarea>
-                                {
-                                    (message === "") ? 
-                                    <button
-                                    type="submit"
-                                    className={styles.addMessageButtonDisabled}
-                                    title="Send"
-                                    >
-                                        <img
-                                            src={sendImage}
-                                            alt="Send"
-                                            className={styles.buttonImage}
-                                        />
-                                    </button>
-                                    :
-                                    <button
-                                    type="submit"
-                                    className={styles.addMessageButton}
-                                    title="Send"
-                                    onClick={(e) => handleSubmit(e)}
-                                    >
-                                        <img
-                                            src={sendImage}
-                                            alt="Send"
-                                            className={styles.buttonImage}
-                                        />
-                                    </button>
-                                }
 
                             </div>
-
-                    </div>
+                        </div>
+                    </motion.div>
                 </div>
-            </motion.div>
-            <FooterCard />
+                <FooterCard />
+            </div>
         </>
     );
 }

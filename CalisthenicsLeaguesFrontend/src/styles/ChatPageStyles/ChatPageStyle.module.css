@@ -1,3 +1,9 @@
+.wrapper {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    min-height: 100vh;
+}
+
 .mainDiv{
     display: flex; 
     flex-direction: row; 
@@ -50,7 +56,6 @@
 .chats:hover{
     background-color: var(--main-color-hover);
 }
-
 
 .chat{
     display: flex; 
@@ -173,3 +178,40 @@
 .dateDiv{
     margin-left: 50%;
 }
+
+@media(max-width: 950px){
+    .chats{
+        width: 100px;
+        height: 50px;
+        font-size: 18px;
+    }
+    .imageAndNameOfChat{
+        font-size: 18px;
+    }
+    .leagueImage{
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media(max-width: 640px){
+    .chats{
+        width: 80px;
+        height: 50px;
+        font-size: 16px;
+    }
+    .imageAndNameOfChat{
+        font-size: 18px;
+    }
+    .leagueImage{
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media(max-height: 700px){
+    .messagesDiv{
+        height: 400px;
+    }
+}
+
