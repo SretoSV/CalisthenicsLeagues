@@ -85,34 +85,37 @@ export function AdminPage(){
     }
 
     return (
-        <>
-            <Navigation isApplyPage={false}/>
-            {
-                applications.length > 0 ? (
-                    <div className={styles.mainDiv}>
-                        {applications.map((application) => (
-                            <ApplicationCard 
-                                key={application.id}
-                                Id={application.id}
-                                Username={application.username}
-                                Name={application.name}
-                                Surname={application.surname}
-                                Email={application.email}
-                                Country={application.country}
-                                DateOfBirth={application.dateOfBirth}
-                                YoutubeLink={application.youtubeLink}
-                                Instagram={application.instagram}
-                                League={application.league}
-                                onDelete={handleDelete}
-                            />
-                        ))}
-                    </div>
-                ) : (
-                    <div>{message}</div>
-                )
-            }   
-            
+        
+        <div className={styles.wrapper}>
+            <div>
+                <Navigation isApplyPage={false}/>
+                {
+                    applications.length > 0 ? (
+                        <div className={styles.mainDiv}>
+                            {applications.map((application) => (
+                                <ApplicationCard 
+                                    key={application.id}
+                                    Id={application.id}
+                                    Username={application.username}
+                                    Name={application.name}
+                                    Surname={application.surname}
+                                    Email={application.email}
+                                    Country={application.country}
+                                    DateOfBirth={application.dateOfBirth}
+                                    YoutubeLink={application.youtubeLink}
+                                    Instagram={application.instagram}
+                                    League={application.league}
+                                    onDelete={handleDelete}
+                                />
+                            ))}
+                        </div>
+                    ) : (
+                        <div>{message}</div>
+                    )
+                }   
+            </div>
             <FooterCard />
-        </>
+        </div>
+        
     );
 }

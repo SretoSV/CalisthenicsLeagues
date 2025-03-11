@@ -5,3 +5,9 @@
     align-items: center;
     flex-wrap: wrap;
 }
+
+.wrapper {
+    display: grid;
+    grid-template-rows: 1fr auto; /*glavni sadrzaj raste koliko moze, footer ostaje dole*/
+    min-height: 100vh; /*cela visina ekrana*/
+}

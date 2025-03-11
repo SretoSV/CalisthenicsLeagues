@@ -44,37 +44,41 @@ export function LeagueMembersPage(){
 
     return(
         <>
-            <Navigation isApplyPage={false}/>
-            <motion.div 
-                className={styles.selectDiv}
-                initial={{ opacity: 0, y: 80 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut"}}    
-            >
-                <select className={styles.dropdownInput} onChange={handleSelectChange} value={selectedLeagueId}>
-                    <option value="1">Legendary</option>
-                    <option value="2">World-Class</option>
-                    <option value="3">Pro</option>
-                    <option value="4">Semi-pro</option>
-                    <option value="5">Amateur</option>
-                    <option value="6">Begginer</option>
-                </select>
-                <div className={styles.memberNumber}>Members: {leaguesMembers.length}</div>
-            </motion.div>
-            <div className={styles.membersDiv}>
-                {leaguesMembers.map((member) => {
-                    return <AthleteCard 
-                                key={member.id}
-                                id={member.id}
-                                Name={member.name}
-                                Surname={member.surname}
-                                Country={member.country}
-                                Instagram={member.instagram}
-                                Image={member.image}
-                            />
-                })}
+            <div className={styles.wrapper}>
+                <div>
+                    <Navigation isApplyPage={false}/>
+                    <motion.div 
+                        className={styles.selectDiv}
+                        initial={{ opacity: 0, y: 80 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut"}}    
+                    >
+                        <select className={styles.dropdownInput} onChange={handleSelectChange} value={selectedLeagueId}>
+                            <option value="1">Legendary</option>
+                            <option value="2">World-Class</option>
+                            <option value="3">Pro</option>
+                            <option value="4">Semi-pro</option>
+                            <option value="5">Amateur</option>
+                            <option value="6">Begginer</option>
+                        </select>
+                        <div className={styles.memberNumber}>Members: {leaguesMembers.length}</div>
+                    </motion.div>
+                    <div className={styles.membersDiv}>
+                        {leaguesMembers.map((member) => {
+                            return <AthleteCard 
+                                        key={member.id}
+                                        id={member.id}
+                                        Name={member.name}
+                                        Surname={member.surname}
+                                        Country={member.country}
+                                        Instagram={member.instagram}
+                                        Image={member.image}
+                                    />
+                        })}
+                    </div>
+                </div>
+                <FooterCard />
             </div>
-            <FooterCard />
         </>
     );
 }

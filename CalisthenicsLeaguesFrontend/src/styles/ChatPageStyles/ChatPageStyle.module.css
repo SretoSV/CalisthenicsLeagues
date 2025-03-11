@@ -79,7 +79,8 @@
     height: 500px;
     display: flex;
     flex-direction: column;
-    background-color: #1F1F27;
+    background-image: url("../../images/chatBackground.jpg");
+    background-repeat: repeat;
     border: 1px solid #555;
     overflow-y: auto;
 }

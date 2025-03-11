@@ -54,7 +54,7 @@
     /*display: block;*/
     margin: 10px 0px 0px 0px;
     padding: 10px 20px;
-    background-color: #660166;
+    background-color: var(--main-color);
     border: none;
     border-radius: 5px;
     color: #fff;
@@ -63,7 +63,7 @@
   }
   
   .submitButton:hover {
-    background-color: #460146;
+    background-color: var(--main-color-hover);
   }
 
   .forgotDiv{
