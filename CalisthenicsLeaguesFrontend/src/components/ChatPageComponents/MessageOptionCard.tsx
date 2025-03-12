@@ -1,5 +1,6 @@
-import { serverPath } from '../../functions/serverpath';
 import styles from '../../styles/ChatPageStyles/MessageOptionCardStyle.module.css';
+import socket from "../../sockets/socket";
+
 interface MessageOptionCardProps{
     id: number,
     onChange: React.Dispatch<React.SetStateAction<boolean>>;
@@ -23,25 +24,11 @@ export function MessageOptionCard(props: MessageOptionCardProps){
 
     const handleDelete = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        try {
-            const response = await fetch(`${serverPath()}Chat/delete/${props.id}`, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                credentials: 'include',
-                });
-
-                if (response.ok) {
-                    props.onChange(current => !current);
-                } 
-                else {
-                    console.log("An error occurred while processing the request.");
-                }
-            } 
-        catch (error) {
-            console.error("Server error! Try again later...");
-        }
+       
+        socket.invoke("DeleteMessage", "delete_message", { 
+            id: props.id,
+            content: "",
+        });
     } 
 
     return (

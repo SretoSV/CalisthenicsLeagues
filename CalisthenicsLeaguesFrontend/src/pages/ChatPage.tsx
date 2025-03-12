@@ -10,6 +10,7 @@ import { useUserContext } from "../context/UserContext";
 import { formatDate, setLeagueIdByLeagueName } from "../functions/formChangeFunction";
 import { FooterCard } from "../components/FooterComponents/FooterCard";
 import { motion } from "framer-motion";
+import socket from "../sockets/socket";
 
 export function ChatPage(){
     const navigate = useNavigate();
@@ -72,11 +73,10 @@ export function ChatPage(){
         String(now.getHours()).padStart(2, '0') + ':' +
         String(now.getMinutes()).padStart(2, '0') + ':' +
         String(now.getSeconds()).padStart(2, '0');
-        let messageData;
-        let fetchString;
 
         if(!editMessage){
-            messageData = {
+
+            socket.invoke("SendMessage", "send_message", { 
                 league: setLeagueIdByLeagueName(chatName),
                 content: message,
                 datetime: formattedDate,
@@ -84,36 +84,13 @@ export function ChatPage(){
                 isFile: false,
                 hasReply: messageToReply,
                 isDeleted: false,
-            };
-            fetchString = `${serverPath()}Chat/newMessage`;
+            });
+
         }else{
-            messageData = {
+            socket.invoke("EditMessage", "edit_message", { 
                 id: editMessageId,
                 content: message,
-            };
-            fetchString = `${serverPath()}Chat/edit`;
-        }
-        
-        try {
-            const response = await fetch(fetchString, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(messageData),
-                credentials: "include",
             });
-    
-            if (!response.ok) {
-                throw new Error("Message send failed");
-            }
-            else{
-                //const result = await response.json();
-                setChange(current => !current);
-            }
-
-        } catch (error) {
-            console.error("Error submitting message:", error);
         }
 
         setEditMessage(false);
@@ -121,6 +98,33 @@ export function ChatPage(){
         setMessageToReply(0);
         setEditMessageId(0);
     };
+
+    useEffect(() => {
+        socket.start().then(() => {
+            console.log("Connected to WebSocket");
+
+            socket.on("send_message", (data: any) => {
+                console.log("Primljen event send:", data);
+                setChange(current => !current);
+            });
+    
+            socket.on("edit_message", (data: any) => {
+                console.log("Primljen event edit:", data);
+                setChange(current => !current);
+            });
+
+            socket.on("delete_message", (data: any) => {
+                console.log("Primljen event delete:", data);
+                setChange(current => !current);
+            });
+        });
+    
+        return () => {
+            socket.off("send_message");
+            socket.off("edit_message");
+            socket.off("delete_message");
+        };
+    }, []);
 
     useEffect(() => {
         const fetchMessages = async () => {
