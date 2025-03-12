@@ -89,9 +89,24 @@ export function EditProfilePage(){
   return (
     <div className={styles.mainDiv}>
       <form className={styles.editForm} onSubmit={handleSubmit}>
-        <h1>Edit profile</h1>
-        <div className={styles.formContent}>
-          <div className={styles.formLeft}>
+        
+          <h1>Edit profile</h1>
+          <div className={styles.formImage}>
+            <img
+              className={styles.profilePicture}
+              src={serverPath()+user?.image}
+              alt="Profilna slika"
+            />
+            <input 
+              id="imageUpload" 
+              type="file" 
+              accept="image/*" 
+              onChange={handleFileChange} 
+              className={styles.hiddenFileInput}
+            />
+          </div>
+
+          <div className={styles.formInputs}>
             <label htmlFor="name">Name</label>
             <input
               id="name"
@@ -155,7 +170,7 @@ export function EditProfilePage(){
               required
               disabled
             />
-
+            
             <label htmlFor="dateOfBirth">Date of Birth</label>
             <input 
               id="dateOfBirth"
@@ -179,24 +194,6 @@ export function EditProfilePage(){
               disabled
             />
           </div>
-
-          <div className={styles.divider}></div>
-          <div className={styles.formRight}>
-            <div>Profile Image</div>
-            <img
-              className={styles.profilePicture}
-              src={serverPath()+user?.image}
-              alt="Profilna slika"
-            />
-            <input 
-              id="imageUpload" 
-              type="file" 
-              accept="image/*" 
-              onChange={handleFileChange} 
-              className={styles.hiddenFileInput}
-            />
-          </div>
-        </div>
 
         {message && <p className={styles.message}>{message}</p>}
         <button className={styles.submitButton}>Edit</button>

@@ -1,12 +1,12 @@
 .mainDiv{
-  position: fixed;
+  margin-top: 30px;
   color: white;
-  width: 100%; /*width i height osiguravaju da element zauzima celu sirinu i visinu ekrana*/
-  height: auto;
-  display: flex;/*centriram sve unutar diva na centar*/
+  width: 100%; 
+  display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
+  overflow-y: auto;
+  
 }
 
 .editForm {
@@ -15,51 +15,12 @@
   color: #fff;
   padding: 20px;
   border-radius: 10px;
-  width: 700px;
-  margin: 20px auto;
-}
-
-.editForm h1 {
-  margin-bottom: 20px;
-  font-size: 24px;
-}
-
-.formContent {
+  width: auto;
+  margin: auto;
   display: flex;
-}
-
-.formLeft {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-}
-
-.formLeft label {
-  font-size: 15px;
-}
-
-.formLeft input {
-  width: 70%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #555;
-  border-radius: 5px;
-  background-color: #1F1F27;
-  color: #fff;
-  font-size: 15px;
-}
-
-.divider {
-  width: 1px;
-  background-color: #555;
-  margin: 0 20px 0px 0px;
-}
-
-.formRight {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .profilePicture {
@@ -71,19 +32,22 @@
   border: 2px solid #fff;
 }
 
-.uploadLink {
-  color: #ffa500;
-  text-decoration: none;
-  font-size: 15px;
-  text-decoration: underline;
+.formImage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.uploadLink:hover {
-  color: #e69500;
+.formImage input {
+  width: 70%;
+}
+
+.formInputs {
+  display: flex;
+  flex-direction: column;
 }
 
 .submitButton {
-  /*display: block;*/
   margin: auto;
   padding: 10px 20px;
   background-color: var(--main-color);
@@ -97,43 +61,3 @@
 .submitButton:hover {
   background-color: var(--main-color-hover);
 }
-
-/*
-@media(max-width: 750px){
-  .editForm {
-    background-color: #1B1B23;
-    border: 1px solid #525252;
-    color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    width: 700px;
-    margin: 20px auto;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .divider{
-    visibility: hidden;
-  }
-  .formContent {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .formLeft {
-    flex:0;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-  }
-  .formRight {
-    flex: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: auto;
-  }
-}*/
