@@ -22,8 +22,6 @@ namespace CalisthenicsLeagues.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> PostData([FromBody] LoginRequest data)
         {
-            Console.WriteLine("Password:" + data.Password + " Email:" + data.Email);
-
             User user = userService.GetUserByEmailAndPassword(data);
 
             if (user == null)

@@ -14,7 +14,7 @@ namespace CalisthenicsLeagues.DAO
         string GetPictureById(int id);
         IEnumerable<User> FindAllByLeagueId(int id);
         int InsertUser(Application application);
-
         int UpdateLeague(int id, int league);
+        string GetPasswordByEmail(string email);
     }
 }

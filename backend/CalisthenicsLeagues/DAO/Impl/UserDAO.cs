@@ -322,5 +322,32 @@ namespace CalisthenicsLeagues.DAO.Impl
                 }
             }
         }
+
+        public string GetPasswordByEmail(string email)
+        {
+            string query = "select password from users where email = ?";
+            string password = "";
+
+            using (IDbConnection connection = new MySqlConnection(ConnectionClass.GetConnectionString()))
+            {
+                connection.Open();
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = query;
+                    command.Parameters.Add(new MySqlParameter("email", MySqlDbType.VarChar) { Value = email });
+                    command.Prepare();
+
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            password = reader.GetString(0);
+                        }
+                    }
+                }
+            }
+
+            return password;
+        }
     }
 }

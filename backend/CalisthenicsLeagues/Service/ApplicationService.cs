@@ -1,6 +1,7 @@
 ﻿using CalisthenicsLeagues.DAO.Impl;
 using CalisthenicsLeagues.DAO;
 using CalisthenicsLeagues.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace CalisthenicsLeagues.Service
 {
@@ -8,9 +9,11 @@ namespace CalisthenicsLeagues.Service
     {
         private static readonly IUserDAO userDAO = new UserDAO();
         private static readonly IApplicationDAO applicationDAO = new ApplicationDAO();
+        private readonly PasswordHasher<string> passwordHasher = new PasswordHasher<string>();
 
         public bool InsertNewApplication(Application application) 
         {
+            application.Password = passwordHasher.HashPassword(null, application.Password);
             if (applicationDAO.InsertNewApplication(application) >= 1)
             {
                 return true;
