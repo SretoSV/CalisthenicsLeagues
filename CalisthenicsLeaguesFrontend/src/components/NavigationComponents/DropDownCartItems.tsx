@@ -60,7 +60,7 @@ export function DropDownCartItems(){
 
     return(
         <>
-            <div className={styles.dropdownStyle}>
+            <div data-testid="drop-down-cart-items" className={styles.dropdownStyle}>
                 <div className={styles.triangleDivOuter}></div>
                 {
                     cartItems.length === 0 ? (

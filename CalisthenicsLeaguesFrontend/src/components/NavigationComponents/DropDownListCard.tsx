@@ -1,6 +1,7 @@
 import styles from '../../styles/NavigationStyles/PictureDropDownListStyle.module.css';
 import { useUserContext } from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
+import { serverPath } from '../../functions/serverpath';
 
 export function DropDownListCard(){
     const navigate = useNavigate();
@@ -9,7 +10,7 @@ export function DropDownListCard(){
     const handleLogout = async () => {
 
         try {
-            const response = await fetch('http://localhost:5099/User/logout', {
+            const response = await fetch(`${serverPath()}User/logout`, {
                 method: 'POST',
                 credentials: 'include',
             });
@@ -30,7 +31,7 @@ export function DropDownListCard(){
 
     return(
         <>
-            <div className={styles.dropdownStyle}>
+            <div data-testid="drop-down-list-card" className={styles.dropdownStyle}>
                 <div className={styles.triangleDivOuter}></div>
                 <div className={styles.dropDownDivs}>
                     <a className={styles.dropDownLinks} href="/EditPage">Edit profile</a>
@@ -38,12 +39,12 @@ export function DropDownListCard(){
                 <br />
                 <div className={styles.dropDownDivs}>
                     <a
-                    className={styles.dropDownLinks}
-                    href="/LoginPage"
-                    onClick={(e) => {
-                        e.preventDefault();
-                        handleLogout();
-                    }}
+                        className={styles.dropDownLinks}
+                        href="/LoginPage"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            handleLogout();
+                        }}
                     >
                         Logout
                     </a>

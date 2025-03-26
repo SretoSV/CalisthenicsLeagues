@@ -106,6 +106,7 @@ export function ShirtCard(props: LeagueCardProps) {
                     id="front" 
                     checked={selectedView === "front"} 
                     onChange={() => handleViewChange("front")} 
+                    data-testid="front-radio"
                 />
 
                 <input 
@@ -114,6 +115,7 @@ export function ShirtCard(props: LeagueCardProps) {
                     id="back" 
                     checked={selectedView === "back"} 
                     onChange={() => handleViewChange("back")} 
+                    data-testid="back-radio"
                 />
             </div>
 
@@ -137,6 +139,7 @@ export function ShirtCard(props: LeagueCardProps) {
                     onChange={handleQuantityChange}
                     min={1}
                     required
+                    data-testid="quantity-radio"
                 />
             </div>
             {props.available ? 

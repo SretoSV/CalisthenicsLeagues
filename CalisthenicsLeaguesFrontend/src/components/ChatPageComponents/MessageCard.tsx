@@ -82,6 +82,7 @@ export function MessageCard(props: MessageCardProps){
                                     onChange={props.onChange} 
                                     onMessageToReply={props.onMessageToReply}
                                     isEditAndDeleteVisible={true}
+                                    data-testid="message-option-card"
                             />}   
                             <div className={styles.timeDiv}>
                                 {formatTime(props.Datetime.toString() || '')}
@@ -140,6 +141,7 @@ export function MessageCard(props: MessageCardProps){
                                                 onChange={props.onChange} 
                                                 onMessageToReply={props.onMessageToReply}
                                                 isEditAndDeleteVisible={false}
+                                                data-testid="message-option-card"
                                         />}   
                                         <div className={styles.timeDiv}>
                                             {formatTime(props.Datetime.toString() || '')}

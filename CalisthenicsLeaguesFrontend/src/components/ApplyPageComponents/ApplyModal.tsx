@@ -30,7 +30,7 @@ export default function ApplyModal({ onClose, show, leagueName }: ApplyModalProp
 
     useEffect(() => {
         if (localStorage.getItem('user')) {
-          setForm({
+        setForm({
             username: user?.username || '',
             name: user?.name || '',
             surname: user?.surname || '',
@@ -48,6 +48,15 @@ export default function ApplyModal({ onClose, show, leagueName }: ApplyModalProp
     useEffect(() => {
         setForm(prevForm => ({
             ...prevForm,
+            username: user?.username || '',
+            name: user?.name || '',
+            surname: user?.surname || '',
+            password: '',
+            email: user?.email || '',
+            country: user?.country || '',
+            dateOfBirth: formatDate(user?.dateOfBirth || ''),
+            youtubeLink: '',
+            instagram: user?.instagram || '',
             league: setLeagueIdByLeagueName(leagueName) || 0
         }));
     }, [leagueName]);
@@ -93,7 +102,7 @@ export default function ApplyModal({ onClose, show, leagueName }: ApplyModalProp
 
     return (
         user ? 
-        <form className={styles.modalOverlay} onSubmit={handleSubmit}>
+        <form data-testid="apply-modal" className={styles.modalOverlay} onSubmit={handleSubmit}>
             <div className={styles.modalContent}>
             <div>
                 Put only Youtube Link, your information we already have.
@@ -179,6 +188,7 @@ export default function ApplyModal({ onClose, show, leagueName }: ApplyModalProp
                     id="dateOfBirth"
                     type="date" 
                     name="dateOfBirth"
+                    alt='dateOfBirth'
                     defaultValue={form.dateOfBirth || ""} 
                     onChange={(e) => handleInputChange(e, setForm)}
                     max={new Date().toISOString().split("T")[0]} 
@@ -205,7 +215,6 @@ export default function ApplyModal({ onClose, show, leagueName }: ApplyModalProp
                     onChange={(e) => handleInputChange(e, setForm)}
                     disabled
                 />
-
             </div>
     
             <div className={styles.buttonsDiv}>
@@ -219,6 +228,7 @@ export default function ApplyModal({ onClose, show, leagueName }: ApplyModalProp
                 <button 
                     className={styles.applyButtonModal} 
                     type="submit"
+                    //onClick={()=>handleSubmit()}
                 >
                     Apply
                 </button>
@@ -226,7 +236,7 @@ export default function ApplyModal({ onClose, show, leagueName }: ApplyModalProp
             </div>
         </form>
         :
-        <form className={styles.modalOverlay} onSubmit={handleSubmit}>
+        <form data-testid="apply-modal" className={styles.modalOverlay} onSubmit={handleSubmit}>
             <div className={styles.modalContent}>
             <div>
                 Enter your information to be able to log in, if your application is accepted.
@@ -305,6 +315,7 @@ export default function ApplyModal({ onClose, show, leagueName }: ApplyModalProp
                     id="dateOfBirth"
                     type="date" 
                     name="dateOfBirth"
+                    alt='dateOfBirth'
                     defaultValue={form.dateOfBirth || ""} 
                     onChange={(e) => handleInputChange(e, setForm)}
                     max={new Date().toISOString().split("T")[0]} 
@@ -343,6 +354,7 @@ export default function ApplyModal({ onClose, show, leagueName }: ApplyModalProp
                 <button 
                     className={styles.applyButtonModal} 
                     type="submit"
+                    //onClick={()=>handleSubmit()}
                 >
                     Apply
                 </button>

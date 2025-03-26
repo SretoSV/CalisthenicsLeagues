@@ -21,6 +21,7 @@ export function SliderCard(){
 
         return () => clearInterval(interval);
     }, []);
+
     useEffect(() => {
         setImage(images[currentIndex]);
     }, [currentIndex]);
@@ -49,7 +50,7 @@ export function SliderCard(){
                 transition={{ duration: 0.8, ease: "easeOut" }}  // Trajanje animacije
             >
 
-            <img src={image} className={styles.image} />
+            <img src={image} alt="Image" className={styles.image} />
             <div className={styles.headDiv}>
                 <div className={styles.head} ><b>CALISTHENICS LEAGUES <br /> WELCOME</b></div>
                 <button className={styles.down} onClick={handleScrollDown} >

@@ -28,7 +28,7 @@ export function CartCard(){
     }, []);
 
     return (
-        <div className={styles.mainDiv}>
+        <div data-testid="cart-card" className={styles.mainDiv}>
             {
                 (numberOfItems == 0) ? (<div></div>) : 
                 <div className={styles.numberOfItems}>

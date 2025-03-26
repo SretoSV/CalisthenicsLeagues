@@ -56,7 +56,7 @@ export function AthleteCard(props: AthleteCardProps){
                     {props.Country}
                     <img 
                         src={flagUrl}
-                        alt="athlete" 
+                        alt="falg" 
                         className={styles.flagImage}
                     />
                 </div>
@@ -64,7 +64,7 @@ export function AthleteCard(props: AthleteCardProps){
                 >
                     <img 
                         src={instagramImage}
-                        alt="athlete" 
+                        alt="instagram" 
                         className={styles.instagramImage}
                     />
                     <a 

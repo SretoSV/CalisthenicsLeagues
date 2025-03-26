@@ -33,7 +33,7 @@ export function MessageOptionCard(props: MessageOptionCardProps){
 
     return (
         props.isEditAndDeleteVisible ? 
-        <div className={styles.dropdownStyle}>
+        <div data-testid="message-option-card" className={styles.dropdownStyle}>
             <button 
                 className={`${styles.buttons} ${styles.marginStyle}`}
                 onClick={(e) => handleEdit(e)}
@@ -54,7 +54,7 @@ export function MessageOptionCard(props: MessageOptionCardProps){
             </button>
         </div>
         :
-        <div className={styles.dropdownStyle}>
+        <div data-testid="message-option-card" className={styles.dropdownStyle}>
             <button 
                 className={`${styles.buttons} ${styles.marginStyle}`}
                 onClick={(e) => handleReply(e)}

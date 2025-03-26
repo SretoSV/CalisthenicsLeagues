@@ -31,7 +31,7 @@ export function PictureDropDownList(){
     }, []);
 
     return (
-        <div className={styles.mainDiv}>
+        <div data-testid="picture-drop-down-list" className={styles.mainDiv}>
             <div ref={dropdownRef}>
                 <img
                     className={styles.profileImage}

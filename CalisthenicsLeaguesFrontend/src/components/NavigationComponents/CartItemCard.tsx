@@ -35,7 +35,7 @@ export function CartItemCard(props: Shirt){
 
     return (
         <>
-        <div className={styles.mainDiv}>
+        <div data-testid="cart-item-card" className={styles.mainDiv}>
             <img 
                 src={serverPath()+props.shirtImage}
                 alt="Shirt"
