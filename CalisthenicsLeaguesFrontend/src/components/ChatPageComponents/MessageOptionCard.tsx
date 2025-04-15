@@ -3,7 +3,6 @@ import socket from "../../sockets/socket";
 
 interface MessageOptionCardProps{
     id: number,
-    onChange: React.Dispatch<React.SetStateAction<boolean>>;
     onMessageToReply: React.Dispatch<React.SetStateAction<number>>;
     onEdit: (id: number) => void,
     isEditAndDeleteVisible: boolean,

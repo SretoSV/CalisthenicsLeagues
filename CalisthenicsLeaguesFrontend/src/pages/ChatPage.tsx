@@ -21,7 +21,6 @@ export function ChatPage(){
     const [chatName, setChatName] = useState("Begginer");
     const [message, setMessage] = useState("");
     const [messageToReply, setMessageToReply] = useState(0);
-    const [change, setChange] = useState(true);
     const [editMessage, setEditMessage] = useState(false);
     const [editMessageId, setEditMessageId] = useState(0);
     const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -66,6 +65,7 @@ export function ChatPage(){
     const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         const now = new Date();
+
         //const formattedDate = now.toISOString().slice(0, 19).replace('T', ' ');
         const formattedDate = now.getFullYear() + '-' +
         String(now.getMonth() + 1).padStart(2, '0') + '-' +
@@ -105,17 +105,27 @@ export function ChatPage(){
 
             socket.on("send_message", (data: any) => {
                 console.log("Primljen event send:", data);
-                setChange(current => !current);
+
+                console.log("Primljen newMessage send:", data);
+                setMessages((currentState) => [...currentState, data]);
             });
     
             socket.on("edit_message", (data: any) => {
                 console.log("Primljen event edit:", data);
-                setChange(current => !current);
+                setMessages(prevMessages =>
+                    prevMessages.map(msg =>
+                      msg.id === data.id ? { ...msg, content: data.content } : msg
+                    )
+                );
             });
 
             socket.on("delete_message", (data: any) => {
                 console.log("Primljen event delete:", data);
-                setChange(current => !current);
+                setMessages(prevMessages =>
+                    prevMessages.map(msg =>
+                      msg.id === data ? { ...msg, isDeleted: true, content: "Deleted message" } : msg
+                    )
+                );
             });
         });
     
@@ -140,6 +150,7 @@ export function ChatPage(){
                 if (response.ok) {
                     const data = await response.json();
                     setMessages(data);
+                    //console.log(data);
                 } else {
                     console.error('Error fetching messages:', response.status, response.statusText);
                 }
@@ -149,7 +160,7 @@ export function ChatPage(){
         };
 
         fetchMessages();
-    }, [selectedLeagueId, change]);
+    }, [selectedLeagueId]);
 
     useEffect(() => {
         const fetchMe = async () => {
@@ -303,7 +314,6 @@ export function ChatPage(){
                                                         ReplyUser={message.replyUser}
                                                         Messages={messages}
                                                         onMessageToReply={setMessageToReply}
-                                                        onChange={setChange}
                                                         onEdit={handleEdit}
                                                     />
                                                 </React.Fragment>

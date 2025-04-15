@@ -21,7 +21,6 @@ interface MessageCardProps{
     ReplyContent?: string,
     ReplyUser?: string,
     Messages: Message[],
-    onChange: React.Dispatch<React.SetStateAction<boolean>>;
     onMessageToReply: React.Dispatch<React.SetStateAction<number>>;
     onEdit: (id: number) => void
 }
@@ -52,7 +51,7 @@ export function MessageCard(props: MessageCardProps){
         <>
         {
         user?.username === props.User ? 
-            props.IsDeleted === false ? 
+            !props.IsDeleted ? 
                 <div className={styles.wholeDiv1}>
                     {
                         (props.HasReply == 0) && 
@@ -79,7 +78,6 @@ export function MessageCard(props: MessageCardProps){
                                 <MessageOptionCard 
                                     id={props.Id} 
                                     onEdit={props.onEdit} 
-                                    onChange={props.onChange} 
                                     onMessageToReply={props.onMessageToReply}
                                     isEditAndDeleteVisible={true}
                                     data-testid="message-option-card"
@@ -96,7 +94,7 @@ export function MessageCard(props: MessageCardProps){
                     Deleted message
                 </div>
             :
-            props.IsDeleted === false ? 
+            !props.IsDeleted ? 
                 <div className={styles.wholeDiv2}>
                     {
                         (props.HasReply == 0) && 
@@ -138,7 +136,6 @@ export function MessageCard(props: MessageCardProps){
                                             <MessageOptionCard 
                                                 id={props.Id} 
                                                 onEdit={props.onEdit} 
-                                                onChange={props.onChange} 
                                                 onMessageToReply={props.onMessageToReply}
                                                 isEditAndDeleteVisible={false}
                                                 data-testid="message-option-card"
