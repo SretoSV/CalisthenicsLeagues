@@ -2,13 +2,17 @@
 using CalisthenicsLeagues.DAO.Impl;
 using CalisthenicsLeagues.DTO;
 using CalisthenicsLeagues.Models;
+using CalisthenicsLeagues.Service.Interfaces;
 
 namespace CalisthenicsLeagues.Service
 {
-    public class ShopService
+    public class ShopService : IShopService
     {
-        private static readonly IShopDAO shopDAO = new ShopDAO();
-
+        private readonly IShopDAO shopDAO = new ShopDAO();
+        public ShopService() { }
+        public ShopService(IShopDAO shopDao) {
+            shopDAO = shopDao;
+        }
         public List<Shirt> GetAllShirts()
         {
             return shopDAO.GetAllShirts().ToList();

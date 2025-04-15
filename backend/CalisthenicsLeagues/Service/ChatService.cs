@@ -3,13 +3,21 @@ using CalisthenicsLeagues.DAO.Impl;
 using CalisthenicsLeagues.DTO;
 using CalisthenicsLeagues.Models;
 using CalisthenicsLeagues.Models.RequestsModels;
+using CalisthenicsLeagues.Service.Interfaces;
 
 namespace CalisthenicsLeagues.Service
 {
-    public class ChatService
+    public class ChatService : IChatService
     {
-        private static readonly IChatDAO chatDAO = new ChatDAO();
-        private static readonly IUserDAO userDAO = new UserDAO();
+        private readonly IChatDAO chatDAO = new ChatDAO();
+        private readonly IUserDAO userDAO = new UserDAO();
+
+        public ChatService() { }
+        public ChatService(IChatDAO chatDao, IUserDAO userDao) {
+            chatDAO = chatDao;
+            userDAO = userDao;
+        }
+
         public List<MessageRequest> GetAllMessagesByLeague(int leagueId)
         {
             List<MessageRequest> messageRequests = new List<MessageRequest>();
@@ -44,7 +52,12 @@ namespace CalisthenicsLeagues.Service
 
         public int DeleteMessage(int id)
         {
-            return chatDAO.DeleteMessage(id);
+            if (chatDAO.DeleteMessage(id) < 1)
+            {
+                return -1;
+            }
+
+            return id;
         }
 
         public int EditMessage(EditMessageDTO editMessageDTO)
@@ -54,8 +67,13 @@ namespace CalisthenicsLeagues.Service
                 chatDAO.UpdateReplyMessage(editMessageDTO.Id, editMessageDTO.Content, false);
                 return 1;
             }*/
+            if (chatDAO.EditMessage(editMessageDTO) < 1)
+            {
+                return -1;
+            }
+            
+            return editMessageDTO.Id;
 
-            return chatDAO.EditMessage(editMessageDTO);
         }
     }
 }

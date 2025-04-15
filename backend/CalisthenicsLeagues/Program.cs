@@ -1,4 +1,6 @@
 using CalisthenicsLeagues.Hubs;
+using CalisthenicsLeagues.Service.Interfaces;
+using CalisthenicsLeagues.Service;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,7 +16,7 @@ builder.Services.AddCors(options =>
         });
 });
 
-builder.Services.AddDistributedMemoryCache(); // Opcionalno, ako koristis distribuisane sesije
+builder.Services.AddDistributedMemoryCache(); // Opcionalno, za distribuisane sesije
 builder.Services.AddSession(options =>
 {
     options.Cookie.HttpOnly = true;
@@ -29,7 +31,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     .AddCookie(options =>
     {
         options.LoginPath = "/login"; // Putanja za prijavu
-        options.Cookie.Name = "YourAppName.Session"; // Ime kolacica sesije
+        options.Cookie.Name = "CaliLeague.Session"; // Ime kolacica sesije
         options.Cookie.SameSite = SameSiteMode.Lax;
         options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
     });
@@ -42,6 +44,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSignalR();
+
+builder.Services.AddScoped<IApplicationService, ApplicationService>();
+builder.Services.AddScoped<IChatService, ChatService>();
+builder.Services.AddScoped<ILeagueService, LeagueService>();
+builder.Services.AddScoped<IShopService, ShopService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 

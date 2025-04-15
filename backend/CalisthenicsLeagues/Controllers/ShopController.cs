@@ -1,6 +1,7 @@
 ﻿using CalisthenicsLeagues.DTO;
 using CalisthenicsLeagues.Models;
 using CalisthenicsLeagues.Service;
+using CalisthenicsLeagues.Service.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,7 +11,10 @@ namespace CalisthenicsLeagues.Controllers
     [ApiController]
     public class ShopController : ControllerBase
     {
-        private static readonly ShopService shopService = new ShopService();
+        private readonly IShopService shopService;
+        public ShopController(IShopService sService) {
+            shopService = sService;
+        }
 
         [HttpGet("shirts")]
         public IActionResult GetShirts()

@@ -2,6 +2,7 @@
 using CalisthenicsLeagues.Models;
 using CalisthenicsLeagues.Models.RequestsModels;
 using CalisthenicsLeagues.Service;
+using CalisthenicsLeagues.Service.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +13,11 @@ namespace CalisthenicsLeagues.Controllers
     [ApiController]
     public class ChatController : ControllerBase
     {
-        private static readonly ChatService chatService = new ChatService();
+        private readonly IChatService chatService;
+        public ChatController(IChatService cService)
+        {
+            chatService = cService;
+        }
 
         [Authorize]
         [HttpGet("all/{leagueId}")]

@@ -14,7 +14,7 @@
         public string? ReplyUser { get; set; }
         public int HasReply { get; set; }
 
-
+        public MessageRequest() { }
         public MessageRequest(int id, int league, string content, DateTime datetime, string user, string userProfilePicture, bool isFile, bool isDeleted, string? replyContent, string? replyUser, int hasReply)
         {
             Id = id;

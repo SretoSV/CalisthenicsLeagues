@@ -9,7 +9,7 @@
         public bool IsFile { get; set; }
         public int HasReply { get; set; }
         public bool IsDeleted { get; set; }
-
+        public CreateMessageRequest() { }
         public CreateMessageRequest(int league, string content, string datetime, int user, bool isFile, int hasReply, bool isDeleted)
         {
             League = league;

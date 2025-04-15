@@ -14,6 +14,7 @@
         public string Instagram { get; set; }
         public int League { get; set; }
 
+        public Application() { }
         public Application(int id, string username, string name, string surname, string password, string email, string country, DateTime dateOfBirth, string youtubeLink, string instagram, int league)
         {
             Id = id;

@@ -2,16 +2,20 @@
 using CalisthenicsLeagues.DAO.Impl;
 using CalisthenicsLeagues.Models;
 using CalisthenicsLeagues.Models.RequestsModels;
+using CalisthenicsLeagues.Service.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace CalisthenicsLeagues.Service
 {
-    public class UserService
+    public class UserService : IUserService
     {
-        private static readonly IUserDAO userDAO = new UserDAO();
+        private readonly IUserDAO userDAO = new UserDAO();
         private readonly PasswordHasher<string> passwordHasher = new PasswordHasher<string>();
-
+        public UserService() { }
+        public UserService(IUserDAO userDao) {
+            userDAO = userDao;
+        }
         public User GetUserByEmailAndPassword(LoginRequest data)
         {
 
@@ -31,6 +35,10 @@ namespace CalisthenicsLeagues.Service
         public User GetUserByUsername(string username)
         {
             return userDAO.GetUserByUsername(username);
+        }
+        public User GetUserById(int id)
+        {
+            return userDAO.GetUserById(id);
         }
 
         public bool UpdatePassword(PasswordResetRequest data)

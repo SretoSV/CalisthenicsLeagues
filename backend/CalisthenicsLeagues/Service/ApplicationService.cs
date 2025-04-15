@@ -2,14 +2,22 @@
 using CalisthenicsLeagues.DAO;
 using CalisthenicsLeagues.Models;
 using Microsoft.AspNetCore.Identity;
+using CalisthenicsLeagues.Service.Interfaces;
 
 namespace CalisthenicsLeagues.Service
 {
-    public class ApplicationService
+    public class ApplicationService : IApplicationService
     {
-        private static readonly IUserDAO userDAO = new UserDAO();
-        private static readonly IApplicationDAO applicationDAO = new ApplicationDAO();
+        private readonly IUserDAO userDAO = new UserDAO();
+        private readonly IApplicationDAO applicationDAO = new ApplicationDAO(); 
         private readonly PasswordHasher<string> passwordHasher = new PasswordHasher<string>();
+
+        public ApplicationService() { }
+        public ApplicationService(IUserDAO userDao, IApplicationDAO applicationDao)
+        {
+            userDAO = userDao;
+            applicationDAO = applicationDao;
+        }
 
         public bool InsertNewApplication(Application application) 
         {

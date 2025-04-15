@@ -4,6 +4,7 @@ using CalisthenicsLeagues.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using CalisthenicsLeagues.Service.Interfaces;
 
 namespace CalisthenicsLeagues.Controllers
 {
@@ -11,7 +12,10 @@ namespace CalisthenicsLeagues.Controllers
     [ApiController]
     public class ApplicationController : ControllerBase
     {
-        private static readonly ApplicationService applicationService = new ApplicationService();
+        private readonly IApplicationService applicationService;
+        public ApplicationController(IApplicationService appService) {
+            applicationService = appService;
+        }
 
         [HttpPost("apply")]
         public IActionResult Apply([FromBody] Application application)

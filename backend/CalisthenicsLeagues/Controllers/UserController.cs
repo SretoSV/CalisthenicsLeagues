@@ -3,6 +3,7 @@ using CalisthenicsLeagues.Connection;
 using CalisthenicsLeagues.Models;
 using CalisthenicsLeagues.Models.RequestsModels;
 using CalisthenicsLeagues.Service;
+using CalisthenicsLeagues.Service.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
@@ -17,7 +18,10 @@ namespace CalisthenicsLeagues.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private static readonly UserService userService = new UserService();
+        private readonly IUserService userService;
+        public UserController(IUserService uService) { 
+            userService = uService;
+        }
 
         [HttpPost("login")]
         public async Task<IActionResult> PostData([FromBody] LoginRequest data)

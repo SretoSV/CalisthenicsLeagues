@@ -12,6 +12,7 @@ namespace CalisthenicsLeagues.Hubs
     public class WebSocketHub : Hub
     {
         private static readonly ChatService chatService = new ChatService();
+        private static readonly UserService userService = new UserService();
 
         [Authorize]
         public async Task SendMessage(string eventName, CreateMessageRequest createMessageRequest)
@@ -29,7 +30,27 @@ namespace CalisthenicsLeagues.Hubs
                 message.HasReply = createMessageRequest.HasReply;
 
                 Message result = chatService.InsertNewMessage(message);
-                await Clients.All.SendAsync(eventName, "Message sent succesfully");
+                User user = userService.GetUserById(result.User);
+ 
+                MessageRequest messageRequest = new MessageRequest();
+                messageRequest.Id = result.Id;
+                messageRequest.League = result.League;
+                messageRequest.Content = result.Content;
+                messageRequest.Datetime = result.Datetime;
+                messageRequest.User = user.Username;
+                messageRequest.UserProfilePicture = user.Image;
+                messageRequest.IsFile = result.IsFile;
+                messageRequest.IsDeleted = result.IsDeleted;
+                messageRequest.ReplyContent = result.ReplyContent;
+                messageRequest.ReplyUser = result.ReplyUser;
+                if (result.HasReply == 0) { 
+                    messageRequest.HasReply = -1;
+                }
+                else {
+                    messageRequest.HasReply = 0;
+                }
+
+                await Clients.All.SendAsync(eventName, messageRequest); //saljem poslednje insertovanu poruku
             }
             else
             {
@@ -45,7 +66,7 @@ namespace CalisthenicsLeagues.Hubs
                 await Clients.All.SendAsync(eventName, "Error, message not edited!");
             }
 
-            await Clients.All.SendAsync(eventName, "Edited");
+            await Clients.All.SendAsync(eventName, editMessageDTO);
         }
 
         [Authorize]
@@ -55,7 +76,7 @@ namespace CalisthenicsLeagues.Hubs
             {
                 await Clients.All.SendAsync(eventName, "Error, message not deleted!");
             }
-            await Clients.All.SendAsync(eventName, "Deleted");
+            await Clients.All.SendAsync(eventName, editMessageDTO.Id);
         }
     }
 }
