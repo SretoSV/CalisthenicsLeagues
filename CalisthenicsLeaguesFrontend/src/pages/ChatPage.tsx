@@ -5,7 +5,7 @@ import { serverPath } from "../functions/serverpath";
 import sendImage from '../images/sendMessage.png';
 import { Message } from "../types/MessageTypes";
 import { MessageCard } from "../components/ChatPageComponents/MessageCard";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
 import { formatDate, setLeagueIdByLeagueName } from "../functions/formChangeFunction";
 import { FooterCard } from "../components/FooterComponents/FooterCard";
@@ -13,12 +13,12 @@ import { motion } from "framer-motion";
 import socket from "../sockets/socket";
 
 export function ChatPage(){
+    const { Chat } = useParams<{ Chat: string }>();
     const navigate = useNavigate();
     const { user } = useUserContext();
     const [messages, setMessages] = useState<Message[]>([]);
-    const [selectedLeagueId, setSelectedLeagueId] = useState(6);
-    const [chatImage, setChatImage] = useState(serverPath()+"Images/Leagues/Begginer.png");
-    const [chatName, setChatName] = useState("Begginer");
+    const [selectedLeagueId, setSelectedLeagueId] = useState<number>(0);
+    const [chatImage, setChatImage] = useState(serverPath()+"Images/Leagues/Beginner.png");
     const [message, setMessage] = useState("");
     const [messageToReply, setMessageToReply] = useState(0);
     const [editMessage, setEditMessage] = useState(false);
@@ -27,40 +27,38 @@ export function ChatPage(){
         setMessage(e.target.value);
     };
 
-    const handleClick = (chat: string) => {
-        switch (chat){
+    useEffect(() => {
+        if(Chat != "Legendary" && Chat != "World-Class" && Chat != "Pro" && Chat != "Semi-pro" && Chat != "Amateur" && Chat != "Beginner") {
+            navigate("/");
+        }
+
+        switch (Chat){
             case "Legendary":
                 setChatImage(serverPath()+"Images/Leagues/Legendary.png");
-                setChatName("Legendary");
                 setSelectedLeagueId(1);
                 break;
             case "World-Class":
                 setChatImage(serverPath()+"Images/Leagues/World-Class.png");
-                setChatName("World-Class");
                 setSelectedLeagueId(2);
                 break;
             case "Pro":
                 setChatImage(serverPath()+"Images/Leagues/Pro.png");
-                setChatName("Pro");
                 setSelectedLeagueId(3);
                 break;
             case "Semi-pro":
                 setChatImage(serverPath()+"Images/Leagues/Semi-pro.png");
-                setChatName("Semi-pro");
                 setSelectedLeagueId(4);
                 break;
             case "Amateur":
                 setChatImage(serverPath()+"Images/Leagues/Amateur.png");
-                setChatName("Amateur");
                 setSelectedLeagueId(5);
                 break;
-            case "Begginer":
-                setChatImage(serverPath()+"Images/Leagues/Begginer.png");
-                setChatName("Begginer");
+            case "Beginner":
+                setChatImage(serverPath()+"Images/Leagues/Beginner.png");
                 setSelectedLeagueId(6);
                 break;
         }
-    }
+    }, []);
 
     const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
@@ -77,7 +75,7 @@ export function ChatPage(){
         if(!editMessage){
 
             socket.invoke("SendMessage", "send_message", { 
-                league: setLeagueIdByLeagueName(chatName),
+                league: setLeagueIdByLeagueName(Chat?.toString() ?? ""),
                 content: message,
                 datetime: formattedDate,
                 user: user?.id,
@@ -176,6 +174,12 @@ export function ChatPage(){
                 if (response.status === 204) {
                     navigate('/LeaguesPage');
                 } 
+                else{
+                    const data = await response.json();
+                    if(data.league > setLeagueIdByLeagueName(Chat?.toString() ?? "")){
+                        navigate('/LeaguesPage');
+                    }
+                }
             } 
             catch (err: unknown) {
                 if (err instanceof Error) {
@@ -233,39 +237,39 @@ export function ChatPage(){
                             <div className={styles.mainDiv3}>
                                 {
                                     (user && user?.league <= 6) ? 
-                                    <button onClick={() => handleClick("Begginer")} className={styles.chats}>Begginer</button>
+                                    <a href="Beginner" className={styles.chatsA}><button className={styles.chats}>Beginner</button></a>
                                     :
-                                    <button onClick={() => handleClick("Begginer")} className={styles.chats} disabled>Begginer</button>
+                                    <a href="Beginer" className={styles.chatsA}><button className={styles.chats} disabled>Beginner</button></a>
                                 }
                                 {
                                     (user && user?.league <= 5) ? 
-                                    <button onClick={() => handleClick("Amateur")} className={styles.chats}>Amateur</button>
+                                    <a href="Amateur" className={styles.chatsA}><button className={styles.chats}>Amateur</button></a>
                                     :
-                                    <button onClick={() => handleClick("Amateur")} className={styles.chats} disabled>Amateur</button>
+                                    <a href="Amateur" className={styles.chatsA}><button className={styles.chats} disabled>Amateur</button></a>
                                 }
                                 {
                                     (user && user?.league <= 4) ? 
-                                    <button onClick={() => handleClick("Semi-pro")} className={styles.chats}>Semi-pro</button>
+                                    <a href="Semi-pro" className={styles.chatsA}><button className={styles.chats}>Semi-pro</button></a>
                                     :
-                                    <button onClick={() => handleClick("Semi-pro")} className={styles.chats} disabled>Semi-pro</button>
+                                    <a href="Semi-pro" className={styles.chatsA}><button className={styles.chats} disabled>Semi-pro</button></a>
                                 }
                                 {
                                     (user && user?.league <= 3) ? 
-                                    <button onClick={() => handleClick("Pro")} className={styles.chats}>Pro</button>
+                                    <a href="Pro" className={styles.chatsA}><button className={styles.chats}>Pro</button></a>
                                     :
-                                    <button onClick={() => handleClick("Pro")} className={styles.chats} disabled>Pro</button>
+                                    <a href="Pro" className={styles.chatsA}><button className={styles.chats} disabled>Pro</button></a>
                                 }
                                 {
                                     (user && user?.league <= 2) ? 
-                                    <button onClick={() => handleClick("World-Class")} className={styles.chats}>World-Class</button>
+                                    <a href="World-Class" className={styles.chatsA}><button className={styles.chats}>World-Class</button></a>
                                     :
-                                    <button onClick={() => handleClick("World-Class")} className={styles.chats} disabled>World-Class</button>
+                                    <a href="World-Class" className={styles.chatsA}><button className={styles.chats} disabled>World-Class</button></a>
                                 }
                                 {
                                     (user && user?.league <= 1) ? 
-                                    <button onClick={() => handleClick("Legendary")} className={styles.chats}>Legendary</button>
+                                    <a href="Legendary" className={styles.chatsA}><button className={styles.chats}>Legendary</button></a>
                                     :
-                                    <button onClick={() => handleClick("Legendary")} className={styles.chats} disabled>Legendary</button>
+                                    <a href="Legendary" className={styles.chatsA}><button className={styles.chats} disabled>Legendary</button></a>
                                 }
                             </div>
                             <div className={styles.chat}>
@@ -276,7 +280,7 @@ export function ChatPage(){
                                             className={styles.leagueImage}
                                         />
                                         <div>
-                                            <b>{chatName} - group chat</b>
+                                            <b>{Chat} - group chat</b>
                                         </div>
                                     </div>
                                     <div className={styles.messagesDiv}  ref={messagesDivRef}>

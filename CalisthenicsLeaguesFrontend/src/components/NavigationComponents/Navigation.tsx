@@ -46,7 +46,7 @@ export function Navigation(props: NavigationProps){
                     <a className={`${styles.Links} ${styles.LinksBorder}`} href="../LeaguesPage">Leagues</a>
                     <a className={`${styles.Links} ${styles.LinksBorder}`} href="../LeagueMembersPage">Members</a>
                     <a className={styles.Links} href="../ShopPage">Shop</a>
-                    <a className={styles.Links} href="../ChatPage">Chat</a>
+                    <a className={styles.Links} href="../ChatPage/Beginner">Chat</a>
                     <a className={styles.Links} href="../AdminPage">Applications</a>
                     </>
                     :
@@ -54,7 +54,7 @@ export function Navigation(props: NavigationProps){
                     <a className={`${styles.Links} ${styles.LinksBorder}`} href="../LeaguesPage">Leagues</a>
                     <a className={`${styles.Links} ${styles.LinksBorder}`} href="../LeagueMembersPage">Members</a>
                     <a className={styles.Links} href="../ShopPage">Shop</a>
-                    <a className={styles.Links} href="../ChatPage">Chat</a>
+                    <a className={styles.Links} href="../ChatPage/Beginner">Chat</a>
                     </>
                 }
                 </>
@@ -73,18 +73,18 @@ export function Navigation(props: NavigationProps){
                 {
                     user.admin ? 
                     <>
-                    <a className={`${styles.Links} ${styles.LinksBorder}`} href="LeaguesPage">Leagues</a>
-                    <a className={`${styles.Links} ${styles.LinksBorder}`} href="LeagueMembersPage">Members</a>
-                    <a className={styles.Links} href="ShopPage">Shop</a>
-                    <a className={styles.Links} href="ChatPage">Chat</a>
-                    <a className={styles.Links} href="AdminPage">Applications</a>
+                    <a className={`${styles.Links} ${styles.LinksBorder}`} href="../LeaguesPage">Leagues</a>
+                    <a className={`${styles.Links} ${styles.LinksBorder}`} href="../LeagueMembersPage">Members</a>
+                    <a className={styles.Links} href="../ShopPage">Shop</a>
+                    <a className={styles.Links} href="../ChatPage/Beginner">Chat</a>
+                    <a className={styles.Links} href="../AdminPage">Applications</a>
                     </>
                     :
                     <>
-                    <a className={`${styles.Links} ${styles.LinksBorder}`} href="LeaguesPage">Leagues</a>
-                    <a className={`${styles.Links} ${styles.LinksBorder}`} href="LeagueMembersPage">Members</a>
-                    <a className={styles.Links} href="ShopPage">Shop</a>
-                    <a className={styles.Links} href="ChatPage">Chat</a>
+                    <a className={`${styles.Links} ${styles.LinksBorder}`} href="../LeaguesPage">Leagues</a>
+                    <a className={`${styles.Links} ${styles.LinksBorder}`} href="../LeagueMembersPage">Members</a>
+                    <a className={styles.Links} href="../ShopPage">Shop</a>
+                    <a className={styles.Links} href="../ChatPage/Beginner">Chat</a>
                     </>
                 }
                 </>

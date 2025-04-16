@@ -59,7 +59,7 @@ export function LeagueMembersPage(){
                             <option value="3">Pro</option>
                             <option value="4">Semi-pro</option>
                             <option value="5">Amateur</option>
-                            <option value="6">Begginer</option>
+                            <option value="6">Beginner</option>
                         </select>
                         <div className={styles.memberNumber}>Members: {leaguesMembers.length}</div>
                     </motion.div>

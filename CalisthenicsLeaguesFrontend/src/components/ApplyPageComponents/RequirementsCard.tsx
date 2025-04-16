@@ -87,7 +87,7 @@ export function RequirementsCard(props: RequirementsCardProps){
                 under 5min
             </div>
         )}
-        {activeLeague === "Begginer" && (
+        {activeLeague === "Beginner" && (
             <div>
                 -----------------------------------<br />
                 10pulls<br />

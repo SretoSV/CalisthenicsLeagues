@@ -20,6 +20,8 @@ export const setLeagueIdByLeagueName = (leagueName: string) => {
             return 5;
         case "Begginer":
             return 6;
+        default:
+            return 7;
     }
 }
 

@@ -57,6 +57,10 @@
     background-color: var(--main-color-hover);
 }
 
+.chatsA{
+    text-decoration: none;
+}
+
 .chat{
     display: flex; 
     flex-direction: column; 
