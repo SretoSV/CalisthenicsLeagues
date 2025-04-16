@@ -249,8 +249,8 @@
       ]
     },
     {
-      "Route": "Images/Leagues/Begginer.kj91hi9zro.png",
-      "AssetFile": "Images/Leagues/Begginer.png",
+      "Route": "Images/Leagues/Beginner.kj91hi9zro.png",
+      "AssetFile": "Images/Leagues/Beginner.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -289,13 +289,13 @@
         },
         {
           "Name": "label",
-          "Value": "Images/Leagues/Begginer.png"
+          "Value": "Images/Leagues/Beginner.png"
         }
       ]
     },
     {
-      "Route": "Images/Leagues/Begginer.png",
-      "AssetFile": "Images/Leagues/Begginer.png",
+      "Route": "Images/Leagues/Beginner.png",
+      "AssetFile": "Images/Leagues/Beginner.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -987,8 +987,8 @@
       ]
     },
     {
-      "Route": "Images/Shirts/Begginer/shirtImageBlackBack.3o67x4q6w3.png",
-      "AssetFile": "Images/Shirts/Begginer/shirtImageBlackBack.png",
+      "Route": "Images/Shirts/Beginner/shirtImageBlackBack.jbe9c8f22s.png",
+      "AssetFile": "Images/Shirts/Beginner/shirtImageBlackBack.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1001,7 +1001,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "229500"
+          "Value": "228791"
         },
         {
           "Name": "Content-Type",
@@ -1009,31 +1009,31 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"fXEZ8YAlYre/FQ+kParpfHAX4sNWtOiWOLYOz47ARIY=\""
+          "Value": "\"QTOAcY//+ljy3OkuM+CTDYJ4ZtjCAI4t3nGy4wcmo2c=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Mar 2025 08:30:51 GMT"
+          "Value": "Wed, 16 Apr 2025 09:44:05 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "3o67x4q6w3"
+          "Value": "jbe9c8f22s"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-fXEZ8YAlYre/FQ+kParpfHAX4sNWtOiWOLYOz47ARIY="
+          "Value": "sha256-QTOAcY//+ljy3OkuM+CTDYJ4ZtjCAI4t3nGy4wcmo2c="
         },
         {
           "Name": "label",
-          "Value": "Images/Shirts/Begginer/shirtImageBlackBack.png"
+          "Value": "Images/Shirts/Beginner/shirtImageBlackBack.png"
         }
       ]
     },
     {
-      "Route": "Images/Shirts/Begginer/shirtImageBlackBack.png",
-      "AssetFile": "Images/Shirts/Begginer/shirtImageBlackBack.png",
+      "Route": "Images/Shirts/Beginner/shirtImageBlackBack.png",
+      "AssetFile": "Images/Shirts/Beginner/shirtImageBlackBack.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1046,7 +1046,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "229500"
+          "Value": "228791"
         },
         {
           "Name": "Content-Type",
@@ -1054,60 +1054,23 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"fXEZ8YAlYre/FQ+kParpfHAX4sNWtOiWOLYOz47ARIY=\""
+          "Value": "\"QTOAcY//+ljy3OkuM+CTDYJ4ZtjCAI4t3nGy4wcmo2c=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Mar 2025 08:30:51 GMT"
+          "Value": "Wed, 16 Apr 2025 09:44:05 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-fXEZ8YAlYre/FQ+kParpfHAX4sNWtOiWOLYOz47ARIY="
+          "Value": "sha256-QTOAcY//+ljy3OkuM+CTDYJ4ZtjCAI4t3nGy4wcmo2c="
         }
       ]
     },
     {
-      "Route": "Images/Shirts/Begginer/shirtImageBlackFront.png",
-      "AssetFile": "Images/Shirts/Begginer/shirtImageBlackFront.png",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=3600, must-revalidate"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "118577"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/png"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"0T2edvGkYbCGJs5L81V1WzTMPgHwD4owhTfLEWbhD54=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 11 Mar 2025 08:31:38 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-0T2edvGkYbCGJs5L81V1WzTMPgHwD4owhTfLEWbhD54="
-        }
-      ]
-    },
-    {
-      "Route": "Images/Shirts/Begginer/shirtImageBlackFront.z3yaztuygb.png",
-      "AssetFile": "Images/Shirts/Begginer/shirtImageBlackFront.png",
+      "Route": "Images/Shirts/Beginner/shirtImageBlackFront.kcv91qa7u1.png",
+      "AssetFile": "Images/Shirts/Beginner/shirtImageBlackFront.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1120,7 +1083,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "118577"
+          "Value": "117993"
         },
         {
           "Name": "Content-Type",
@@ -1128,31 +1091,31 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"0T2edvGkYbCGJs5L81V1WzTMPgHwD4owhTfLEWbhD54=\""
+          "Value": "\"9K+RzikT60JiAKmQzbfeipbkTIS7HhJeKRVxld65PDE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Mar 2025 08:31:38 GMT"
+          "Value": "Wed, 16 Apr 2025 09:44:06 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "z3yaztuygb"
+          "Value": "kcv91qa7u1"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-0T2edvGkYbCGJs5L81V1WzTMPgHwD4owhTfLEWbhD54="
+          "Value": "sha256-9K+RzikT60JiAKmQzbfeipbkTIS7HhJeKRVxld65PDE="
         },
         {
           "Name": "label",
-          "Value": "Images/Shirts/Begginer/shirtImageBlackFront.png"
+          "Value": "Images/Shirts/Beginner/shirtImageBlackFront.png"
         }
       ]
     },
     {
-      "Route": "Images/Shirts/Begginer/shirtImageWhiteBack.png",
-      "AssetFile": "Images/Shirts/Begginer/shirtImageWhiteBack.png",
+      "Route": "Images/Shirts/Beginner/shirtImageBlackFront.png",
+      "AssetFile": "Images/Shirts/Beginner/shirtImageBlackFront.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1165,7 +1128,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "228536"
+          "Value": "117993"
         },
         {
           "Name": "Content-Type",
@@ -1173,23 +1136,23 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"MmVGRX03a/7sUQ7UnAKTXj1SSdauRei5n8WvOVy4niU=\""
+          "Value": "\"9K+RzikT60JiAKmQzbfeipbkTIS7HhJeKRVxld65PDE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Mar 2025 08:31:53 GMT"
+          "Value": "Wed, 16 Apr 2025 09:44:06 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-MmVGRX03a/7sUQ7UnAKTXj1SSdauRei5n8WvOVy4niU="
+          "Value": "sha256-9K+RzikT60JiAKmQzbfeipbkTIS7HhJeKRVxld65PDE="
         }
       ]
     },
     {
-      "Route": "Images/Shirts/Begginer/shirtImageWhiteBack.ql4e0vjmek.png",
-      "AssetFile": "Images/Shirts/Begginer/shirtImageWhiteBack.png",
+      "Route": "Images/Shirts/Beginner/shirtImageWhiteBack.7m55bvm4dp.png",
+      "AssetFile": "Images/Shirts/Beginner/shirtImageWhiteBack.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1202,7 +1165,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "228536"
+          "Value": "227852"
         },
         {
           "Name": "Content-Type",
@@ -1210,76 +1173,31 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"MmVGRX03a/7sUQ7UnAKTXj1SSdauRei5n8WvOVy4niU=\""
+          "Value": "\"US0jhoz4PuHXwQY41ygdxsYImdEZ15UC/PTXZ3bXmCk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Mar 2025 08:31:53 GMT"
+          "Value": "Wed, 16 Apr 2025 09:44:27 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ql4e0vjmek"
+          "Value": "7m55bvm4dp"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-MmVGRX03a/7sUQ7UnAKTXj1SSdauRei5n8WvOVy4niU="
+          "Value": "sha256-US0jhoz4PuHXwQY41ygdxsYImdEZ15UC/PTXZ3bXmCk="
         },
         {
           "Name": "label",
-          "Value": "Images/Shirts/Begginer/shirtImageWhiteBack.png"
+          "Value": "Images/Shirts/Beginner/shirtImageWhiteBack.png"
         }
       ]
     },
     {
-      "Route": "Images/Shirts/Begginer/shirtImageWhiteFront.m3ro64rx88.png",
-      "AssetFile": "Images/Shirts/Begginer/shirtImageWhiteFront.png",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "117289"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/png"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"zhp1SSpxK0L6IndctNcbOa6mRe5xWMmOuSMOOJJIdIY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 11 Mar 2025 08:31:46 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "m3ro64rx88"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-zhp1SSpxK0L6IndctNcbOa6mRe5xWMmOuSMOOJJIdIY="
-        },
-        {
-          "Name": "label",
-          "Value": "Images/Shirts/Begginer/shirtImageWhiteFront.png"
-        }
-      ]
-    },
-    {
-      "Route": "Images/Shirts/Begginer/shirtImageWhiteFront.png",
-      "AssetFile": "Images/Shirts/Begginer/shirtImageWhiteFront.png",
+      "Route": "Images/Shirts/Beginner/shirtImageWhiteBack.png",
+      "AssetFile": "Images/Shirts/Beginner/shirtImageWhiteBack.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1292,7 +1210,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "117289"
+          "Value": "227852"
         },
         {
           "Name": "Content-Type",
@@ -1300,17 +1218,99 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"zhp1SSpxK0L6IndctNcbOa6mRe5xWMmOuSMOOJJIdIY=\""
+          "Value": "\"US0jhoz4PuHXwQY41ygdxsYImdEZ15UC/PTXZ3bXmCk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Mar 2025 08:31:46 GMT"
+          "Value": "Wed, 16 Apr 2025 09:44:27 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-zhp1SSpxK0L6IndctNcbOa6mRe5xWMmOuSMOOJJIdIY="
+          "Value": "sha256-US0jhoz4PuHXwQY41ygdxsYImdEZ15UC/PTXZ3bXmCk="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Beginner/shirtImageWhiteFront.png",
+      "AssetFile": "Images/Shirts/Beginner/shirtImageWhiteFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "116789"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IlWvZ8nPCtlfcVr/y7gBhz7NRV831j9P4rtHu4K3O0k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 16 Apr 2025 09:44:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-IlWvZ8nPCtlfcVr/y7gBhz7NRV831j9P4rtHu4K3O0k="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Shirts/Beginner/shirtImageWhiteFront.qywddoifwl.png",
+      "AssetFile": "Images/Shirts/Beginner/shirtImageWhiteFront.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "116789"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IlWvZ8nPCtlfcVr/y7gBhz7NRV831j9P4rtHu4K3O0k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 16 Apr 2025 09:44:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qywddoifwl"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-IlWvZ8nPCtlfcVr/y7gBhz7NRV831j9P4rtHu4K3O0k="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Shirts/Beginner/shirtImageWhiteFront.png"
         }
       ]
     },
