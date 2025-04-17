@@ -17,12 +17,18 @@ export function ChatPage(){
     const navigate = useNavigate();
     const { user } = useUserContext();
     const [messages, setMessages] = useState<Message[]>([]);
-    const [selectedLeagueId, setSelectedLeagueId] = useState<number>(0);
+    const [selectedLeagueId, setSelectedLeagueId] = useState<number>(7);
     const [chatImage, setChatImage] = useState(serverPath()+"Images/Leagues/Beginner.png");
     const [message, setMessage] = useState("");
     const [messageToReply, setMessageToReply] = useState(0);
     const [editMessage, setEditMessage] = useState(false);
     const [editMessageId, setEditMessageId] = useState(0);
+    const [scroll, setScroll] = useState(false);
+
+    const observerRef = useRef<HTMLDivElement | null>(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const [hasMore, setHasMore] = useState(true);
+
     const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setMessage(e.target.value);
     };
@@ -106,6 +112,7 @@ export function ChatPage(){
 
                 console.log("Primljen newMessage send:", data);
                 setMessages((currentState) => [...currentState, data]);
+                setScroll(current => !current);
             });
     
             socket.on("edit_message", (data: any) => {
@@ -134,32 +141,82 @@ export function ChatPage(){
         };
     }, []);
 
-    useEffect(() => {
-        const fetchMessages = async () => {
-            try {
-                const response = await fetch(`${serverPath()}Chat/all/${selectedLeagueId}`, {
+    const fetchMessages = async () => {
+        if (isLoading || !hasMore || selectedLeagueId === 7) return;
+
+        const container = messagesDivRef.current; // uzimam message div
+        const prevScrollHeight = container?.scrollHeight ?? 0; // cuvam staru visinu div-a
+        console.log("PREV: ", prevScrollHeight);
+        setIsLoading(true);
+        const limit = 5;
+        let before;
+        const now = new Date();
+        const pad = (number: number) => number.toString().padStart(2, '0');
+        const localDateTime = 
+        `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())} ` +
+        `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+
+        messages.length >= 1 ? before = messages[0].datetime : before = localDateTime;
+
+        try {
+            const response = await fetch(
+                `${serverPath()}Chat/messages?leagueId=${selectedLeagueId}&limit=${limit}&before=${before}`,
+                {
                     method: 'GET',
                     credentials: 'include',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                });
-
-                if (response.ok) {
-                    const data = await response.json();
-                    setMessages(data);
-                    //console.log(data);
-                } else {
-                    console.error('Error fetching messages:', response.status, response.statusText);
+                    headers: { 'Content-Type': 'application/json' },
                 }
-            } catch (err) {
-                console.error('Fetch error:', err);
-            }
-        };
+            );
 
+            if (response.ok) {
+                const data = await response.json();
+                setMessages(prev => [...data, ...prev]);
+
+                setTimeout(() => {
+                    if (container) {
+                        const newScrollHeight = container.scrollHeight;
+                        console.log("NEW: ", newScrollHeight);
+                        container.scrollTop = newScrollHeight - prevScrollHeight;
+                        // Na scorllTop = 0 je newScrollHeight i onda od newScrollHeight oduzmem prevScrollHeight i dobijem koliki treba da bude scrollTop
+                    }
+                }, 0);
+    
+                console.log(data);
+                if (data.length < limit) {
+                    setHasMore(false);
+                }
+            } else {
+                console.error('Error fetching messages:', response.status, response.statusText);
+            }
+        } catch (err) {
+            console.error('Fetch error:', err);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    useEffect(() => {
         fetchMessages();
     }, [selectedLeagueId]);
 
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            entries => {
+                if (entries[0].isIntersecting && !isLoading) {
+                    fetchMessages();
+                }
+            },
+            { threshold: 1.0 }
+        );
+
+        const current = observerRef.current;
+        if (current) observer.observe(current); //zapocinje posmatranje
+
+        return () => {
+            if (current) observer.unobserve(current); //prekida posmatranje
+        };
+    }, [messages, isLoading, hasMore]);
+    
     useEffect(() => {
         const fetchMe = async () => {
             try {
@@ -200,8 +257,9 @@ export function ChatPage(){
     useEffect(() => {
         if (messagesDivRef.current) {
             messagesDivRef.current.scrollTop = messagesDivRef.current.scrollHeight;
+            //scrollHeight = 0, scroll bi bio na vrhu, a sa visinom div-a (messagesDivRef.current.scrollHeight) on je na dnu
         }
-    }, [messages]);
+    }, [scroll]);
 
     const handleEdit = (id: number) => {
         if(id !== 0){
@@ -239,7 +297,7 @@ export function ChatPage(){
                                     (user && user?.league <= 6) ? 
                                     <a href="Beginner" className={styles.chatsA}><button className={styles.chats}>Beginner</button></a>
                                     :
-                                    <a href="Beginer" className={styles.chatsA}><button className={styles.chats} disabled>Beginner</button></a>
+                                    <a href="Beginner" className={styles.chatsA}><button className={styles.chats} disabled>Beginner</button></a>
                                 }
                                 {
                                     (user && user?.league <= 5) ? 
@@ -284,7 +342,7 @@ export function ChatPage(){
                                         </div>
                                     </div>
                                     <div className={styles.messagesDiv}  ref={messagesDivRef}>
-
+                                        <div ref={observerRef} style={{ height: '1px' }} />
                                         {messages.map((message, index) => {
 
                                                 return <React.Fragment key={message.id}>
