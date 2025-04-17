@@ -29,6 +29,18 @@ namespace CalisthenicsLeagues.Service
             return messageRequests;
         }
 
+        public List<MessageRequest> GetLastXMessagesByLeague(int leagueId, int limit, DateTime? before)
+        {
+            List<MessageRequest> messageRequests = new List<MessageRequest>();
+            List<Message> messages = chatDAO.GetLastXMessagesByLeague(leagueId, limit, before).Reverse().ToList();
+            foreach (Message m in messages)
+            {
+                User user = userDAO.GetUserById(m.User);
+                messageRequests.Add(new MessageRequest(m.Id, m.League, m.IsDeleted ? "Deleted message" : m.Content, m.Datetime, user.Username, user.Image, m.IsFile, m.IsDeleted, m.IsDeleted ? null : m.ReplyContent, m.ReplyUser, m.HasReply != 0 ? 0 : -1));
+            }
+            return messageRequests;
+        }
+
         public Message InsertNewMessage(Message createdMessage)
         {
             Message replyMessage = chatDAO.GetMessageById(createdMessage.HasReply);

@@ -6,6 +6,7 @@ using static System.Net.Mime.MediaTypeNames;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using CalisthenicsLeagues.Models.RequestsModels;
 using CalisthenicsLeagues.DTO;
+using Google.Protobuf;
 
 namespace CalisthenicsLeagues.DAO.Impl
 {
@@ -24,6 +25,40 @@ namespace CalisthenicsLeagues.DAO.Impl
                 {
                     command.CommandText = query;
                     command.Parameters.Add(new MySqlParameter("league", MySqlDbType.Int32) { Value = leagueId });
+                    command.Prepare();
+
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Message message = new Message(reader.GetInt32(0), reader.GetInt32(1), reader.GetString(2), reader.GetDateTime(3),
+                                reader.GetInt32(4), reader.GetBoolean(5), reader.GetBoolean(6), reader.IsDBNull(7) ? null : reader.GetString(7), reader.IsDBNull(8) ? null : reader.GetString(8), reader.GetInt32(9));
+
+                            messageList.Add(message);
+                        }
+                    }
+                }
+            }
+
+            return messageList;
+        }
+
+        public IEnumerable<Message> GetLastXMessagesByLeague(int leagueId, int limit, DateTime? before)
+        {
+            Console.WriteLine(before);
+            string query = "select * from (SELECT * FROM messages WHERE league = ? order by id DESC) as reverse where datetime < ? limit " + limit;
+            //string query = "select * from (SELECT * FROM messages WHERE league = ? order by id DESC) as reverse where id < ? limit " + limit;
+            List<Message> messageList = new List<Message>();
+
+            using (IDbConnection connection = new MySqlConnection(ConnectionClass.GetConnectionString()))
+            {
+                connection.Open();
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = query;
+                    command.Parameters.Add(new MySqlParameter("league", MySqlDbType.Int32) { Value = leagueId });
+                    command.Parameters.Add(new MySqlParameter("datetime", MySqlDbType.DateTime) { Value = before });
+                    //command.Parameters.Add(new MySqlParameter("id", MySqlDbType.Int32) { Value = before });
                     command.Prepare();
 
                     using (IDataReader reader = command.ExecuteReader())

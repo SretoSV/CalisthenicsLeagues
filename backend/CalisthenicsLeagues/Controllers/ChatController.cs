@@ -21,9 +21,23 @@ namespace CalisthenicsLeagues.Controllers
 
         [Authorize]
         [HttpGet("all/{leagueId}")]
-        public IActionResult GetAllApplications(int leagueId)
+        public IActionResult GetAllMessages(int leagueId)
         {
             List<MessageRequest> messages = chatService.GetAllMessagesByLeague(leagueId);
+            if (messages == null)
+            {
+                return StatusCode(204);
+            }
+
+            return StatusCode(200, messages);
+        }
+        
+        [Authorize]
+        [HttpGet("messages")]
+        public IActionResult GetLastXMessages(int leagueId, int limit = 30, DateTime? before = null)
+        {
+            List<MessageRequest> messages = chatService.GetLastXMessagesByLeague(leagueId, limit, before);
+
             if (messages == null)
             {
                 return StatusCode(204);
