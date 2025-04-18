@@ -105,6 +105,13 @@ namespace CalisthenicsLeagues.Controllers
             return StatusCode(200, user);
         }
 
+        [Authorize]
+        [HttpGet("session-check")]
+        public IActionResult CheckSession()
+        {
+            return Ok(new { message = "Session is active" });
+        }
+
         //var userEmail = User.Identity?.Name;
 
     }
