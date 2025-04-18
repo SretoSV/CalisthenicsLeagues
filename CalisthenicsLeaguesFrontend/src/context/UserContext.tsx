@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect, ReactNode, useContext } from 'react';
 import { User } from '../types/UserTypes';
+import { serverPath } from '../functions/serverpath';
 
 //Tipovi za context
 interface UserContextType {
@@ -17,6 +18,33 @@ interface UserProviderProps {
 
 export function UserProvider({ children }: UserProviderProps) {
   const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const checkSession = async () => {
+      try {
+        const response = await fetch(`${serverPath()}User/session-check`, {
+          credentials: 'include', // saljem i cookie
+        });
+  
+        if (!response.ok) {
+          throw new Error('Session expired');
+        }
+  
+        const savedUser = localStorage.getItem('user');
+        if (savedUser) {
+          setUser(JSON.parse(savedUser));
+        }
+      } catch (err) {
+        //Ako sesija istekne ili dodje do greske
+        setUser(null);
+        localStorage.removeItem('user');
+        localStorage.removeItem('cartNumberOfItems');
+        localStorage.removeItem('cartItems');
+      }
+    };
+  
+    checkSession();
+  }, []);
 
   //Pri pokretanju aplikacije povratimo korisnika iz localStorage
   useEffect(() => {

@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client';
 import './index.css';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 /*pages*/
 import { LeaguesPage } from './pages/LeaguesPage.tsx';
 import { LeagueMembersPage } from './pages/LeagueMembersPage.tsx';
@@ -9,10 +9,11 @@ import { ApplyPage } from './pages/ApplyPage.tsx';
 import { ChatPage } from './pages/ChatPage.tsx';
 import { EditProfilePage } from './pages/EditProfilePage.tsx';
 import { LoginPage } from './pages/LoginPage.tsx';
+import { AdminPage } from './pages/AdminPage.tsx';
+/*contexts*/
 import { UserProvider } from './context/UserContext.tsx';
 import { CartProvider } from './context/CartContext.tsx';
 import { CountriesProvider } from './context/CountriesContext.tsx';
-import { AdminPage } from './pages/AdminPage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
   {
     path: "/AdminPage",
     element: <AdminPage />
+  },
+  {
+    path: "*",
+    element: <Navigate to="/" replace />
   },
 ]);
 
