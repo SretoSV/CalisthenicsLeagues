@@ -2,6 +2,8 @@ using CalisthenicsLeagues.Hubs;
 using CalisthenicsLeagues.Service.Interfaces;
 using CalisthenicsLeagues.Service;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using CalisthenicsLeagues.Context;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(options =>
@@ -35,6 +37,13 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.Cookie.SameSite = SameSiteMode.Lax;
         options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
     });
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        new MySqlServerVersion(new Version(8, 0, 36)) // verziju baze zameni ako treba
+    )
+);
 
 // Add services to the container.
 
@@ -72,5 +81,11 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate(); // automatski izvrsava migracije
+}
 
 app.Run();

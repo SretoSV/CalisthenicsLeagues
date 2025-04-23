@@ -1,4 +1,6 @@
-﻿namespace CalisthenicsLeagues.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace CalisthenicsLeagues.Models
 {
     public class User
     {
@@ -12,7 +14,9 @@
         public string Password { get; set; }
         public string Image { get; set; }
         public string Instagram { get; set; }
-        public int League { get; set; }
+        [Column("league")]
+        [ForeignKey("League")]
+        public int? League { get; set; }
         public bool Accepted { get; set; }
         public bool Admin { get; set; }
 

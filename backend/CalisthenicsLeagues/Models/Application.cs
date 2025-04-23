@@ -1,4 +1,6 @@
-﻿namespace CalisthenicsLeagues.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace CalisthenicsLeagues.Models
 {
     public class Application
     {
@@ -12,6 +14,8 @@
         public DateTime DateOfBirth { get; set; }
         public string YoutubeLink { get; set; }
         public string Instagram { get; set; }
+        [Column("league")]
+        [ForeignKey("League")]
         public int League { get; set; }
 
         public Application() { }

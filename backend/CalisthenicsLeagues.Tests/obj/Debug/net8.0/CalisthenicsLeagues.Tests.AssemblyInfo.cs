@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CalisthenicsLeagues.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5e6e906e99fb448ef025fe5c673cec6b3320e694")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a0d363f8b031ae69311db38a7ceebcf15aa6ad06")]
 [assembly: System.Reflection.AssemblyProductAttribute("CalisthenicsLeagues.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CalisthenicsLeagues.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

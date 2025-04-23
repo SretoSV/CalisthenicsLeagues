@@ -1,8 +1,12 @@
-﻿namespace CalisthenicsLeagues.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace CalisthenicsLeagues.Models
 {
     public class Message
     {
         public int Id { get; set; }
+        [Column("league")]
+        [ForeignKey("League")]
         public int League { get; set; }
         public string Content { get; set; }
         public DateTime Datetime { get; set; }
