@@ -76,7 +76,7 @@ namespace CalisthenicsLeagues.DAO.Impl
                 {
                     command.CommandText = insertSql;
 
-                    command.Parameters.Add(new MySqlParameter("@League", MySqlDbType.String) { Value = orderItem.LeagueName });
+                    command.Parameters.Add(new MySqlParameter("@League", MySqlDbType.String) { Value = orderItem.League });
                     command.Parameters.Add(new MySqlParameter("@ShirtImage", MySqlDbType.String) { Value = orderItem.ShirtImage });
                     command.Parameters.Add(new MySqlParameter("@Size", MySqlDbType.String) { Value = orderItem.Size });
                     command.Parameters.Add(new MySqlParameter("@Quantity", MySqlDbType.Int32) { Value = orderItem.Quantity });
