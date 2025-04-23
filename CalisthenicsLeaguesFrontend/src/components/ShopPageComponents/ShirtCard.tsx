@@ -9,7 +9,7 @@ import { useInView } from "react-intersection-observer";
 
 interface LeagueCardProps {
     id: number,
-    leagueName: string,
+    league: string,
     shirtImageBlackFront: string,
     shirtImageBlackBack: string,
     shirtImageWhiteFront: string,
@@ -53,9 +53,9 @@ export function ShirtCard(props: LeagueCardProps) {
 
     const handleClick = () => {
         if(currentColorImage){
-            updateCartItems(props.id, props.leagueName, props.shirtImageBlackFront, shirtSize, quantity, 1, props.price);
+            updateCartItems(props.id, props.league, props.shirtImageBlackFront, shirtSize, quantity, 1, props.price);
         }else{
-            updateCartItems(props.id, props.leagueName, props.shirtImageWhiteFront, shirtSize, quantity, 1, props.price);
+            updateCartItems(props.id, props.league, props.shirtImageWhiteFront, shirtSize, quantity, 1, props.price);
         }
     };
 
@@ -86,7 +86,7 @@ export function ShirtCard(props: LeagueCardProps) {
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: (props.id/2 * 0.15)}}
         >
-            <h2 className={styles.header2}>{props.leagueName}</h2>
+            <h2 className={styles.header2}>{props.league}</h2>
             <img 
                 src={currentColorImage ? colorImageBlack : colorImageWhite}
                 alt="color"

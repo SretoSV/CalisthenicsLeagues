@@ -1,6 +1,6 @@
 export interface ShirtContext {
     id: number;
-    leagueName: string;
+    league: string;
     shirtImage: string;
     size: string;
     quantity: number;
@@ -9,7 +9,7 @@ export interface ShirtContext {
 
 export interface Shirt{
     id: number,
-    leagueName: string,
+    league: string,
     shirtImageBlackFront: string,
     shirtImageBlackBack: string,
     shirtImageWhiteFront: string,

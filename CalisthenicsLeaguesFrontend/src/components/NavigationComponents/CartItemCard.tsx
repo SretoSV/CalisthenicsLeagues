@@ -5,7 +5,7 @@ import { useCartContext } from "../../context/CartContext";
 
 interface Shirt{
     id: number,
-    leagueName: string,
+    league: string,
     shirtImage: string,
     size: string,
     quantity: number,
@@ -26,11 +26,11 @@ export function CartItemCard(props: Shirt){
     
     const handleClick = (e: React.MouseEvent) => {
         e.stopPropagation(); 
-        removeItem(props.id, props.leagueName, props.shirtImage, props.size);
+        removeItem(props.id, props.league, props.shirtImage, props.size);
     };
 
     useEffect(() => {
-        updateCartItems(props.id, props.leagueName, props.shirtImage, props.size, quantity, 2, props.price);
+        updateCartItems(props.id, props.league, props.shirtImage, props.size, quantity, 2, props.price);
     }, [quantity]);
 
     return (
@@ -43,7 +43,7 @@ export function CartItemCard(props: Shirt){
             />
             <b>
             <div>
-                {props.leagueName}<br/>
+                {props.league}<br/>
                 {"Size: " + props.size}<br/>
                 {"Price: " + (props.price * props.quantity).toFixed(2) + " €"}
                 <input 

@@ -73,7 +73,7 @@ export function DropDownCartItems(){
                                 <CartItemCard
                                     key={`${shirt.id}-${shirt.size}-${shirt.shirtImage}`} 
                                     id={shirt.id}
-                                    leagueName={shirt.leagueName}
+                                    league={shirt.league}
                                     shirtImage={shirt.shirtImage}
                                     size={shirt.size}
                                     quantity={shirt.quantity}

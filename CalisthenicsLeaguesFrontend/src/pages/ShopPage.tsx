@@ -64,7 +64,7 @@ export function ShopPage(){
                                 return <ShirtCard 
                                     key={shirt.id} 
                                     id={shirt.id} 
-                                    leagueName={shirt.leagueName}
+                                    league={shirt.league}
                                     shirtImageBlackFront={shirt.shirtImageBlackFront}
                                     shirtImageBlackBack={shirt.shirtImageBlackBack}
                                     shirtImageWhiteFront={shirt.shirtImageWhiteFront}
@@ -77,7 +77,7 @@ export function ShopPage(){
                                 return <ShirtCard 
                                     key={shirt.id} 
                                     id={shirt.id} 
-                                    leagueName={shirt.leagueName}
+                                    league={shirt.league}
                                     shirtImageBlackFront={shirt.shirtImageBlackFront}
                                     shirtImageBlackBack={shirt.shirtImageBlackBack}
                                     shirtImageWhiteFront={shirt.shirtImageWhiteFront}
@@ -91,7 +91,7 @@ export function ShopPage(){
                             return <ShirtCard 
                                 key={shirt.id} 
                                 id={shirt.id} 
-                                leagueName={shirt.leagueName}
+                                league={shirt.league}
                                 shirtImageBlackFront={shirt.shirtImageBlackFront}
                                 shirtImageBlackBack={shirt.shirtImageBlackBack}
                                 shirtImageWhiteFront={shirt.shirtImageWhiteFront}

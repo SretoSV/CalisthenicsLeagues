@@ -4,8 +4,8 @@ import { ShirtContext } from '../types/ShirtTypes';
 interface CartContextType {
   numberOfItems: number;
   cartItems: ShirtContext[];
-  updateCartItems: (id: number, leagueName: string, shirtImage: string, size: string, quantity: number, option: number, price: number) => void;
-  removeItem: (id: number, leagueName: string, shirtImage: string, size: string) => void;
+  updateCartItems: (id: number, league: string, shirtImage: string, size: string, quantity: number, option: number, price: number) => void;
+  removeItem: (id: number, league: string, shirtImage: string, size: string) => void;
   emptyCart: () => void;
 }
 
@@ -34,12 +34,12 @@ export function CartProvider({ children }: CartProviderProps) {
     });
   };
 
-  const updateCartItems = (id: number, leagueName: string, shirtImage: string, size: string, quantity: number, option: number, price: number) => {
-    const newItem: ShirtContext = { id, leagueName, shirtImage, size, quantity, price };
+  const updateCartItems = (id: number, league: string, shirtImage: string, size: string, quantity: number, option: number, price: number) => {
+    const newItem: ShirtContext = { id, league, shirtImage, size, quantity, price };
     if(option === 1){
       setCartItems((prevItems) => {
         const existingItemIndex = prevItems.findIndex(
-          (item) => item.id === id && item.shirtImage === shirtImage && item.leagueName === leagueName && item.size === size
+          (item) => item.id === id && item.shirtImage === shirtImage && item.league === league && item.size === size
         );
 
         if (existingItemIndex !== -1) {
@@ -55,7 +55,7 @@ export function CartProvider({ children }: CartProviderProps) {
     else{
       setCartItems((prevItems) => {
         const existingItemIndex = prevItems.findIndex(
-          (item) => item.id === id && item.shirtImage === shirtImage && item.leagueName === leagueName && item.size === size
+          (item) => item.id === id && item.shirtImage === shirtImage && item.league === league && item.size === size
         );
 
         if (existingItemIndex !== -1) {
@@ -69,13 +69,13 @@ export function CartProvider({ children }: CartProviderProps) {
     }
   };
 
-  const removeItem = (id: number, leagueName: string, shirtImage: string, size: string) => {
+  const removeItem = (id: number, league: string, shirtImage: string, size: string) => {
     setCartItems((prevItems) => {
       const filteredItems = prevItems.filter(
-        (item) => !(item.id === id && item.shirtImage === shirtImage && item.leagueName === leagueName && item.size === size)
+        (item) => !(item.id === id && item.shirtImage === shirtImage && item.league === league && item.size === size)
       );
       const removedItem = prevItems.find(
-        (item) => item.id === id && item.shirtImage === shirtImage && item.leagueName === leagueName && item.size === size
+        (item) => item.id === id && item.shirtImage === shirtImage && item.league === league && item.size === size
       );
 
       if (removedItem) {
