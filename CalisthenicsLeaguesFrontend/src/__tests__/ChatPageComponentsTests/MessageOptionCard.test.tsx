@@ -7,7 +7,6 @@ describe("MessageOptionCard", () => {
     test("renders all buttons when isEditAndDeleteVisible is true", () => {
         render(<MessageOptionCard 
             id={1} 
-            onChange={vi.fn()} 
             onMessageToReply={vi.fn()} 
             onEdit={vi.fn()} 
             isEditAndDeleteVisible={true} 
@@ -21,7 +20,6 @@ describe("MessageOptionCard", () => {
     test("renders only 'Reply' button when isEditAndDeleteVisible is false", () => {
         render(<MessageOptionCard 
             id={1} 
-            onChange={vi.fn()} 
             onMessageToReply={vi.fn()} 
             onEdit={vi.fn()} 
             isEditAndDeleteVisible={false} 
@@ -37,7 +35,6 @@ describe("MessageOptionCard", () => {
         
         render(<MessageOptionCard 
             id={5} 
-            onChange={vi.fn()} 
             onMessageToReply={vi.fn()} 
             onEdit={mockOnEdit} 
             isEditAndDeleteVisible={true} 
@@ -52,7 +49,6 @@ describe("MessageOptionCard", () => {
         
         render(<MessageOptionCard 
             id={7} 
-            onChange={vi.fn()} 
             onMessageToReply={mockOnMessageToReply} 
             onEdit={vi.fn()} 
             isEditAndDeleteVisible={true} 
@@ -71,7 +67,6 @@ describe("MessageOptionCard", () => {
     test("calls socket.invoke with correct arguments when 'Delete' button is clicked", () => {
         render(<MessageOptionCard 
             id={3} 
-            onChange={vi.fn()} 
             onMessageToReply={vi.fn()} 
             onEdit={vi.fn()} 
             isEditAndDeleteVisible={true} 

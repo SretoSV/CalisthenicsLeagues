@@ -10,7 +10,7 @@ vi.mock("../../context/CartContext", () => ({
 describe("CartItemCard", () => {
     const itemProps = {
         id:1,
-        leagueName:"Legendary",
+        league:"Legendary",
         shirtImage:"shirt.png",
         size:"M", 
         quantity:2,

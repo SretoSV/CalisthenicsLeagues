@@ -25,7 +25,7 @@ vi.mock("../../context/CartContext", () => ({
 const mockCartItems = [
   {
     id: 1,
-    leagueName: "League 1",
+    league: "League 1",
     shirtImage: "shirt1.png",
     size: "M",
     quantity: 2,
@@ -33,7 +33,7 @@ const mockCartItems = [
   },
   {
     id: 2,
-    leagueName: "League 2",
+    league: "League 2",
     shirtImage: "shirt2.png",
     size: "L",
     quantity: 1,
@@ -110,7 +110,7 @@ describe("DropDownCartItems", () => {
             numberOfItems: 1,
             cartItems: [{
                 id: 1,
-                leagueName: "League 1",
+                league: "League 1",
                 shirtImage: "shirt1.png",
                 size: "M",
                 quantity: 2,

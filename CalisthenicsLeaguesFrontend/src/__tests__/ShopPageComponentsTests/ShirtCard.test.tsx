@@ -6,7 +6,7 @@ import { useCartContext } from "../../context/CartContext";
 describe("ShirtCard", () => {
     const props = {
         id: 1,
-        leagueName: "Legendary",
+        league: "Legendary",
         shirtImageBlackFront: "shirtImageBlackFront.jpg",
         shirtImageBlackBack: "shirtImageBlackBack.jpg",
         shirtImageWhiteFront: "shirtImageWhiteFront.jpg",
@@ -77,7 +77,7 @@ describe("ShirtCard", () => {
     test('disables Add To Cart button when product is unavailable', () => {
         const props = {
             id: 1,
-            leagueName: "Legendary",
+            league: "Legendary",
             shirtImageBlackFront: "shirtImageBlackFront.jpg",
             shirtImageBlackBack: "shirtImageBlackBack.jpg",
             shirtImageWhiteFront: "shirtImageWhiteFront.jpg",
@@ -101,7 +101,7 @@ describe("ShirtCard", () => {
     
         expect(mockUpdateCartItems).toHaveBeenCalledWith(
             props.id,
-            props.leagueName,
+            props.league,
             expect.any(String),
             "S",
             1,
